@@ -1,7 +1,9 @@
 {
   "routes": [
     "/",
+    "/about-us",
     "/contact-us",
+    "/events",
     "/faq",
     "/volunteer"
   ]
