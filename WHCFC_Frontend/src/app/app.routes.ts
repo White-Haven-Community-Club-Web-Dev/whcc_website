@@ -6,6 +6,7 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { EventComponent } from './pages/event/event.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { CommunityComponent } from './pages/community/community.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'contact-us', component: ContactComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'events', component: EventComponent },
+  { path: 'community', component: CommunityComponent },
 ];
 
 @NgModule({
