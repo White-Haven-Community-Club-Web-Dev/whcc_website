@@ -1,0 +1,54 @@
+/* Play Section Styling */
+.play-section {
+    font-family: 'Roboto', sans-serif;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #333;
+  }
+  
+  .play-section h1 {
+    font-size: 3em;
+    color: #cc0000; /* Adjusted red to match the overall theme */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .info-card, .statement-card, .tournament-info {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .statement-card {
+    border-left: 5px solid #cc0000; /* Red accent for statements */
+    padding-left: 15px;
+  }
+  
+  .info-card p, .statement-card p, .tournament-info p {
+    margin: 0;
+  }
+  
+  .tournament-info {
+    background-color: #f2dede; /* Light red for the tournament section background */
+    color: #333;
+  }
+  
+  .play-section strong {
+    color: #cc0000; /* Updated strong text to match the theme */
+  }
+  
+  /* Media Query Adjustments for Small Screens */
+  @media (max-width: 768px) {
+    .play-section h1 {
+      font-size: 2em;
+    }
+  }
+  

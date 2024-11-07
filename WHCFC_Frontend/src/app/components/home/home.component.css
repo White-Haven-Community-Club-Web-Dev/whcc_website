@@ -237,6 +237,22 @@ video {
   .arrow {
     font-size: 1.5em; /* Adjust font size for smaller screens */
   }
+
+  .carousel-container {
+    height: auto;
+    width: auto; /* Adjust height for smaller screens */
+  }
+
+  .carousel-content {
+    max-width: 90%; /* Make the carousel content more flexible */
+    padding: 15px;
+  }
+
+  /* Adjusting carousel controls for smaller devices */
+  .carousel-controls {
+    width: 90%; /* Make control buttons fit better */
+  }
+
 }
 
 .hero-content a {

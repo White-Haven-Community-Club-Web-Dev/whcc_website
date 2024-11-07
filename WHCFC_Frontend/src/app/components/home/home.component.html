@@ -3,13 +3,10 @@
   <div class="blurred-background"></div>
   <div class="carousel-content" *ngIf="activeSlide === 0">
     <div class="hero-content">
-        <h2>Experience The Agony of Defeat & <br>The Thrill of Victory!</h2>
-        <p class="description">Participate in an exciting tournament weekend in May 2025! Actual date/times TBD. WHCFC will host and organize a tournament of up to 10 teams in a park setting.
+        <h1>Experience The Agony of Defeat & <br>The Thrill of Victory!</h1>
+        <p class="sub-text">Do you want to be part of to a team and play in Tournaments & Friendlies?
         </p>
-        <p class="description">Catch the Fever of FIFA World Cup Football and commemorate this historical event as it comes to Toronto in 2026!  WHCFC will engage communities, businesses as we promote football and fitness 
-        </p>
-        <p class="description">
-          Be part of the excitement of fun and friendly competition and community festivities. Email <a href="mailto:fcwhitehaven&#64;gmail.com">fcwhitehaven&#64;gmail.com</a> or call (416) 558-1330 for more info.
+        <p class="description">Join WHCFC to play in 2025 tournaments, improve your skills, and enjoy free football opportunities with affordable costs for all, starting with Free & Fun Scrimmages in April! Details <a routerLink="/tournament">here</a>.
         </p>
     </div>
 </div>
@@ -17,18 +14,18 @@
   <!-- Slide 2: Free Soccer Information -->
   <div class="carousel-content" *ngIf="activeSlide === 1">
     <div class="hero-content">
-      <h1>Play Soccer for Free with WHCFC!</h1>
+      <h1>Want to Play Football for Free?</h1>
       <p class="sub-text">Yes, you heard it right! It's free.</p>
       <p class="description">
-        Join us for free soccer sessions, team tournaments, and workshops to enhance your skills and career. Network with like-minded individuals and be part of our supportive community.
+        WHCFC invites all those from the surrounding communities and from equity-deserving and marginalized groups to play Free, Fun Football Scrimmages and to stay fit and have fun! Details <a routerLink="/play">here</a>.
       </p>
     </div>
   </div>
 
   <!-- Carousel Controls -->
   <div class="carousel-controls">
-    <button (click)="prevSlide()" class="arrow left-arrow">←</button>
-    <button (click)="nextSlide()" class="arrow right-arrow">→</button>
+    <button (click)="prevSlide()" class="arrow left-arrow"><</button>
+    <button (click)="nextSlide()" class="arrow right-arrow">></button>
   </div>
 </section>
 
