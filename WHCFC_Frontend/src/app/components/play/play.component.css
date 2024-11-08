@@ -44,6 +44,10 @@
   .play-section strong {
     color: #cc0000; /* Updated strong text to match the theme */
   }
+
+  a {
+    color: #333333;
+  }
   
   /* Media Query Adjustments for Small Screens */
   @media (max-width: 768px) {
