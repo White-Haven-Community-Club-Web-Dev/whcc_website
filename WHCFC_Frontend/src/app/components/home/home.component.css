@@ -222,7 +222,7 @@ video {
 .arrow {
   background: none; /* Remove background */
   border: none; /* Remove border */
-  font-size: 2em; /* Set font size for arrows */
+  font-size: 4em; /* Set font size for arrows */
   color: white; /* Set arrow color to white for visibility */
   cursor: pointer; /* Change cursor to pointer on hover */
   transition: transform 0.3s; /* Smooth transition for hover effect */
@@ -235,7 +235,7 @@ video {
 /* Optional: Adjust for mobile view */
 @media (max-width: 768px) {
   .arrow {
-    font-size: 1.5em; /* Adjust font size for smaller screens */
+    font-size: 2em; /* Adjust font size for smaller screens */
   }
 
   .carousel-container {
