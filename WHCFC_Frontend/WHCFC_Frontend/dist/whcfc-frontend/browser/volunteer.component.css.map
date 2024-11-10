@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/pages/volunteer/volunteer.component.css"],
-  "sourcesContent": [":host { \r\n  display: contents; \r\n}\r\n\r\n.volunteer-container {\r\n    width: 100%;\r\n    display: flex;\r\n    overflow: auto;\r\n    min-height: 100vh;\r\n    align-items: center;\r\n    flex-direction: column;\r\n  }\r\n\r\n  .volunteer-volunteer {\r\n    width: 100%;\r\n    height: 5840px;\r\n    display: flex;\r\n    overflow: hidden;\r\n    position: relative;\r\n    align-items: flex-start;\r\n    flex-shrink: 0;\r\n    background-color: rgba(255, 255, 255, 1);\r\n  }"],
-  "mappings": ";AAAA;AACE,WAAS;AACX;AAEA,CAAC;AACG,SAAO;AACP,WAAS;AACT,YAAU;AACV,cAAY;AACZ,eAAa;AACb,kBAAgB;AAClB;AAEA,CAAC;AACC,SAAO;AACP,UAAQ;AACR,WAAS;AACT,YAAU;AACV,YAAU;AACV,eAAa;AACb,eAAa;AACb,oBAAkB,KAAK,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE;AACxC;",
-  "names": []
-}
