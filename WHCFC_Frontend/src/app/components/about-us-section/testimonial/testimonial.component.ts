@@ -9,18 +9,22 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./testimonial.component.css']
 })
 export class TestimonialComponent {
-  videos = ['assets/Henry.mp4', 'assets/Jay.mp4'];
+  videos = ['assets/Henry.mp4', 'assets/Jay.mp4', 'assets/Debem.mp4'];
   currentVideoIndex = 0;
 
   previousVideo() {
     if (this.currentVideoIndex > 0) {
       this.currentVideoIndex--;
+    } else {
+      this.currentVideoIndex = this.videos.length - 1;
     }
   }
 
   nextVideo() {
     if (this.currentVideoIndex < this.videos.length - 1) {
       this.currentVideoIndex++;
+    } else {
+      this.currentVideoIndex = 0;
     }
   }
 

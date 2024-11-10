@@ -38,7 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Add some space between the arrows and the video player */
+    gap: 10px;
   }
 
 video {
@@ -64,6 +64,10 @@ video {
 @media (max-width: 768px) {
   .video-player {
     max-width: 100%;
+  }
+  
+  h2 {
+    font-size: 3em;
   }
 
   .arrow {
