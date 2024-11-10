@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'], // Fixing styleUrl to styleUrls
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   
@@ -38,15 +39,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   activeSlide = 0; // Track the current slide
   slideInterval: ReturnType<typeof setInterval> | undefined; // Hold the interval reference
 
-  constructor(private cdr: ChangeDetectorRef) {} // Inject ChangeDetectorRef
+  constructor(private cdr: ChangeDetectorRef, private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
+    this.titleService.setTitle('Home | White Haven Community Football Club');
+
+    this.metaService.addTags([
+      { name: 'description', content: 'Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in, White Haven Park 63 Invergordon Ave Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop.' },
+      { name: 'keywords', content: 'football, community, club, sports, Scarborough soccer, Scarborough football club, Scarborough soccer club, Scarborough White Haven soccer, Scarborough White Haven football, not-for-profit club' },
+      { name: 'author', content: 'White Haven Community Football Club' }
+    ]);
+
     if (typeof window !== 'undefined') {
       this.slideInterval = setInterval(() => {
         this.nextSlide();
       }, 10000); 
     }
   }
+
 
   ngOnDestroy() {
     if (this.slideInterval) {
