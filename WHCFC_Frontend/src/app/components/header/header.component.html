@@ -1,63 +1,46 @@
-<header>
+<header class="flex md:h-0 md:p-0">
   <div class="logo">
     <a routerLink="/">
-      <img src="assets/team_logo.jpg" alt="Logo" />
+      <img src="assets/team_logo.jpg" class="md:hidden" alt="Logo" />
     </a>
   </div>
-
+  <div class="grow"></div>
   <div class="hamburger" (click)="toggleNavbar()">
     <div></div>
     <div></div>
     <div></div>
   </div>
-
-  <nav class="navbar" [ngClass]="{ active: isNavbarActive }">
+</header>
+<div class="flex items-center justify-between md:py-3 md:px-2">
+  <div class="logo h-0 md:h-auto">
+    <a routerLink="/">
+      <img src="assets/team_logo.jpg" class="hidden md:block" alt="Logo" />
+    </a>
+  </div>
+  <nav
+    class="navbar flex justify-around w-full"
+    [ngClass]="{ active: isNavbarActive }"
+  >
     <ul>
-      <!-- <li>
-        <a routerLink="/about-us" routerLinkActive="active">About Us</a>
-        <span class="dropdown-symbol">&#9662;</span>
-        <ul class="dropdown">
-          <li>
-            <a routerLink="/about-us/who-we-are" routerLinkActive="active">Who we are</a>
-          </li>
-          <li>
-            <a routerLink="/about-us/faqs" routerLinkActive="active">FAQ</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a routerLink="/league" routerLinkActive="active">League</a>
-        <span class="dropdown-symbol">&#9662;</span>
-        <ul class="dropdown">
-          <li>
-            <a routerLink="/league/scoreboard" routerLinkActive="active">Scoreboard</a>
-          </li>
-          <li>
-            <a routerLink="/league/recent-match" routerLinkActive="active">Recent Match</a>
-          </li>
-          <li>
-            <a routerLink="/league/schedule" routerLinkActive="active">Schedule</a>
-          </li>
-        </ul>
-      </li>
-      <li><a routerLink="/news" routerLinkActive="active">News</a></li>
-      <li>
-        <a routerLink="/volunteer" routerLinkActive="active">Volunteer</a>
-      </li>
-      <li><a routerLink="/contact-us" routerLinkActive="active">Contact</a></li> -->
       <li><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
       <li>
         <a routerLink="/community" routerLinkActive="active">Community</a>
       </li>
-      <li><a routerLink="/volunteer" routerLinkActive="active">Volunteer</a></li>
+      <li>
+        <a routerLink="/volunteer" routerLinkActive="active">Volunteer</a>
+      </li>
       <li><a routerLink="/play" routerLinkActive="active">Play 4 Free</a></li>
-      <li><a routerLink="/tournament" routerLinkActive="active">Tournaments</a></li>
-      <li><a routerLink="/contact-us" routerLinkActive="active">Contact Us</a></li>
+      <li>
+        <a routerLink="/tournament" routerLinkActive="active">Tournaments</a>
+      </li>
+      <li>
+        <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+      </li>
       <li><a routerLink="/faq" routerLinkActive="active">FAQs</a></li>
     </ul>
   </nav>
+</div>
 
-  <div class="donate-button">
-    <!-- <button>Donate</button> -->
-  </div>
-</header>
+<!-- <div class="donate-button">
+  <button>Donate</button>
+</div> -->
