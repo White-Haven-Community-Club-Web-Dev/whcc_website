@@ -46,6 +46,11 @@ header {
       }
     }
 
+    &:hover {
+      color: #ff0000;
+      text-decoration: wavy underline;
+    }
+
     &:hover .dropdown {
       display: block;
     }
