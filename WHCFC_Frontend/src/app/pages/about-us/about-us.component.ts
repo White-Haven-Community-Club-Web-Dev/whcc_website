@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { AboutUsSectionComponent } from '../../components/about-us-section/about-us-section.component';
 import { MissionComponent } from '../../components/about-us-section/mission/mission.component';
 import { VisionComponent } from '../../components/about-us-section/vision/vision.component';
@@ -22,4 +23,16 @@ import { TestimonialComponent } from '../../components/about-us-section/testimon
     TestimonialComponent
   ]
 })
-export class AboutUsComponent {}
+export class AboutUsComponent implements OnInit{
+  
+  constructor(private meta: Meta, private title: Title) {}
+
+  ngOnInit(): void {
+    this.title.setTitle('About Us | White Haven Community Football Club');
+    this.meta.addTags([
+      { name: 'description', content: "Learn more about White Haven Community Football Club's mission, vision, goal and board members" },
+      { name: 'keywords', content: 'about us, company, team, mission, vision, goal' },
+      { name: 'author', content: 'White Haven Community Football Club' }
+    ]);
+  }
+}

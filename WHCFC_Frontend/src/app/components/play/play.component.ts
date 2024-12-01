@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,6 +9,17 @@ import { RouterLink } from '@angular/router';
   templateUrl: './play.component.html',
   styleUrl: './play.component.css'
 })
-export class PlayComponent {
+export class PlayComponent implements OnInit{
+
+  constructor(private meta: Meta, private title: Title) {}
+
+  ngOnInit(): void {
+    this.title.setTitle('F4 Program | White Haven Community Football Club');
+    this.meta.addTags([
+      { name: 'description', content: "It's White Haven Community Football Club's value preposition to offer Free, Fun, Fitness, Football opportunities! That's what differenciates us from others!" },
+      { name: 'keywords', content: 'community, company, team, mission, Free, Fun, Fitness, Football' },
+      { name: 'author', content: 'White Haven Community Football Club' }
+    ]);
+  }
 
 }

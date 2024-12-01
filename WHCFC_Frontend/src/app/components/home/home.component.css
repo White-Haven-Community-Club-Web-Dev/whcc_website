@@ -64,7 +64,7 @@
 .benefits-section h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  color: #333;
+  color: black;
 }
 
 .benefits {
@@ -98,7 +98,7 @@
 .benefit-text h3 {
   font-size: 1.5em;
   margin-bottom: 10px;
-  color: #333;
+  color: black;
 }
 
 .benefit-text p {
@@ -187,7 +187,7 @@ h2 {
 .video-text h2 {
   font-size: 2.5em;
   margin-bottom: 15px;
-  color: #333;
+  color: black;
 }
 
 .video-text p {
@@ -268,5 +268,5 @@ video {
 }
 
 h2 {
-  color: white;
+  color: black;
 }
