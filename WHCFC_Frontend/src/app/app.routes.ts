@@ -11,6 +11,7 @@ import { PlayComponent } from './components/play/play.component';
 import { TournamentComponent } from './components/tournament/tournament.component';
 import { IndoorSoccerComponent } from './pages/indoor-soccer/indoor-soccer.component';
 import { SponsorsComponent } from './pages/sponsors/sponsors.component';
+import { EducationalSessionsComponent } from './pages/educational-sessions/educational-sessions.component';
 
 
 export const routes: Routes = [
@@ -24,7 +25,8 @@ export const routes: Routes = [
     { path: 'events', component: EventComponent },
     { path: 'community', component: CommunityComponent },
     { path: 'indoor-soccer', component: IndoorSoccerComponent},
-    { path: 'sponsors', component: SponsorsComponent}
+    { path: 'sponsors', component: SponsorsComponent},
+    { path: 'educational-sessions', component: EducationalSessionsComponent}
 ];
 
 @NgModule({
