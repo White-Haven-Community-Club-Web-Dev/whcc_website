@@ -47,24 +47,21 @@ header {
       }
     }
 
-    &:hover {
-      color: #ff0000;
-      text-decoration: wavy underline;
-    }
-
-    &:hover .dropdown {
+    &:hover > .dropdown-menu {
       display: block;
     }
   }
 
-  .dropdown {
+  .dropdown-menu {
     display: none;
     position: absolute;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     list-style: none;
-    z-index: 1;
+    z-index: 100;
+    left: 0;
+    top: 100%;
 
     li {
       margin: 0;
@@ -129,6 +126,11 @@ header {
 
   .navbar li {
     margin: 10px 0;
+    display: block;
+  }
+
+  .mobile-link {
+    display: block;
   }
 
   .donate-button {
@@ -152,11 +154,23 @@ header {
 
 nav li a.active,
 ul li a.active {
-  color: #ff0000 !important; /* Bright red for active link */
+  color: #ff0000 !important;
 }
 
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .programs-dropdown {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-link {
+    display: none;
   }
 }
