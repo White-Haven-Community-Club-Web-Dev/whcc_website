@@ -45,6 +45,11 @@ header {
         font-weight: bold;
         color: #007bff;
       }
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: red;
+        text-decoration-style: wavy;
+      }
     }
 
     &:hover > .dropdown-menu {
@@ -74,9 +79,9 @@ header {
         cursor: pointer;
         font-size: 16px;
 
-        &:hover {
-          background-color: #f0f0f0;
-        }
+        /* &:hover {
+          background-color: lightcoral;
+        } */
       }
     }
   }
