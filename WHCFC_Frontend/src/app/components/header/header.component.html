@@ -4,14 +4,14 @@
       <img src="assets/team_logo.jpg" alt="Logo" />
     </a>
   </div>
-  
+
   <div class="hamburger" (click)="toggleNavbar()">
     <div></div>
     <div></div>
     <div></div>
   </div>
 
-  <nav class="navbar" [ngClass]="{'active': isNavbarActive}">
+  <nav class="navbar" [ngClass]="{ active: isNavbarActive }">
     <ul>
       <!-- <li>
         <a routerLink="/about-us" routerLinkActive="active">About Us</a>
@@ -46,12 +46,21 @@
       </li>
       <li><a routerLink="/contact-us" routerLinkActive="active">Contact</a></li> -->
       <li><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
-      <li><a routerLink="/volunteer" routerLinkActive="active">Volunteer</a></li>
-      <li><a routerLink="/contact-us" routerLinkActive="active">Contact Us</a></li>
+      <li>
+        <a routerLink="/volunteer" routerLinkActive="active">Volunteer</a>
+      </li>
+      <li>
+        <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+      </li>
+      <li>
+        <a routerLink="/youth-program" routerLinkActive="active"
+          >Youth Program</a
+        >
+      </li>
       <li><a routerLink="/faq" routerLinkActive="active">FAQs</a></li>
     </ul>
   </nav>
-  
+
   <div class="donate-button">
     <button>Donate</button>
   </div>
