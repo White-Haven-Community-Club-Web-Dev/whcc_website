@@ -12,6 +12,7 @@ import { TournamentComponent } from './components/tournament/tournament.componen
 import { IndoorSoccerComponent } from './pages/indoor-soccer/indoor-soccer.component';
 import { SponsorsComponent } from './pages/sponsors/sponsors.component';
 import { EducationalSessionsComponent } from './pages/educational-sessions/educational-sessions.component';
+import { YouthProgramComponent } from './pages/youth-program/youth-program.component';
 
 
 export const routes: Routes = [
@@ -26,7 +27,8 @@ export const routes: Routes = [
     { path: 'community', component: CommunityComponent },
     { path: 'indoor-soccer', component: IndoorSoccerComponent},
     { path: 'sponsors', component: SponsorsComponent},
-    { path: 'educational-sessions', component: EducationalSessionsComponent}
+    { path: 'educational-sessions', component: EducationalSessionsComponent},
+    { path: 'youth-program', component: YouthProgramComponent}
 ];
 
 @NgModule({
