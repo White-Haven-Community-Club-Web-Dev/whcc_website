@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/volunteer/volunteer.component.css"],
+  "sourcesContent": [":host { \n  display: contents; \n}\n\n.volunteer-container {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  overflow: auto;\n  min-height: 100vh;\n  align-items: center;\n  flex-direction: column;\n  padding-top: 20px; \n}\n\n  .volunteer-volunteer {\n    width: 100%;\n    height: 4000px;\n    display: flex;\n    flex-wrap: wrap;\n    overflow: visible;\n    position: relative;\n    align-items: flex-start;\n    flex-direction: column;\n    flex-shrink: 0;\n    background-color: rgba(255, 255, 255, 1);\n  }\n\n  @media (max-width: 480px){\n    .volunteer-volunteer {\n      height: 6000px;\n    }\n  }"],
+  "mappings": ";AAAA;AACE,WAAS;AACX;AAEA,CAAC;AACC,SAAO;AACP,WAAS;AACT,mBAAiB;AACjB,aAAW;AACX,YAAU;AACV,cAAY;AACZ,eAAa;AACb,kBAAgB;AAChB,eAAa;AACf;AAEE,CAAC;AACC,SAAO;AACP,UAAQ;AACR,WAAS;AACT,aAAW;AACX,YAAU;AACV,YAAU;AACV,eAAa;AACb,kBAAgB;AAChB,eAAa;AACb,oBAAkB,KAAK,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE;AACxC;AAEA,OAAO,CAAC,SAAS,EAAE;AACjB,GAdD;AAeG,YAAQ;AACV;AACF;",
+  "names": []
+}

@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <title>Home | White Haven Community Football Club</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/team_logo_no_bg.png">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1FGQ64CEM1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1FGQ64CEM1');
+  </script>
+<link rel="stylesheet" href="styles.css"><style ng-app-id="ng">html[_ngcontent-ng-c3067298691] {  line-height: 1.15;}body[_ngcontent-ng-c3067298691] {  margin: 0;}*[_ngcontent-ng-c3067298691] {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p[_ngcontent-ng-c3067298691], li[_ngcontent-ng-c3067298691], ul[_ngcontent-ng-c3067298691], pre[_ngcontent-ng-c3067298691], div[_ngcontent-ng-c3067298691], h1[_ngcontent-ng-c3067298691], h2[_ngcontent-ng-c3067298691], h3[_ngcontent-ng-c3067298691], h4[_ngcontent-ng-c3067298691], h5[_ngcontent-ng-c3067298691], h6[_ngcontent-ng-c3067298691], figure[_ngcontent-ng-c3067298691], blockquote[_ngcontent-ng-c3067298691], figcaption[_ngcontent-ng-c3067298691] {  margin: 0;  padding: 0;}button[_ngcontent-ng-c3067298691] {  background-color: transparent;}button[_ngcontent-ng-c3067298691], input[_ngcontent-ng-c3067298691], optgroup[_ngcontent-ng-c3067298691], select[_ngcontent-ng-c3067298691], textarea[_ngcontent-ng-c3067298691] {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button[_ngcontent-ng-c3067298691], select[_ngcontent-ng-c3067298691] {  text-transform: none;}button[_ngcontent-ng-c3067298691], [type="button"][_ngcontent-ng-c3067298691], [type="reset"][_ngcontent-ng-c3067298691], [type="submit"][_ngcontent-ng-c3067298691] {  -webkit-appearance: button;}button[_ngcontent-ng-c3067298691]::-moz-focus-inner, [type="button"][_ngcontent-ng-c3067298691]::-moz-focus-inner, [type="reset"][_ngcontent-ng-c3067298691]::-moz-focus-inner, [type="submit"][_ngcontent-ng-c3067298691]::-moz-focus-inner {  border-style: none;  padding: 0;}button[_ngcontent-ng-c3067298691]:-moz-focus, [type="button"][_ngcontent-ng-c3067298691]:-moz-focus, [type="reset"][_ngcontent-ng-c3067298691]:-moz-focus, [type="submit"][_ngcontent-ng-c3067298691]:-moz-focus {  outline: 1px dotted ButtonText;}a[_ngcontent-ng-c3067298691] {  color: inherit;  text-decoration: inherit;}input[_ngcontent-ng-c3067298691] {  padding: 2px 4px;}img[_ngcontent-ng-c3067298691] {  display: block;}html[_ngcontent-ng-c3067298691] { scroll-behavior: smooth  }</style><style ng-app-id="ng">html[_ngcontent-ng-c3067298691] {
+      font-family: Inter;
+      font-size: 16px;
+    }
+
+    body[_ngcontent-ng-c3067298691] {
+      font-weight: 400;
+      font-style:normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.15;
+      color: var(--dl-color-theme-neutral-dark);
+      background: var(--dl-color-theme-neutral-light);
+
+      fill: var(--dl-color-theme-neutral-dark);
+    }</style><style ng-app-id="ng">
+
+header[_ngcontent-ng-c348265940] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+}
+.logo[_ngcontent-ng-c348265940] {
+  display: inline-block;
+  margin-left: 20px;
+}
+.logo[_ngcontent-ng-c348265940]   a[_ngcontent-ng-c348265940] {
+  display: inline-block;
+  cursor: pointer;
+}
+.logo[_ngcontent-ng-c348265940]   img[_ngcontent-ng-c348265940] {
+  width: 80px;
+}
+.navbar[_ngcontent-ng-c348265940]   ul[_ngcontent-ng-c348265940] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.navbar[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940] {
+  position: relative;
+  margin-right: 20px;
+}
+.navbar[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940]   a[_ngcontent-ng-c348265940] {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.navbar[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940]   a.active[_ngcontent-ng-c348265940] {
+  font-weight: bold;
+  color: #007bff;
+}
+.navbar[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940]   a[_ngcontent-ng-c348265940]:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-style: wavy;
+}
+.navbar[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940]:hover    > .dropdown-menu[_ngcontent-ng-c348265940] {
+  display: block;
+}
+.navbar[_ngcontent-ng-c348265940]   .dropdown-menu[_ngcontent-ng-c348265940] {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  list-style: none;
+  z-index: 100;
+  left: 0;
+  top: 100%;
+}
+.navbar[_ngcontent-ng-c348265940]   .dropdown-menu[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940] {
+  margin: 0;
+}
+.navbar[_ngcontent-ng-c348265940]   .dropdown-menu[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940]   a[_ngcontent-ng-c348265940] {
+  padding: 10px 20px;
+  display: block;
+  color: #000;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 16px;
+}
+.donate-button[_ngcontent-ng-c348265940] {
+  margin-right: 20px;
+}
+.donate-button[_ngcontent-ng-c348265940]   button[_ngcontent-ng-c348265940] {
+  background-color: transparent;
+  border: 2px solid #fe8282;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 14px;
+  color: #fe8282;
+}
+.donate-button[_ngcontent-ng-c348265940]   button[_ngcontent-ng-c348265940]:hover {
+  background-color: #fe8282;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  header[_ngcontent-ng-c348265940] {
+    align-items: center;
+    justify-content: end;
+    padding: 10px;
+  }
+  .navbar[_ngcontent-ng-c348265940] {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  .navbar.active[_ngcontent-ng-c348265940] {
+    display: flex;
+  }
+  .navbar[_ngcontent-ng-c348265940]   ul[_ngcontent-ng-c348265940] {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .navbar[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940] {
+    margin: 10px 0;
+    display: block;
+  }
+  .mobile-link[_ngcontent-ng-c348265940] {
+    display: block;
+  }
+  .donate-button[_ngcontent-ng-c348265940] {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+.hamburger[_ngcontent-ng-c348265940] {
+  display: none;
+  cursor: pointer;
+}
+.hamburger[_ngcontent-ng-c348265940]   div[_ngcontent-ng-c348265940] {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px;
+}
+nav[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940]   a.active[_ngcontent-ng-c348265940], ul[_ngcontent-ng-c348265940]   li[_ngcontent-ng-c348265940]   a.active[_ngcontent-ng-c348265940] {
+  color: #ff0000 !important;
+}
+@media (max-width: 768px) {
+  .hamburger[_ngcontent-ng-c348265940] {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .programs-dropdown[_ngcontent-ng-c348265940] {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-link[_ngcontent-ng-c348265940] {
+    display: none;
+  }
+}
+/*# sourceMappingURL=header.component.css.map */</style><style ng-app-id="ng">
+
+footer[_ngcontent-ng-c3978326801] {
+  background-color: #333333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+.footer-container[_ngcontent-ng-c3978326801] {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+.footer-logo[_ngcontent-ng-c3978326801] {
+  margin-right: 10px;
+}
+.footer-logo[_ngcontent-ng-c3978326801]   img[_ngcontent-ng-c3978326801] {
+  width: 100px;
+}
+.footer-info-hours[_ngcontent-ng-c3978326801] {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.footer-info[_ngcontent-ng-c3978326801], .footer-hours[_ngcontent-ng-c3978326801] {
+  margin-right: 30px;
+}
+.footer-info[_ngcontent-ng-c3978326801]   p[_ngcontent-ng-c3978326801], .footer-hours[_ngcontent-ng-c3978326801]   p[_ngcontent-ng-c3978326801] {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.footer-social[_ngcontent-ng-c3978326801]   p[_ngcontent-ng-c3978326801] {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.social-icons[_ngcontent-ng-c3978326801]   a[_ngcontent-ng-c3978326801] {
+  margin-right: 10px;
+  margin-top: 7px;
+  display: inline-block;
+}
+.social-icons[_ngcontent-ng-c3978326801]   img[_ngcontent-ng-c3978326801] {
+  width: 40px;
+  height: 40px;
+}
+.footer-stay-connected[_ngcontent-ng-c3978326801] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.footer-stay-connected[_ngcontent-ng-c3978326801]   p[_ngcontent-ng-c3978326801] {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.footer-stay-connected[_ngcontent-ng-c3978326801]   form[_ngcontent-ng-c3978326801] {
+  margin-top: 7px;
+}
+.footer-stay-connected[_ngcontent-ng-c3978326801]   input[type=email][_ngcontent-ng-c3978326801] {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  width: 250px;
+}
+.footer-stay-connected[_ngcontent-ng-c3978326801]   button[_ngcontent-ng-c3978326801] {
+  padding: 10px 20px;
+  border: none;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.footer-stay-connected[_ngcontent-ng-c3978326801]   button[_ngcontent-ng-c3978326801]:hover {
+  background-color: darkred;
+}
+@media (max-width: 768px) {
+  .footer-container[_ngcontent-ng-c3978326801] {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-info-hours[_ngcontent-ng-c3978326801] {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-info[_ngcontent-ng-c3978326801], .footer-hours[_ngcontent-ng-c3978326801] {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .footer-logo[_ngcontent-ng-c3978326801]   img[_ngcontent-ng-c3978326801] {
+    width: 80px;
+  }
+  .footer-social[_ngcontent-ng-c3978326801] {
+    text-align: center;
+  }
+  .footer-social[_ngcontent-ng-c3978326801]   p[_ngcontent-ng-c3978326801] {
+    font-size: 14px;
+  }
+  .social-icons[_ngcontent-ng-c3978326801]   img[_ngcontent-ng-c3978326801] {
+    width: 30px;
+    height: 30px;
+  }
+  .footer-stay-connected[_ngcontent-ng-c3978326801]   input[type=email][_ngcontent-ng-c3978326801] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .footer-stay-connected[_ngcontent-ng-c3978326801]   button[_ngcontent-ng-c3978326801] {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  footer[_ngcontent-ng-c3978326801] {
+    padding: 10px;
+  }
+  .footer-info-hours[_ngcontent-ng-c3978326801] {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-info[_ngcontent-ng-c3978326801]   p[_ngcontent-ng-c3978326801], .footer-hours[_ngcontent-ng-c3978326801]   p[_ngcontent-ng-c3978326801] {
+    font-size: 14px;
+  }
+  .footer-logo[_ngcontent-ng-c3978326801]   img[_ngcontent-ng-c3978326801] {
+    width: 60px;
+  }
+  .social-icons[_ngcontent-ng-c3978326801]   img[_ngcontent-ng-c3978326801] {
+    width: 25px;
+    height: 25px;
+  }
+  .footer-stay-connected[_ngcontent-ng-c3978326801]   button[_ngcontent-ng-c3978326801] {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .footer-stay-connected[_ngcontent-ng-c3978326801]   input[type=email][_ngcontent-ng-c3978326801] {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+/*# sourceMappingURL=footer.component.css.map */</style><style ng-app-id="ng">
+
+.carousel-container[_ngcontent-ng-c3908824739] {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+.blurred-background[_ngcontent-ng-c3908824739] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/soccer_home.jpeg) no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+.carousel-content[_ngcontent-ng-c3908824739] {
+  position: relative;
+  max-width: 800px;
+  z-index: 1;
+  padding: 20px;
+  background: rgba(94, 94, 94, 0.5);
+  border-radius: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+.benefits-section[_ngcontent-ng-c3908824739] {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+.benefits-section[_ngcontent-ng-c3908824739]   h2[_ngcontent-ng-c3908824739] {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: black;
+}
+.benefits[_ngcontent-ng-c3908824739] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.benefit-card[_ngcontent-ng-c3908824739] {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.benefit-card[_ngcontent-ng-c3908824739]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.benefit-icon[_ngcontent-ng-c3908824739] {
+  font-size: 3em;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+.benefit-text[_ngcontent-ng-c3908824739]   h3[_ngcontent-ng-c3908824739] {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: black;
+}
+.benefit-text[_ngcontent-ng-c3908824739]   p[_ngcontent-ng-c3908824739] {
+  font-size: 1em;
+  color: #666;
+}
+.vision-mission-section[_ngcontent-ng-c3908824739] {
+  padding: 40px 20px;
+  background-color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+.vision-container[_ngcontent-ng-c3908824739], .mission-container[_ngcontent-ng-c3908824739] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.vision-text[_ngcontent-ng-c3908824739], .mission-text[_ngcontent-ng-c3908824739] {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+.vision-image[_ngcontent-ng-c3908824739], .mission-image[_ngcontent-ng-c3908824739] {
+  flex: 1;
+  padding: 20px;
+}
+.vision-image[_ngcontent-ng-c3908824739]   img[_ngcontent-ng-c3908824739], .mission-image[_ngcontent-ng-c3908824739]   img[_ngcontent-ng-c3908824739] {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+h2[_ngcontent-ng-c3908824739] {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+.vision-mission-section[_ngcontent-ng-c3908824739]   p[_ngcontent-ng-c3908824739] {
+  font-size: 1.3em;
+  line-height: 1.6;
+  color: #666;
+}
+@media (max-width: 768px) {
+  .vision-container[_ngcontent-ng-c3908824739], .mission-container[_ngcontent-ng-c3908824739] {
+    flex-direction: column;
+  }
+  .vision-text[_ngcontent-ng-c3908824739], .mission-text[_ngcontent-ng-c3908824739], .vision-image[_ngcontent-ng-c3908824739], .mission-image[_ngcontent-ng-c3908824739] {
+    padding: 10px;
+  }
+}
+.video-section[_ngcontent-ng-c3908824739] {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+.video-content[_ngcontent-ng-c3908824739] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.video-text[_ngcontent-ng-c3908824739] {
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+.video-text[_ngcontent-ng-c3908824739]   h2[_ngcontent-ng-c3908824739] {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color: black;
+}
+.video-text[_ngcontent-ng-c3908824739]   p[_ngcontent-ng-c3908824739] {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #666;
+}
+.video-player[_ngcontent-ng-c3908824739] {
+  max-width: 100%;
+  width: 640px;
+}
+video[_ngcontent-ng-c3908824739] {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  .video-player[_ngcontent-ng-c3908824739] {
+    width: 100%;
+  }
+}
+.carousel-content.ng-trigger[_ngcontent-ng-c3908824739] {
+  display: block;
+}
+.carousel-controls[_ngcontent-ng-c3908824739] {
+  position: absolute;
+  top: 50%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.arrow[_ngcontent-ng-c3908824739] {
+  background: none;
+  border: none;
+  font-size: 4em;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.arrow[_ngcontent-ng-c3908824739]:hover {
+  transform: scale(1.2);
+}
+@media (max-width: 768px) {
+  .arrow[_ngcontent-ng-c3908824739] {
+    font-size: 2em;
+  }
+  .carousel-container[_ngcontent-ng-c3908824739] {
+    height: auto;
+    width: auto;
+  }
+  .carousel-content[_ngcontent-ng-c3908824739] {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .carousel-controls[_ngcontent-ng-c3908824739] {
+    width: 90%;
+  }
+}
+.hero-content[_ngcontent-ng-c3908824739]   a[_ngcontent-ng-c3908824739] {
+  color: white;
+  text-decoration: underline;
+}
+h2[_ngcontent-ng-c3908824739] {
+  color: black;
+}
+/*# sourceMappingURL=home.component.css.map */</style><meta name="description" content="Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in, White Haven Park 63 Invergordon Ave Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop."><meta name="keywords" content="football, community, club, sports, Scarborough soccer, Scarborough football club, Scarborough soccer club, Scarborough White Haven soccer, Scarborough White Haven football, not-for-profit club"><meta name="author" content="White Haven Community Football Club"></head>
+<body><!--nghm-->
+  <app-root _nghost-ng-c3067298691="" ng-version="17.3.12" ngh="2" ng-server-context="ssg"><div _ngcontent-ng-c3067298691="" class="page-container"><link _ngcontent-ng-c3067298691="" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font"><link _ngcontent-ng-c3067298691="" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" data-tag="font"><link _ngcontent-ng-c3067298691="" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font"><link _ngcontent-ng-c3067298691="" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font"><link _ngcontent-ng-c3067298691="" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font"><link _ngcontent-ng-c3067298691="" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" data-tag="font"><link _ngcontent-ng-c3067298691="" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font"><app-header _ngcontent-ng-c3067298691="" _nghost-ng-c348265940="" ngh="0"><header _ngcontent-ng-c348265940="" class="flex md:h-0 md:p-0"><div _ngcontent-ng-c348265940="" class="logo"><a _ngcontent-ng-c348265940="" routerlink="/" ng-reflect-router-link="/" href="/"><img _ngcontent-ng-c348265940="" src="assets/team_logo.jpg" alt="Logo" class="md:hidden"></a></div><div _ngcontent-ng-c348265940="" class="grow"></div><div _ngcontent-ng-c348265940="" class="hamburger"><div _ngcontent-ng-c348265940=""></div><div _ngcontent-ng-c348265940=""></div><div _ngcontent-ng-c348265940=""></div></div></header><div _ngcontent-ng-c348265940="" class="flex items-center justify-between md:py-3 md:px-2"><div _ngcontent-ng-c348265940="" class="logo h-0 md:h-auto"><a _ngcontent-ng-c348265940="" routerlink="/" ng-reflect-router-link="/" href="/"><img _ngcontent-ng-c348265940="" src="assets/team_logo.jpg" alt="Logo" class="hidden md:block"></a></div><nav _ngcontent-ng-c348265940="" class="navbar flex justify-around w-full" ng-reflect-ng-class="[object Object]"><ul _ngcontent-ng-c348265940=""><li _ngcontent-ng-c348265940=""><a _ngcontent-ng-c348265940="" routerlink="/about-us" routerlinkactive="active" ng-reflect-router-link="/about-us" ng-reflect-router-link-active="active" href="/about-us" class="">About Us</a></li><li _ngcontent-ng-c348265940=""><a _ngcontent-ng-c348265940="" routerlink="/youth-program" routerlinkactive="active" ng-reflect-router-link="/youth-program" ng-reflect-router-link-active="active" href="/youth-program" class="">Youth Program</a></li><div _ngcontent-ng-c348265940="" class="programs-dropdown"><li _ngcontent-ng-c348265940=""><a _ngcontent-ng-c348265940="" href="/">Programs</a><ul _ngcontent-ng-c348265940="" class="dropdown-menu"><li _ngcontent-ng-c348265940=""><a _ngcontent-ng-c348265940="" routerlink="/indoor-soccer" routerlinkactive="active" ng-reflect-router-link="/indoor-soccer" ng-reflect-router-link-active="active" href="/indoor-soccer" class="">Indoor Soccer</a></li><li _ngcontent-ng-c348265940=""><a _ngcontent-ng-c348265940="" routerlink="/play" routerlinkactive="active" ng-reflect-router-link="/play" ng-reflect-router-link-active="active" href="/play" class="">F4 Program</a></li><li _ngcontent-ng-c348265940=""><a _ngcontent-ng-c348265940="" routerlink="/tournament" routerlinkactive="active" ng-reflect-router-link="/tournament" ng-reflect-router-link-active="active" href="/tournament" class="">2025 Tournament</a></li><li _ngcontent-ng-c348265940=""><a _ngcontent-ng-c348265940="" routerlink="/educational-sessions" routerlinkactive="active" ng-reflect-router-link="/educational-sessions" ng-reflect-router-link-active="active" href="/educational-sessions" class="">Educational Sessions</a></li></ul></li></div><li _ngcontent-ng-c348265940="" class="mobile-link"><a _ngcontent-ng-c348265940="" routerlink="/indoor-soccer" routerlinkactive="active" ng-reflect-router-link="/indoor-soccer" ng-reflect-router-link-active="active" href="/indoor-soccer" class="">Indoor Soccer</a></li><li _ngcontent-ng-c348265940="" class="mobile-link"><a _ngcontent-ng-c348265940="" routerlink="/play" routerlinkactive="active" ng-reflect-router-link="/play" ng-reflect-router-link-active="active" href="/play" class="">F4 Program</a></li><li _ngcontent-ng-c348265940="" class="mobile-link"><a _ngcontent-ng-c348265940="" routerlink="/tournament" routerlinkactive="active" ng-reflect-router-link="/tournament" ng-reflect-router-link-active="active" href="/tournament" class="">2025 Tournament</a></li><li _ngcontent-ng-c348265940="" class="mobile-link"><a _ngcontent-ng-c348265940="" routerlink="/educational-sessions" routerlinkactive="active" ng-reflect-router-link="/educational-sessions" ng-reflect-router-link-active="active" href="/educational-sessions" class="">Educational Sessions</a></li><li _ngcontent-ng-c348265940=""><a _ngcontent-ng-c348265940="" routerlink="/sponsors" routerlinkactive="active" ng-reflect-router-link="/sponsors" ng-reflect-router-link-active="active" href="/sponsors" class="">Sponsors</a></li></ul></nav></div></app-header><router-outlet _ngcontent-ng-c3067298691=""></router-outlet><app-home _nghost-ng-c3908824739="" ngh="1"><section _ngcontent-ng-c3908824739="" class="carousel-container"><div _ngcontent-ng-c3908824739="" class="blurred-background"></div><div _ngcontent-ng-c3908824739="" class="carousel-content min-h-80"><div _ngcontent-ng-c3908824739="" class="hero-content space-y-2"><h1 _ngcontent-ng-c3908824739="" class="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold"> Experience The Agony of Defeat &amp; <br _ngcontent-ng-c3908824739="">The Thrill of Victory! </h1><p _ngcontent-ng-c3908824739="" class="text-lg md:text-xl lg:text-2xl leading-tight"> Do you want to be part of to a team and play in Tournaments &amp; Friendlies? </p><br _ngcontent-ng-c3908824739=""><p _ngcontent-ng-c3908824739="" class="text-base md:text-lg lg:text-xl leading-tight"><a _ngcontent-ng-c3908824739="" routerlink="/tournament" ng-reflect-router-link="/tournament" href="/tournament">Click here for more information</a></p></div></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><div _ngcontent-ng-c3908824739="" class="carousel-controls"><button _ngcontent-ng-c3908824739="" class="arrow left-arrow">&lt;</button><button _ngcontent-ng-c3908824739="" class="arrow right-arrow">&gt;</button></div></section><div _ngcontent-ng-c3908824739="" class="benefits-section"><h2 _ngcontent-ng-c3908824739="">White Haven Community Football Club</h2><div _ngcontent-ng-c3908824739="" class="benefits"><div _ngcontent-ng-c3908824739="" class="benefit-card"><div _ngcontent-ng-c3908824739="" class="benefit-icon">⚽</div><div _ngcontent-ng-c3908824739="" class="benefit-text"><h3 _ngcontent-ng-c3908824739="">Free Football Experiences</h3><p _ngcontent-ng-c3908824739="">Attend our Wednesday and Sunday scrimmages at no cost and no obligation. Participate in team play and summer tournaments with no cost.</p></div></div><div _ngcontent-ng-c3908824739="" class="benefit-card"><div _ngcontent-ng-c3908824739="" class="benefit-icon">🏆</div><div _ngcontent-ng-c3908824739="" class="benefit-text"><h3 _ngcontent-ng-c3908824739="">Team Play and Tournaments</h3><p _ngcontent-ng-c3908824739="">Enjoy competitive football opportunities without the financial burden. Join a team with minimal uniform costs and benefit from our efforts to keep expenses low.</p></div></div><div _ngcontent-ng-c3908824739="" class="benefit-card"><div _ngcontent-ng-c3908824739="" class="benefit-icon">🌟</div><div _ngcontent-ng-c3908824739="" class="benefit-text"><h3 _ngcontent-ng-c3908824739="">Community and Networking</h3><p _ngcontent-ng-c3908824739="">Interact with like-minded individuals, develop long-term relationships, and be part of a supportive community. Build connections that enhance both personal and professional growth.</p></div></div><div _ngcontent-ng-c3908824739="" class="benefit-card"><div _ngcontent-ng-c3908824739="" class="benefit-icon">📚</div><div _ngcontent-ng-c3908824739="" class="benefit-text"><h3 _ngcontent-ng-c3908824739="">Educational Workshops</h3><p _ngcontent-ng-c3908824739="">Join free workshops focused on developing life skills, career growth, and personal development. Enhance your skills and knowledge to support your future endeavors.</p></div></div><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></div></div><div _ngcontent-ng-c3908824739="" class="vision-mission-section"><div _ngcontent-ng-c3908824739="" class="vision-container"><div _ngcontent-ng-c3908824739="" class="vision-text"><h2 _ngcontent-ng-c3908824739="">Our Vision</h2><p _ngcontent-ng-c3908824739=""> WHCFC aims to be Scarborough’s first club offering free soccer opportunities, promoting community, diversity, and inclusivity. We strive to foster a welcoming environment for equity-deserving groups and celebrate cultural differences. Our goal is to enhance community spirit through football while providing free educational workshops on essential life skills like project management and mental health. </p></div><div _ngcontent-ng-c3908824739="" class="vision-image"><img _ngcontent-ng-c3908824739="" src="/assets/vision_home.jpg" alt="Community and Football"></div></div><div _ngcontent-ng-c3908824739="" class="mission-container"><div _ngcontent-ng-c3908824739="" class="mission-image"><img _ngcontent-ng-c3908824739="" src="/assets/mission_home.jpg" alt="Inclusivity and Diversity"></div><div _ngcontent-ng-c3908824739="" class="mission-text"><h2 _ngcontent-ng-c3908824739="">Our Mission</h2><p _ngcontent-ng-c3908824739=""> While some costs may apply for team play and tournaments, we are committed to minimizing these expenses. WHCFC seeks to support marginalized communities by securing funding from government and businesses, ensuring accessibility and minimal costs for participation. </p></div></div></div><div _ngcontent-ng-c3908824739="" class="video-section"><div _ngcontent-ng-c3908824739="" class="video-content"><div _ngcontent-ng-c3908824739="" class="video-text"><h2 _ngcontent-ng-c3908824739="">Message from Joe</h2><p _ngcontent-ng-c3908824739=""> In this heartfelt message, Joe shares his story on how he founded WHCFC and how his passion drove him to build free and fun opportunities for football players in the community, especially those in economically disadvantaged and equity-deserving groups. Hear his vision to be the only Scarborough club to provide free football experiences and his mission to develop communities through the power of interaction, tournament festivals and educational opportunities. </p></div><div _ngcontent-ng-c3908824739="" class="video-player"><video _ngcontent-ng-c3908824739="" controls=""><source _ngcontent-ng-c3908824739="" src="/assets/Joe I Have A Dream Message.mp4" type="video/mp4"> Your browser does not support the video tag. </video></div></div></div></app-home><!--container--><app-footer _ngcontent-ng-c3067298691="" _nghost-ng-c3978326801="" ngh="0"><footer _ngcontent-ng-c3978326801=""><div _ngcontent-ng-c3978326801="" class="footer-container"><div _ngcontent-ng-c3978326801="" class="footer-logo"><a _ngcontent-ng-c3978326801="" href="/"><img _ngcontent-ng-c3978326801="" src="assets/team_logo_grey.png" alt="Logo"></a></div><div _ngcontent-ng-c3978326801="" class="footer-info-hours"><div _ngcontent-ng-c3978326801="" class="footer-info"><p _ngcontent-ng-c3978326801=""><strong _ngcontent-ng-c3978326801="">Location:</strong><br _ngcontent-ng-c3978326801="">67 Prince William Ct,<br _ngcontent-ng-c3978326801="">Scarborough, ON</p></div><div _ngcontent-ng-c3978326801="" class="footer-hours"><p _ngcontent-ng-c3978326801=""><strong _ngcontent-ng-c3978326801="">Contact Us:</strong><br _ngcontent-ng-c3978326801="">(416) 558-1330<br _ngcontent-ng-c3978326801="">fcwhitehaven@gmail.com</p></div></div><div _ngcontent-ng-c3978326801="" class="footer-social"><p _ngcontent-ng-c3978326801=""><strong _ngcontent-ng-c3978326801="">Follow us:</strong></p><div _ngcontent-ng-c3978326801="" class="social-icons"><a _ngcontent-ng-c3978326801="" href="https://www.facebook.com/profile.php?id=61565831557507&amp;mibextid=LQQJ4d" target="_blank"><img _ngcontent-ng-c3978326801="" src="assets/facebook.png" alt="Facebook"></a><a _ngcontent-ng-c3978326801="" href="https://www.instagram.com/fcwhitehaven?igsh=MTB0ejQ2Z2lxMnA0&amp;utm_source=qr" target="_blank"><img _ngcontent-ng-c3978326801="" src="assets/instagram.png" alt="Instagram"></a></div></div><div _ngcontent-ng-c3978326801="" class="footer-stay-connected"></div></div></footer></app-footer></div></app-root>
+<script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+<script id="ng-state" type="application/json">{"__nghData__":[{},{"t":{"2":"t0","3":"t1","13":"t2"},"c":{"2":[{"i":"t0","r":1}],"3":[],"13":[{"i":"t2","r":1,"x":4}]}},{"c":{"9":[{"i":"c3908824739","r":1}]}}]}</script></body></html>
