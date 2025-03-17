@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration production",
-    "build": "ng build --configuration production",
+    "build": "ng build --configuration production --no-progress",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:whcfc-frontend": "node dist/whcfc-frontend/server/server.mjs",
