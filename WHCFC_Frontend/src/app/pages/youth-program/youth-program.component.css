@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Roboto:wght@300;400;700&display=swap');
+
+.hero{
+@apply bg-[url('../../../assets/gym.png')] bg-cover bg-center w-full
+}
+
+
+.title_primary {
+  @apply text-white font-title text-xl md:text-3xl lg:text-5xl;
+}
+
+.title_sub{
+@apply text-white font-title sm:text-2xl md:text-4xl lg:text-4xl ;
+}
+
+.button {
+  @apply inline-block font-bold px-6 py-3 rounded-[15px] text-center border-2 hover:text-white transition;
+}
+
+
+.countdown{
+@apply bg-[url('../../../assets/football-trainer-teaching-his-pupils.jpg')] bg-cover bg-center w-full
+}
+
+
+.pg_boy {
+  @apply bg-[url('../../../assets/Vector.jpg')] bg-center bg-no-repeat bg-contain;
+}

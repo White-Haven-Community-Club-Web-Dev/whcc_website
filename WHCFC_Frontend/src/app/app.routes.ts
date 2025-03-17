@@ -4,7 +4,6 @@ import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 import { NgModule } from '@angular/core';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { EventComponent } from './pages/event/event.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CommunityComponent } from './pages/community/community.component';
 import { PlayComponent } from './components/play/play.component';
@@ -12,6 +11,7 @@ import { TournamentComponent } from './components/tournament/tournament.componen
 import { IndoorSoccerComponent } from './pages/indoor-soccer/indoor-soccer.component';
 import { SponsorsComponent } from './pages/sponsors/sponsors.component';
 import { EducationalSessionsComponent } from './pages/educational-sessions/educational-sessions.component';
+import { YouthProgramComponent } from './pages/youth-program/youth-program.component';
 
 
 export const routes: Routes = [
@@ -22,11 +22,11 @@ export const routes: Routes = [
     { path: 'faq', component: FaqComponent },
     { path: 'contact-us', component: ContactComponent },
     { path: 'about-us', component: AboutUsComponent },
-    { path: 'events', component: EventComponent },
     { path: 'community', component: CommunityComponent },
     { path: 'indoor-soccer', component: IndoorSoccerComponent},
     { path: 'sponsors', component: SponsorsComponent},
-    { path: 'educational-sessions', component: EducationalSessionsComponent}
+    { path: 'educational-sessions', component: EducationalSessionsComponent},
+    { path: 'youth-program', component: YouthProgramComponent}
 ];
 
 @NgModule({
