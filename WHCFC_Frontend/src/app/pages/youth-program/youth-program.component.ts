@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-youth-program',
@@ -12,8 +13,16 @@ export class YouthProgramComponent implements OnInit, OnDestroy {
   seconds: string = '00';
   private countdownInterval: any;
 
+  constructor(private meta: Meta, private title: Title) {}
+
   ngOnInit() {
     this.startCountdown();
+    this.title.setTitle('Youth Program | White Haven Community Football Club');
+    this.meta.addTags([
+      { name: 'description', content: 'Youth soccer program for ages 15-17 at White Haven Community Football Club. Affordable training sessions, skill development, and competitive opportunities.' },
+      { name: 'keywords', content: 'youth soccer, youth football, teen soccer program, Scarborough youth sports, affordable youth soccer, soccer training' },
+      { name: 'author', content: 'White Haven Community Football Club' }
+    ]);
   }
 
   ngOnDestroy() {
