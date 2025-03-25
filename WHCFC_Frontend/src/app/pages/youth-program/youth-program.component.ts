@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-youth-program',
@@ -12,8 +13,16 @@ export class YouthProgramComponent implements OnInit, OnDestroy {
   seconds: string = '00';
   private countdownInterval: any;
 
-  ngOnInit() {
+  constructor(private meta: Meta, private title: Title) {}
+
+  ngOnInit(): void {
     this.startCountdown();
+    this.title.setTitle('Youth Program | White Haven Community Football Club');
+    this.meta.addTags([
+      { name: 'description', content: "Learn more about White Haven Community Football Club's youth program" },
+      { name: 'keywords', content: 'youth program, company, team, mission, vision, goal' },
+      { name: 'author', content: 'White Haven Community Football Club' }
+    ]);
   }
 
   ngOnDestroy() {
