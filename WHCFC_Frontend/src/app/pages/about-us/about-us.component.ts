@@ -30,9 +30,9 @@ export class AboutUsComponent implements OnInit{
   ngOnInit(): void {
     this.title.setTitle('About Us | White Haven Community Football Club');
     this.meta.addTags([
-      { name: 'description', content: "Learn more about White Haven Community Football Club's mission, vision, goal and board members" },
-      { name: 'keywords', content: 'about us, company, team, mission, vision, goal' },
-      { name: 'author', content: 'White Haven Community Football Club' }
+      { name: 'description', content: "Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in, White Haven Park 63 Invergordon Ave Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop, Learn more about White Haven Community Football Club's mission, vision, goal and board members" },
+      { name: 'keywords', content: 'football, soccer,futsal,community, club, sports, Scarborough soccer, Scarborough football club, Scarborough soccer club, Scarborough White Haven soccer, Scarborough White Haven football, not-for-profit club, Scarborough youth soccer,Scarborough adult soccer, Scarborough kids soccer, local football club, GTA football, local football club, about us, mission, vision, goal' },
+      { name: 'author', content: 'White Haven Community Football Club - Building a Stronger Soccer Community' }
     ]);
   }
 }
