@@ -1,69 +1,179 @@
 .section {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     background-color: #f0f0f0;
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
     padding: 5%;
+}
+
+.title-row {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title-row h2 {
+  font-size: 5em;
+  font-weight: 800;
+  text-align: center;
+}
+
+.content-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     gap: 20px;
-  }
-  
-  .content {
+}
+
+.content {
     flex: 0 0 50%;
     text-align: center;
     min-width: 300px;
-  }
-  
-  .content h2 {
+}
+
+.content h2 {
     font-size: 5em;
     font-weight: 800;
-  }
-  
-  .content p {
+}
+
+.content p {
     font-size: 1.5em;
-  }
-  
-  .image {
+}
+
+.image {
     flex: 0 0 50%;
     width: 50%;
     height: 50%;
     object-fit: contain;
     overflow: hidden;
     border-radius: 25px;
-  }
-  
-  @media (max-width: 1024px) {
+}
+
+@media (max-width: 1024px) {
     .content h2 {
-      font-size: 4em;
+        font-size: 4em;
     }
-  
+
     .content p {
-      font-size: 1.2em;
+        font-size: 1.2em;
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .section {
-      flex-direction: column;
-      height: auto;
-      padding: 5%;
+        flex-direction: column;
+        height: auto;
+        padding: 5%;
     }
-  
-    .content, .image {
-      flex: 1 1 100%;
+
+    .content-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
-  
-    .content h2 {
+
+    .title-row h2 {
       font-size: 3em;
     }
-  
+
+    .content, .image {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .content h2 {
+        font-size: 3em;
+    }
+
     .content p {
-      font-size: 1em;
+        font-size: 1em;
     }
-  
+
     .right {
-      padding-left: 0;
+        padding-left: 0;
     }
-  }
+}
+
+.session-details {
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.session-details h3 {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.venue {
+    margin-bottom: 20px;
+}
+
+.venue p {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+.dates p {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.dates ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.dates li {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.dates li:before {
+    content: "📅";
+    margin-right: 10px;
+}
+
+/* Sessions list styling */
+.content ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.content ul li {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.content ul li span {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .session-details h3 {
+        font-size: 1.8em;
+    }
+
+    .venue p, .dates p {
+        font-size: 1.2em;
+    }
+
+    .dates li {
+        font-size: 1.1em;
+    }
+
+    .content ul li {
+        font-size: 1.1em;
+    }
+}
