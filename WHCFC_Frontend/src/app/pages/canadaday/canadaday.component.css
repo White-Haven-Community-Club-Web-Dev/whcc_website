@@ -1,0 +1,16 @@
+/* Canada day Tournament Styling */
+@import url("https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Roboto:wght@300;400;700&display=swap");
+
+.hero {
+  @apply bg-[url('/assets/Canada_Day_Tournament-without-ball.png')] bg-cover bg-center bg-no-repeat w-full;
+}
+
+.about{
+  @apply bg-[url('/assets/Join_the_tournament.jpg')] bg-[position:45%_0%] bg-[length:340%] bg-no-repeat w-full;
+}
+
+@media (min-width: 640px) { /* sm and up */
+  .about{
+    @apply bg-cover bg-center bg-no-repeat w-full;
+  }
+}

@@ -12,21 +12,22 @@ import { IndoorSoccerComponent } from './pages/indoor-soccer/indoor-soccer.compo
 import { SponsorsComponent } from './pages/sponsors/sponsors.component';
 import { EducationalSessionsComponent } from './pages/educational-sessions/educational-sessions.component';
 import { YouthProgramComponent } from './pages/youth-program/youth-program.component';
-
+import { CanadadayComponent } from './pages/canadaday/canadaday.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'volunteer', component: VolunteerComponent },
-    { path: 'play', component: PlayComponent },
-    { path: 'tournament', component: TournamentComponent },
-    { path: 'faq', component: FaqComponent },
-    { path: 'contact-us', component: ContactComponent },
-    { path: 'about-us', component: AboutUsComponent },
-    { path: 'community', component: CommunityComponent },
-    { path: 'indoor-soccer', component: IndoorSoccerComponent},
-    { path: 'sponsors', component: SponsorsComponent},
-    { path: 'educational-sessions', component: EducationalSessionsComponent},
-    { path: 'youth-program', component: YouthProgramComponent}
+  { path: '', component: HomeComponent },
+  { path: 'volunteer', component: VolunteerComponent },
+  { path: 'play', component: PlayComponent },
+  { path: 'tournament', component: TournamentComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'contact-us', component: ContactComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'community', component: CommunityComponent },
+  { path: 'indoor-soccer', component: IndoorSoccerComponent },
+  { path: 'sponsors', component: SponsorsComponent },
+  { path: 'educational-sessions', component: EducationalSessionsComponent },
+  { path: 'youth-program', component: YouthProgramComponent },
+  { path: 'canadaday', component: CanadadayComponent },
 ];
 
 @NgModule({

@@ -24,6 +24,6 @@
 }
 
 .info {
-  @apply bg-[url('../../../assets/info_bg_soceer.jpg')] bg-cover bg-bottom w-full;
+  @apply bg-[url('../../../assets/info_bg_soceer.jpg')] bg-cover  bg-bottom w-full;
 }
 
