@@ -5,7 +5,7 @@
 }
 
 .title_primary {
-  @apply text-white font-title text-xl md:text-3xl lg:text-5xl;
+  @apply text-white font-title text-sm p-4 sm:text-xl sm:p-0 md:text-3xl lg:text-5xl ;
 }
 
 .title_sub {
@@ -23,4 +23,3 @@
 .pg_boy {
   @apply bg-[url('../../../assets/Vector.jpg')] bg-center bg-no-repeat bg-contain;
 }
-
