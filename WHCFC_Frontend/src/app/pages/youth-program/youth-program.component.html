@@ -1,220 +1,262 @@
-<section>
-  <section class="hero h-[30vh] md:h-[55vh] lg:h-[55vh] flex items-center">
-    <div
-      class="sm:w-[80%] sm:pl-[3.5rem] md:w-[70%] md:pl-[3rem] lg:w-[55%] lg:pl-[8rem]"
-    >
-      <h1 class="title_primary">WHCFC INDOOR<br />FOOTBALL PROGRAM</h1>
-      <h2 class="title_sub">(Fall–Winter 2025/2026)</h2>
-    </div>
-  </section>
-  <section class="countdown relative py-12">
-    <div class="absolute inset-0 bg-black bg-opacity-70"></div>
-    <div
-      class="relative z-10 flex flex-col items-center text-white text-center px-6"
-    >
-      <div class="sm:w-[70%] md:w-[60%] md:pt-4 lg:w-[45%] lg:pt-4">
-        <h2 class="font-roboto text-lg p-4 sm:text-2xl leading-relaxed">
-          Join the Subsidized Winter Futsal Program! Starting September 2025,
-          enjoy supervised 7v7 football games at a local TDSB school during the
-          week. Open to all skill levels, this fun and active program
-          prioritizes youth from nearby neighborhoods, especially
-          equity-deserving groups. Parents will be informed of all program
-          details, costs, and benefits.
-        </h2>
-      </div>
-
-      <h2 class="text-xl mt-6">
-        Join our program by
-        <span class="font-bold">August 30th, 2025</span>
-      </h2>
-
-      <!-- Countdown Timer -->
-      <div class="flex items-center justify-center w-full gap-1.5 mt-6">
-        <div class="timer">
-          <div
-            class="rounded-xl bg-customGreen py-3 min-w-[65px] md:min-w-[92px] flex items-center justify-center flex-col gap-1 aspect-square px-3"
-          >
-            <h3
-              class="countdown-element days font-manrope font-semibold text-2xl text-white text-center"
-            >
-              {{ days }}
-            </h3>
-            <p
-              class="text-base sm:text-lg font-manrope font-normal text-white mt-1 text-center w-full"
-            >
-              Days
-            </p>
-          </div>
-        </div>
-
-        <h3 class="font-manrope font-semibold text-2xl text-white">:</h3>
-
-        <div class="timer">
-          <div
-            class="rounded-xl bg-customGreen py-3 min-w-[65px] md:min-w-[92px] flex items-center justify-center flex-col gap-1 aspect-square px-3"
-          >
-            <h3
-              class="countdown-element hours font-manrope font-semibold text-2xl text-white text-center"
-            >
-              {{ hours }}
-            </h3>
-            <p
-              class="text-base sm:text-lg font-manrope font-normal text-white mt-1 text-center w-full"
-            >
-              Hours
-            </p>
-          </div>
-        </div>
-
-        <h3 class="font-manrope font-semibold text-2xl text-white">:</h3>
-
-        <div class="timer">
-          <div
-            class="rounded-xl bg-customGreen py-3 min-w-[65px] md:min-w-[92px] flex items-center justify-center flex-col gap-1 aspect-square px-3"
-          >
-            <h3
-              class="countdown-element minutes font-manrope font-semibold text-2xl text-white text-center"
-            >
-              {{ minutes }}
-            </h3>
-            <p
-              class="text-base sm:text-lg font-manrope font-normal text-white mt-1 text-center w-full"
-            >
-              Minutes
-            </p>
-          </div>
-        </div>
-
-        <h3 class="font-manrope font-semibold text-2xl text-white">:</h3>
-
-        <div class="timer">
-          <div
-            class="rounded-xl bg-customGreen py-3 min-w-[65px] md:min-w-[92px] flex items-center justify-center flex-col gap-1 aspect-square px-3"
-          >
-            <h3
-              class="countdown-element seconds font-manrope font-semibold text-2xl text-white text-center"
-            >
-              {{ seconds }}
-            </h3>
-            <p
-              class="text-base sm:text-lg font-manrope font-normal text-white mt-1 text-center w-full"
-            >
-              Seconds
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Call to Action Button -->
-      <div class="flex justify-center items-center pt-6">
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfab8Y8zkB_wqjU-Af4aO6ZdY3M7wWWnpjbl8ItX4tK2nlLzw/viewform"
-          class="button border-customGreen bg-white text-black hover:bg-customGreen"
-          target="_blank"
-        >
-          Sign Up Now
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h1 class="title_sub bg-secondary text-center py-5">PROGRAM</h1>
-    <div
-      class="md:flex md:justify-center md:items-center lg:flex lg:justify-center lg:items-center py-12"
-    >
-      <div class="relative md:right-9 lg:right-5">
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>White Haven FC - Youth Indoor Football Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "whcfc-blue": "#1e3a8a",
+              "whcfc-red": "#dc2626",
+              "whcfc-orange": "#ea580c",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- Header/Banner Superior -->
+    <!-- <header class="relative h-96 overflow-hidden"> -->
+    <!-- Imagem de fundo do estádio -->
+    <!-- <div class="absolute inset-0">
+        <img
+          src="assets/Banner_Correto.png"
+          alt="Estádio de Futebol"
+          class="w-full h-full object-cover"
+        />
         <div
-          class="mx-auto md:mx-0 lg:w-[450px] lg:h-[450px] md:w-[350px] md:h-[350px] w-[250px] h-[250px] pg_boy flex items-center justify-center"
-        >
-          <img
-            src="../../../assets/test (2).png"
-            alt="young boy playing soccer"
-            class="w-[85%] h-[85%] object-contain"
-          />
-        </div>
-      </div>
-      <div
-        class="text-black bg-gray text-center sm:mt-8 md:mr-10 md:px-5 py-6 lg:px-10"
-      >
-        <h3 class="text-xl font-bold pb-4">Ages 10–12 (U10, U11, U12)</h3>
-        <ul class="lg:mb-6">
-          <li>
-            <span class="font-bold"
-              >September 2025 – April 2026<br />Weekday evenings (Mon–Fri,
-              6–8pm)</span
-            >
-          </li>
-          <li>
-            <span class="font-bold">Pricing</span>: TBD(just equipment +
-            permits)
-          </li>
-          <li>
-            <span class="font-bold">Location</span>: David and Mary Thomson
-            Collegiate Institute, <br />David and Mary Thomson CI, 125 Brockley
-            Dr
-          </li>
-        </ul>
+          class="absolute inset-0 bg-gradient-to-r from-black/40 to-black/20"
+        ></div>
+      </div> -->
 
-        <div class="pt-4 md:pt-8 flex justify-center">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfab8Y8zkB_wqjU-Af4aO6ZdY3M7wWWnpjbl8ItX4tK2nlLzw/viewform"
-            class="button text-sm border-secondary hover:bg-secondary"
-            target="_blank"
-          >
-            Sign Up Now
-          </a>
+    <!-- Logo no canto superior esquerdo -->
+    <!-- <div class="absolute top-4 left-4 z-10">
+        <img
+          src="assets/logo.png"
+          alt="White Haven FC Logo"
+          class="w-16 h-16 object-contain"
+        />
+      </div>
+    </header> -->
+
+    <!-- Seção do Programa -->
+    <section class="bg-[#2D3E50] text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+          <div class="flex-1">
+            <h1 class="text-4xl font-bold mb-2">FOOTBALL IFP PROGRAM</h1>
+            <p class="text-xl text-gray-300">White Haven FC</p>
+          </div>
+          <div class="flex items-center space-x-6">
+            <div class="flex flex-col items-center">
+              <div class="flex items-center space-x-2 mb-2">
+                <button
+                  class="bg-whcfc-red text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+                >
+                  SEPT 2025 - APR 2026
+                </button>
+                <i
+                  class="fas fa-arrow-left text-white animate-pulse text-lg"
+                ></i>
+              </div>
+              <p class="text-lg font-semibold text-gray-300">
+                FOR YOUTH, AGES BETWEEN 10 AND 12
+              </p>
+            </div>
+            <div class="flex flex-col space-y-1">
+              <span class="text-2xl text-gray-300">XXX</span>
+              <span class="text-2xl text-gray-300">XXX</span>
+              <span class="text-2xl text-gray-300">XXX</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section>
-    <h1 class="title_sub bg-secondary text-center py-5">GALLERY</h1>
-    <div class="py-12 px-12 flex justify-center">
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:w-[80%] w-full">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="../../../assets/pic1.jpg"
-            alt="soccer practice pic1"
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="../../../assets/pic2.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="../../../assets/pic3.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="../../../assets/pic4.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="../../../assets/pic7.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="../../../assets/pic8.jpg"
-            alt=""
-          />
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="bg-white py-8">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Card do Torneio -->
+        <div class="bg-white rounded-lg shadow-lg p-8 border border-gray-200">
+          <!-- Status e Data -->
+          <div class="flex items-center space-x-2 text-gray-600 mb-4">
+            <i class="fas fa-volume-up"></i>
+            <span class="text-sm">Stay tuned! Stay tuned!</span>
+          </div>
+          <div class="text-gray-500 text-sm mb-6" id="current-date"></div>
+
+          <!-- Título do Evento -->
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            WHCFC Invitational Tournament
+          </h2>
+
+          <!-- Descrição -->
+          <p class="text-gray-600 mb-6">
+            Youth Indoor Football Program, Fall through Winter
+          </p>
+
+          <!-- Localização -->
+          <div class="mb-6">
+            <p class="text-gray-700 font-medium">
+              David and Mary Thomson CI, 125 Brockley Dr.
+            </p>
+          </div>
+
+          <!-- Organizador -->
+          <div class="flex items-center space-x-4 mb-6">
+            <div class="w-12 h-12 rounded-full overflow-hidden">
+              <img
+                src="assets/Joe.jpg"
+                alt="Joseph Fernandes"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="flex-1">
+              <h3 class="font-bold text-gray-800">Joseph Fernandes</h3>
+              <p class="text-gray-600">President</p>
+            </div>
+            <a
+              href="https://www.linkedin.com/in/joseph-e-fernandes/"
+              target="_blank"
+              class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block"
+            >
+              Follow
+            </a>
+          </div>
+
+          <!-- Data e Horário -->
+          <div class="mb-6">
+            <div class="flex items-center space-x-2 text-gray-600 mb-2">
+              <i class="fas fa-calendar"></i>
+              <span class="font-medium">Date and time</span>
+            </div>
+            <p class="text-gray-700">
+              Sept 2025 - Apr 2026, Monday to Friday, 6 p.m - 8 p.m. No weekends
+              at this time.
+            </p>
+          </div>
+
+          <!-- Área de Ação -->
+          <div class="flex justify-between items-center">
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-gray-800 font-semibold">Cost $50</p>
+            </div>
+            <a
+              href="https://wa.me/14165581330?text=Hello%2C%20I%E2%80%99m%20interested%20in%20joining%20White%20Haven%20FC%20or%20getting%20more%20information%20about%20the%20program.%20Could%20you%20please%20help%20me%3F"
+              target="_blank"
+              class="bg-whcfc-orange text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors inline-block"
+            >
+              Get Tickets
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</section>
+    </main>
+
+    <!-- Rodapé -->
+    <!-- <footer class="bg-black text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between"> -->
+    <!-- Logo e Contato -->
+    <!-- <div class="flex items-center space-x-8">
+            <img
+              src="logo.png"
+              alt="White Haven FC Logo"
+              class="w-12 h-12 object-contain"
+            />
+            <div>
+              <h4 class="font-semibold mb-2">Contact Us:</h4>
+              <p class="text-sm">(416) 558-1330</p>
+              <p class="text-sm">fcwhitehaven&#64;gmail.com</p>
+            </div>
+          </div> -->
+
+    <!-- Redes Sociais -->
+    <!-- <div class="flex items-center space-x-4">
+            <span class="font-semibold">Follow us:</span>
+            <a
+              href="https://www.facebook.com/people/White-Haven-FC"
+              target="_blank"
+              class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
+            >
+              <img src="assets/facebook.png" alt="Facebook" class="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/fcwhitehaven/"
+              target="_blank"
+              class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
+            >
+              <img src="assets/instagram.png" alt="Instagram" class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Função para atualizar a data atual
+        function updateCurrentDate() {
+          const now = new Date();
+          const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+          const months = [
+            "JAN",
+            "FEB",
+            "MAR",
+            "APR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AUG",
+            "SEP",
+            "OCT",
+            "NOV",
+            "DEC",
+          ];
+
+          const dayName = days[now.getDay()];
+          const monthName = months[now.getMonth()];
+          const dayNumber = now.getDate();
+
+          const dateElement = document.getElementById("current-date");
+          if (dateElement) {
+            dateElement.textContent = `${dayName}. ${monthName} ${dayNumber}`;
+          }
+        }
+
+        // Atualizar a data quando a página carrega
+        updateCurrentDate();
+
+        // Botão Follow agora é um link direto para LinkedIn
+        // Link: https://www.linkedin.com/in/joseph-e-fernandes/
+
+        // Botão Get Tickets agora é um link direto para WhatsApp
+        // Link: https://wa.me/14165581330?text=Hello%2C%20I%E2%80%99m%20interested%20in%20joining%20White%20Haven%20FC%20or%20getting%20more%20information%20about%20the%20program.%20Could%20you%20please%20help%20me%3F
+
+        // Botão de período
+        const periodBtn = document.querySelector("button");
+        if (
+          periodBtn &&
+          periodBtn.textContent.includes("SEPT 2025 - APR 2026")
+        ) {
+          periodBtn.addEventListener("click", function () {
+            alert("Período selecionado: Set 2025 - Abr 2026");
+          });
+        }
+
+        // Links das redes sociais já estão funcionais com os links corretos
+        // Facebook: https://www.facebook.com/people/White-Haven-FC
+        // Instagram: https://www.instagram.com/fcwhitehaven/
+      });
+    </script>
+  </body>
+</html>
