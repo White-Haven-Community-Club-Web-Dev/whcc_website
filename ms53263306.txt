@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "whcfc.ca",
+  "Id": "5d10cc43-bcfa-49d9-8775-99fefcf8cac1"
+}
