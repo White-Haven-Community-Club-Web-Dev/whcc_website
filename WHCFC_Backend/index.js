@@ -18,5 +18,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/send-email", emailRoute);
 
 app.listen(port, async () => {
-  console.log("Server is running on port: " + port);
+    console.log("\n" + "=".repeat(50));
+    console.log("🚀 WHCFC Backend Server Started Successfully!");
+    console.log("=".repeat(50));
+    console.log(`📡 Server running on port: ${port}`);
+    console.log(`🌐 API Base URL: http://localhost:${port}`);
+    console.log(`📧 Email Endpoint: http://localhost:${port}/send-email`);
+    console.log(`📅 Agenda Endpoint: http://localhost:${port}/agenda`);
+    console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
+    console.log("=".repeat(50) + "\n");
 });
