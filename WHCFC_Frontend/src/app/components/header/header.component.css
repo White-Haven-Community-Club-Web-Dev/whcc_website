@@ -145,6 +145,11 @@ header {
   margin: 5px;
 }
 
+nav li a.active, 
+ul li a.active {
+  color: #ff0000 !important; /* Bright red for active link */
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: block;

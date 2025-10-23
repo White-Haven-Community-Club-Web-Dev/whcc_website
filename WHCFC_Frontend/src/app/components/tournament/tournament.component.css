@@ -1,0 +1,70 @@
+/* Tournament Section Styling */
+.tournament-section {
+    font-family: 'Roboto', sans-serif;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #333;
+}
+
+.tournament-title {
+    font-size: 3em;
+    color: #cc0000; /* Red theme */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tournament-info {
+    background-color: #f2dede; /* Light red for the tournament section background */
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.tournament-info p {
+    margin: 0 0 10px;
+}
+
+.tournament-info strong {
+    color: #cc0000; /* Red for strong text */
+}
+
+.tournament-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tournament-info ul li {
+    margin-bottom: 10px;
+}
+
+.tournament-info a {
+    color: #cc0000; /* Red for the email link */
+    text-decoration: underline;
+}
+
+.tournament-info a:hover {
+    color: #ff6347; /* Slightly lighter red on hover */
+}
+
+/* Media Query Adjustments for Small Screens */
+@media (max-width: 768px) {
+    .tournament-title {
+        font-size: 2em;
+    }
+
+    .tournament-info {
+        font-size: 1.1em;
+        padding: 15px;
+    }
+
+    .tournament-info p {
+        font-size: 1em;
+    }
+}

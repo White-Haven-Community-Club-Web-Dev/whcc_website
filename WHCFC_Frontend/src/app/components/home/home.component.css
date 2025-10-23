@@ -37,7 +37,7 @@
 }
 
 h1 {
-  font-size: 4em; 
+  font-size: 3em; 
   font-weight: bold;
   margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
@@ -237,6 +237,22 @@ video {
   .arrow {
     font-size: 1.5em; /* Adjust font size for smaller screens */
   }
+
+  .carousel-container {
+    height: auto;
+    width: auto; /* Adjust height for smaller screens */
+  }
+
+  .carousel-content {
+    max-width: 90%; /* Make the carousel content more flexible */
+    padding: 15px;
+  }
+
+  /* Adjusting carousel controls for smaller devices */
+  .carousel-controls {
+    width: 90%; /* Make control buttons fit better */
+  }
+
 }
 
 .hero-content a {
