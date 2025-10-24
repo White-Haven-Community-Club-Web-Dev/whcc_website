@@ -1,9 +1,10 @@
-# WHCFC Website Platform Development
+# ⚽ WHCC Website Platform Development
 
-Welcome to the repository of the **White Haven Community Football Club** website. 
-Website Link: https://whcfc.ca/
+Welcome to the repository of the **White Haven Community Club** (WHCC) website. This project powers the official WHCC website, featuring information about events, programs, sponsorships, and volunteer opportunities.
 
-**Repository Structure:**
+Website Link: https://whcfc.ca/.
+
+## 🧩 Repository Structure:
 
 The repository is structured as follows:
 
@@ -17,27 +18,98 @@ The repository is structured as follows:
 
 - /WHCFC_Backend/README.md: Specific instructions for setting up the backend.
 
-**Branching Strategy:**
+## 🚀 Quick Start:
+
+### 🆕 First-Time Setup for New Members:
+
+If you are joining the project for the first time, please follow these steps carefully:
+
+#### 1. Clone the Repository:
+
+```bash
+git clone https://github.com/White-Haven-Community-Club-Web-Dev/whcc_website.git
+cd whcc_website
+git checkout develop
+```
+
+#### 2. Set up the Backend:
+
+```bash
+cd WHCFC_Backend
+npm install
+```
+
+- Obtain the .env.dev file from the team lead.
+
+- Ensure Docker is running, then start the MySQL service using Docker Compose:
+
+  ```bash
+  docker compose -f mysql.docker-compose.yml up -d
+  ```
+
+  *(Alternatively, in VS Code you can right-click the file and choose “Compose Up”.)*
+
+- Start the backend server:
+
+  ```bash
+  npm run dev
+  ```
+
+- The backend service runs at http://localhost:8000.
+
+#### 3. Set up the Frontend:
+
+```bash
+cd WHCFC_Frontend
+npm install
+ng serve
+```
+
+- Then visit: http://localhost:4200.
+
+### ⚙️ System Requirements:
+
+| Tool | Version | Purpose |
+|:----:|:-------:|:-------:|
+| **Node.js** | 18.18.0 | Runtime environment |
+| **Angular CLI** | 17.x | Frontend framework |
+| **Docker** | Latest | MySQL container |
+| **Git** | Latest | Version control |
+
+### 🌐 Production Deployment:
+
+The live website is hosted on **Netlify**, serving only the Angular frontend. The backend (Node.js + MySQL) is used for local development and planned future features but is not connected in production. All content on the live site is therefore static and does not rely on the backend. Any changes merged into the **main branch** are automatically deployed to the live site through Netlify.
+
+### 🧰 Common Issues and Fixes:
+
+| Issue | Likely Cause | Solution |
+|:-----:|:------------:|:--------:|
+| **Port already in use** | Another service running on port 4200/8000 | Stop the conflicting service or change the port |
+| **npm install fails** | Cache corruption or missing dependencies | Delete `node_modules` and `package-lock.json`, then rerun `npm install` |
+| **.env.dev not found** | File not shared yet | Contact the team lead for credentials and configuration |
+
+
+## 🌿 Branching Strategy:
 
 - **main:** This branch contains the production-ready code. Do not commit directly to this branch.
 
 - **develop:** This is the active development branch where all new features, bug fixes, and changes are regularly updated.
 
-**General Git Commands:**
+## 🧠 General Git Commands:
 
-**Cloning the Repository:**
+### 📦 Cloning the Repository:
 
 To get started with the project, follow these steps to clone the repository to your local machine:
 
 - Open your terminal (or Git Bash on Windows).
 
-- Clone the repository: **git clone https://github.com/kris20012/whcfc-web-dev.git**
+- Clone the repository: **git clone https://github.com/White-Haven-Community-Club-Web-Dev/whcc_website.git**
 
-- Navigate to the cloned repository: **cd whcfc-web-dev**
+- Navigate to the cloned repository: **cd whcc_website**
 
 - Checkout the develop branch (this is where all the development happens): **git checkout develop**
 
-**Creating a Feature Branch:**
+### 🌱 Creating a Feature Branch:
 
 Whenever you work on a new feature or a bug fix, always create a new feature branch off of the develop branch.
 
@@ -47,13 +119,13 @@ Whenever you work on a new feature or a bug fix, always create a new feature bra
 
 - Open a pull request (PR) from your feature branch into develop for code review.
 
-**Fetching the Latest Code:**
+### 🔄 Fetching the Latest Code:
 
 Before starting your work each day, it's important to get the latest updates from the develop branch. Use the following command:
 
 - Pull the latest code from the develop Branch: **git pull origin develop**
 
-**Committing and Pushing Changes:**
+### 💾 Committing and Pushing Changes:
 
 Once you’ve made changes to the code, follow these steps to commit and push your changes to the remote repository.
 
