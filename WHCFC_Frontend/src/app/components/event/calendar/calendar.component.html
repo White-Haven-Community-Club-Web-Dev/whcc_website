@@ -1,0 +1,37 @@
+<!-- Calendar Container -->
+<div class="w-full max-w-4xl mx-auto">
+  <div class="text-center font-bold text-2xl">{{ currentMonthString }}</div>
+  <!-- Days of the Week -->
+  <div class="grid grid-cols-7 text-center">
+    <div *ngFor="let day of daysOfWeek">{{ day }}</div>
+  </div>
+
+  <!-- Dates of the Month -->
+  <div class="grid grid-cols-7 text-center mt-4">
+    <div *ngFor="let day of calendarDays">
+      <div
+        *ngIf="day && day != todayDate"
+        class="p-4 border justify-center flex flex-col items-center"
+      >
+        {{ day }}
+        <div
+          *ngIf="eventDateList.includes(day)"
+          class="bg-red-500 w-2 h-2 rounded-full"
+        ></div>
+        <div *ngIf="!eventDateList.includes(day)" class="bg-none w-2 h-2"></div>
+      </div>
+      <div
+        *ngIf="day && day == todayDate"
+        class="p-4 border bg-yellow-200 justify-center flex flex-col items-center"
+      >
+        {{ day }}
+        <div
+          *ngIf="eventDateList.includes(day)"
+          class="bg-red-500 w-2 h-2 rounded-full"
+        ></div>
+        <div *ngIf="!eventDateList.includes(day)" class="bg-none w-2 h-2"></div>
+      </div>
+      <div *ngIf="!day" class="h-full"></div>
+    </div>
+  </div>
+</div>

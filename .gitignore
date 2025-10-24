@@ -55,3 +55,4 @@ coverage-summary.json
 nyc_output/
 .circleci/
 .github/
+WHCFC_Frontend/dist

@@ -1,6 +1,6 @@
 .carousel-container {
   position: relative;
-  height: 80vh; 
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +8,7 @@
   color: white;
   padding: 20px;
   overflow: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .blurred-background {
@@ -17,7 +17,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/assets/soccer_home.jpeg') no-repeat center center;
+  background: url("/assets/soccer_home.jpeg") no-repeat center center;
   background-size: cover;
   z-index: -1;
 }
@@ -27,8 +27,8 @@
   max-width: 800px; /* Adjusted width for better sizing */
   z-index: 1;
   padding: 20px;
-  background: rgba(94, 94, 94, 0.5); 
-  border-radius: 20px; 
+  background: rgba(94, 94, 94, 0.5);
+  border-radius: 20px;
   height: auto; /* Auto height for flexibility */
   display: flex; /* Allow flexibility in content alignment */
   flex-direction: column; /* Stack children vertically */
@@ -36,35 +36,35 @@
   margin: 0 auto; /* Center align the content */
 }
 
-h1 {
-  font-size: 4em; 
+/* h1 {
+  font-size: 3em;
   font-weight: bold;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-}
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+} */
 
-.sub-text {
-  font-size: 2em; 
+/* .sub-text {
+  font-size: 2em;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .description {
-  font-size: 1.5em; 
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
-}
+  font-size: 1.5em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+} */
 
 .benefits-section {
   padding: 40px 20px;
   background-color: #f8f9fa;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .benefits-section h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  color: #333;
+  color: black;
 }
 
 .benefits {
@@ -98,7 +98,7 @@ h1 {
 .benefit-text h3 {
   font-size: 1.5em;
   margin-bottom: 10px;
-  color: #333;
+  color: black;
 }
 
 .benefit-text p {
@@ -108,31 +108,35 @@ h1 {
 
 .vision-mission-section {
   padding: 40px 20px;
-  background-color: #fff; 
-  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  font-family: "Roboto", sans-serif;
 }
 
-.vision-container, .mission-container {
+.vision-container,
+.mission-container {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
 }
 
-.vision-text, .mission-text {
+.vision-text,
+.mission-text {
   flex: 1;
   padding: 20px;
   text-align: left;
 }
 
-.vision-image, .mission-image {
+.vision-image,
+.mission-image {
   flex: 1;
   padding: 20px;
 }
 
-.vision-image img, .mission-image img {
+.vision-image img,
+.mission-image img {
   width: 100%;
   height: auto;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 h2 {
@@ -148,20 +152,24 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .vision-container, .mission-container {
+  .vision-container,
+  .mission-container {
     flex-direction: column;
   }
 
-  .vision-text, .mission-text, .vision-image, .mission-image {
+  .vision-text,
+  .mission-text,
+  .vision-image,
+  .mission-image {
     padding: 10px;
   }
 }
 
 .video-section {
   padding: 40px 20px;
-  background-color: #f8f9fa; 
+  background-color: #f8f9fa;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .video-content {
@@ -179,7 +187,7 @@ h2 {
 .video-text h2 {
   font-size: 2.5em;
   margin-bottom: 15px;
-  color: #333;
+  color: black;
 }
 
 .video-text p {
@@ -190,13 +198,13 @@ h2 {
 
 .video-player {
   max-width: 100%;
-  width: 640px; 
+  width: 640px;
 }
 
 video {
   width: 100%;
   height: auto;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 @media (max-width: 768px) {
@@ -212,7 +220,7 @@ video {
 .carousel-controls {
   position: absolute; /* Position the controls absolutely */
   top: 50%; /* Center vertically */
-  width: 54%; /* Full width */
+  width: 90%; /* Full width */
   display: flex; /* Use flexbox for positioning */
   justify-content: space-between; /* Space out the buttons */
   transform: translateY(-50%); /* Center vertically */
@@ -222,7 +230,7 @@ video {
 .arrow {
   background: none; /* Remove background */
   border: none; /* Remove border */
-  font-size: 2em; /* Set font size for arrows */
+  font-size: 4em; /* Set font size for arrows */
   color: white; /* Set arrow color to white for visibility */
   cursor: pointer; /* Change cursor to pointer on hover */
   transition: transform 0.3s; /* Smooth transition for hover effect */
@@ -235,7 +243,22 @@ video {
 /* Optional: Adjust for mobile view */
 @media (max-width: 768px) {
   .arrow {
-    font-size: 1.5em; /* Adjust font size for smaller screens */
+    font-size: 2em; /* Adjust font size for smaller screens */
+  }
+
+  .carousel-container {
+    height: auto;
+    width: auto; /* Adjust height for smaller screens */
+  }
+
+  .carousel-content {
+    max-width: 90%; /* Make the carousel content more flexible */
+    padding: 15px;
+  }
+
+  /* Adjusting carousel controls for smaller devices */
+  .carousel-controls {
+    width: 90%; /* Make control buttons fit better */
   }
 }
 
@@ -245,5 +268,5 @@ video {
 }
 
 h2 {
-  color: white;
+  color: black;
 }

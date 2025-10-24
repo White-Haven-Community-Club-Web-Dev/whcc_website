@@ -1,67 +1,91 @@
-<header>
+<header class="flex md:h-0 md:p-0">
   <div class="logo">
     <a routerLink="/">
-      <img src="assets/team_logo.jpg" alt="Logo" />
+      <img src="assets/team_logo.jpg" class="md:hidden" alt="Logo" />
     </a>
   </div>
-
+  <div class="grow"></div>
   <div class="hamburger" (click)="toggleNavbar()">
     <div></div>
     <div></div>
     <div></div>
   </div>
-
-  <nav class="navbar" [ngClass]="{ active: isNavbarActive }">
+</header>
+<div class="flex items-center justify-between md:py-3 md:px-2">
+  <div class="logo h-0 md:h-auto">
+    <a routerLink="/">
+      <img src="assets/team_logo.jpg" class="hidden md:block" alt="Logo" />
+    </a>
+  </div>
+  <nav
+    class="navbar flex justify-around w-full"
+    [ngClass]="{ active: isNavbarActive }"
+  >
     <ul>
-      <!-- <li>
+      <li>
         <a routerLink="/about-us" routerLinkActive="active">About Us</a>
-        <span class="dropdown-symbol">&#9662;</span>
-        <ul class="dropdown">
-          <li>
-            <a routerLink="/about-us/who-we-are" routerLinkActive="active">Who we are</a>
-          </li>
-          <li>
-            <a routerLink="/about-us/faqs" routerLinkActive="active">FAQ</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a routerLink="/league" routerLinkActive="active">League</a>
-        <span class="dropdown-symbol">&#9662;</span>
-        <ul class="dropdown">
-          <li>
-            <a routerLink="/league/scoreboard" routerLinkActive="active">Scoreboard</a>
-          </li>
-          <li>
-            <a routerLink="/league/recent-match" routerLinkActive="active">Recent Match</a>
-          </li>
-          <li>
-            <a routerLink="/league/schedule" routerLinkActive="active">Schedule</a>
-          </li>
-        </ul>
-      </li>
-      <li><a routerLink="/news" routerLinkActive="active">News</a></li>
-      <li>
-        <a routerLink="/volunteer" routerLinkActive="active">Volunteer</a>
-      </li>
-      <li><a routerLink="/contact-us" routerLinkActive="active">Contact</a></li> -->
-      <li><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
-      <li>
-        <a routerLink="/volunteer" routerLinkActive="active">Volunteer</a>
-      </li>
-      <li>
-        <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
       </li>
       <li>
         <a routerLink="/youth-program" routerLinkActive="active"
           >Youth Program</a
         >
       </li>
-      <li><a routerLink="/faq" routerLinkActive="active">FAQs</a></li>
+      <div class="programs-dropdown">
+        <li>
+          <a href="/">Programs</a>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="/indoor-soccer" routerLinkActive="active"
+                >Indoor Soccer</a
+              >
+            </li>
+            <li>
+              <a routerLink="/play" routerLinkActive="active">F4 Program</a>
+            </li>
+            <li>
+              <a routerLink="/tournament" routerLinkActive="active"
+                >2025 Tournament</a
+              >
+            </li>
+            <li>
+              <a routerLink="/educational-sessions" routerLinkActive="active"
+                >Educational Sessions</a
+              >
+            </li>
+            <li>
+              <a routerLink="/canadaday" routerLinkActive="active"
+                >Canada day Soccer Tournament
+              </a>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <li class="mobile-link">
+        <a routerLink="/indoor-soccer" routerLinkActive="active"
+          >Indoor Soccer</a
+        >
+      </li>
+      <li class="mobile-link">
+        <a routerLink="/play" routerLinkActive="active">F4 Program</a>
+      </li>
+      <li class="mobile-link">
+        <a routerLink="/tournament" routerLinkActive="active"
+          >2025 Tournament</a
+        >
+      </li>
+      <li class="mobile-link">
+        <a routerLink="/educational-sessions" routerLinkActive="active"
+          >Educational Sessions</a
+        >
+      </li>
+      <li class="mobile-link">
+        <a routerLink="/canadaday" routerLinkActive="active"
+          >Canada day Soccer Tournament
+        </a>
+      </li>
+      <li>
+        <a routerLink="/sponsors" routerLinkActive="active">Sponsors</a>
+      </li>
     </ul>
   </nav>
-
-  <div class="donate-button">
-    <button>Donate</button>
-  </div>
-</header>
+</div>

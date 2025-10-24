@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --configuration production",
+    "start": "ng serve --configuration production",
+    "build": "ng build --configuration production --no-progress",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:whcfc-frontend": "node dist/whcfc-frontend/server/server.mjs",
@@ -22,6 +22,8 @@
     "@angular/platform-server": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@angular/ssr": "^17.3.8",
+    "@date-fns/tz": "^1.1.2",
+    "date-fns": "^4.1.0",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -43,6 +45,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.11",
+    "tailwindcss-animated": "^2.0.0",
     "typescript": "~5.4.2"
   },
   "engines": {
