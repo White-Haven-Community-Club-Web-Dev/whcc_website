@@ -23,6 +23,20 @@ The repository is structured as follows:
 
 - **develop:** This is the active development branch where all new features, bug fixes, and changes are regularly updated.
 
+**Important Note (Updated November 3, 2025):**
+
+The develop branch was rebuilt from main on November 3, 2025 to synchronize both branches. The old develop branch was only 1 commit ahead with "Adds Youth-Program header link and page", but this functionality already exists in the main branch, so no features were lost.
+
+- Develop branch has been rebuilt from main, both branches are now fully synchronized.
+- Old develop backup: `develop-backup-20251103`
+
+If you have a feature branch based on the old develop, please rebase:
+```bash
+git fetch origin
+git rebase origin/develop
+git push --force-with-lease
+```
+
 **General Git Commands:**
 
 **Cloning the Repository:**
