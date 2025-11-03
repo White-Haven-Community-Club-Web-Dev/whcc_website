@@ -45,9 +45,9 @@ To get started with the project, follow these steps to clone the repository to y
 
 - Open your terminal (or Git Bash on Windows).
 
-- Clone the repository: **git clone https://github.com/kris20012/whcfc-web-dev.git**
+- Clone the repository: **git clone https://github.com/White-Haven-Community-Club-Web-Dev/whcc_website.git**
 
-- Navigate to the cloned repository: **cd whcfc-web-dev**
+- Navigate to the cloned repository: **cd whcc_website**
 
 - Checkout the develop branch (this is where all the development happens): **git checkout develop**
 
