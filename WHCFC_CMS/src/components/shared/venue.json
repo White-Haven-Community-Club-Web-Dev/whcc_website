@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_venues",
+  "info": {
+    "displayName": "Venue"
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
