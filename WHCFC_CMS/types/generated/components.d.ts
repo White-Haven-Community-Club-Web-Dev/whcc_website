@@ -38,15 +38,12 @@ export interface SharedRichText extends Struct.ComponentSchema {
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
-    description: '';
     displayName: 'Seo';
-    icon: 'allergies';
-    name: 'Seo';
+    icon: 'search';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
   };
 }
 

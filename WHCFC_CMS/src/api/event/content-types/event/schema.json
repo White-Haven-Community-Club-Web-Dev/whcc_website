@@ -15,7 +15,7 @@
     }
   },
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,6 +24,14 @@
       },
       "default": "sample-event",
       "required": true
+    },
+    "description": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "start_date": {
       "type": "datetime",
@@ -44,7 +52,31 @@
       "required": true,
       "default": "2025-01-01T05:00:00.000Z"
     },
-    "dynamic_zone": {
+    "max_people": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": false
+    },
+    "image": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "venue": {
       "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
@@ -55,14 +87,14 @@
         "shared.venue"
       ]
     },
-    "max_people": {
-      "type": "integer",
+    "slug": {
+      "type": "uid",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "required": false
+      "targetField": "title"
     }
   }
 }
