@@ -1,0 +1,110 @@
+<!-- loading state -->
+<div *ngIf="loading" class="min-h-[40vh] flex items-center justify-center">
+  <div class="flex items-center gap-3 text-slate-500">
+    <span class="h-3 w-3 rounded-full bg-slate-400 animate-pulse"></span>
+    Loading project...
+  </div>
+</div>
+
+<!-- not found -->
+<div *ngIf="!loading && !project" class="min-h-[40vh] flex items-center justify-center">
+  <div class="text-center">
+    <p class="text-2xl font-semibold text-slate-800">Project not found</p>
+    <p class="text-slate-500 mt-2">Check the URL or pick another project.</p>
+  </div>
+</div>
+
+<!-- main -->
+<div *ngIf="project" class="min-h-screen bg-slate-50">
+  <!-- HERO -->
+  <header
+    class="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 text-white"
+  >
+    <div class="mx-auto max-w-6xl px-4 py-16 lg:flex lg:items-center lg:justify-between gap-10">
+      <div class="max-w-2xl">
+        <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs mb-6">
+          <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Project Landing
+        </p>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">{{ project.title }}</h1>
+        <p *ngIf="project.heroText" class="mt-4 text-slate-200 leading-relaxed">
+          {{ project.heroText }}
+        </p>
+      </div>
+
+      <div class="mt-8 lg:mt-0">
+        <!-- if you want to render the image from Strapi later, remember to prefix with your Strapi base URL -->
+        <img
+          *ngIf="project.heroImage?.url"
+          [src]="'http://localhost:1337' + project.heroImage?.url"
+          [alt]="project.title"
+          class="w-full max-w-md rounded-xl shadow-2xl border border-white/10"
+        />
+      </div>
+    </div>
+  </header>
+
+  <!-- EVENTS -->
+  <main class="mx-auto max-w-6xl px-4 py-12">
+    <div class="flex items-center justify-between mb-6 gap-4">
+      <div>
+        <h2 class="text-xl font-semibold text-slate-900">Events</h2>
+        <p class="text-sm text-slate-500" *ngIf="project.events?.length">
+          {{ project.events?.length || 0 }} event{{ (project.events?.length || 0) > 1 ? 's' : '' }} linked to this project
+        </p>
+        <p class="text-sm text-slate-500" *ngIf="!project.events?.length">
+          No events linked to this project yet.
+        </p>
+      </div>
+    </div>
+
+    <div
+      *ngIf="project.events?.length"
+      class="grid gap-6 md:grid-cols-2 xl:grid-cols-3 animate-fade-up"
+    >
+      <article
+        *ngFor="let ev of project.events"
+        class="flex flex-col rounded-xl bg-white shadow-sm border border-slate-100 hover:shadow-md transition"
+      >
+        <div class="p-5 flex flex-col gap-3 flex-1">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="text-base font-semibold text-slate-900">
+              {{ ev.title }}
+            </h3>
+            <span
+              *ngIf="ev.start_date"
+              class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-[0.65rem] font-medium text-slate-700"
+            >
+              {{ ev.start_date | date : 'mediumDate' }}
+            </span>
+          </div>
+
+          <p *ngIf="ev.end_date" class="text-xs text-slate-500">
+            Ends: {{ ev.end_date | date : 'mediumDate' }}
+          </p>
+
+          <p *ngIf="ev.max_people" class="text-xs text-slate-500">
+            Capacity: {{ ev.max_people }}
+          </p>
+
+          <p *ngIf="ev.description" class="text-sm text-slate-600 line-clamp-3">
+            {{ ev.description }}
+          </p>
+        </div>
+
+        <!-- <div class="px-5 pb-5 flex items-center justify-between gap-3">
+          <a
+            *ngIf="ev.slug"
+            [routerLink]="['/events', ev.slug]"
+            class="text-sm font-medium text-slate-900 hover:text-slate-600"
+          >
+            View event →
+          </a>
+          <p *ngIf="!ev.slug" class="text-xs text-slate-400">No detail page</p>
+        </div> -->
+      </article>
+    </div>
+  </main>
+
+
+</div>

@@ -27,6 +27,9 @@
         "audios"
       ]
     },
+    "heroText": {
+      "type": "text"
+    },
     "events": {
       "type": "relation",
       "relation": "oneToMany",
@@ -35,6 +38,11 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }
