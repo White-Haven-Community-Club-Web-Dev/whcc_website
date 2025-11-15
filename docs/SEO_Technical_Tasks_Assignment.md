@@ -341,13 +341,13 @@ We mentioned a problem in the PR: Current Netlify configuration doesn't support 
 - No more deployment-related issues
 
 ### Acceptance Criteria
-- [ ] Complete research report on 3 options
-- [ ] Provide clear recommendation and reasoning
-- [ ] If choosing prerendering:
-  - [ ] `angular.json` is updated
-  - [ ] `npm run build` generates prerendered HTML files
-  - [ ] Can see `index.html` for each page under `dist/whcfc-frontend/browser/`
-- [ ] If choosing other solutions: Provide detailed implementation plan
+- [x] Complete research report on 3 options
+- [x] Provide clear recommendation and reasoning
+- [x] If choosing prerendering:
+  - [x] `angular.json` is updated
+  - [x] `npm run build` generates prerendered HTML files
+  - [x] Can see `index.html` for each page under `dist/whcfc-frontend/browser/`
+- [x] If choosing other solutions: Provide detailed implementation plan
 
 ### Recommendation
 Based on our project situation, **recommend trying Option 1 (prerendering) first**, because:
