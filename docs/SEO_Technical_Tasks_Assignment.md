@@ -110,12 +110,12 @@ These tasks will resolve these issues.
 - Can submit sitemap in Google Search Console to track indexing
 
 ### Acceptance Criteria
-- [ ] `WHCFC_Frontend/src/sitemap.xml` file exists
-- [ ] File is valid XML format (can check with online XML validator)
-- [ ] Includes URLs of all 11 pages
-- [ ] `angular.json`'s `assets` array includes `"src/sitemap.xml"`
-- [ ] After running `npm run build`, `sitemap.xml` can be found in the `dist/whcfc-frontend/browser/` folder
-- [ ] Visiting `http://localhost:4200/sitemap.xml` shows XML content
+- [x] `WHCFC_Frontend/src/sitemap.xml` file exists
+- [x] File is valid XML format (can check with online XML validator)
+- [x] Includes URLs of all 11 pages
+- [x] `angular.json`'s `assets` array includes `"src/sitemap.xml"`
+- [x] After running `npm run build`, `sitemap.xml` can be found in the `dist/whcfc-frontend/browser/` folder
+- [x] Visiting `http://localhost:4200/sitemap.xml` shows XML content
 
 ---
 
