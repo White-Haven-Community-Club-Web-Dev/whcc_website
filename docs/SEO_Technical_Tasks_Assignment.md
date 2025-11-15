@@ -66,10 +66,10 @@ These tasks will resolve these issues.
 - Search engines can find our sitemap
 
 ### Acceptance Criteria
-- [ ] `WHCFC_Frontend/src/robots.txt` file exists
-- [ ] `angular.json`'s `assets` array includes `"src/robots.txt"`
-- [ ] After running `npm run build`, `robots.txt` can be found in the `dist/whcfc-frontend/browser/` folder
-- [ ] After starting the website locally, visiting `http://localhost:4200/robots.txt` shows content
+- [x] `WHCFC_Frontend/src/robots.txt` file exists
+- [x] `angular.json`'s `assets` array includes `"src/robots.txt"`
+- [x] After running `npm run build`, `robots.txt` can be found in the `dist/whcfc-frontend/browser/` folder
+- [x] After starting the website locally, visiting `http://localhost:4200/robots.txt` shows content
 
 ---
 
