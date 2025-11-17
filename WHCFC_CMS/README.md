@@ -1,4 +1,26 @@
-# 🚀 Getting started with Strapi
+# White Haven Strapi CMS
+
+This is a Strapi CMS project to operate the content management of the White Haven Community Football Club website https://whcfc.ca.
+
+## Roles
+To use the Strapi CMS, there are a list of roles for users that will allow them to manipulate content.
+
+- Super Admin: Super Admins can access and manage all features and settings.
+- Editor: Editors can manage and publish contents including those of other users.
+- Author: Authors can manage the content they have created.
+
+## Content-type structure
+
+A Content-Type structure is the backbone of Strapi CMS, it reflects the needs of the content managers over the content and it helps to accelerate the editing process and the development delivery process. **It will give the PMs autonomy over the content managed by them and the ability to express their needs in terms of a predefined structure**
+
+This project should reflect the decision and agreement of White Haven PMs and  Web Development team members regarding a well structured, comprohensible and scalable Content-Type structure.
+
+## Database
+This project can be configured with diferent types of database management system providers. In this case, **we used MySQL provider to do it** (default is SQLite).
+
+**See env variables to check necesary env variables and check Strapi docs to complement settings with MySQL (https://docs.strapi.io/cms/configurations/database)**
+
+## Strapi docs
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
@@ -34,11 +56,7 @@ yarn build
 
 ## ⚙️ Deployment
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
+TO BE DEFINED
 
 ## 📚 Learn more
 
@@ -57,5 +75,3 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 - [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
 
 ---
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
