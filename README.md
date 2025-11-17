@@ -11,11 +11,15 @@ The repository is structured as follows:
 
 - /WHCFC_Backend: Contains the Node.js and MySQL-based backend code.
 
+- /WHCFC_CMS: Contains the Strapi CMS project code.
+
 - README.md: The common README file with general instructions.
 
 - /WHCFC_Frontend/README.md: Specific instructions for setting up the frontend.
 
 - /WHCFC_Backend/README.md: Specific instructions for setting up the backend.
+
+- /WHCFC_CMS: Specific instructions for setting up the Strapi CMS.
 
 **Branching Strategy:**
 
