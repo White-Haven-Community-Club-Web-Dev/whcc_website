@@ -274,12 +274,12 @@ We need to use the more standard Angular way (`isPlatformBrowser`).
 - All pages won't crash during server-side rendering
 
 ### Acceptance Criteria
-- [ ] All 3 files have been modified
-- [ ] Running `npm run build` succeeds without errors
-- [ ] Running `npm run serve:ssr:whcfc-frontend` starts successfully
-- [ ] Visiting `http://localhost:4000`, opening browser console, **no error messages**
-- [ ] Visiting the following pages, all display normally without errors:
-  - `http://localhost:4000/canada-day` (test tournament component)
+- [x] All 3 files have been modified
+- [x] Running `npm run build` succeeds without errors
+- [x] Running `npm run serve:ssr:whcfc-frontend` starts successfully
+- [x] Visiting `http://localhost:4000`, opening browser console, **no error messages**
+- [x] Visiting the following pages, all display normally without errors:
+  - `http://localhost:4000/canadaday` (test tournament component)
   - `http://localhost:4000/volunteer` (test volunteer component)
 
 ---
@@ -378,32 +378,32 @@ If prerendering isn't sufficient, then consider migrating to Vercel.
 ### Checklist After Completing All Tasks
 
 **File Check:**
-- [ ] `WHCFC_Frontend/src/robots.txt` exists
-- [ ] `WHCFC_Frontend/src/sitemap.xml` exists
-- [ ] `WHCFC_Frontend/src/index.html` is updated
-- [ ] 3 component files are fixed
-- [ ] `angular.json` is updated (assets + possibly prerender)
+- [x] `WHCFC_Frontend/src/robots.txt` exists
+- [x] `WHCFC_Frontend/src/sitemap.xml` exists
+- [x] `WHCFC_Frontend/src/index.html` is updated
+- [x] 3 component files are fixed
+- [x] `angular.json` is updated (assets + possibly prerender)
 
 **Build Test:**
 ```bash
 cd WHCFC_Frontend
 npm run build
 ```
-- [ ] Build succeeds without errors
-- [ ] Can find `robots.txt` and `sitemap.xml` under `dist/whcfc-frontend/browser/`
+- [x] Build succeeds without errors
+- [x] Can find `robots.txt` and `sitemap.xml` under `dist/whcfc-frontend/browser/`
 
 **SSR Test:**
 ```bash
 npm run serve:ssr:whcfc-frontend
 ```
-- [ ] Starts successfully
-- [ ] Visiting `http://localhost:4000`, no console errors
-- [ ] Right-click "View Page Source", can see complete HTML (not empty)
-- [ ] Can see newly added meta tags
+- [x] Starts successfully
+- [x] Visiting `http://localhost:4000`, no console errors
+- [x] Right-click "View Page Source", can see complete HTML (not empty)
+- [x] Can see newly added meta tags
 
 **URL Test:**
-- [ ] `http://localhost:4000/robots.txt` - Shows content
-- [ ] `http://localhost:4000/sitemap.xml` - Shows XML
+- [x] `http://localhost:4000/robots.txt` - Shows content
+- [x] `http://localhost:4000/sitemap.xml` - Shows XML
 
 **Social Media Test (Optional):**
 - [ ] Facebook sharing test passes
