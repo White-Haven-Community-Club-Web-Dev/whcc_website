@@ -194,9 +194,9 @@ Need to add:
 - **Professionalism:** Looks more like a proper website
 
 ### Acceptance Criteria
-- [ ] `index.html` has all meta tags added
-- [ ] Running `npm run build` has no errors
-- [ ] Opening the website, right-click "View Page Source", can see all newly added meta tags
+- [x] `index.html` has all meta tags added
+- [x] Running `npm run build` has no errors
+- [x] Opening the website, right-click "View Page Source", can see all newly added meta tags
 - [ ] Can test with the following tools:
   - Facebook Sharing Test: https://developers.facebook.com/tools/debug/
   - Twitter Card Test: https://cards-dev.twitter.com/validator
