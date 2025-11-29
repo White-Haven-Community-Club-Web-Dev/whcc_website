@@ -101,10 +101,12 @@ router.route("/contact").post(async (req, res) => {
       message,
     ]);
     emailSending("Contact Form Submission", emailBody);
-    res.sendStatus(200);
   } catch (error) {
     console.log(error);
+    res.status(500).json({ "message": "Internal Server Error" });
   }
+
+  res.status(200).json({ "messsage": "Success" });
 });
 
 export default router;
