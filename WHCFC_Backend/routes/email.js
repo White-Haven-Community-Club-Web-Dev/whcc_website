@@ -92,10 +92,10 @@ router.route("/contact").post(async (req, res) => {
     emailSending("Contact Form Submission", emailBody);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ "message": "Internal Server Error" });
+    return res.status(500).json({ "message": "Internal Server Error" });
   }
 
-  res.status(200).json({ "messsage": "Success" });
+  res.status(200).json({ "message": "Success" });
 });
 
 export default router;
