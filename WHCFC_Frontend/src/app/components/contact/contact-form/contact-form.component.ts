@@ -18,24 +18,53 @@ export class ContactFormComponent {
   contactForm: FormGroup;
   constructor(private emailService: EmailService, private fb: FormBuilder) {
     this.contactForm = this.fb.group({
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
+      fullName: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
       message: ['', Validators.required],
+      subject: ['', Validators.required]
     });
   }
 
+  // Toast message after contact form submitted successfully
+  showToast(msg: string) {
+    const el = document.getElementById('toast')!;
+    el.textContent = msg;
+
+
+    el.classList.remove('opacity-0', 'translate-x-5');
+    el.classList.add('opacity-100', 'translate-x-0');
+
+
+    setTimeout(() => {
+      el.classList.remove('opacity-100', 'translate-x-0');
+      el.classList.add('opacity-0', 'translate-x-5');
+    }, 3000);
+  }
+
+
   onSubmit() {
+    // Changed depricated direct function passing to latest approach of RxJs
+    // subscribe(next,err,complete) -> subscribe({next,complete,error})
     if (this.contactForm.valid) {
-      this.emailService.sendContactForm(this.contactForm.value).subscribe(
-        (response) => {
-          console.log(response);
+      this.emailService.sendContactForm(this.contactForm.value).subscribe({
+        next: (response) => {
+          this.showToast("We've recieved your message!");
+          this.contactForm.reset();
+          // console.log(response);
         },
-        (error) => {
+        error: (error) => {
           console.log(error);
         }
-      );
+      });
+    } else {
+      this.contactForm.markAllAsTouched()
     }
   }
+
+  get fullName() { return this.contactForm.get('fullName')! }
+  get email() { return this.contactForm.get('email')! }
+  get message() { return this.contactForm.get('message')! }
+  get subject() { return this.contactForm.get('subject')! }
+
 }

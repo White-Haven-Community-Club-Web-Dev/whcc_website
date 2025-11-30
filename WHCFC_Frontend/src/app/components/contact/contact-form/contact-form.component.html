@@ -1,62 +1,66 @@
-<form
-  class="px-20 md:px-40 py-16"
-  [formGroup]="contactForm"
-  (ngSubmit)="onSubmit()"
->
-  <div class="md:columns-2">
+<form class="" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div>
     <div class="form-group mb-5">
-      <label for="firstname" class="text-sm">First Name</label><br />
-      <input
-        type="text"
-        id="firstname"
-        class="form-control w-full border-solid border-2 border-gray rounded-lg p-1"
-        formControlName="firstname"
-      />
+      <label for="fullName" class="block mb-2">First Name</label>
+      <input type="text" id="fullName"
+        class=" selection:bg-primary selection:text-gray border-[#0000001a] flex h-9 w-full min-w-0 rounded-md border px-3 py-1 text-base transition-[color,box-shadow] outline-none focus:border focus:border-primary focus:ring-4 focus:ring-primary/20 "
+        formControlName="fullName" placeholder="Your full name" />
+      @if(fullName.invalid && (fullName.touched || fullName.dirty)){
+      @if(fullName.hasError('required')) {<small class="text-red-500">Full Name is required</small>}
+      }
     </div>
 
     <div class="form-group mb-5">
-      <label for="lastname" class="text-sm">Last Name</label><br />
-      <input
-        type="text"
-        id="lastname"
-        class="form-control w-full border-solid border-2 border-gray rounded-lg p-1"
-        formControlName="lastname"
-      />
+      <label for="email" class="block mb-2">Email</label>
+      <input type="email" placeholder="your.email@example.com" type="text" id="email"
+        class=" selection:bg-primary selection:text-gray border-[#0000001a] flex h-9 w-full min-w-0 rounded-md border px-3 py-1 text-base transition-[color,box-shadow] outline-none focus:border focus:border-primary focus:ring-4 focus:ring-primary/20 "
+        formControlName="email" />
+      @if(email.invalid && (email.touched || email.dirty)){
+      @if(email.hasError('required')) {<small class="text-red-500">Email is required</small>}
+      }
     </div>
   </div>
-  <div class="md:columns-2">
-    <div class="form-group mb-5">
-      <label for="email" class="text-sm">Email</label><br />
-      <input
-        type="email"
-        id="email"
-        class="form-control w-full border-solid border-2 border-gray rounded-lg p-1"
-        formControlName="email"
-      />
-    </div>
-    <div class="form-group">
-      <label for="phone" class="text-sm">Phone Number</label><br />
-      <input
-        type="phone"
-        id="phone"
-        class="form-control w-full border-solid border-2 border-gray rounded-lg p-1"
-        formControlName="phone"
-      />
-    </div>
+  <div class="form-group mb-5">
+    <label for="phone" class="block mb-2">Phone (Optional)</label>
+    <input type="phone" id="phone" placeholder="(123)-456-7890"
+      class=" selection:bg-primary selection:text-gray border-[#0000001a] flex h-9 w-full min-w-0 rounded-md border px-3 py-1 text-base transition-[color,box-shadow] outline-none focus:border focus:border-primary focus:ring-4 focus:ring-primary/20 "
+      formControlName="phone" />
+  </div>
+
+  <div class="form-group mb-5">
+    <label for="subject" class="block mb-2">Subject</label>
+    <select id="subject" formControlName="subject"
+      class="  bg-white selection:text-gray border-[#0000001a] flex h-9 w-full min-w-0 rounded-md border px-3 py-1 text-base transition-[color,box-shadow] outline-none focus:border focus:border-primary focus:ring-4 focus:ring-primary/20 "
+      aria-hidden="true" tabindex="-1">
+      <option hidden disabled value="">Select a subject</option>
+      <option value="general">General Inquiry</option>
+      <option value="membership">Membership</option>
+      <option value="volunteer">Volunteer</option>
+      <option value="partnership">Partnership</option>
+      <option value="sponsorship">Sponsorship</option>
+      <option value="other">Other</option>
+    </select>
+    @if(subject.invalid && (subject.touched || subject.dirty)){
+    @if(subject.hasError('required')) {<small class="text-red-500">Subject is required</small>}
+    }
   </div>
 
   <div class="form-group">
-    <label for="message" class="text-sm">Message</label><br />
-    <textarea
-      id="message"
-      class="form-control w-full border-solid border-2 border-gray rounded-lg min-h-20 p-1"
-      formControlName="message"
-    ></textarea>
+    <label for="message" class="block mb-2">Message</label>
+    <textarea id="message " rows="4"
+      class=" selection:bg-primary selection:text-gray border-[#0000001a] flex  w-full min-w-0 rounded-md border px-3 py-1 text-base transition-[color,box-shadow] outline-none focus:border focus:border-primary focus:ring-4 focus:ring-primary/20 "
+      formControlName="message"></textarea>
+    @if(message.invalid && (message.touched || message.dirty)){
+    @if(message.hasError('required')) {<small class="text-red-500">Message is required</small>}
+    }
   </div>
-  <button
-    type="submit"
-    class="btn btn-primary mt-10 w-full h-10 bg-blue-400 rounded-md hover:bg-blue-500 transition-all shadow-md text-lg font-bold text-white"
-  >
+  <button type="submit"
+    class="btn btn-primary mt-10 w-full h-10 bg-primary rounded-md hover:bg-red-600 active:bg-red-800 transition-all shadow-md text-lg font-bold text-white">
     Submit
   </button>
+  <p class="text-sm text-center mt-5 text-[oklch(.446_.03_256.802)] flex items-center justify-center gap-2"><span
+      class="text-customGreen">✓</span>We typically respond within 24 hours</p>
 </form>
+<div id="toast" class="fixed top-4 right-4 z-50 bg-teal-700 text-white px-6 py-2 rounded-lg shadow-lg
+         opacity-0 translate-x-5 transition-all duration-300">
+</div>
