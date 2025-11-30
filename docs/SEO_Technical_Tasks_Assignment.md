@@ -66,10 +66,10 @@ These tasks will resolve these issues.
 - Search engines can find our sitemap
 
 ### Acceptance Criteria
-- [ ] `WHCFC_Frontend/src/robots.txt` file exists
-- [ ] `angular.json`'s `assets` array includes `"src/robots.txt"`
-- [ ] After running `npm run build`, `robots.txt` can be found in the `dist/whcfc-frontend/browser/` folder
-- [ ] After starting the website locally, visiting `http://localhost:4200/robots.txt` shows content
+- [x] `WHCFC_Frontend/src/robots.txt` file exists
+- [x] `angular.json`'s `assets` array includes `"src/robots.txt"`
+- [x] After running `npm run build`, `robots.txt` can be found in the `dist/whcfc-frontend/browser/` folder
+- [x] After starting the website locally, visiting `http://localhost:4200/robots.txt` shows content
 
 ---
 
@@ -110,12 +110,12 @@ These tasks will resolve these issues.
 - Can submit sitemap in Google Search Console to track indexing
 
 ### Acceptance Criteria
-- [ ] `WHCFC_Frontend/src/sitemap.xml` file exists
-- [ ] File is valid XML format (can check with online XML validator)
-- [ ] Includes URLs of all 11 pages
-- [ ] `angular.json`'s `assets` array includes `"src/sitemap.xml"`
-- [ ] After running `npm run build`, `sitemap.xml` can be found in the `dist/whcfc-frontend/browser/` folder
-- [ ] Visiting `http://localhost:4200/sitemap.xml` shows XML content
+- [x] `WHCFC_Frontend/src/sitemap.xml` file exists
+- [x] File is valid XML format (can check with online XML validator)
+- [x] Includes URLs of all 11 pages
+- [x] `angular.json`'s `assets` array includes `"src/sitemap.xml"`
+- [x] After running `npm run build`, `sitemap.xml` can be found in the `dist/whcfc-frontend/browser/` folder
+- [x] Visiting `http://localhost:4200/sitemap.xml` shows XML content
 
 ---
 
@@ -194,9 +194,9 @@ Need to add:
 - **Professionalism:** Looks more like a proper website
 
 ### Acceptance Criteria
-- [ ] `index.html` has all meta tags added
-- [ ] Running `npm run build` has no errors
-- [ ] Opening the website, right-click "View Page Source", can see all newly added meta tags
+- [x] `index.html` has all meta tags added
+- [x] Running `npm run build` has no errors
+- [x] Opening the website, right-click "View Page Source", can see all newly added meta tags
 - [ ] Can test with the following tools:
   - Facebook Sharing Test: https://developers.facebook.com/tools/debug/
   - Twitter Card Test: https://cards-dev.twitter.com/validator
@@ -274,12 +274,12 @@ We need to use the more standard Angular way (`isPlatformBrowser`).
 - All pages won't crash during server-side rendering
 
 ### Acceptance Criteria
-- [ ] All 3 files have been modified
-- [ ] Running `npm run build` succeeds without errors
-- [ ] Running `npm run serve:ssr:whcfc-frontend` starts successfully
-- [ ] Visiting `http://localhost:4000`, opening browser console, **no error messages**
-- [ ] Visiting the following pages, all display normally without errors:
-  - `http://localhost:4000/canada-day` (test tournament component)
+- [x] All 3 files have been modified
+- [x] Running `npm run build` succeeds without errors
+- [x] Running `npm run serve:ssr:whcfc-frontend` starts successfully
+- [x] Visiting `http://localhost:4000`, opening browser console, **no error messages**
+- [x] Visiting the following pages, all display normally without errors:
+  - `http://localhost:4000/canadaday` (test tournament component)
   - `http://localhost:4000/volunteer` (test volunteer component)
 
 ---
@@ -341,13 +341,13 @@ We mentioned a problem in the PR: Current Netlify configuration doesn't support 
 - No more deployment-related issues
 
 ### Acceptance Criteria
-- [ ] Complete research report on 3 options
-- [ ] Provide clear recommendation and reasoning
-- [ ] If choosing prerendering:
-  - [ ] `angular.json` is updated
-  - [ ] `npm run build` generates prerendered HTML files
-  - [ ] Can see `index.html` for each page under `dist/whcfc-frontend/browser/`
-- [ ] If choosing other solutions: Provide detailed implementation plan
+- [x] Complete research report on 3 options
+- [x] Provide clear recommendation and reasoning
+- [x] If choosing prerendering:
+  - [x] `angular.json` is updated
+  - [x] `npm run build` generates prerendered HTML files
+  - [x] Can see `index.html` for each page under `dist/whcfc-frontend/browser/`
+- [x] If choosing other solutions: Provide detailed implementation plan
 
 ### Recommendation
 Based on our project situation, **recommend trying Option 1 (prerendering) first**, because:
@@ -378,32 +378,32 @@ If prerendering isn't sufficient, then consider migrating to Vercel.
 ### Checklist After Completing All Tasks
 
 **File Check:**
-- [ ] `WHCFC_Frontend/src/robots.txt` exists
-- [ ] `WHCFC_Frontend/src/sitemap.xml` exists
-- [ ] `WHCFC_Frontend/src/index.html` is updated
-- [ ] 3 component files are fixed
-- [ ] `angular.json` is updated (assets + possibly prerender)
+- [x] `WHCFC_Frontend/src/robots.txt` exists
+- [x] `WHCFC_Frontend/src/sitemap.xml` exists
+- [x] `WHCFC_Frontend/src/index.html` is updated
+- [x] 3 component files are fixed
+- [x] `angular.json` is updated (assets + possibly prerender)
 
 **Build Test:**
 ```bash
 cd WHCFC_Frontend
 npm run build
 ```
-- [ ] Build succeeds without errors
-- [ ] Can find `robots.txt` and `sitemap.xml` under `dist/whcfc-frontend/browser/`
+- [x] Build succeeds without errors
+- [x] Can find `robots.txt` and `sitemap.xml` under `dist/whcfc-frontend/browser/`
 
 **SSR Test:**
 ```bash
 npm run serve:ssr:whcfc-frontend
 ```
-- [ ] Starts successfully
-- [ ] Visiting `http://localhost:4000`, no console errors
-- [ ] Right-click "View Page Source", can see complete HTML (not empty)
-- [ ] Can see newly added meta tags
+- [x] Starts successfully
+- [x] Visiting `http://localhost:4000`, no console errors
+- [x] Right-click "View Page Source", can see complete HTML (not empty)
+- [x] Can see newly added meta tags
 
 **URL Test:**
-- [ ] `http://localhost:4000/robots.txt` - Shows content
-- [ ] `http://localhost:4000/sitemap.xml` - Shows XML
+- [x] `http://localhost:4000/robots.txt` - Shows content
+- [x] `http://localhost:4000/sitemap.xml` - Shows XML
 
 **Social Media Test (Optional):**
 - [ ] Facebook sharing test passes

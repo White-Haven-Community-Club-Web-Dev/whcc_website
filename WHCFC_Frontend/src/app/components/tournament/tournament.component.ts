@@ -1,9 +1,12 @@
+import { isPlatformBrowser } from '@angular/common';
 import {
   Component,
   OnInit,
   AfterViewInit,
   ElementRef,
   ViewChild,
+  PLATFORM_ID,
+  Inject
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -17,7 +20,7 @@ import { Meta, Title } from '@angular/platform-browser';
 export class TournamentComponent implements OnInit, AfterViewInit {
   @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
 
-  constructor(private meta: Meta, private title: Title) {}
+  constructor(private meta: Meta, private title: Title, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
     this.setSEO();
@@ -51,21 +54,23 @@ export class TournamentComponent implements OnInit, AfterViewInit {
   }
 
   private setupCarousel(): void {
-    const prevButton = document.querySelector('.carousel-control-prev');
-    const nextButton = document.querySelector('.carousel-control-next');
+    if (isPlatformBrowser((this.platformId))) {
+      const prevButton = document.querySelector('.carousel-control-prev');
+      const nextButton = document.querySelector('.carousel-control-next');
 
-    prevButton?.addEventListener('click', () => {
-      this.carousel.nativeElement.scrollBy({
-        left: -this.carousel.nativeElement.offsetWidth,
-        behavior: 'smooth',
+      prevButton?.addEventListener('click', () => {
+        this.carousel.nativeElement.scrollBy({
+          left: -this.carousel.nativeElement.offsetWidth,
+          behavior: 'smooth',
+        });
       });
-    });
 
-    nextButton?.addEventListener('click', () => {
-      this.carousel.nativeElement.scrollBy({
-        left: this.carousel.nativeElement.offsetWidth,
-        behavior: 'smooth',
+      nextButton?.addEventListener('click', () => {
+        this.carousel.nativeElement.scrollBy({
+          left: this.carousel.nativeElement.offsetWidth,
+          behavior: 'smooth',
+        });
       });
-    });
+    }
   }
 }
