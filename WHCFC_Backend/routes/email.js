@@ -1,5 +1,6 @@
 import express from "express";
 import nodemailer from "nodemailer";
+import { validate } from "deep-email-validator";
 import db from "../db/db.js";
 
 const router = express.Router();
@@ -43,30 +44,6 @@ const inputValidate = (firstname, lastname, email, phone, message) => {
   return { valid: true };
 };
 
-const isEmailValid = email => {
-  const emailRegex = /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
-
-  if (email.length > 254)
-    return false;
-
-  const valid = emailRegex.test(email);
-
-  if (!valid)
-    return false;
-
-  const parts = email.split("@");
-
-  if (parts[0].length > 64)
-    return false;
-
-  const domainParts = parts[1].split(".");
-
-  if (domainParts.some(function(part) { return part.length > 63; }))
-    return false;
-
-  return true;
-};
-
 router.route("/contact").post(async (req, res) => {
   const { firstname, lastname, email, phone, message } = req.body;
 
@@ -75,8 +52,20 @@ router.route("/contact").post(async (req, res) => {
   if (!valid)
     return res.status(400).json({ message: msg });
 
-  if (!isEmailValid(email))
-    return res.status(400).json({ message: "Email is not valid" });
+  const validationResult = await validate({
+    email: email,
+    validateRegex: true,
+    validateMx: true,
+    validateTypo: true,
+    validateDisposable: true,
+    validateSMTP: false
+  });
+
+  if (!validationResult.valid)
+    return res.status(400).json({
+      message: "Email is not valid",
+      reason: validationResult.reason
+    });
 
   var emailBody =
     "Sender name: " +
