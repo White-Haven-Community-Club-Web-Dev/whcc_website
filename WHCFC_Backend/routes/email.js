@@ -1,6 +1,7 @@
 import express from "express";
 import nodemailer from "nodemailer";
 import { validate } from "deep-email-validator";
+import xss from "xss";
 import db from "../db/db.js";
 
 const router = express.Router();
@@ -31,6 +32,8 @@ const emailSending = (subject, body) => {
 
 const inputValidate = inputs => {
   for (const key in inputs) {
+    inputs[key] = xss(inputs[key]);
+
     if (!inputs[key] || inputs[key] == "")
       return { valid: false, msg: `Invalid ${key}` };
   }
