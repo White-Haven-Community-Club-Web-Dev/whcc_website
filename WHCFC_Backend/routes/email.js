@@ -29,17 +29,11 @@ const emailSending = (subject, body) => {
   });
 };
 
-const inputValidate = (firstname, lastname, email, phone, message) => {
-  if (!firstname || firstname == "")
-    return { valid: false, msg: "Invalid firstname" };
-  if (!lastname || lastname == "")
-    return { valid: false, msg: "Invalid lastname" };
-  if (!email || email == "")
-    return { valid: false, msg: "Invalid email" };
-  if (!phone || phone == "")
-    return { valid: false, msg: "Invalid phone number" };
-  if (!message || message == "")
-    return { valid: false, msg: "Invalid message" };
+const inputValidate = inputs => {
+  for (const key in inputs) {
+    if (!inputs[key] || inputs[key] == "")
+      return { valid: false, msg: `Invalid ${key}` };
+  }
 
   return { valid: true };
 };
@@ -47,7 +41,7 @@ const inputValidate = (firstname, lastname, email, phone, message) => {
 router.route("/contact").post(async (req, res) => {
   const { firstname, lastname, email, phone, message } = req.body;
 
-  const { valid, msg } = inputValidate(firstname, lastname, email, phone, message);
+  const { valid, msg } = inputValidate({ firstname, lastname, email, phone, message });
 
   if (!valid)
     return res.status(400).json({ message: msg });
