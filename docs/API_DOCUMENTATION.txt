@@ -1,0 +1,17 @@
+Base URL: https://whcfc.ca
+---------------------------------------------------
+
+API endpoint: /send-email/contact
+- Method: POST
+- Request body:
+    {
+        "firstname": "first name",
+        "lastname": "last name",
+        "email": "email",
+        "phone": "phone number",
+        "message": "message"
+    }
+- Success (200)
+- Errors:
+  - 400 Bad Request - Invalid input for firstname, lastname, email, phone, or message
+  - 500 Internal Server Error

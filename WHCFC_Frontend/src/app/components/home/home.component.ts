@@ -12,25 +12,45 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  
+  homePageData?: {
+    heroSlide1Title: string,
+    heroSlide1Subtitle: string,
+    heroSlide1Link: string,
+    heroSlide2Title: string,
+    heroSlide2Subtitle: string,
+    heroSlide2Link: string,
+    benefitsTitle: string,
+    visionTitle: string,
+    visionContent: string,
+    visionImage: string,
+    missionImage: string,
+    missionTitle: string,
+    missionContent: string,
+    messageTitle: string,
+    messageContent: string,
+    messageVideo: string
+  };
+
+  cmsService: any;
+
   benefits = [
     {
-      icon: '⚽', 
+      icon: '⚽',
       title: 'Free Football Experiences',
       description: 'Attend our Wednesday and Sunday scrimmages at no cost and no obligation. Participate in team play and summer tournaments with no cost.'
     },
     {
-      icon: '🏆', 
+      icon: '🏆',
       title: 'Team Play and Tournaments',
       description: 'Enjoy competitive football opportunities without the financial burden. Join a team with minimal uniform costs and benefit from our efforts to keep expenses low.'
     },
     {
-      icon: '🌟', 
+      icon: '🌟',
       title: 'Community and Networking',
       description: 'Interact with like-minded individuals, develop long-term relationships, and be part of a supportive community. Build connections that enhance both personal and professional growth.'
     },
     {
-      icon: '📚', 
+      icon: '📚',
       title: 'Educational Workshops',
       description: 'Join free workshops focused on developing life skills, career growth, and personal development. Enhance your skills and knowledge to support your future endeavors.'
     }
@@ -39,7 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   activeSlide = 0; // Track the current slide
   slideInterval: ReturnType<typeof setInterval> | undefined; // Hold the interval reference
 
-  constructor(private cdr: ChangeDetectorRef, private titleService: Title, private metaService: Meta) {}
+  constructor(private cdr: ChangeDetectorRef, private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {
     this.titleService.setTitle('Home | White Haven Community Football Club');
@@ -53,7 +73,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (typeof window !== 'undefined') {
       this.slideInterval = setInterval(() => {
         this.nextSlide();
-      }, 10000); 
+      }, 10000);
     }
   }
 

@@ -1,5 +1,6 @@
 import express from "express";
 import nodemailer from "nodemailer";
+import { validate } from "deep-email-validator";
 import db from "../db/db.js";
 
 const router = express.Router();
@@ -19,7 +20,7 @@ const emailSending = (subject, body) => {
     subject: subject,
     text: body,
   };
-  transporter.sendMail(mailOptions, function (error, info) {
+  transporter.sendMail(mailOptions, function(error, info) {
     if (error) {
       console.log(error);
     } else {
@@ -28,34 +29,73 @@ const emailSending = (subject, body) => {
   });
 };
 
+const inputValidate = (firstname, lastname, email, phone, message) => {
+  if (!firstname || firstname == "")
+    return { valid: false, msg: "Invalid firstname" };
+  if (!lastname || lastname == "")
+    return { valid: false, msg: "Invalid lastname" };
+  if (!email || email == "")
+    return { valid: false, msg: "Invalid email" };
+  if (!phone || phone == "")
+    return { valid: false, msg: "Invalid phone number" };
+  if (!message || message == "")
+    return { valid: false, msg: "Invalid message" };
+
+  return { valid: true };
+};
+
 router.route("/contact").post(async (req, res) => {
+  const { firstname, lastname, email, phone, message } = req.body;
+
+  const { valid, msg } = inputValidate(firstname, lastname, email, phone, message);
+
+  if (!valid)
+    return res.status(400).json({ message: msg });
+
+  const validationResult = await validate({
+    email: email,
+    validateRegex: true,
+    validateMx: true,
+    validateTypo: true,
+    validateDisposable: true,
+    validateSMTP: false
+  });
+
+  if (!validationResult.valid)
+    return res.status(400).json({
+      message: "Email is not valid",
+      reason: validationResult.reason
+    });
+
   var emailBody =
     "Sender name: " +
-    req.body.firstname +
-    req.body.lastname +
+    firstname +
+    lastname +
     "\nSender email: " +
-    req.body.email +
+    email +
     "\nSender phone: " +
-    req.body.phone +
+    phone +
     "\nMessage: " +
-    req.body.message;
+    message;
 
   var sql =
     "INSERT INTO contact (firstname, lastname, email, phone, message) VALUES (?, ?, ?, ?, ?)";
 
   try {
     await db.query(sql, [
-      req.body.firstname,
-      req.body.lastname,
-      req.body.email,
-      req.body.phone,
-      req.body.message,
+      firstname,
+      lastname,
+      email,
+      phone,
+      message,
     ]);
     emailSending("Contact Form Submission", emailBody);
-    res.sendStatus(200);
   } catch (error) {
     console.log(error);
+    return res.status(500).json({ "message": "Internal Server Error" });
   }
+
+  res.status(200).json({ "message": "Success" });
 });
 
 export default router;
