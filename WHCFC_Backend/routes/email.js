@@ -30,11 +30,11 @@ const emailSending = (subject, body) => {
   });
 };
 
-const inputValidate = inputs => {
+const inputValidate = (inputs, optionals = new Set()) => {
   for (const key in inputs) {
     inputs[key] = xss(inputs[key]);
 
-    if (!inputs[key] || inputs[key] == "")
+    if (!inputs[key] && !optionals.has(key))
       return { valid: false, msg: `Invalid ${key}` };
   }
 
@@ -42,9 +42,9 @@ const inputValidate = inputs => {
 };
 
 router.route("/contact").post(async (req, res) => {
-  const { firstname, lastname, email, phone, message } = req.body;
+  const { firstname = "", lastname = "", email = "", phone = "", message = "" } = req.body;
 
-  const { valid, msg } = inputValidate({ firstname, lastname, email, phone, message });
+  const { valid, msg } = inputValidate({ firstname, lastname, email, phone, message }, new Set(["phone"]));
 
   if (!valid)
     return res.status(400).json({ message: msg });
@@ -89,10 +89,10 @@ router.route("/contact").post(async (req, res) => {
     emailSending("Contact Form Submission", emailBody);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ "message": "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 
-  res.status(200).json({ "message": "Success" });
+  res.status(200).json({ message: "Success" });
 });
 
 export default router;
