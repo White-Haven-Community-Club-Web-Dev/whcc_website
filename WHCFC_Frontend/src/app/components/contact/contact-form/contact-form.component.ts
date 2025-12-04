@@ -28,7 +28,7 @@ export class ContactFormComponent {
     this.contactForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^(\+?1[-.\s]?)?(\(?\d{3}\)?)[-.\s]?\d{3}[-.\s]?\d{4}$/)]],
+      phone: ['', [Validators.pattern(/^(\+?1[-.\s]?)?(\(?\d{3}\)?)[-.\s]?\d{3}[-.\s]?\d{4}$/)]],
       message: ['', Validators.required],
       subject: ['', Validators.required]
     });
