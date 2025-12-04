@@ -47,9 +47,9 @@ export class ContactFormComponent {
     // Changed depricated direct function passing to latest approach of RxJs
     // subscribe(next,err,complete) -> subscribe({next,complete,error})
     if (this.contactForm.valid) {
-      let [firstName, ...lastName] = this.fullName.value.split(" ");
-      lastName = lastName.join(" ")
-      const formData = { firstName, lastName, ...this.contactForm.value }
+      let [firstname, ...lastname] = this.fullName.value.split(" ");
+      lastname = lastname.join(" ")
+      const formData = { firstname, lastname, ...this.contactForm.value }
 
       this.emailService.sendContactForm(formData).subscribe({
         next: (response) => {
