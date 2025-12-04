@@ -1,5 +1,5 @@
 <div class="container min-w-full mx-auto flex-grow">
-  <section class="px-12 md:px-48 py-20 bg-gradient-to-br from-red-300 to-red-700 text-white text-center">
+  <section class="px-12 md:px-48 py-20 bg-gradient-to-br from-red-100 to-red-700 text-white text-center">
     <h1 class="font-bold text-3xl text-center">Contact Us</h1>
     <h3 class="text-6xl font-bold my-3">We'd love to hear from you!</h3>
     <!-- <p class="mt-3 text-center">
@@ -20,24 +20,22 @@
   </section>
   <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 py-12 ">
     <!-- Contact Form Section -->
-    <div
-      class="pb-6 p-8 bg-card text-card-foreground flex w-full border-[rgba(0,0,0,0.1)] border-[2px] flex-col gap-6 rounded-xl">
+    <div class="pb-6 p-8 bg-card text-card-foreground flex w-full  flex-col gap-6 rounded-xl">
 
-      <h4 class="text-2xl">Contact Form</h4>
+      <h4 class="text-lg">Contact Form</h4>
       <contact-contact-form></contact-contact-form>
     </div>
     <!-- Contact Info Section -->
-    <div
-      class="pb-6 p-8 bg-card text-card-foreground flex w-full border-[rgba(0,0,0,0.1)] border-[2px] flex-col gap-6 rounded-xl">
-      <h4 class="text-2xl">Contact Information</h4>
+    <div class="pb-6 p-8 bg-card text-card-foreground flex w-full  flex-col gap-6 rounded-xl">
+      <h4 class="text-lg">Contact Information</h4>
       <!-- Email Info  Section-->
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><svg
+      <div class="flex items-start gap-4 bg-red-50 p-4 rounded-lg">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0"><svg
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="lucide lucide-mail text-brand-red" aria-hidden="true">
-            <path class="text-primary" d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-            <rect class="text-primary" x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path class="text-white" d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+            <rect class="text-white" x="2" y="4" width="20" height="16" rx="2"></rect>
           </svg></div>
         <div>
           <h6 class="font-['Outfit']  text-lg font-semibold">Email</h6>
@@ -46,11 +44,11 @@
         </div>
       </div>
       <!-- Phone Info Section -->
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><svg
+      <div class="flex items-start gap-4  bg-red-50 p-4 rounded-lg">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0"><svg
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-phone text-primary" aria-hidden="true">
+            class="lucide lucide-phone text-white" aria-hidden="true">
             <path
               d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
             </path>
@@ -63,11 +61,11 @@
         </div>
       </div>
       <!-- Address Section -->
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><svg
+      <div class="flex items-start gap-4  bg-red-50 p-4 rounded-lg">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0"><svg
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-map-pin text-primary" aria-hidden="true">
+            class="lucide lucide-map-pin text-white" aria-hidden="true">
             <path
               d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
             </path>
@@ -81,24 +79,24 @@
         </div>
       </div>
       <!-- Office Hours -->
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center"><svg
+      <div class="flex items-start gap-4 bg-green-50  p-4 rounded-lg ">
+        <div class="w-12 h-12 bg-customGreen rounded-full flex-shrink-0 flex items-center justify-center"><svg
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-clock text-customGreen" aria-hidden="true">
+            class="lucide lucide-clock text-white" aria-hidden="true">
             <path d="M12 6v6l4 2"></path>
             <circle cx="12" cy="12" r="10"></circle>
           </svg></div>
         <div class="w-full">
           <h6 class="mb-6">Office Hours</h6>
-          <div class="space-y-2">
+          <div class="space-y-2 md:w-1/2">
             <div class="flex justify-between"><span class="text-[oklch(.373_.034_259.733)]">Monday - Friday:</span><span
-                class="font-bold">9AM - 5PM</span></div>
+                class="font-semibold text-[#212529]">9AM - 5PM</span></div>
             <div class="flex justify-between"><span class="text-[oklch(.373_.034_259.733)]">Saturday:</span><span
-                class="font-bold">10AM
+                class="font-semibold text-[#212529]">10AM
                 - 2PM</span></div>
             <div class="flex justify-between"><span class="text-[oklch(.373_.034_259.733)]">Sunday:</span><span
-                class="font-bold">Closed</span></div>
+                class="font-semibold text-primary">Closed</span></div>
           </div>
         </div>
 
@@ -110,7 +108,7 @@
           <!--  Facebook -->
           <a href="https://www.facebook.com/profile.php?id=61565831557507&mibextid=LQQJ4d" target="_blank"
             rel="noopener noreferrer"
-            class="w-12 h-12 border-2 border-[oklch(.928_.006_264.531)] rounded-full flex items-center justify-center hover:border-brand-red transition-colors text-blue-600"
+            class="w-12 h-12 bg-blue-600 outline-none rounded-full flex items-center justify-center hover:border-brand-red transition-colors text-white"
             aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-facebook" aria-hidden="true">
@@ -119,7 +117,7 @@
           <!-- Instagram -->
           <a href="https://www.instagram.com/fcwhitehaven?igsh=MTB0ejQ2Z2lxMnA0&utm_source=qr" target="_blank"
             rel="noopener noreferrer"
-            class="w-12 h-12 border-2 border-[oklch(.928_.006_264.531)] border-gray-200 rounded-full flex items-center justify-center hover:border-brand-red transition-colors text-pink-600"
+            class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center hover:border-brand-red transition-colors text-white"
             aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-instagram" aria-hidden="true">
@@ -153,18 +151,18 @@
     </div>
   </section>
   <!-- Location Section -->
-  <section>
+  <!-- <section>
     <contact-contact-map></contact-contact-map>
-  </section>
+  </section> -->
+  <!-- END of Map Sections -->
   <!-- FAQ / Links -->
-  <section class="py-12">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-8">
+  <!-- <section class="py-12">
+     <div class="max-w-6xl mx-auto"> 
+       <div class="text-center mb-8">
         <h2 class="mb-4">Quick Links to Common Questions</h2>
-      </div>
+      </div> 
 
-      <!-- TODO: needs to link to corresponding pages once implemented -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
         <div
           class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border-2 border-[rgba(0,0,0,0.2)] hover:shadow-lg transition-shadow"
           data-slot="card">
@@ -222,7 +220,7 @@
               More</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div> 
+     </div> 
+  </section> -->
 </div>

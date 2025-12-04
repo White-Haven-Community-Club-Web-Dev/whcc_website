@@ -19,8 +19,8 @@ export class ContactFormComponent {
   constructor(private emailService: EmailService, private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       fullName: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern(/^(\+?1[-.\s]?)?(\(?\d{3}\)?)[-.\s]?\d{3}[-.\s]?\d{4}$/)]],
       message: ['', Validators.required],
       subject: ['', Validators.required]
     });
@@ -47,7 +47,11 @@ export class ContactFormComponent {
     // Changed depricated direct function passing to latest approach of RxJs
     // subscribe(next,err,complete) -> subscribe({next,complete,error})
     if (this.contactForm.valid) {
-      this.emailService.sendContactForm(this.contactForm.value).subscribe({
+      let [firstName, ...lastName] = this.fullName.value.split(" ");
+      lastName = lastName.join(" ")
+      const formData = { firstName, lastName, ...this.contactForm.value }
+
+      this.emailService.sendContactForm(formData).subscribe({
         next: (response) => {
           this.showToast("We've recieved your message!");
           this.contactForm.reset();
@@ -66,5 +70,6 @@ export class ContactFormComponent {
   get email() { return this.contactForm.get('email')! }
   get message() { return this.contactForm.get('message')! }
   get subject() { return this.contactForm.get('subject')! }
+  get phone() { return this.contactForm.get('phone')! }
 
 }
