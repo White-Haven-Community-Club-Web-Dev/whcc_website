@@ -5,18 +5,26 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { EmailService } from '../../../services/email.service';
+import { CaptchaService } from '../../../services/captcha.service';
 
 @Component({
   selector: 'contact-contact-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+  ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css',
 })
 export class ContactFormComponent {
   contactForm: FormGroup;
-  constructor(private emailService: EmailService, private fb: FormBuilder) {
+  success: boolean;
+
+  constructor(private emailService: EmailService, private fb: FormBuilder, private captchaService: CaptchaService) {
     this.contactForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -24,6 +32,8 @@ export class ContactFormComponent {
       message: ['', Validators.required],
       subject: ['', Validators.required]
     });
+
+    this.success = false;
   }
 
   // Toast message after contact form submitted successfully
@@ -42,14 +52,24 @@ export class ContactFormComponent {
     }, 3000);
   }
 
+  resolved(response: string | null) {
+    this.captchaService.validate({ response: response }).subscribe({
+      next: res => {
+        this.success = res.success;
+      },
+      error: error => {
+        console.log(error);
+      }
+    });
+  }
 
   onSubmit() {
     // Changed depricated direct function passing to latest approach of RxJs
     // subscribe(next,err,complete) -> subscribe({next,complete,error})
-    if (this.contactForm.valid) {
-      let [firstName, ...lastName] = this.fullName.value.split(" ");
-      lastName = lastName.join(" ")
-      const formData = { firstName, lastName, ...this.contactForm.value }
+    if (this.contactForm.valid && this.success) {
+      let [firstname, ...lastname] = this.fullName.value.split(" ");
+      lastname = lastname.join(" ")
+      const formData = { firstname, lastname, ...this.contactForm.value }
 
       this.emailService.sendContactForm(formData).subscribe({
         next: (response) => {

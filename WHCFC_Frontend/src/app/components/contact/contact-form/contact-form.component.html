@@ -59,6 +59,10 @@
     @if(message.hasError('required')) {<small class="text-red-500">Message is required</small>}
     }
   </div>
+
+  <br/>
+  <re-captcha (resolved)="resolved($event)"></re-captcha>
+
   <button type="submit"
     class="btn btn-primary mt-10 w-full h-10 bg-primary rounded-md hover:bg-red-600 active:bg-red-800 transition-all shadow-md text-lg font-bold text-white">
     Submit
