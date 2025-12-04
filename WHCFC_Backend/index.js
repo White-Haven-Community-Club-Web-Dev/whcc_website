@@ -12,7 +12,12 @@ dotenv.config({ path: env });
 const app = express();
 const port = process.env.port || 8000;
 
-app.use(cors());
+const corsConfig = {
+  origin: process.env.NODE_ENV === "development" ? "http://localhost:4200" : "https://whcfc.ca",
+  allowedHeaders: ["Content-type"]
+};
+
+app.use(cors(corsConfig));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
