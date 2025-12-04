@@ -15,3 +15,17 @@ API endpoint: /send-email/contact
 - Errors:
   - 400 Bad Request - Invalid input for firstname, lastname, email, phone, or message
   - 500 Internal Server Error
+
+API endpoint: /captcha/validate
+- Method: POST
+- Request body:
+  {
+    "response": "captcha token"
+  }
+- Success (200)
+  response: {
+    "success": true|false
+  }
+- Errors:
+  - 400 Bad Request - reCaptcha was not completed
+  - 500 Internal Server Error
