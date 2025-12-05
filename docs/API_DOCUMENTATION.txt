@@ -1,4 +1,6 @@
-Base URL: https://whcfc.ca
+Base URL:
+- Production: https://whcfc.ca
+- Development: https://localhost:8000
 ---------------------------------------------------
 
 API endpoint: /send-email/contact
@@ -8,12 +10,12 @@ API endpoint: /send-email/contact
         "firstname": "first name",
         "lastname": "last name",
         "email": "email",
-        "phone": "phone number",
+        "phone": "phone number", [optional]
         "message": "message"
     }
 - Success (200)
 - Errors:
-  - 400 Bad Request - Invalid input for firstname, lastname, email, phone, or message
+  - 400 Bad Request - Invalid input for firstname, lastname, email, or message
   - 500 Internal Server Error
 
 API endpoint: /captcha/validate
