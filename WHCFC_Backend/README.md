@@ -27,3 +27,21 @@ Note: If you already have a MySQL server running on your machine, you can change
 2. The server will be running on `http://localhost:8000`
 3. For email functionality testing, change the value of `APP_MAILING_RECEIVER_EMAIL` in `.env.dev` to your email address
 4. To validate data in database, universal database manager is recommended. You can use [DBeaver](https://dbeaver.io/download/) or [MySQL Workbench](https://dev.mysql.com/downloads/workbench/). Connect with the credentials in `.env.dev` and you can see the data in the database.
+
+Email password: Requires creating an app password.
+Steps for creating an app password:
+1. Go to Google Account - this can be achieved by going to google.ca, clicking on your profile icon, and clicking Manage your Google Account
+2. In the search bar, search "app password" and click on it
+3. Create an app name and then click "Create”
+4. Copy the 16-character password and paste it in `.env.dev`'s `APP_MAILING_PASSWORD`
+
+Captcha site key and secret key:
+1. Go to https://www.google.com/recaptcha/admin
+2. Click on create (a.k.a + on the top right) 
+3. Choose a label (any will be good)
+4. Select Challenge(v2), then "I'm not a robot" checkbox
+5. Add the domain "localhost"
+6. Create a project name
+7. Press "SUBMIT"
+8. Copy the site key to the location `WHCFC_Frontend/src/environments/environment.development.ts`
+9. Copy the secret to your backend's `.env.dev`'s `CAPTCHA_SECRET`
