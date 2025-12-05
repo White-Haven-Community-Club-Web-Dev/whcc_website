@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_who_we_are_value_cards",
+    "info": {
+        "displayName": "Value Card",
+        "icon": "star",
+        "description": "Represents a core value with an icon, title, and description"
+    },
+    "options": {},
+    "attributes": {
+        "icon": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        }
+    }
+}

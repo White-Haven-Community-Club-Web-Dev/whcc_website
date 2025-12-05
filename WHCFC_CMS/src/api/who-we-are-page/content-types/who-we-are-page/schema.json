@@ -1,0 +1,90 @@
+{
+    "kind": "singleType",
+    "collectionName": "who_we_are_pages",
+    "info": {
+        "singularName": "who-we-are-page",
+        "pluralName": "who-we-are-pages",
+        "displayName": "Who We Are Page",
+        "description": "Static content for the Who We Are page"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "hero_title": {
+            "type": "string",
+            "required": true
+        },
+        "hero_subtitle": {
+            "type": "string"
+        },
+        "hero_background": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "about_title": {
+            "type": "string",
+            "required": true
+        },
+        "about_text": {
+            "type": "richtext",
+            "required": true
+        },
+        "mission_title": {
+            "type": "string",
+            "required": true
+        },
+        "mission_text": {
+            "type": "richtext",
+            "required": true
+        },
+        "vision_title": {
+            "type": "string"
+        },
+        "vision_text": {
+            "type": "richtext"
+        },
+        "goal_title": {
+            "type": "string"
+        },
+        "goal_text": {
+            "type": "richtext"
+        },
+        "values_title": {
+            "type": "string"
+        },
+        "values_cards": {
+            "type": "component",
+            "repeatable": true,
+            "component": "who-we-are.value-card"
+        },
+        "organization_title": {
+            "type": "string"
+        },
+        "organization_cards": {
+            "type": "component",
+            "repeatable": true,
+            "component": "who-we-are.org-card"
+        },
+        "board_title": {
+            "type": "string"
+        },
+        "board_members": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::team-member.team-member"
+        },
+        "partners_title": {
+            "type": "string"
+        },
+        "partners_list": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::partner.partner"
+        }
+    }
+}

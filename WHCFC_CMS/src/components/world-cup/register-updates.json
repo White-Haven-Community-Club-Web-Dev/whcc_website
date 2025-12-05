@@ -1,0 +1,43 @@
+{
+    "collectionName": "components_world_cup_register_updates",
+    "info": {
+        "displayName": "Register Updates",
+        "description": "Register for Updates section",
+        "icon": "email"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text"
+        },
+        "perks": {
+            "type": "component",
+            "repeatable": true,
+            "component": "world-cup.register-perk-item"
+        },
+        "what_you_receive": {
+            "type": "component",
+            "repeatable": true,
+            "component": "global.rich-point"
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "cta_label": {
+            "type": "string",
+            "required": true
+        },
+        "cta_url": {
+            "type": "string",
+            "required": true
+        }
+    }
+}

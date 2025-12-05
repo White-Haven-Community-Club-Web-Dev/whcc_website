@@ -1,0 +1,23 @@
+{
+    "collectionName": "components_world_cup_two_column_features",
+    "info": {
+        "displayName": "Two Column Feature",
+        "description": "Section wrapper for two feature columns",
+        "icon": "layout"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text"
+        },
+        "columns": {
+            "type": "component",
+            "repeatable": true,
+            "component": "world-cup.column-feature-block"
+        }
+    }
+}

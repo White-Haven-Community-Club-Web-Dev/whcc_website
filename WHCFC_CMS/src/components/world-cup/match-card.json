@@ -1,0 +1,51 @@
+{
+    "collectionName": "components_world_cup_match_cards",
+    "info": {
+        "displayName": "Match Card",
+        "description": "Single match schedule card",
+        "icon": "calendar"
+    },
+    "options": {},
+    "attributes": {
+        "team_1_name": {
+            "type": "string",
+            "required": true
+        },
+        "team_1_flag_emoji": {
+            "type": "string"
+        },
+        "team_2_name": {
+            "type": "string",
+            "required": true
+        },
+        "team_2_flag_emoji": {
+            "type": "string"
+        },
+        "stage": {
+            "type": "string"
+        },
+        "match_date": {
+            "type": "date",
+            "required": true
+        },
+        "match_time": {
+            "type": "string",
+            "required": true
+        },
+        "location_label": {
+            "type": "string"
+        },
+        "spots_available": {
+            "type": "integer"
+        },
+        "spots_label": {
+            "type": "string"
+        },
+        "register_button_label": {
+            "type": "string"
+        },
+        "register_button_url": {
+            "type": "string"
+        }
+    }
+}

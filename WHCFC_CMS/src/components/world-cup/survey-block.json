@@ -1,0 +1,40 @@
+{
+    "collectionName": "components_world_cup_survey_blocks",
+    "info": {
+        "displayName": "Survey Block",
+        "description": "Community Needs Assessment Survey section",
+        "icon": "question"
+    },
+    "options": {},
+    "attributes": {
+        "eyebrow_label": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text",
+            "required": true
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "highlight_items": {
+            "type": "component",
+            "repeatable": true,
+            "component": "world-cup.survey-highlight-item"
+        },
+        "cta_label": {
+            "type": "string"
+        },
+        "cta_url": {
+            "type": "string"
+        }
+    }
+}

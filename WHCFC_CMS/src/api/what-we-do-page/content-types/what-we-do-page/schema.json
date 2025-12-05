@@ -1,0 +1,74 @@
+{
+    "kind": "singleType",
+    "collectionName": "what_we_do_pages",
+    "info": {
+        "singularName": "what-we-do-page",
+        "pluralName": "what-we-do-pages",
+        "displayName": "What We Do Page",
+        "description": "Overview of programs and events"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "hero_title": {
+            "type": "string",
+            "required": true
+        },
+        "hero_subtitle": {
+            "type": "text"
+        },
+        "hero_background": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "intro_title": {
+            "type": "string"
+        },
+        "intro_text": {
+            "type": "richtext"
+        },
+        "program_cards": {
+            "type": "component",
+            "repeatable": true,
+            "component": "what-we-do.program-card"
+        },
+        "upcoming_events_title": {
+            "type": "string"
+        },
+        "upcoming_events_list": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::event.event"
+        },
+        "past_events_title": {
+            "type": "string"
+        },
+        "past_events_list": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::event.event"
+        },
+        "world_cup_cta_title": {
+            "type": "string"
+        },
+        "world_cup_cta_text": {
+            "type": "text"
+        },
+        "world_cup_cta_button": {
+            "type": "string"
+        },
+        "world_cup_cta_link": {
+            "type": "string"
+        },
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "global.seo"
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "collectionName": "components_world_cup_big_partner_blocks",
+    "info": {
+        "displayName": "Big Partner Block",
+        "description": "Large Business Improvement Group (BIG) section",
+        "icon": "building"
+    },
+    "options": {},
+    "attributes": {
+        "eyebrow_label": {
+            "type": "string"
+        },
+        "partner_logo": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "richtext",
+            "required": true
+        },
+        "highlight_points": {
+            "type": "component",
+            "repeatable": true,
+            "component": "global.rich-point"
+        },
+        "cta_label": {
+            "type": "string"
+        },
+        "cta_url": {
+            "type": "string"
+        },
+        "footer_text": {
+            "type": "text"
+        }
+    }
+}

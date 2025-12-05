@@ -1,0 +1,29 @@
+{
+    "collectionName": "components_global_seos",
+    "info": {
+        "displayName": "SEO",
+        "description": "SEO metadata for pages",
+        "icon": "search"
+    },
+    "options": {},
+    "attributes": {
+        "metaTitle": {
+            "type": "string",
+            "required": true
+        },
+        "metaDescription": {
+            "type": "text",
+            "required": true
+        },
+        "shareImage": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "preventIndexing": {
+            "type": "boolean"
+        }
+    }
+}

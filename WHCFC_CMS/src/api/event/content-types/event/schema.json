@@ -1,0 +1,62 @@
+{
+    "kind": "collectionType",
+    "collectionName": "events",
+    "info": {
+        "singularName": "event",
+        "pluralName": "events",
+        "displayName": "Events",
+        "description": "Upcoming and past events for What We Do"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "richtext"
+        },
+        "short_summary": {
+            "type": "text"
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "date": {
+            "type": "date",
+            "required": true
+        },
+        "start_time": {
+            "type": "string"
+        },
+        "end_time": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "is_featured": {
+            "type": "boolean"
+        },
+        "event_type": {
+            "type": "enumeration",
+            "enum": [
+                "upcoming",
+                "past"
+            ]
+        },
+        "external_url": {
+            "type": "string"
+        },
+        "order": {
+            "type": "integer"
+        }
+    }
+}

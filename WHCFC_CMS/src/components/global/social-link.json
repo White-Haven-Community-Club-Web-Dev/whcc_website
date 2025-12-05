@@ -1,0 +1,30 @@
+{
+    "collectionName": "components_global_social_links",
+    "info": {
+        "displayName": "Social Link",
+        "description": "Single social media profile link",
+        "icon": "link"
+    },
+    "options": {},
+    "attributes": {
+        "platform": {
+            "type": "enumeration",
+            "enum": [
+                "facebook",
+                "instagram",
+                "twitter",
+                "tiktok",
+                "youtube",
+                "linkedin",
+                "other"
+            ]
+        },
+        "url": {
+            "type": "string",
+            "required": true
+        },
+        "username": {
+            "type": "string"
+        }
+    }
+}

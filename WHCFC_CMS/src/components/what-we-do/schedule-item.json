@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_what_we_do_schedule_items",
+    "info": {
+        "displayName": "WWD Schedule Item",
+        "icon": "calendar",
+        "description": "Single schedule row for weekly programs"
+    },
+    "options": {},
+    "attributes": {
+        "day_label": {
+            "type": "string",
+            "required": true,
+            "description": "e.g. Monday"
+        },
+        "time_range": {
+            "type": "string",
+            "required": true,
+            "description": "e.g. 7:00 PM - 9:00 PM"
+        },
+        "tag": {
+            "type": "string",
+            "description": "e.g. All Levels Welcome, Advanced Players"
+        }
+    }
+}

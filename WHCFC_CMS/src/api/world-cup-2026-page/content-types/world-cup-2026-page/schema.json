@@ -1,0 +1,43 @@
+{
+    "kind": "singleType",
+    "collectionName": "world_cup_2026_pages",
+    "info": {
+        "singularName": "world-cup-2026-page",
+        "pluralName": "world-cup-2026-pages",
+        "displayName": "World Cup 2026 Page",
+        "description": "Landing page for the World Cup 2026 community event"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "slug": {
+            "type": "string"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "world-cup.hero-section",
+            "required": true
+        },
+        "sections": {
+            "type": "dynamiczone",
+            "components": [
+                "world-cup.event-highlight",
+                "world-cup.survey-block",
+                "world-cup.showcase-category",
+                "world-cup.big-partner-block",
+                "world-cup.showcase-cta-group",
+                "world-cup.two-column-feature",
+                "world-cup.register-updates",
+                "world-cup.faq-item"
+            ]
+        },
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "global.seo"
+        }
+    }
+}

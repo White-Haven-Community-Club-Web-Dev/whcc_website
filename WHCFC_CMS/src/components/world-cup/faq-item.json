@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_world_cup_faq_items",
+    "info": {
+        "displayName": "FAQ Item",
+        "description": "Question and answer entry for FAQ",
+        "icon": "question"
+    },
+    "options": {},
+    "attributes": {
+        "question": {
+            "type": "string",
+            "required": true
+        },
+        "answer": {
+            "type": "richtext",
+            "required": true
+        }
+    }
+}

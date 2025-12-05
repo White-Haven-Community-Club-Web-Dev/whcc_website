@@ -1,0 +1,46 @@
+{
+    "collectionName": "components_global_buttons",
+    "info": {
+        "displayName": "Button",
+        "description": "Reusable CTA button",
+        "icon": "cursor"
+    },
+    "options": {},
+    "attributes": {
+        "label": {
+            "type": "string",
+            "required": true
+        },
+        "url": {
+            "type": "string",
+            "required": true
+        },
+        "style": {
+            "type": "enumeration",
+            "enum": [
+                "primary",
+                "secondary",
+                "light",
+                "dark",
+                "link"
+            ]
+        },
+        "icon_left": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "icon_right": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "is_external": {
+            "type": "boolean"
+        }
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "kind": "singleType",
+    "collectionName": "global_settings",
+    "info": {
+        "singularName": "global-settings",
+        "pluralName": "global-settings-plural",
+        "displayName": "Global Settings",
+        "description": "Site-wide configuration and defaults"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "site_name": {
+            "type": "string",
+            "required": true
+        },
+        "tagline": {
+            "type": "string"
+        },
+        "main_logo": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "footer_logo": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "primary_color": {
+            "type": "string"
+        },
+        "secondary_color": {
+            "type": "string"
+        },
+        "contact_email": {
+            "type": "email"
+        },
+        "contact_phone": {
+            "type": "string"
+        },
+        "contact_address": {
+            "type": "text"
+        },
+        "social_links": {
+            "type": "component",
+            "repeatable": true,
+            "component": "global.social-link"
+        },
+        "default_seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "global.seo"
+        }
+    }
+}

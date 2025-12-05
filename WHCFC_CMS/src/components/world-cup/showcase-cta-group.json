@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_world_cup_showcase_cta_groups",
+    "info": {
+        "displayName": "Showcase CTA Group",
+        "description": "Centered CTA inviting people to showcase or perform",
+        "icon": "cursor"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "text": {
+            "type": "text"
+        },
+        "cta_label": {
+            "type": "string",
+            "required": true
+        },
+        "cta_url": {
+            "type": "string",
+            "required": true
+        }
+    }
+}

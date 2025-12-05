@@ -1,0 +1,35 @@
+{
+    "collectionName": "components_what_we_do_cta_blocks",
+    "info": {
+        "displayName": "WWD CTA Block",
+        "icon": "cursor",
+        "description": "Call-to-action block with title, text and button"
+    },
+    "options": {},
+    "attributes": {
+        "eyebrow": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "body": {
+            "type": "text"
+        },
+        "primary_label": {
+            "type": "string",
+            "required": true
+        },
+        "primary_url": {
+            "type": "string",
+            "required": true
+        },
+        "secondary_label": {
+            "type": "string"
+        },
+        "secondary_url": {
+            "type": "string"
+        }
+    }
+}

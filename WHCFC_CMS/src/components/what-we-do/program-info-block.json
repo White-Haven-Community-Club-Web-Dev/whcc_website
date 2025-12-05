@@ -1,0 +1,42 @@
+{
+    "collectionName": "components_what_we_do_program_info_blocks",
+    "info": {
+        "displayName": "WWD Program Info Block",
+        "icon": "info",
+        "description": "Program details such as date, time, venue and audience"
+    },
+    "options": {},
+    "attributes": {
+        "date_label": {
+            "type": "string",
+            "default": "Date"
+        },
+        "date_value": {
+            "type": "string"
+        },
+        "time_label": {
+            "type": "string",
+            "default": "Time"
+        },
+        "time_value": {
+            "type": "string"
+        },
+        "venue_label": {
+            "type": "string",
+            "default": "Venue"
+        },
+        "venue_name": {
+            "type": "string"
+        },
+        "venue_address": {
+            "type": "string"
+        },
+        "audience_label": {
+            "type": "string",
+            "default": "Who Should Attend"
+        },
+        "audience_description": {
+            "type": "text"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "collectionName": "components_world_cup_column_feature_blocks",
+    "info": {
+        "displayName": "Column Feature Block",
+        "description": "Single column in Food & Entertainment section",
+        "icon": "column"
+    },
+    "options": {},
+    "attributes": {
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ],
+            "required": true
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        },
+        "bullet_points": {
+            "type": "component",
+            "repeatable": true,
+            "component": "global.rich-point"
+        }
+    }
+}

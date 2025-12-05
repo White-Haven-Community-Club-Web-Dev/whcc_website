@@ -1,0 +1,62 @@
+{
+    "kind": "singleType",
+    "collectionName": "home_pages",
+    "info": {
+        "singularName": "home-page",
+        "pluralName": "home-pages",
+        "displayName": "Home Page",
+        "description": "Homepage content for WHCFC"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "hero_title": {
+            "type": "string",
+            "required": true
+        },
+        "hero_subtitle": {
+            "type": "text"
+        },
+        "hero_background": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "hero_cta_label": {
+            "type": "string"
+        },
+        "hero_cta_url": {
+            "type": "string"
+        },
+        "featured_event_title": {
+            "type": "string"
+        },
+        "featured_event_description": {
+            "type": "text"
+        },
+        "featured_event_link": {
+            "type": "string"
+        },
+        "world_cup_teaser_title": {
+            "type": "string"
+        },
+        "world_cup_teaser_text": {
+            "type": "text"
+        },
+        "world_cup_teaser_button_label": {
+            "type": "string"
+        },
+        "world_cup_teaser_button_url": {
+            "type": "string"
+        },
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "global.seo"
+        }
+    }
+}

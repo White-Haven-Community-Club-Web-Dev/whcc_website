@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_global_rich_points",
+    "info": {
+        "displayName": "Rich Point",
+        "description": "Reusable bullet/point item with optional description",
+        "icon": "dot-circle"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        }
+    }
+}

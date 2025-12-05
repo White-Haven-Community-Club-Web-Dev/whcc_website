@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_world_cup_register_perk_items",
+    "info": {
+        "displayName": "Register Perk Item",
+        "description": "Small perk card inside Register For Updates",
+        "icon": "check"
+    },
+    "options": {},
+    "attributes": {
+        "icon": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        }
+    }
+}

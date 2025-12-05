@@ -1,0 +1,37 @@
+{
+    "kind": "collectionType",
+    "collectionName": "contacts",
+    "info": {
+        "singularName": "contact",
+        "pluralName": "contacts",
+        "displayName": "Contacts",
+        "description": "Submissions from the public contact form"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "email": {
+            "type": "email",
+            "required": true
+        },
+        "phone": {
+            "type": "string"
+        },
+        "message": {
+            "type": "text",
+            "required": true
+        },
+        "source_page": {
+            "type": "string"
+        },
+        "consent": {
+            "type": "boolean"
+        }
+    }
+}

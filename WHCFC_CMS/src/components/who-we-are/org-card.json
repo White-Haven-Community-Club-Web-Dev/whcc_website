@@ -1,0 +1,32 @@
+{
+    "collectionName": "components_who_we_are_org_cards",
+    "info": {
+        "displayName": "WWA Org Card",
+        "icon": "building",
+        "description": "Overview card for the club/organization"
+    },
+    "options": {},
+    "attributes": {
+        "org_name": {
+            "type": "string",
+            "required": true
+        },
+        "tagline": {
+            "type": "string"
+        },
+        "summary": {
+            "type": "richtext"
+        },
+        "founded_year": {
+            "type": "integer"
+        },
+        "location": {
+            "type": "string"
+        },
+        "highlights": {
+            "type": "component",
+            "repeatable": true,
+            "component": "what-we-do.checklist-item"
+        }
+    }
+}

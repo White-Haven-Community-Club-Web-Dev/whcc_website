@@ -1,0 +1,55 @@
+{
+    "collectionName": "components_world_cup_hero_sections",
+    "info": {
+        "displayName": "Hero Section",
+        "description": "Hero banner for World Cup 2026 page",
+        "icon": "trophy"
+    },
+    "options": {},
+    "attributes": {
+        "background_image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ],
+            "required": true
+        },
+        "eyebrow_label": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text"
+        },
+        "countdown_event_date": {
+            "type": "datetime"
+        },
+        "primary_button_label": {
+            "type": "string"
+        },
+        "primary_button_url": {
+            "type": "string"
+        },
+        "secondary_button_label": {
+            "type": "string"
+        },
+        "secondary_button_url": {
+            "type": "string"
+        },
+        "overlay_opacity": {
+            "type": "decimal"
+        },
+        "text_alignment": {
+            "type": "enumeration",
+            "enum": [
+                "left",
+                "center",
+                "right"
+            ]
+        }
+    }
+}

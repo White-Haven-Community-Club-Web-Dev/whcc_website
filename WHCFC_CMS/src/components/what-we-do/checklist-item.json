@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_what_we_do_checklist_items",
+    "info": {
+        "displayName": "WWD Checklist Item",
+        "icon": "check",
+        "description": "Simple checklist/bullet item used in What We Do sections"
+    },
+    "options": {},
+    "attributes": {
+        "label": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        }
+    }
+}
