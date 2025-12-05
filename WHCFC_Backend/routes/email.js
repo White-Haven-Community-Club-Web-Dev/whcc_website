@@ -30,10 +30,19 @@ const emailSending = (subject, body) => {
   });
 };
 
-const inputValidate = (inputs, optionals = new Set()) => {
+const inputSanitizer = inputs => {
   for (const key in inputs) {
-    inputs[key] = xss(inputs[key]);
+    const input = inputs[key];
 
+    if (xss(input) !== input)
+      return { valid: false, msg: `Malicious code in ${key}` };
+  }
+
+  return { valid: true };
+};
+
+const inputValidator = (inputs, optionals = new Set()) => {
+  for (const key in inputs) {
     if (!inputs[key] && !optionals.has(key))
       return { valid: false, msg: `Invalid ${key}` };
   }
@@ -43,11 +52,18 @@ const inputValidate = (inputs, optionals = new Set()) => {
 
 router.route("/contact").post(async (req, res) => {
   const { firstname = "", lastname = "", email = "", phone = "", message = "" } = req.body;
+  const inputs = { firstname, lastname, email, phone, message }
+  const optionals = new Set(["phone"])
 
-  const { valid, msg } = inputValidate({ firstname, lastname, email, phone, message }, new Set(["phone"]));
+  const sanitizerResult = inputSanitizer(inputs);
 
-  if (!valid)
-    return res.status(400).json({ message: msg });
+  if (!sanitizerResult.valid)
+    return res.status(400).json({ message: sanitizerResult.msg });
+
+  const validatorResult = inputValidator(inputs, optionals);
+
+  if (!validatorResult.valid)
+    return res.status(400).json({ message: validatorResult.msg });
 
   const validationResult = await validate({
     email: email,
@@ -64,7 +80,7 @@ router.route("/contact").post(async (req, res) => {
       reason: validationResult.reason
     });
 
-  var emailBody =
+  const emailBody =
     "Sender name: " +
     firstname +
     lastname +
@@ -75,7 +91,7 @@ router.route("/contact").post(async (req, res) => {
     "\nMessage: " +
     message;
 
-  var sql =
+  const sql =
     "INSERT INTO contact (firstname, lastname, email, phone, message) VALUES (?, ?, ?, ?, ?)";
 
   try {
