@@ -22,7 +22,7 @@ import { CaptchaService } from '../../../services/captcha.service';
 })
 export class ContactFormComponent {
   contactForm: FormGroup;
-  success: boolean;
+  response: string | null;
 
   constructor(private emailService: EmailService, private fb: FormBuilder, private captchaService: CaptchaService) {
     this.contactForm = this.fb.group({
@@ -33,7 +33,7 @@ export class ContactFormComponent {
       subject: ['', Validators.required]
     });
 
-    this.success = false;
+    this.response = null;
   }
 
   // Toast message after contact form submitted successfully
@@ -53,23 +53,21 @@ export class ContactFormComponent {
   }
 
   resolved(response: string | null) {
-    this.captchaService.validate({ response: response }).subscribe({
-      next: res => {
-        this.success = res.success;
-      },
-      error: error => {
-        console.log(error);
-      }
-    });
+    this.response = response;
   }
 
   onSubmit() {
     // Changed depricated direct function passing to latest approach of RxJs
     // subscribe(next,err,complete) -> subscribe({next,complete,error})
-    if (this.contactForm.valid && this.success) {
+    if (this.contactForm.valid) {
       let [firstname, ...lastname] = this.fullName.value.split(" ");
       lastname = lastname.join(" ")
-      const formData = { firstname, lastname, ...this.contactForm.value }
+      const formData = {
+        firstname,
+        lastname,
+        ...this.contactForm.value,
+        response: this.response
+      };
 
       this.emailService.sendContactForm(formData).subscribe({
         next: (response) => {

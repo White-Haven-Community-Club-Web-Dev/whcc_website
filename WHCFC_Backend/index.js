@@ -3,7 +3,6 @@ import cors from "cors";
 import "dotenv/config";
 import emailRoute from "./routes/email.js";
 import eventRoute from "./routes/agenda.js";
-import captchaRoute from "./routes/captcha.js";
 import dotenv from "dotenv";
 
 // Load environment variables
@@ -19,7 +18,6 @@ app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
 app.use("/send-email", emailRoute);
 app.use("/agenda", eventRoute);
-app.use("/captcha", captchaRoute);
 
 app.listen(port, async () => {
   console.log("Server is running on port: " + port);

@@ -1,12 +1,6 @@
-import express from "express";
-
-const router = express.Router();
-
-router.post("/validate", async (req, res) => {
-  const { response } = req.body;
-
+async function validateCaptcha(response) {
   if (!response)
-    return res.status(400).json({ success: false, message: "reCaptcha was not completed" });
+    return { valid: false, msg: "reCaptcha was not completed" };
 
   try {
     const params = new URLSearchParams();
@@ -26,12 +20,17 @@ router.post("/validate", async (req, res) => {
 
     const data = await apiRes.json();
 
-    return res.status(200).json({ success: data.success });
+    const success = data.success;
+
+    return {
+      valid: success,
+      msg: success ? "Valid reCaptcha" : "Invalid reCaptcha"
+    };
   }
   catch (error) {
     console.log(error);
-    return res.status(500).json({ success: false, message: "Internal Server Error" });
+    return { valid: false, msg: "Internal Server Error" };
   }
-});
+};
 
-export default router;
+export { validateCaptcha };
