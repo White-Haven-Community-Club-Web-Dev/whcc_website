@@ -13,6 +13,7 @@ import { SponsorsComponent } from './pages/sponsors/sponsors.component';
 import { EducationalSessionsComponent } from './pages/educational-sessions/educational-sessions.component';
 import { YouthProgramComponent } from './pages/youth-program/youth-program.component';
 import { CanadadayComponent } from './pages/canadaday/canadaday.component';
+import { WhatWeDoComponent } from './pages/what-we-do/what-we-do.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ export const routes: Routes = [
   { path: 'educational-sessions', component: EducationalSessionsComponent },
   { path: 'youth-program', component: YouthProgramComponent },
   { path: 'canadaday', component: CanadadayComponent },
+  { path: 'what-we-do', component: WhatWeDoComponent }
 ];
 
 @NgModule({
