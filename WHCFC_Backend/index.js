@@ -20,8 +20,8 @@ const corsConfig = {
 };
 
 app.use(cors(corsConfig));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "1mb" }));
+app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
 app.use("/send-email", emailRoute);
 app.use("/agenda", eventRoute);

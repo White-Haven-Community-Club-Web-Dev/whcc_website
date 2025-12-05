@@ -1,6 +1,7 @@
 import express from "express";
 import nodemailer from "nodemailer";
 import { validate } from "deep-email-validator";
+import xss from "xss";
 import db from "../db/db.js";
 
 const router = express.Router();
@@ -29,28 +30,46 @@ const emailSending = (subject, body) => {
   });
 };
 
-const inputValidate = (firstname, lastname, email, phone, message) => {
-  if (!firstname || firstname == "")
-    return { valid: false, msg: "Invalid firstname" };
-  if (!lastname || lastname == "")
-    return { valid: false, msg: "Invalid lastname" };
-  if (!email || email == "")
-    return { valid: false, msg: "Invalid email" };
-  if (!phone || phone == "")
-    return { valid: false, msg: "Invalid phone number" };
-  if (!message || message == "")
-    return { valid: false, msg: "Invalid message" };
+const inputSanitizer = inputs => {
+  for (const key in inputs) {
+    const input = inputs[key];
+
+    if (xss(input) !== input)
+      return { valid: false, msg: `Malicious code in ${key}` };
+  }
 
   return { valid: true };
 };
 
+const inputValidator = (inputs, optionals = new Set()) => {
+  for (const key in inputs) {
+    if (!inputs[key] && !optionals.has(key))
+      return { valid: false, msg: `Invalid ${key}` };
+  }
+
+  return { valid: true };
+};
+
+const phoneFormatValidator = phone => {
+  const format = /^(\+?1[-.\s]?)?(\(?\d{3}\)?)[-.\s]?\d{3}[-.\s]?\d{4}$/;
+
+  return format.test(phone);
+};
+
 router.route("/contact").post(async (req, res) => {
-  const { firstname, lastname, email, phone, message } = req.body;
+  const { firstname = "", lastname = "", email = "", phone = "", message = "" } = req.body;
+  const inputs = { firstname, lastname, email, phone, message }
+  const optionals = new Set(["phone"])
 
-  const { valid, msg } = inputValidate(firstname, lastname, email, phone, message);
+  const sanitizerResult = inputSanitizer(inputs);
 
-  if (!valid)
-    return res.status(400).json({ message: msg });
+  if (!sanitizerResult.valid)
+    return res.status(400).json({ message: sanitizerResult.msg });
+
+  const validatorResult = inputValidator(inputs, optionals);
+
+  if (!validatorResult.valid)
+    return res.status(400).json({ message: validatorResult.msg });
 
   const validationResult = await validate({
     email: email,
@@ -67,7 +86,12 @@ router.route("/contact").post(async (req, res) => {
       reason: validationResult.reason
     });
 
-  var emailBody =
+  if (!phoneFormatValidator(phone) && !(phone === ""))
+    return res.status(400).json({
+      message: "Invalid phone number format"
+    });
+
+  const emailBody =
     "Sender name: " +
     firstname +
     lastname +
@@ -78,7 +102,7 @@ router.route("/contact").post(async (req, res) => {
     "\nMessage: " +
     message;
 
-  var sql =
+  const sql =
     "INSERT INTO contact (firstname, lastname, email, phone, message) VALUES (?, ?, ?, ?, ?)";
 
   try {
@@ -92,10 +116,10 @@ router.route("/contact").post(async (req, res) => {
     emailSending("Contact Form Submission", emailBody);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ "message": "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 
-  res.status(200).json({ "message": "Success" });
+  res.status(200).json({ message: "Success" });
 });
 
 export default router;
