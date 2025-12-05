@@ -4,7 +4,7 @@ const table_create_query = `
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    phone VARCHAR(255) NOT NULL,
+    phone VARCHAR(255),
     message TEXT NOT NULL
   );
 
