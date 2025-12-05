@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { CMSService, HomePageData } from '../../services/cms.service';
 
 @Component({
   selector: 'app-home',
@@ -12,27 +13,12 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  homePageData?: {
-    heroSlide1Title: string,
-    heroSlide1Subtitle: string,
-    heroSlide1Link: string,
-    heroSlide2Title: string,
-    heroSlide2Subtitle: string,
-    heroSlide2Link: string,
-    benefitsTitle: string,
-    visionTitle: string,
-    visionContent: string,
-    visionImage: string,
-    missionImage: string,
-    missionTitle: string,
-    missionContent: string,
-    messageTitle: string,
-    messageContent: string,
-    messageVideo: string
-  };
-
-  cmsService: any;
-
+  
+  // HomePage Content from CMS
+  homePageData: HomePageData | null = null;
+  loadingHomePage = true;
+  
+  // Fallback data (used while loading or if CMS fails)
   benefits = [
     {
       icon: '⚽',
@@ -59,7 +45,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   activeSlide = 0; // Track the current slide
   slideInterval: ReturnType<typeof setInterval> | undefined; // Hold the interval reference
 
-  constructor(private cdr: ChangeDetectorRef, private titleService: Title, private metaService: Meta) { }
+  constructor(
+    private cdr: ChangeDetectorRef, 
+    private titleService: Title, 
+    private metaService: Meta,
+    public cmsService: CMSService  // Make public so template can access it
+  ) {}
 
   ngOnInit() {
     this.titleService.setTitle('Home | White Haven Community Football Club');
@@ -75,6 +66,27 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.nextSlide();
       }, 10000);
     }
+
+    // Load homepage content from CMS
+    this.loadHomePageContent();
+  }
+
+  loadHomePageContent() {
+    this.cmsService.getHomePage().subscribe({
+      next: (response) => {
+        this.homePageData = response.data;
+        this.loadingHomePage = false;
+        // Update benefits from CMS
+        if (this.homePageData.benefits) {
+          this.benefits = this.homePageData.benefits;
+        }
+      },
+      error: (error) => {
+        console.error('Failed to load homepage content:', error);
+        this.loadingHomePage = false;
+        // Continue with fallback/default data
+      }
+    });
   }
 
 
