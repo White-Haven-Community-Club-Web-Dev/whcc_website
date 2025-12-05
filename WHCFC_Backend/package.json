@@ -13,9 +13,11 @@
   "dependencies": {
     "@dotenvx/dotenvx": "^1.14.1",
     "cors": "^2.8.5",
+    "deep-email-validator": "^0.1.21",
     "express": "^4.21.0",
     "mysql2": "^3.11.3",
-    "nodemailer": "^6.9.15"
+    "nodemailer": "^6.9.15",
+    "xss": "^1.0.15"
   },
   "type": "module"
 }
