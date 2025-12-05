@@ -82,6 +82,8 @@ export class ContactFormComponent {
     } else {
       this.contactForm.markAllAsTouched()
     }
+
+    grecaptcha.reset();
   }
 
   get fullName() { return this.contactForm.get('fullName')! }
