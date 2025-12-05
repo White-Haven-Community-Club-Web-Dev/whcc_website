@@ -50,6 +50,12 @@ const inputValidator = (inputs, optionals = new Set()) => {
   return { valid: true };
 };
 
+const phoneFormatValidator = phone => {
+  const format = /^(\+?1[-.\s]?)?(\(?\d{3}\)?)[-.\s]?\d{3}[-.\s]?\d{4}$/;
+
+  return format.test(phone);
+};
+
 router.route("/contact").post(async (req, res) => {
   const { firstname = "", lastname = "", email = "", phone = "", message = "" } = req.body;
   const inputs = { firstname, lastname, email, phone, message }
@@ -78,6 +84,11 @@ router.route("/contact").post(async (req, res) => {
     return res.status(400).json({
       message: "Email is not valid",
       reason: validationResult.reason
+    });
+
+  if (!phoneFormatValidator(phone) && !(phone === ""))
+    return res.status(400).json({
+      message: "Invalid phone number format"
     });
 
   const emailBody =
