@@ -1,91 +1,87 @@
-<header class="flex md:h-0 md:p-0">
-  <div class="logo">
-    <a routerLink="/">
-      <img src="assets/team_logo.jpg" class="md:hidden" alt="Logo" />
-    </a>
-  </div>
-  <div class="grow"></div>
-  <div class="hamburger" (click)="toggleNavbar()">
-    <div></div>
-    <div></div>
-    <div></div>
+<header class="fixed inset-x-0 top-0 z-40 bg-white shadow-sm">
+  <div class="flex-1 px-4 md:px-6 lg:px-8 xl:px-0 max-w-6xl mx-auto">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Brand -->
+      <div class="flex items-center gap-3">
+        <div [routerLink]="brand.homeLink" routerLinkActive="active"
+          class="flex h-9 w-9 items-center justify-center rounded-full bg-red-600 text-sm font-semibold text-white shadow hover:cursor-pointer">
+          {{ brand.initial }}
+        </div>
+        <span [routerLink]="brand.homeLink" routerLinkActive="active"
+          class="text-base font-semibold tracking-wide text-slate-900 hover:cursor-pointer">
+          {{ brand.name }}
+        </span>
+      </div>
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm tracking-wide text-slate-700">
+        <!-- Home icon -->
+        <a [routerLink]="brand.homeLink" routerLinkActive="active">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="ml-3 h-5 w-5 sm:block cursor-pointer hover:text-red-500">
+            <path
+              d="M12.5 17.5V10.8333C12.5 10.6123 12.4122 10.4004 12.2559 10.2441C12.0996 10.0878 11.8877 10 11.6667 10H8.33333C8.11232 10 7.90036 10.0878 7.74408 10.2441C7.5878 10.4004 7.5 10.6123 7.5 10.8333V17.5"
+              stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M2.5 8.33333C2.49994 8.09089 2.55278 7.85135 2.65482 7.63143C2.75687 7.41151 2.90566 7.2165 3.09083 7.06L8.92417 2.06C9.22499 1.80576 9.60613 1.66627 10 1.66627C10.3939 1.66627 10.775 1.80576 11.0758 2.06L16.9092 7.06C17.0943 7.2165 17.2431 7.41151 17.3452 7.63143C17.4472 7.85135 17.5001 8.09089 17.5 8.33333V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V8.33333Z"
+              stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <!-- Text nav items -->
+        <button *ngFor="let item of navItems" [routerLink]="item.link" routerLinkActive="active" type="button"
+          class="hover:text-red-600">
+          {{ item.label }}
+        </button>
+      </nav>
+      <!-- Desktop CTA -->
+      <button [routerLink]="cta.link" routerLinkActive="active" type="button"
+        class="hidden lg:inline-flex items-center rounded-lg bg-red-600 px-4 py-2 text-s font-semibold text-white shadow hover:bg-red-700">
+        {{ cta.label }}
+      </button>
+      <!-- Mobile Hamburger button -->
+      <button *ngIf="!isMobileMenuOpen" type="button"
+        class="inline-flex items-center justify-center rounded-md p-2 lg:hidden" (click)="toggleMobileMenu()"
+        aria-label="Toggle navigation">
+        <div>
+          <img [src]="icons.hamburger" alt="Hamburger Icon" />
+        </div>
+      </button>
+      <!-- Mobile Close button -->
+      <button *ngIf="isMobileMenuOpen" type="button"
+        class="inline-flex items-center justify-center rounded-md p-2 lg:hidden" (click)="toggleMobileMenu()"
+        aria-label="Toggle navigation">
+        <div>
+          <img [src]="icons.close" alt="Close Icon" />
+        </div>
+      </button>
+    </div>
+    <!-- Mobile Nav -->
+    <div *ngIf="isMobileMenuOpen" class="border-t border-slate-100 pb-4 lg:hidden">
+      <nav class="mt-3 space-y-2 text-sm text-slate-800">
+        <!-- Home icon row -->
+        <a [routerLink]="brand.homeLink" routerLinkActive="active">
+          <div class="px-2 py-1 w-8 h-8 w-full flex items-center justify-start hover:bg-gray-100">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-slate-800">
+              <path
+                d="M12.5 17.5V10.8333C12.5 10.6123 12.4122 10.4004 12.2559 10.2441C12.0996 10.0878 11.8877 10 11.6667 10H8.33333C8.11232 10 7.90036 10.0878 7.74408 10.2441C7.5878 10.4004 7.5 10.6123 7.5 10.8333V17.5"
+                stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M2.5 8.33333C2.49994 8.09089 2.55278 7.85135 2.65482 7.63143C2.75687 7.41151 2.90566 7.2165 3.09083 7.06L8.92417 2.06C9.22499 1.80576 9.60613 1.66627 10 1.66627C10.3939 1.66627 10.775 1.80576 11.0758 2.06L16.9092 7.06C17.0943 7.2165 17.2431 7.41151 17.3452 7.63143C17.4472 7.85135 17.5001 8.09089 17.5 8.33333V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V8.33333Z"
+                stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </a>
+        <!-- Text nav items -->
+        <button *ngFor="let item of navItems" [routerLink]="item.link" routerLinkActive="active" type="button"
+          class="block w-full text-left px-2 py-1 hover:bg-gray-100">
+          {{ item.label }}
+        </button>
+        <!-- Mobile CTA -->
+        <button [routerLink]="cta.link" routerLinkActive="active" type="button"
+          class="mt-2 inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2 text-xs font-semibold text-white shadow hover:bg-red-700">
+          {{ cta.label }}
+        </button>
+      </nav>
+    </div>
   </div>
 </header>
-<div class="flex items-center justify-between md:py-3 md:px-2">
-  <div class="logo h-0 md:h-auto">
-    <a routerLink="/">
-      <img src="assets/team_logo.jpg" class="hidden md:block" alt="Logo" />
-    </a>
-  </div>
-  <nav
-    class="navbar flex justify-around w-full"
-    [ngClass]="{ active: isNavbarActive }"
-  >
-    <ul>
-      <li>
-        <a routerLink="/about-us" routerLinkActive="active">About Us</a>
-      </li>
-      <li>
-        <a routerLink="/youth-program" routerLinkActive="active"
-          >Youth Program</a
-        >
-      </li>
-      <div class="programs-dropdown">
-        <li>
-          <a href="/">Programs</a>
-          <ul class="dropdown-menu">
-            <li>
-              <a routerLink="/indoor-soccer" routerLinkActive="active"
-                >Indoor Soccer</a
-              >
-            </li>
-            <li>
-              <a routerLink="/play" routerLinkActive="active">F4 Program</a>
-            </li>
-            <li>
-              <a routerLink="/tournament" routerLinkActive="active"
-                >2025 Tournament</a
-              >
-            </li>
-            <li>
-              <a routerLink="/educational-sessions" routerLinkActive="active"
-                >Educational Sessions</a
-              >
-            </li>
-            <li>
-              <a routerLink="/canadaday" routerLinkActive="active"
-                >Canada day Soccer Tournament
-              </a>
-            </li>
-          </ul>
-        </li>
-      </div>
-      <li class="mobile-link">
-        <a routerLink="/indoor-soccer" routerLinkActive="active"
-          >Indoor Soccer</a
-        >
-      </li>
-      <li class="mobile-link">
-        <a routerLink="/play" routerLinkActive="active">F4 Program</a>
-      </li>
-      <li class="mobile-link">
-        <a routerLink="/tournament" routerLinkActive="active"
-          >2025 Tournament</a
-        >
-      </li>
-      <li class="mobile-link">
-        <a routerLink="/educational-sessions" routerLinkActive="active"
-          >Educational Sessions</a
-        >
-      </li>
-      <li class="mobile-link">
-        <a routerLink="/canadaday" routerLinkActive="active"
-          >Canada day Soccer Tournament
-        </a>
-      </li>
-      <li>
-        <a routerLink="/sponsors" routerLinkActive="active">Sponsors</a>
-      </li>
-    </ul>
-  </nav>
-</div>

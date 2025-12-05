@@ -1,96 +1,231 @@
-<section class="carousel-container">
-  <!-- Slide 1: Tournament Information -->
-  <div class="blurred-background"></div>
-  <div class="carousel-content min-h-80" *ngIf="activeSlide === 0">
-    <div class="hero-content space-y-2">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold">
-        {{ homePageData?.heroSlide1Title || 'Experience The Agony of Defeat & The Thrill of Victory!' }}
-      </h1>
-      <p class="text-lg md:text-xl lg:text-2xl leading-tight">
-        {{ homePageData?.heroSlide1Subtitle || 'Do you want to be part of to a team and play in Tournaments & Friendlies?' }}
-      </p>
-      <br />
-      <p class="text-base md:text-lg lg:text-xl leading-tight">
-        <a [routerLink]="homePageData?.heroSlide1Link || '/tournament'">Click here for more information</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- Slide 2: Free Soccer Information -->
-  <div class="carousel-content min-h-80" *ngIf="activeSlide === 1">
-    <div class="hero-content space-y-5">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold">
-        {{ homePageData?.heroSlide2Title || 'Want to Play Football for Free?' }}
-      </h1>
-      <p class="text-lg md:text-xl lg:text-2xl leading-tight">
-        {{ homePageData?.heroSlide2Subtitle || 'Yes, you heard it right! It\'s free.' }}
-      </p>
-      <p class="text-base md:text-lg lg:text-xl leading-tight">
-        <a [routerLink]="homePageData?.heroSlide2Link || '/play'">Click here for more information</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- Carousel Controls -->
-  <div class="carousel-controls">
-    <button (click)="prevSlide()" class="arrow left-arrow"><</button>
-    <button (click)="nextSlide()" class="arrow right-arrow">></button>
-  </div>
-</section>
-
-<div class="benefits-section">
-  <h2>{{ homePageData?.benefitsTitle || 'White Haven Community Football Club' }}</h2>
-  <div class="benefits">
-    <div class="benefit-card" *ngFor="let benefit of benefits">
-      <div class="benefit-icon">{{ benefit.icon }}</div>
-      <div class="benefit-text">
-        <h3>{{ benefit.title }}</h3>
-        <p>{{ benefit.description }}</p>
+<div class="min-h-screen bg-slate-50 flex flex-col font-sans">
+  <!-- Main content -->
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative min-h-[calc(100vh)] overflow-hidden flex items-center md:min-h-[calc(100vh)]">
+      <img src="assets/Hero Section Image.png" alt="Players on a soccer pitch"
+        class="absolute inset-0 h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/55 to-black/30"></div>
+      <div class="relative z-10 flex w-full flex-col items-center justify-center px-4 text-center text-white">
+        <p class="mb-3 text-xs font-semibold tracking-[0.25em] uppercase">
+          {{ hero.eyebrow }}
+        </p>
+        <h1 class="mb-3 text-3xl font-semibold sm:text-4xl md:text-5xl">
+          <span class="block">
+            <span class="text-green-500">{{ hero.titleHighlight }}</span>
+            {{ hero.titleRest }}
+          </span>
+        </h1>
+        <p class="mb-6 text-sm sm:text-base md:text-lg text-white/90">
+          {{ hero.subtitle }}
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <button [routerLink]="hero.primaryCta.link" routerLinkActive="active"
+            class="rounded-lg bg-[#e02020] px-6 py-2.5 text-xs font-semibold uppercase tracking-wide text-white shadow-lg hover:bg-[#c01a1a] transition">
+            {{ hero.primaryCta.label }}
+          </button>
+          <button [routerLink]="hero.secondaryCta.link" routerLinkActive="active"
+            class="flex items-center gap-2 rounded-lg border border-white/60 bg-white/5 px-6 py-2.5 text-xs font-semibold uppercase tracking-wide text-white hover:bg-white/10 transition">
+            <span class="inline-flex items-center justify-center">
+              {{ hero.secondaryCta.playIcon }}
+            </span>
+            {{ hero.secondaryCta.label }}
+          </button>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
+    <!-- Quick Actions Section -->
+    <section class="relative z-20 -mt-10 md:-mt-12 lg:-mt-14 py-4 px-4 md:px-6 lg:px-8 xl:px-0 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6 py-3">
+        <article *ngFor="let action of quickActions"
+          class="bg-white rounded-2xl shadow-[0_18px_40px_rgba(15,23,42,0.12)] px-5 py-5 md:px-6 md:py-6 flex flex-col justify-between">
+          <div class="flex flex-col items-start gap-3">
+            <div class="h-10 w-10 rounded-full flex items-center justify-center"
+              [style.backgroundColor]="action.iconBg">
+              <img [src]="'assets/' + action.icon" [alt]="action.title" class="h-5 w-5" />
+            </div>
+            <div>
+              <h3 class="text-sm md:text-base font-semibold text-gray-900">
+                {{ action.title }}
+              </h3>
+              <p class="mt-1 text-xs md:text-sm text-gray-600">
+                {{ action.description }}
+              </p>
+            </div>
+          </div>
+          <button [routerLink]="action.link" routerLinkActive="active" type="button"
+            class="mt-4 text-xs md:text-sm font-semibold hover:underline inline-flex items-center"
+            [ngClass]="action.linkColorClass">
+            {{ action.linkText }}
+            <span class="ml-1">→</span>
+          </button>
+        </article>
+      </div>
+    </section>
+    <!-- Featured Event Section -->
+    <section id="featured-event" class="bg-red-50">
+      <div class="px-4 md:px-6 lg:px-8 xl:px-0 max-w-6xl mx-auto mt-16 md:mt-20 py-16">
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-10">
+          <div
+            class="inline-flex items-center px-4 py-2 rounded-full bg-[#e02020] text-[11px] font-semibold tracking-[0.10em] uppercase text-white">
+            <span class="mr-2 inline-flex h-4 w-4 items-center justify-center rounded-full">
+              {{ featuredEventHeader.badgeEmoji }}
+            </span>
+            {{ featuredEventHeader.badgeLabel }}
+          </div>
+          <h2 class="mt-4 text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">
+            {{ featuredEventHeader.title }}
+          </h2>
+          <p class="mt-3 max-w-2xl text-sm md:text-base text-gray-600 leading-relaxed">
+            <ng-container *ngFor="let line of featuredEventHeader.descriptionLines; let last = last">
+              {{ line }}<br *ngIf="!last" />
+            </ng-container>
+          </p>
+        </div>
+        <!-- Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] gap-6 lg:gap-8 items-stretch">
+          <!-- Left: Event image card -->
+          <article class="relative rounded-[26px] overflow-hidden shadow-[0_20px_40px_rgba(15,23,42,0.25)]
+                   min-h-[360px] md:min-h-[400px] lg:min-h-[430px]">
+            <img src="assets/FIFA World Cup 2026 Watch Party Image.png" alt="FIFA World Cup 2026 watch party crowd"
+              class="absolute inset-0 h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent"></div>
+            <div class="absolute left-6 bottom-5 text-white">
+              <p class="text-sm md:text-base font-semibold">
+                {{ featuredEventImageText.monthLabel }}
+              </p>
+              <p class="text-xs md:text-sm text-white/90">
+                {{ featuredEventImageText.tagline }}
+              </p>
+            </div>
+          </article>
+          <!-- Right: Details -->
+          <div class="flex flex-col gap-4 lg:gap-5">
+            <!-- Top: Four Info Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+              <div *ngFor="let detail of featuredEventDetails"
+                class="flex items-start gap-3 bg-white rounded-2xl px-4 py-3 md:px-5 md:py-4 shadow-[0_16px_30px_rgba(15,23,42,0.10)]">
+                <div class="h-9 w-9 rounded-2xl flex items-center justify-center"
+                  [style.backgroundColor]="detail.iconBg">
+                  <img [src]="'assets/' + detail.icon" [alt]="detail.label" class="h-5 w-5" />
+                </div>
+                <div>
+                  <p class="text-[11px] font-semibold text-gray-500 uppercase">
+                    {{ detail.label }}
+                  </p>
+                  <p class="mt-0.5 text-xs md:text-sm text-gray-800">
+                    {{ detail.value }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- What to expect -->
+            <div class="rounded-3xl bg-gradient-to-r from-[#F87171] via-[#EF4444] to-[#C81E1E]
+                     px-5 py-5 md:px-6 md:py-6 text-white shadow-[0_20px_40px_rgba(220,38,38,0.45)]">
+              <p class="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-white/80 mb-3">
+                {{ whatToExpect.title }}
+              </p>
+              <ul class="space-y-2 text-xs md:text-sm leading-relaxed text-white/90">
+                <li *ngFor="let item of featuredEventExpectations" class="flex items-start gap-2">
+                  <span class="mt-[2px] text-[#BBF7D0]">✓</span>
+                  <span>{{ item.text }}</span>
+                </li>
+              </ul>
+            </div>
+            <!-- Button -->
+            <div class="pt-1">
+              <button [routerLink]="featuredEventCta.link" routerLinkActive="active" type="button" class="inline-flex items-center justify-center w-full px-7 py-3 rounded-lg bg-[#E53935] hover:bg-[#d32f2f]
+                       text-white text-s md:w-auto md:text-md font-semibold shadow-lg shadow-[#e53935]/40 transition">
+                {{ featuredEventCta.label }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Events Section -->
+    <section id="who-we-are" class="bg-white py-16 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 lg:px-0">
+        <div class="text-center">
+          <h2 class="text-2xl md:text-3xl font-semibold text-slate-900">
+            {{ featuredEventsSection.title }}
+          </h2>
+          <p class="mt-2 text-sm text-slate-600">
+            <ng-container *ngFor="let line of featuredEventsSection.subtitleLines; let last = last">
+              {{ line }}<br *ngIf="!last" />
+            </ng-container>
+          </p>
+        </div>
+        <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <article *ngFor="let event of featuredEvents"
+            class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
+            <div class="relative h-32">
+              <img class="h-full w-full object-cover" [src]="'assets/' + event.image" [alt]="event.title" />
+              <span
+                class="absolute right-3 top-3 rounded-full bg-emerald-600/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
+                {{ event.tag }}
+              </span>
+            </div>
+            <div class="flex flex-1 flex-col p-4">
+              <h3 class="text-sm font-semibold leading-snug text-slate-900">
+                {{ event.title }}
+              </h3>
+              <div class="mt-3 space-y-1 text-xs text-slate-600">
+                <div class="flex items-center gap-2">
+                  <img src="assets/Multiple Dates Card Icon.svg" alt="Date icon" class="h-4 w-4" />
+                  <span>{{ event.date }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <img src="assets/Location Card Icon.svg" alt="Location icon" class="h-4 w-4" />
+                  <span>{{ event.location }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <img src="assets/Members Card Icon.svg" alt="Meta icon" class="h-4 w-4" />
+                  <span>{{ event.meta }}</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="mt-8 text-center">
+          <button *ngIf="featuredEventsSection.cta" [routerLink]="featuredEventsSection.cta.link"
+            routerLinkActive="active" type="button" class="inline-flex items-center rounded-lg border border-slate-300 px-5 py-2 text-xs font-semibold
+                   text-slate-700 hover:bg-slate-50">
+            {{ featuredEventsSection.cta.label }}
+            <span class="ml-1">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Community Impact Section -->
+    <section id="what-we-do" class="bg-slate-50 py-16 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 lg:px-0">
+        <div class="text-center">
+          <h2 class="text-2xl md:text-3xl font-semibold text-slate-900">
+            {{ communityImpactSection.title }}
+          </h2>
+          <p class="mt-2 text-sm text-slate-600">
+            <ng-container *ngFor="let line of communityImpactSection.subtitleLines; let last = last">
+              {{ line }}<br *ngIf="!last" />
+            </ng-container>
+          </p>
+        </div>
+        <div class="mt-8 grid gap-5 grid-cols-2 lg:grid-cols-4">
+          <article *ngFor="let stat of impactStats"
+            class="flex flex-col items-center rounded-2xl bg-white px-6 py-7 text-center shadow-sm">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl" [style.backgroundColor]="stat.iconBg">
+              <img class="h-5 w-5" [src]="'assets/' + stat.icon" [alt]="stat.label + ' icon'" />
+            </div>
+            <p class="mt-3 text-2xl font-semibold text-slate-900">
+              {{ stat.value }}
+            </p>
+            <p class="mt-1 text-xs font-medium uppercase tracking-wide text-slate-500">
+              {{ stat.label }}
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
-
-<div class="vision-mission-section">
-  <div class="vision-container">
-    <div class="vision-text">
-      <h2>{{ homePageData?.visionTitle || 'Our Vision' }}</h2>
-      <p>
-        {{ homePageData?.visionContent || 'WHCFC aims to be Scarborough\'s first club offering free soccer opportunities, promoting community, diversity, and inclusivity. We strive to foster a welcoming environment for equity-deserving groups and celebrate cultural differences. Our goal is to enhance community spirit through football while providing free educational workshops on essential life skills like project management and mental health.' }}
-      </p>
-    </div>
-    <div class="vision-image">
-      <img [src]="homePageData?.visionImage ? cmsService.getImageUrl(homePageData?.visionImage) : '/assets/vision_home.jpg'" alt="Community and Football" />
-    </div>
-  </div>
-
-  <div class="mission-container">
-    <div class="mission-image">
-      <img [src]="homePageData?.missionImage ? cmsService.getImageUrl(homePageData?.missionImage) : '/assets/mission_home.jpg'" alt="Inclusivity and Diversity" />
-    </div>
-    <div class="mission-text">
-      <h2>{{ homePageData?.missionTitle || 'Our Mission' }}</h2>
-      <p>
-        {{ homePageData?.missionContent || 'While some costs may apply for team play and tournaments, we are committed to minimizing these expenses. WHCFC seeks to support marginalized communities by securing funding from government and businesses, ensuring accessibility and minimal costs for participation.' }}
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="video-section">
-  <div class="video-content">
-    <div class="video-text">
-      <h2>{{ homePageData?.messageTitle || 'Message from Joe' }}</h2>
-      <p>
-        {{ homePageData?.messageContent || 'In this heartfelt message, Joe shares his story on how he founded WHCFC and how his passion drove him to build free and fun opportunities for football players in the community, especially those in economically disadvantaged and equity-deserving groups. Hear his vision to be the only Scarborough club to provide free football experiences and his mission to develop communities through the power of interaction, tournament festivals and educational opportunities.' }}
-      </p>
-    </div>
-    <div class="video-player">
-      <video controls>
-        <source [src]="homePageData?.messageVideo || '/assets/Joe I Have A Dream Message.mp4'" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-</div>
-
