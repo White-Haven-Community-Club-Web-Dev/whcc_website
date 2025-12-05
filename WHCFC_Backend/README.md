@@ -35,13 +35,5 @@ Steps for creating an app password:
 3. Create an app name and then click "Create”
 4. Copy the 16-character password and paste it in `.env.dev`'s `APP_MAILING_PASSWORD`
 
-Captcha site key and secret key:
-1. Go to https://www.google.com/recaptcha/admin
-2. Click on create (a.k.a + on the top right) 
-3. Choose a label (any will be good)
-4. Select Challenge(v2), then "I'm not a robot" checkbox
-5. Add the domain "localhost"
-6. Create a project name
-7. Press "SUBMIT"
-8. Copy the site key to the location `WHCFC_Frontend/src/environments/environment.development.ts`
-9. Copy the secret to your backend's `.env.dev`'s `CAPTCHA_SECRET`
+Captcha secret key:
+1. Add Google's test key to `.env.dev` - secret key = `6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe`
