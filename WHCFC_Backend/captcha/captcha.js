@@ -3,6 +3,9 @@ async function validateCaptcha(response) {
     return { valid: false, msg: "reCaptcha was not completed" };
 
   try {
+    if (process.env.CAPTCHA_SECRET === undefined)
+      throw new Error("Captcha secret key not set");
+
     const params = new URLSearchParams();
     params.append("secret", process.env.CAPTCHA_SECRET);
     params.append("response", response);
