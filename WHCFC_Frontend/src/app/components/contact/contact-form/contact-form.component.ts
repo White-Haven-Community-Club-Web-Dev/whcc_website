@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { EmailService } from '../../../services/email.service';
-import { CaptchaService } from '../../../services/captcha.service';
 
 @Component({
   selector: 'contact-contact-form',
@@ -24,7 +23,7 @@ export class ContactFormComponent {
   contactForm: FormGroup;
   response: string | null;
 
-  constructor(private emailService: EmailService, private fb: FormBuilder, private captchaService: CaptchaService) {
+  constructor(private emailService: EmailService, private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -76,6 +75,7 @@ export class ContactFormComponent {
           // console.log(response);
         },
         error: (error) => {
+          this.showToast(error.error.message);
           console.log(error);
         }
       });
@@ -83,7 +83,9 @@ export class ContactFormComponent {
       this.contactForm.markAllAsTouched()
     }
 
+    // Reset Captcha
     grecaptcha.reset();
+    this.response = null;
   }
 
   get fullName() { return this.contactForm.get('fullName')! }
