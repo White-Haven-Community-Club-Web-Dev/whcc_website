@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { CMSService, HomePageData } from '../../services/cms.service';
 
 @Component({
   selector: 'app-home',
@@ -13,24 +14,29 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   
+  // HomePage Content from CMS
+  homePageData: HomePageData | null = null;
+  loadingHomePage = true;
+  
+  // Fallback data (used while loading or if CMS fails)
   benefits = [
     {
-      icon: '⚽', 
+      icon: '⚽',
       title: 'Free Football Experiences',
       description: 'Attend our Wednesday and Sunday scrimmages at no cost and no obligation. Participate in team play and summer tournaments with no cost.'
     },
     {
-      icon: '🏆', 
+      icon: '🏆',
       title: 'Team Play and Tournaments',
       description: 'Enjoy competitive football opportunities without the financial burden. Join a team with minimal uniform costs and benefit from our efforts to keep expenses low.'
     },
     {
-      icon: '🌟', 
+      icon: '🌟',
       title: 'Community and Networking',
       description: 'Interact with like-minded individuals, develop long-term relationships, and be part of a supportive community. Build connections that enhance both personal and professional growth.'
     },
     {
-      icon: '📚', 
+      icon: '📚',
       title: 'Educational Workshops',
       description: 'Join free workshops focused on developing life skills, career growth, and personal development. Enhance your skills and knowledge to support your future endeavors.'
     }
@@ -39,7 +45,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   activeSlide = 0; // Track the current slide
   slideInterval: ReturnType<typeof setInterval> | undefined; // Hold the interval reference
 
-  constructor(private cdr: ChangeDetectorRef, private titleService: Title, private metaService: Meta) {}
+  constructor(
+    private cdr: ChangeDetectorRef, 
+    private titleService: Title, 
+    private metaService: Meta,
+    public cmsService: CMSService  // Make public so template can access it
+  ) {}
 
   ngOnInit() {
     this.titleService.setTitle('Home | White Haven Community Football Club');
@@ -53,8 +64,29 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (typeof window !== 'undefined') {
       this.slideInterval = setInterval(() => {
         this.nextSlide();
-      }, 10000); 
+      }, 10000);
     }
+
+    // Load homepage content from CMS
+    this.loadHomePageContent();
+  }
+
+  loadHomePageContent() {
+    this.cmsService.getHomePage().subscribe({
+      next: (response) => {
+        this.homePageData = response.data;
+        this.loadingHomePage = false;
+        // Update benefits from CMS
+        if (this.homePageData.benefits) {
+          this.benefits = this.homePageData.benefits;
+        }
+      },
+      error: (error) => {
+        console.error('Failed to load homepage content:', error);
+        this.loadingHomePage = false;
+        // Continue with fallback/default data
+      }
+    });
   }
 
 

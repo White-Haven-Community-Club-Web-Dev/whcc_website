@@ -1,21 +1,9 @@
 <div class="section grey-background">
-    <h2>Our Board</h2>
+    <h2>{{ title }}</h2>
     <div class="board-members">
-      <div class="board-member">
-        <img src="assets/Joe.jpg">
-        <p><strong>Joseph Fernandes</strong><br/>President</p>
-      </div>
-      <div class="board-member">
-        <img src="assets/Noel.jpg">
-        <p><strong>Noel Miller</strong><br/>Director, Partnership Development</p>
-      </div>
-      <div class="board-member">
-        <img src="assets/Guru.jpg">
-        <p><strong>Gurpurv Kukreja</strong><br/>Secretary</p>
-      </div>
-      <div class="board-member">
-        <img src="assets/Legus.jpg">
-        <p><strong>Legus Yeung</strong><br/>Tech Advisor</p>
+      <div class="board-member" *ngFor="let member of boardMembers">
+        <img [src]="member.image" [alt]="member.name">
+        <p><strong>{{ member.name }}</strong><br/>{{ member.position }}</p>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Disallow:
 
 Sitemap: https://whcfc.ca/sitemap.xml
