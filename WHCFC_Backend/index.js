@@ -6,15 +6,17 @@ import eventRoute from "./routes/agenda.js";
 import dotenv from "dotenv";
 
 // Load environment variables
-const env = process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
-dotenv.config({ path: env });
+//const env = process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
+//dotenv.config({ path: env });
 
 const app = express();
 const port = process.env.port || 8000;
 
 const corsConfig = {
-  origin: process.env.NODE_ENV === "development" ? "http://localhost:4200" : "https://whcfc.ca",
-  allowedHeaders: ["Content-type"]
+  origin: ["http://localhost:4200", "https://whcfc.ca", "https://www.whcfc.ca"],
+  allowedHeaders: ["Content-Type"],
+  methods: ["GET", "POST"],
+  maxAge: 3600 // 1 hour
 };
 
 app.use(cors(corsConfig));
