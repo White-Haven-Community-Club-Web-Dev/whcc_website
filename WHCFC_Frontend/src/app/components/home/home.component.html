@@ -4,14 +4,14 @@
   <div class="carousel-content min-h-80" *ngIf="activeSlide === 0">
     <div class="hero-content space-y-2">
       <h1 class="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold">
-        {{ homePageData?.heroSlide1Title || 'Experience The Agony of Defeat & The Thrill of Victory!' }}
+        Experience The Agony of Defeat & The Thrill of Victory!
       </h1>
       <p class="text-lg md:text-xl lg:text-2xl leading-tight">
-        {{ homePageData?.heroSlide1Subtitle || 'Do you want to be part of to a team and play in Tournaments & Friendlies?' }}
+        Do you want to be part of to a team and play in Tournaments & Friendlies?
       </p>
       <br />
       <p class="text-base md:text-lg lg:text-xl leading-tight">
-        <a [routerLink]="homePageData?.heroSlide1Link || '/tournament'">Click here for more information</a>
+        <a routerLink="/tournament">Click here for more information</a>
       </p>
     </div>
   </div>
@@ -20,13 +20,13 @@
   <div class="carousel-content min-h-80" *ngIf="activeSlide === 1">
     <div class="hero-content space-y-5">
       <h1 class="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold">
-        {{ homePageData?.heroSlide2Title || 'Want to Play Football for Free?' }}
+        Want to Play Football for Free?
       </h1>
       <p class="text-lg md:text-xl lg:text-2xl leading-tight">
-        {{ homePageData?.heroSlide2Subtitle || 'Yes, you heard it right! It\'s free.' }}
+        Yes, you heard it right! It's free.
       </p>
       <p class="text-base md:text-lg lg:text-xl leading-tight">
-        <a [routerLink]="homePageData?.heroSlide2Link || '/play'">Click here for more information</a>
+        <a routerLink="/play">Click here for more information</a>
       </p>
     </div>
   </div>
@@ -39,7 +39,7 @@
 </section>
 
 <div class="benefits-section">
-  <h2>{{ homePageData?.benefitsTitle || 'White Haven Community Football Club' }}</h2>
+  <h2>White Haven Community Football Club</h2>
   <div class="benefits">
     <div class="benefit-card" *ngFor="let benefit of benefits">
       <div class="benefit-icon">{{ benefit.icon }}</div>
@@ -54,24 +54,24 @@
 <div class="vision-mission-section">
   <div class="vision-container">
     <div class="vision-text">
-      <h2>{{ homePageData?.visionTitle || 'Our Vision' }}</h2>
+      <h2>Our Vision</h2>
       <p>
-        {{ homePageData?.visionContent || 'WHCFC aims to be Scarborough\'s first club offering free soccer opportunities, promoting community, diversity, and inclusivity. We strive to foster a welcoming environment for equity-deserving groups and celebrate cultural differences. Our goal is to enhance community spirit through football while providing free educational workshops on essential life skills like project management and mental health.' }}
+        WHCFC aims to be Scarborough's first club offering free soccer opportunities, promoting community, diversity, and inclusivity. We strive to foster a welcoming environment for equity-deserving groups and celebrate cultural differences. Our goal is to enhance community spirit through football while providing free educational workshops on essential life skills like project management and mental health.
       </p>
     </div>
     <div class="vision-image">
-      <img [src]="homePageData?.visionImage ? cmsService.getImageUrl(homePageData?.visionImage) : '/assets/vision_home.jpg'" alt="Community and Football" />
+      <img src="/assets/vision_home.jpg" alt="Community and Football" />
     </div>
   </div>
 
   <div class="mission-container">
     <div class="mission-image">
-      <img [src]="homePageData?.missionImage ? cmsService.getImageUrl(homePageData?.missionImage) : '/assets/mission_home.jpg'" alt="Inclusivity and Diversity" />
+      <img src="/assets/mission_home.jpg" alt="Inclusivity and Diversity" />
     </div>
     <div class="mission-text">
-      <h2>{{ homePageData?.missionTitle || 'Our Mission' }}</h2>
+      <h2>Our Mission</h2>
       <p>
-        {{ homePageData?.missionContent || 'While some costs may apply for team play and tournaments, we are committed to minimizing these expenses. WHCFC seeks to support marginalized communities by securing funding from government and businesses, ensuring accessibility and minimal costs for participation.' }}
+        While some costs may apply for team play and tournaments, we are committed to minimizing these expenses. WHCFC seeks to support marginalized communities by securing funding from government and businesses, ensuring accessibility and minimal costs for participation.
       </p>
     </div>
   </div>
@@ -80,14 +80,14 @@
 <div class="video-section">
   <div class="video-content">
     <div class="video-text">
-      <h2>{{ homePageData?.messageTitle || 'Message from Joe' }}</h2>
+      <h2>Message from Joe</h2>
       <p>
-        {{ homePageData?.messageContent || 'In this heartfelt message, Joe shares his story on how he founded WHCFC and how his passion drove him to build free and fun opportunities for football players in the community, especially those in economically disadvantaged and equity-deserving groups. Hear his vision to be the only Scarborough club to provide free football experiences and his mission to develop communities through the power of interaction, tournament festivals and educational opportunities.' }}
+        In this heartfelt message, Joe shares his story on how he founded WHCFC and how his passion drove him to build free and fun opportunities for football players in the community, especially those in economically disadvantaged and equity-deserving groups. Hear his vision to be the only Scarborough club to provide free football experiences and his mission to develop communities through the power of interaction, tournament festivals and educational opportunities.
       </p>
     </div>
     <div class="video-player">
       <video controls>
-        <source [src]="homePageData?.messageVideo || '/assets/Joe I Have A Dream Message.mp4'" type="video/mp4" />
+        <source src="/assets/Joe I Have A Dream Message.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>

@@ -7,8 +7,6 @@ import { GoalComponent } from '../../components/about-us-section/goal/goal.compo
 import { OurBoardComponent } from '../../components/about-us-section/our-board/our-board.component';
 import { WhereWePlayComponent } from '../../components/about-us-section/where-we-play/where-we-play.component';
 import { TestimonialComponent } from '../../components/about-us-section/testimonial/testimonial.component';
-import { CMSService } from '../../services/cms.service';
-import { AboutUsDataService } from '../../services/about-us-data.service';
 
 @Component({
   selector: 'app-about-us',
@@ -29,9 +27,7 @@ export class AboutUsComponent implements OnInit{
   
   constructor(
     private meta: Meta, 
-    private title: Title,
-    private cmsService: CMSService,
-    private aboutUsDataService: AboutUsDataService
+    private title: Title
   ) {}
 
   ngOnInit(): void {
@@ -41,20 +37,5 @@ export class AboutUsComponent implements OnInit{
       { name: 'keywords', content: 'football, soccer,futsal,community, club, sports, Scarborough soccer, Scarborough football club, Scarborough soccer club, Scarborough White Haven soccer, Scarborough White Haven football, not-for-profit club, Scarborough youth soccer,Scarborough adult soccer, Scarborough kids soccer, local football club, GTA football, local football club, about us, mission, vision, goal' },
       { name: 'author', content: 'White Haven Community Football Club - Building a Stronger Soccer Community' }
     ]);
-
-    // Load About Us page content from CMS
-    this.loadAboutUsContent();
-  }
-
-  loadAboutUsContent() {
-    this.cmsService.getAboutUsPage().subscribe({
-      next: (response) => {
-        this.aboutUsDataService.setAboutUsData(response.data);
-      },
-      error: (error) => {
-        console.error('Failed to load About Us content:', error);
-        // Components will use fallback/default data
-      }
-    });
   }
 }
