@@ -84,7 +84,7 @@ router.route("/contact").post(async (req, res) => {
   if (!validatorResult.valid)
     return res.status(400).json({ message: validatorResult.msg });
 
-  const validationResult = await validate({
+  const emailValidationResult = await validate({
     email: email,
     validateRegex: true,
     validateMx: true,
@@ -93,10 +93,9 @@ router.route("/contact").post(async (req, res) => {
     validateSMTP: false
   });
 
-  if (!validationResult.valid)
+  if (!emailValidationResult.valid)
     return res.status(400).json({
-      message: "Email is not valid",
-      reason: validationResult.reason
+      message: "Email is not valid"
     });
 
   if (phone && !phoneFormatValidator(phone))
