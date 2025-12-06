@@ -25,6 +25,7 @@ interface HeroContent {
   subtitle: string;
   primaryCta: { label: string; link: string };
   secondaryCta: { label: string; link: string; playIcon: string };
+  image: string;
 }
 
 interface QuickAction {
@@ -47,6 +48,7 @@ interface FeaturedEventHeader {
 interface FeaturedEventImageText {
   monthLabel: string;
   tagline: string;
+  image: string;
 }
 
 interface FeaturedEventExpectItem {
@@ -57,6 +59,9 @@ interface SectionHeader {
   title: string;
   subtitleLines: string[];
   cta?: { label: string; link: string };
+  dateIcon?: string;
+  locationIcon?: string;
+  metaIcon?: string;
 }
 
 interface ImpactStat {
@@ -89,6 +94,7 @@ export class HomeComponent {
       link: "/who-we-are",
       playIcon: "▶",
     },
+    image: "Hero Section Image.jpg"
   };
 
   quickActions: QuickAction[] = [
@@ -135,6 +141,7 @@ export class HomeComponent {
   featuredEventImageText: FeaturedEventImageText = {
     monthLabel: "June 2026",
     tagline: "The World Comes to North America",
+    image: "FIFA World Cup 2026 Watch Party Image.png"
   };
 
   featuredEventDetails: FeaturedEventDetail[] = [
@@ -191,40 +198,43 @@ export class HomeComponent {
       label: "Learn More",
       link: "/what-we-do",
     },
+    dateIcon: "Multiple Dates Card Icon.svg",
+    locationIcon: "Location Card Icon.svg",
+    metaIcon: "Members Card Icon.svg"
   };
 
   featuredEvents: EventCard[] = [
     {
-      title: 'Summer League Championship',
-      image: 'Summer League Championship Card Image.png',
-      date: 'Dec 15, 2024',
-      location: 'Scarborough Sports Complex',
-      meta: '24 Teams',
-      tag: 'Tournament',
+      title: 'World Cup Watch Party',
+      image: 'World Cup Watch Party Card Image.png',
+      date: 'June & July 2026',
+      location: 'White Haven Park',
+      meta: 'Neighbours',
+      tag: 'Community',
     },
     {
-      title: 'Youth Training Camp',
-      image: 'Youth Training Camp Card Image.png',
-      date: 'Dec 20–22, 2024',
-      location: 'West Hill Community Centre',
-      meta: '50 Youth',
-      tag: 'Training',
+      title: 'House League (Ages 6–18)',
+      image: 'House League Card Image.png',
+      date: 'May – July 2026',
+      location: 'Scarborough',
+      meta: 'Neighbours',
+      tag: 'Youth',
     },
     {
-      title: 'New Year Football Festival',
-      image: 'New Year Football Festival Card Image.png',
-      date: 'Jan 1, 2025',
-      location: 'Centennial Park',
-      meta: '200+ People',
-      tag: 'Festival',
+      title: 'Training Clinics',
+      image: 'Training Clinics Card Image.png',
+      date: 'May 2026 Weekends',
+      location: 'Scarborough',
+      meta: 'Neighbours',
+      tag: 'Clinics',
     },
     {
-      title: 'Weekly Pickup Games',
-      image: 'Weekly Pickup Games Card Image.png',
-      date: 'Every Saturday',
-      location: "L'Amoreaux Park",
-      meta: 'Open to All',
-      tag: 'Regular',
+      title: 'F³ Indoor Football Program',
+      image: 'F3 Indoor Football Card Image.png',
+      date: 'Weekly (Mon/Wed/Fri)',
+      location: "Scarborough Indoor Sports Complex",
+      meta: 'Neighbours',
+      tag: 'Adults',
     },
   ];
 

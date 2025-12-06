@@ -3,9 +3,9 @@
   <main class="flex-1">
     <!-- Hero Section -->
     <section class="relative min-h-[calc(100vh)] overflow-hidden flex items-center md:min-h-[calc(100vh)]">
-      <img src="assets/Hero Section Image.jpg" alt="Players on a soccer pitch"
+      <img [src]="'assets/' + hero.image" alt="Players on a soccer pitch"
         class="absolute inset-0 h-full w-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/55 to-black/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/75 to-black/55"></div>
       <div class="relative z-10 flex w-full flex-col items-center justify-center px-4 text-center text-white">
         <p class="mb-3 text-xs font-semibold tracking-[0.25em] uppercase">
           {{ hero.eyebrow }}
@@ -88,7 +88,7 @@
           <!-- Left: Event image card -->
           <article class="relative rounded-[26px] overflow-hidden shadow-[0_20px_40px_rgba(15,23,42,0.25)]
                    min-h-[360px] md:min-h-[400px] lg:min-h-[430px]">
-            <img src="assets/FIFA World Cup 2026 Watch Party Image.png" alt="FIFA World Cup 2026 watch party crowd"
+            <img [src]="'assets/' + featuredEventImageText.image" alt="FIFA World Cup 2026 watch party crowd"
               class="absolute inset-0 h-full w-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent"></div>
             <div class="absolute left-6 bottom-5 text-white">
@@ -173,15 +173,15 @@
               </h3>
               <div class="mt-3 space-y-1 text-xs text-slate-600">
                 <div class="flex items-center gap-2">
-                  <img src="assets/Multiple Dates Card Icon.svg" alt="Date icon" class="h-4 w-4" />
+                  <img [src]="'assets/' + featuredEventsSection.dateIcon" alt="Date icon" class="h-4 w-4" />
                   <span>{{ event.date }}</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <img src="assets/Location Card Icon.svg" alt="Location icon" class="h-4 w-4" />
+                  <img [src]="'assets/' + featuredEventsSection.locationIcon" alt="Location icon" class="h-4 w-4" />
                   <span>{{ event.location }}</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <img src="assets/Members Card Icon.svg" alt="Meta icon" class="h-4 w-4" />
+                  <img [src]="'assets/' + featuredEventsSection.metaIcon" alt="Meta icon" class="h-4 w-4" />
                   <span>{{ event.meta }}</span>
                 </div>
               </div>
