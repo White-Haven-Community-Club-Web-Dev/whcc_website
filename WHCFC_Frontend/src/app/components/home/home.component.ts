@@ -82,7 +82,7 @@ export class HomeComponent {
     subtitle: "Where diversity meets passion on the pitch",
     primaryCta: {
       label: "Register Now",
-      link: "/what-we-do",
+      link: "/connect-with-us",
     },
     secondaryCta: {
       label: "Watch Story",
@@ -97,7 +97,7 @@ export class HomeComponent {
       description: "Find and join pickup games in your area",
       icon: "Join a Match Card Icon.svg",
       iconBg: "#EEF3FF",
-      linkText: "Learn",
+      linkText: "Learn More",
       link: "/what-we-do",
       linkColorClass: "text-blue-500",
     },
@@ -116,7 +116,7 @@ export class HomeComponent {
       icon: "View Events Card Icon.svg",
       iconBg: "#FFF3E5",
       linkText: "See Calendar",
-      link: "/who-we-do",
+      link: "/what-we-do",
       linkColorClass: "text-red-500",
     },
   ];

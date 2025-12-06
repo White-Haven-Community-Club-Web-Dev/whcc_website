@@ -35,18 +35,18 @@ export class FooterComponent {
     {
       icon: 'Email Icon.svg',
       alt: 'Email',
-      value: 'info@whcfc.com',
-      href: 'mailto:info@whcfc.com'
+      value: 'fcwhitehaven@gmail.com',
+      href: 'mailto:fcwhitehaven@gmail.com'
     },
     {
       icon: 'Phone Icon.svg',
       alt: 'Phone',
-      value: '(416) 123-4567'
+      value: '(416) 558-1330'
     },
     {
       icon: 'Location Icon.svg',
       alt: 'Location',
-      value: 'Scarborough, ON, Canada'
+      value: 'White Haven Park, 63 Invergordon Ave, Scarborough, ON'
     }
   ];
 
@@ -67,17 +67,9 @@ export class FooterComponent {
         'https://www.instagram.com/fcwhitehaven/?igsh=MTB0ejQ2Z2lxMnA0&utm_source=qr#'
     },
     {
-      icon: 'Twitter Icon.svg',
-      alt: 'Twitter'
-    },
-    {
-      icon: 'YouTube Icon.svg',
-      alt: 'YouTube'
-    },
-    {
       icon: 'Email Icon.svg',
       alt: 'Email',
-      href: 'mailto:info@whcfc.com'
+      href: 'mailto:fcwhitehaven@gmail.com'
     }
   ];
 
