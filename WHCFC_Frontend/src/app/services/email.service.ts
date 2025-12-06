@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class EmailService {
   private url = environment.apiUrl;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   sendContactForm(formData: any) {
     return this.http.post(this.url + '/send-email/contact', formData);

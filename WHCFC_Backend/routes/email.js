@@ -1,8 +1,9 @@
-import express from "express";
+import express, { response } from "express";
 import nodemailer from "nodemailer";
 import { validate } from "deep-email-validator";
 import xss from "xss";
 import db from "../db/db.js";
+import { validateCaptcha } from "../captcha/captcha.js";
 
 const router = express.Router();
 
@@ -70,14 +71,19 @@ const phoneFormatValidator = phone => {
 };
 
 router.route("/contact").post(async (req, res) => {
-  const { firstname = "", lastname = "", email = "", phone = "", message = "" } = req.body;
-  const inputs = { firstname, lastname, email, phone, message }
-  const optionals = new Set(["phone"])
+  const { firstname = "", lastname = "", email = "", phone = "", message = "", response = null } = req.body;
+  const inputs = { firstname, lastname, email, phone, message };
+  const optionals = new Set(["phone"]);
 
   const sanitizerResult = inputSanitizer(inputs);
 
   if (!sanitizerResult.valid)
     return res.status(400).json({ message: sanitizerResult.msg });
+
+  const captchaResult = await validateCaptcha(response);
+
+  if (!captchaResult.valid)
+    return res.status(400).json({ message: captchaResult.msg })
 
   const validatorResult = inputValidator(inputs, optionals);
 
