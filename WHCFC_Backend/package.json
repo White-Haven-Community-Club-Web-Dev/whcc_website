@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx @dotenvx/dotenvx run  -- node index.js",
-    "dev": "npx @dotenvx/dotenvx run -f .env.dev -- node index.js",
+    "start": "cross-env NODE_ENV=production npx @dotenvx/dotenvx run  -- node index.js",
+    "dev": "cross-env NODE_ENV=development npx @dotenvx/dotenvx run -f .env.dev -- nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,11 +13,15 @@
   "dependencies": {
     "@dotenvx/dotenvx": "^1.14.1",
     "cors": "^2.8.5",
+    "cross-env": "^10.1.0",
     "deep-email-validator": "^0.1.21",
     "express": "^4.21.0",
     "mysql2": "^3.11.3",
     "nodemailer": "^6.9.15",
     "xss": "^1.0.15"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   },
   "type": "module"
 }
