@@ -1,13 +1,12 @@
 import express from "express";
 import cors from "cors";
-import "dotenv/config";
 import emailRoute from "./routes/email.js";
 import eventRoute from "./routes/agenda.js";
-//import dotenv from "dotenv";
+import dotenv from "dotenv";
 
 // Load environment variables
-//const env = process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
-//dotenv.config({ path: env });
+const env = process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
+dotenv.config({ path: env });
 
 const app = express();
 const port = process.env.port || 8000;

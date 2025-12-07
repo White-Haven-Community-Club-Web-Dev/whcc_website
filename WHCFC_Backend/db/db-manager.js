@@ -1,5 +1,4 @@
 import mysql from "mysql2/promise";
-import "dotenv/config";
 import { table_create_query } from "./table_query.js";
 
 class DBManager {
