@@ -1,13 +1,9 @@
 <div class="section white-background">
     <div class="content right">
-      <h2>Goal</h2>
-      <p>
-        Our primary goal is to remove financial barriers to soccer participation by providing free playing opportunities and affordable access to tournaments. 
-        WHCFC strives to support Scarborough’s community by organizing soccer tournaments, family-oriented events, and educational workshops aimed at personal and professional development. 
-        We also seek to build partnerships and secure sponsorships to sustain and grow our offerings, ultimately creating a lasting impact on the community through football and skill-building initiatives.
-      </p>
+      <h2>{{ title }}</h2>
+      <p>{{ content }}</p>
     </div>
     <div class="image left">
-      <img src="assets\Goals.jpg">
+      <img [src]="imageUrl" [alt]="title">
     </div>
   </div>

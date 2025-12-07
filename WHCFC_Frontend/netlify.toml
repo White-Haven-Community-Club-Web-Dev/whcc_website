@@ -1,4 +1,9 @@
+[build]
+  base = "WHCFC_Frontend"
+  command = "npm install && npm run build"
+  publish = "dist/whcfc-frontend/browser"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200

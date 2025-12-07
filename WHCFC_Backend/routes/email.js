@@ -1,32 +1,38 @@
-import express from "express";
+import express, { response } from "express";
 import nodemailer from "nodemailer";
 import { validate } from "deep-email-validator";
 import xss from "xss";
 import db from "../db/db.js";
+import { validateCaptcha } from "../captcha/captcha.js";
 
 const router = express.Router();
 
 const emailSending = (subject, body) => {
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.APP_MAILING_SENDER_EMAIL,
-      pass: process.env.APP_MAILING_PASSWORD,
-    },
-  });
+  return new Promise((resolve, reject) => {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.APP_MAILING_SENDER_EMAIL,
+        pass: process.env.APP_MAILING_PASSWORD,
+      },
+    });
 
-  var mailOptions = {
-    from: process.env.APP_MAILING_SENDER_EMAIL,
-    to: process.env.APP_MAILING_RECEIVER_EMAIL,
-    subject: subject,
-    text: body,
-  };
-  transporter.sendMail(mailOptions, function(error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Email sent: " + info.response);
-    }
+    const mailOptions = {
+      from: process.env.APP_MAILING_SENDER_EMAIL,
+      to: process.env.APP_MAILING_RECEIVER_EMAIL,
+      subject: subject,
+      text: body,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log("Email sending error:", error);
+        reject(error);
+      } else {
+        console.log("Email sent: " + info.response);
+        resolve(info);
+      }
+    });
   });
 };
 
@@ -34,8 +40,16 @@ const inputSanitizer = inputs => {
   for (const key in inputs) {
     const input = inputs[key];
 
-    if (xss(input) !== input)
+    // Skip non-string values
+    if (typeof input !== 'string') continue;
+
+    // Sanitize the input and check if it was modified
+    const cleaned = xss(input);
+    if (cleaned !== input) {
       return { valid: false, msg: `Malicious code in ${key}` };
+    }
+    // Use the cleaned version
+    inputs[key] = cleaned;
   }
 
   return { valid: true };
@@ -57,21 +71,26 @@ const phoneFormatValidator = phone => {
 };
 
 router.route("/contact").post(async (req, res) => {
-  const { firstname = "", lastname = "", email = "", phone = "", message = "" } = req.body;
-  const inputs = { firstname, lastname, email, phone, message }
-  const optionals = new Set(["phone"])
+  const { firstname = "", lastname = "", email = "", phone = "", message = "", response = null } = req.body;
+  const inputs = { firstname, lastname, email, phone, message };
+  const optionals = new Set(["phone"]);
 
   const sanitizerResult = inputSanitizer(inputs);
 
   if (!sanitizerResult.valid)
     return res.status(400).json({ message: sanitizerResult.msg });
 
+  const captchaResult = await validateCaptcha(response);
+
+  if (!captchaResult.valid)
+    return res.status(400).json({ message: captchaResult.msg })
+
   const validatorResult = inputValidator(inputs, optionals);
 
   if (!validatorResult.valid)
     return res.status(400).json({ message: validatorResult.msg });
 
-  const validationResult = await validate({
+  const emailValidationResult = await validate({
     email: email,
     validateRegex: true,
     validateMx: true,
@@ -80,13 +99,12 @@ router.route("/contact").post(async (req, res) => {
     validateSMTP: false
   });
 
-  if (!validationResult.valid)
+  if (!emailValidationResult.valid)
     return res.status(400).json({
-      message: "Email is not valid",
-      reason: validationResult.reason
+      message: "Email is not valid"
     });
 
-  if (!phoneFormatValidator(phone) && !(phone === ""))
+  if (phone && !phoneFormatValidator(phone))
     return res.status(400).json({
       message: "Invalid phone number format"
     });
@@ -113,13 +131,12 @@ router.route("/contact").post(async (req, res) => {
       phone,
       message,
     ]);
-    emailSending("Contact Form Submission", emailBody);
+    await emailSending("Contact Form Submission", emailBody);
+    res.status(200).json({ message: "Success" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
-
-  res.status(200).json({ message: "Success" });
 });
 
 export default router;

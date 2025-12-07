@@ -1,26 +1,226 @@
 <div class="container min-w-full mx-auto flex-grow">
-  <div class="px-12 md:px-48 py-20 bg-black text-white">
-    <div class="flex flex-col md:flex-row items-center space-y-8 md:space-x-10">
-      <div>
-        <h1 class="font-bold text-6xl text-center">Contact Us</h1>
-        <!-- <p class="mt-3 text-center">
+  <section class="px-6 md:px-48 py-20 bg-gradient-to-br from-red-100 to-red-700 text-white text-center">
+    <h1 class="font-bold text-3xl text-center">Contact Us</h1>
+    <h3 class="text-6xl font-bold my-3">We'd love to hear from you!</h3>
+    <!-- <p class="mt-3 text-center">
           If you have any further questions for the White Haven Community
           Football Club, please submit the following form and our team will
           reach out to you with an answer.
         </p> -->
-        <p class="mt-3 text-center">
+    <!-- <p class="mt-3 text-center">
           If you have any further questions for the White Haven Community Football Club, 
           please email <a href="mailto:fcwhitehaven&#64;gmail.com">fcwhitehaven&#64;gmail.com</a> with your name, phone number and brief messsage 
           or call (416) 558-1330 and our team will reach out to you with an answer.
-        </p>
-      </div>
-      <img
+        </p> -->
+    <!-- <img
         src="https://cdn-icons-png.flaticon.com/512/2343/2343697.png"
         alt="contact-icon"
         class="w-60 md:w-80 mx-auto bg-white rounded-3xl p-4"
-      />
+      /> -->
+  </section>
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8  md:px-4 py-6 md:py-12 ">
+    <!-- Contact Form Section -->
+    <div class="pb-6 p-8 bg-card text-card-foreground flex w-full  flex-col gap-6 rounded-xl">
+
+      <h4 class="text-lg">Contact Form</h4>
+      <contact-contact-form></contact-contact-form>
     </div>
-  </div>
-  <contact-contact-form></contact-contact-form>
-  <contact-contact-map></contact-contact-map>
+    <!-- Contact Info Section -->
+    <div class="pb-6 p-8 bg-card text-card-foreground flex w-full  flex-col gap-6 rounded-xl">
+      <h4 class="text-lg">Contact Information</h4>
+      <!-- Email Info  Section-->
+      <div class="flex items-start gap-4 bg-red-50 p-4 rounded-lg">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-mail text-brand-red" aria-hidden="true">
+            <path class="text-white" d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+            <rect class="text-white" x="2" y="4" width="20" height="16" rx="2"></rect>
+          </svg></div>
+        <div>
+          <h6 class="font-['Outfit']  text-lg font-semibold">Email</h6>
+          <a class="text-[oklch(.373_.034_259.733)] hover:text-brand-red transition-colors whitespace-pre-line"
+            href="mailto:fcwhitehaven@gmail.com">fcwhitehaven&#64;gmail.com</a>
+        </div>
+      </div>
+      <!-- Phone Info Section -->
+      <div class="flex items-start gap-4  bg-red-50 p-4 rounded-lg">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-phone text-white" aria-hidden="true">
+            <path
+              d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
+            </path>
+          </svg></div>
+
+        <div>
+          <h6 class="font-['Outfit']  text-lg font-semibold">Phone</h6>
+          <a class="text-[oklch(.373_.034_259.733)] hover:text-brand-red transition-colors whitespace-pre-line"
+            href="tel:+4165581330">(416) 558-1330</a>
+        </div>
+      </div>
+      <!-- Address Section -->
+      <div class="flex items-start gap-4  bg-red-50 p-4 rounded-lg">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-map-pin text-white" aria-hidden="true">
+            <path
+              d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+            </path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg></div>
+        <div>
+          <h6 class="font-['Outfit']  text-lg font-semibold">Address</h6>
+          <a class="text-[oklch(.373_.034_259.733)] hover:text-primary transition-colors whitespace-pre-line"
+            href="tel:+4165581330">63 Invergordon Ave
+            <br />Scarborough, ON M1K 3M6 </a>
+        </div>
+      </div>
+      <!-- Office Hours -->
+      <div class="flex items-start gap-4 bg-green-50  p-4 rounded-lg ">
+        <div class="w-12 h-12 bg-customGreen rounded-full flex-shrink-0 flex items-center justify-center"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-clock text-white" aria-hidden="true">
+            <path d="M12 6v6l4 2"></path>
+            <circle cx="12" cy="12" r="10"></circle>
+          </svg></div>
+        <div class="w-full">
+          <h6 class="mb-6">Office Hours</h6>
+          <div class="space-y-2 md:w-1/2">
+            <div class="flex justify-between"><span class="text-[oklch(.373_.034_259.733)]">Monday - Friday:</span><span
+                class="font-semibold text-[#212529]">9AM - 5PM</span></div>
+            <div class="flex justify-between"><span class="text-[oklch(.373_.034_259.733)]">Saturday:</span><span
+                class="font-semibold text-[#212529]">10AM
+                - 2PM</span></div>
+            <div class="flex justify-between"><span class="text-[oklch(.373_.034_259.733)]">Sunday:</span><span
+                class="font-semibold text-primary">Closed</span></div>
+          </div>
+        </div>
+
+      </div>
+      <span class="h-[.05rem] w-full bg-black/20"></span>
+      <div>
+        <h4 class="mb-4">Social Media</h4>
+        <div class="flex gap-3">
+          <!--  Facebook -->
+          <a href="https://www.facebook.com/profile.php?id=61565831557507&mibextid=LQQJ4d" target="_blank"
+            rel="noopener noreferrer"
+            class="w-12 h-12 bg-blue-600 outline-none rounded-full flex items-center justify-center hover:border-brand-red transition-colors text-white"
+            aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-facebook" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg></a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/fcwhitehaven?igsh=MTB0ejQ2Z2lxMnA0&utm_source=qr" target="_blank"
+            rel="noopener noreferrer"
+            class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center hover:border-brand-red transition-colors text-white"
+            aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-instagram" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+            </svg></a>
+          <!--  -->
+          <!-- <a href="#" target="_blank" rel="noopener noreferrer"
+            class="w-12 h-12 border-2 border-[oklch(.928_.006_264.531)] rounded-full flex items-center justify-center hover:border-brand-red transition-colors text-sky-600"
+            aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-twitter" aria-hidden="true">
+              <path
+                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+              </path>
+            </svg></a> -->
+          <!--  -->
+          <!-- <a href="#" target="_blank" rel="noopener noreferrer"
+            class="w-12 h-12 border-2 border-[oklch(.928_.006_264.531)] rounded-full flex items-center justify-center hover:border-brand-red transition-colors text-red-600"
+            aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-youtube" aria-hidden="true">
+              <path
+                d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17">
+              </path>
+              <path d="m10 15 5-3-5-3z"></path>
+            </svg></a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Location Section -->
+  <!-- <section>
+    <contact-contact-map></contact-contact-map>
+  </section> -->
+  <!-- END of Map Sections -->
+  <!-- FAQ / Links -->
+  <!-- <section class="py-12">
+     <div class="max-w-6xl mx-auto"> 
+       <div class="text-center mb-8">
+        <h2 class="mb-4">Quick Links to Common Questions</h2>
+      </div> 
+
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+        <div
+          class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border-2 border-[rgba(0,0,0,0.2)] hover:shadow-lg transition-shadow"
+          data-slot="card">
+          <div data-slot="card-content" class="[&amp;:last-child]:pb-6 p-6 text-center">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-red-50 to-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-circle-question-mark text-white" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <path d="M12 17h.01"></path>
+              </svg>
+            </div>
+            <h4 class="mb-3">How to Join</h4>
+            <button data-slot="button"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[&gt;svg]:px-3 border-primary text-primary hover:bg-primary hover:text-white">View
+              FAQ</button>
+          </div>
+        </div>
+        <div data-slot="card"
+          class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border-2 border-[rgba(0,0,0,0.2)] hover:shadow-lg transition-shadow">
+          <div data-slot="card-content" class="[&amp;:last-child]:pb-6 p-6 text-center">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-red-50 to-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-calendar text-white" aria-hidden="true">
+                <path d="M8 2v4"></path>
+                <path d="M16 2v4"></path>
+                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                <path d="M3 10h18"></path>
+              </svg>
+            </div>
+            <h4 class="mb-3">Event Schedule</h4><button data-slot="button"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[&gt;svg]:px-3 border-primary text-primary hover:bg-primary hover:text-white">View
+              Calendar</button>
+          </div>
+        </div>
+        <div data-slot="card"
+          class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border-2 border-[rgba(0,0,0,0.2)] hover:shadow-lg transition-shadow">
+          <div data-slot="card-content" class="[&amp;:last-child]:pb-6 p-6 text-center">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-red-50 to-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-dollar-sign text-white" aria-hidden="true">
+                <line x1="12" x2="12" y1="2" y2="22"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+
+            <h4 class="mb-3">Costs &amp; Fees</h4><a routerLink="#" onclick=""
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[&gt;svg]:px-3 border-primary text-primary hover:bg-primary hover:text-white">Learn
+              More</a>
+          </div>
+        </div>
+      </div> 
+     </div> 
+  </section> -->
 </div>
