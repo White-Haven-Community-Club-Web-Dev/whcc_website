@@ -1,39 +1,23 @@
-import express, { response } from "express";
-import nodemailer from "nodemailer";
+import express from "express";
+import { Resend } from "resend";
 import { validate } from "deep-email-validator";
 import xss from "xss";
 import { validateCaptcha } from "../captcha/captcha.js";
 import DBManager from "../db/db-manager.js";
 
 const router = express.Router();
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const emailSending = (subject, body) => {
-  return new Promise((resolve, reject) => {
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.APP_MAILING_SENDER_EMAIL,
-        pass: process.env.APP_MAILING_PASSWORD,
-      },
-    });
-
-    const mailOptions = {
-      from: process.env.APP_MAILING_SENDER_EMAIL,
-      to: process.env.APP_MAILING_RECEIVER_EMAIL,
-      subject: subject,
-      text: body,
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.log("Email sending error:", error);
-        reject(error);
-      } else {
-        console.log("Email sent: " + info.response);
-        resolve(info);
-      }
-    });
+const emailSending = async (subject, body) => {
+  const { error } = await resend.emails.send({
+    from: process.env.EMAIL_SENDER,
+    to: process.env.EMAIL_RECIPIENTS,
+    subject: subject,
+    text: body,
   });
+
+  if (error)
+    throw new Error(error);
 };
 
 const inputSanitizer = inputs => {
