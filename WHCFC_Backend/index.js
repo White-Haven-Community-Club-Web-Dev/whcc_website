@@ -3,6 +3,7 @@ import cors from "cors";
 import emailRoute from "./routes/email.js";
 import eventRoute from "./routes/agenda.js";
 import dotenv from "dotenv";
+import DBManager from "./db/db-manager.js";
 
 // Load environment variables
 const env = process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
@@ -24,6 +25,14 @@ app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
 app.use("/send-email", emailRoute);
 app.use("/agenda", eventRoute);
+
+try {
+  await DBManager.connect();
+}
+catch (error) {
+  console.error("Error connecting to the database: ", error);
+  process.exit(1);
+}
 
 app.listen(port, async () => {
   console.log("Server is running on port: " + port);
