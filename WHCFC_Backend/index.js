@@ -31,6 +31,7 @@ try {
 }
 catch (error) {
   console.error("Error connecting to the database: ", error);
+  process.exit(1);
 }
 
 app.listen(port, async () => {

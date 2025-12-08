@@ -11,7 +11,7 @@ class DBManager {
    */
   static async getPool() {
     if (DBManager.#pool === null)
-      await DBManager.connect();
+      throw new Error("Database not initialized");
 
     return DBManager.#pool;
   }
