@@ -6,9 +6,12 @@ import { validateCaptcha } from "../captcha/captcha.js";
 import DBManager from "../db/db-manager.js";
 
 const router = express.Router();
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend = null;
 
 const emailSending = async (subject, body) => {
+  if (!resend)
+    resend = new Resend(process.env.RESEND_API_KEY);
+
   const { error } = await resend.emails.send({
     from: process.env.EMAIL_SENDER,
     to: process.env.EMAIL_RECIPIENTS,
