@@ -27,3 +27,15 @@ Note: If you already have a MySQL server running on your machine, you can change
 2. The server will be running on `http://localhost:8000`
 3. For email functionality testing, change the value of `APP_MAILING_RECEIVER_EMAIL` in `.env.dev` to your email address
 4. To validate data in database, universal database manager is recommended. You can use [DBeaver](https://dbeaver.io/download/) or [MySQL Workbench](https://dev.mysql.com/downloads/workbench/). Connect with the credentials in `.env.dev` and you can see the data in the database.
+
+Resend email:
+1. Create an account at `https://resend.com/`
+2. Create an API Key
+3. Fill in the environment variables in .env.dev
+  Require fields:
+  - RESEND_API_KEY
+  - EMAIL_SENDER (<name it anything you want>@resend.dev, Note: domain name can be changed, but require configuration in the Resend)
+  - EMAIL_RECIPIENTS
+
+Captcha secret key:
+1. Add Google's test key to `.env.dev` - secret key = `6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe`

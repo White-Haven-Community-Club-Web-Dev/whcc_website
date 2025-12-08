@@ -18,11 +18,4 @@ Vulnerabilities:
 Nice to have:
 - Extra protection for SQL injection such as the least privilege principle (PoLP), validate incoming request data using a framework such as Zod
 
-Email password: Requires creating an app password.
-Steps for creating an app password:
-1. Go to Google Account - this can be achieved by going to google.ca, clicking on your profile icon, and clicking Manage your Google Account
-2. In the search bar, search "app password" and click on it
-3. Create an app name and then click "Create”
-4. Copy the 16-character password and paste it in .env's APP_MAILING_PASSWORD
-
 Date: Nov 28, 2026

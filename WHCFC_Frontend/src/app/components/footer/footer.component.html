@@ -1,31 +1,51 @@
-<footer>
-    <div class="footer-container">
-        <div class="footer-logo">
-            <a href="/">
-                <img src="assets/team_logo_grey.png" alt="Logo" />
-            </a>
-        </div>
-        <div class="footer-info-hours">
-            <!-- <div class="footer-info">
-                <p><strong>Location:</strong><br>67 Prince William Ct,<br>Scarborough, ON</p>
-            </div> -->
-            <div class="footer-hours">
-                <p><strong>Contact Us:</strong><br>(416) 558-1330<br>fcwhitehaven&#64;gmail.com</p>
+<footer class="bg-black text-slate-100 pt-10 pb-6 mt-4">
+    <div class="flex-1 px-4 md:px-6 lg:px-8 xl:px-0 max-w-6xl mx-auto">
+        <div
+            class="flex flex-col items-center gap-8 border-b border-slate-800 pb-6 md:flex-row md:items-start md:justify-between md:space-x-8">
+            <!-- Left -->
+            <div class="flex flex-col justify-center items-center max-w-md space-y-2 md:items-start">
+                <div class="flex gap-1 text-red-500">
+                    <span class="font-semibold">{{ brand.emoji }}</span>{{ brand.short }}
+                </div>
+                <p class="mt-3 text-xs text-slate-300">
+                    {{ brand.description }}
+                </p>
+            </div>
+            <!-- Right: Contact -->
+            <div
+                class="flex flex-col justify-center items-center text-xs text-slate-200 space-y-3 md:w-1/2 md:items-start">
+                <h3 class="text-xs text-left font-semibold uppercase tracking-wide">
+                    {{ connectTitle }}
+                </h3>
+                <div *ngFor="let item of contacts" class="flex items-center gap-2">
+                    <img [src]="'assets/' + item.icon" [alt]="item.alt" class="h-4 w-4" />
+                    <a *ngIf="item.href; else plainValue" [href]="item.href" class="hover:underline">
+                        {{ item.value }}
+                    </a>
+
+                    <ng-template #plainValue>
+                        <span>{{ item.value }}</span>
+                    </ng-template>
+                </div>
             </div>
         </div>
-        <div class="footer-social">
-            <p><strong>Follow us:</strong></p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61565831557507&mibextid=LQQJ4d" target="_blank"><img src="assets/facebook.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/fcwhitehaven?igsh=MTB0ejQ2Z2lxMnA0&utm_source=qr" target="_blank"><img src="assets/instagram.png" alt="Instagram"></a>
+        <div
+            class="flex flex-col-reverse items-center gap-8 pb-6 md:flex-row md:items-start md:justify-between md:space-x-8 md:mt-3">
+            <!-- Left: Copyright -->
+            <p class="mt-2 text-center text-[11px] text-slate-400">
+                {{ copyright }}
+            </p>
+            <!-- Right: Icons -->
+            <div class="mt-2 flex gap-3 md:justify-start">
+                <a *ngFor="let social of socials" [attr.href]="social.href || null"
+                    [attr.target]="isExternalLink(social.href) ? '_blank' : null"
+                    [attr.rel]="isExternalLink(social.href) ? 'noopener noreferrer' : null">
+                    <div
+                        class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-900">
+                        <img [src]="'assets/' + social.icon" [alt]="social.alt" class="h-5 w-5" />
+                    </div>
+                </a>
             </div>
-        </div>
-        <div class="footer-stay-connected">
-            <!-- <p><strong>Stay Connected:</strong></p>
-            <form>
-                <input type="email" placeholder="Email Address" required>
-                <button type="submit">Submit</button>
-            </form> -->
         </div>
     </div>
 </footer>

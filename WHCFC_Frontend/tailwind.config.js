@@ -11,7 +11,7 @@ module.exports = {
         "customGreen-dark": "#158A5E", // --secondary-green-dark (深绿色hover)
         
         // Neutral Colors（中性色）
-        gray: "#F8F9FA",              // --background (页面背景)
+        customGray: "#F8F9FA",              // --background (页面背景)
         foreground: "#212529",        // --foreground (主文字色)
         muted: "#6C757D",             // --text-secondary (次要文字色)
         

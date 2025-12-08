@@ -17,13 +17,22 @@ import { WhatWeDoComponent } from './pages/what-we-do/what-we-do.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  
+  // New routes from PR #42
+  { path: 'who-we-are', component: AboutUsComponent },
+  { path: 'what-we-do', component: WhatWeDoComponent },
+  { path: 'connect-with-us', component: ContactComponent },
+  
+  // Keep old routes for backward compatibility
+  { path: 'about-us', redirectTo: 'who-we-are', pathMatch: 'full' },
+  { path: 'community', redirectTo: 'what-we-do', pathMatch: 'full' },
+  { path: 'contact-us', redirectTo: 'connect-with-us', pathMatch: 'full' },
+  
+  // Other routes
   { path: 'volunteer', component: VolunteerComponent },
   { path: 'play', component: PlayComponent },
   { path: 'tournament', component: TournamentComponent },
   { path: 'faq', component: FaqComponent },
-  { path: 'contact-us', component: ContactComponent },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'community', component: CommunityComponent },
   { path: 'indoor-soccer', component: IndoorSoccerComponent },
   { path: 'sponsors', component: SponsorsComponent },
   { path: 'educational-sessions', component: EducationalSessionsComponent },
