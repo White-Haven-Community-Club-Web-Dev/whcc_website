@@ -17,7 +17,7 @@ const emailSending = async (subject, body) => {
   });
 
   if (error)
-    throw new Error(error);
+    throw new Error(error.message);
 };
 
 const inputSanitizer = inputs => {
