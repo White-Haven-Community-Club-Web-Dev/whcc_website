@@ -2,8 +2,8 @@ import express, { response } from "express";
 import nodemailer from "nodemailer";
 import { validate } from "deep-email-validator";
 import xss from "xss";
-import db from "../db/db.js";
 import { validateCaptcha } from "../captcha/captcha.js";
+import DBManager from "../db/db-manager.js";
 
 const router = express.Router();
 
@@ -124,13 +124,16 @@ router.route("/contact").post(async (req, res) => {
     "INSERT INTO contact (firstname, lastname, email, phone, message) VALUES (?, ?, ?, ?, ?)";
 
   try {
-    await db.query(sql, [
+    const pool = await DBManager.getPool();
+
+    await pool.execute(sql, [
       firstname,
       lastname,
       email,
       phone,
       message,
     ]);
+
     await emailSending("Contact Form Submission", emailBody);
     res.status(200).json({ message: "Success" });
   } catch (error) {
