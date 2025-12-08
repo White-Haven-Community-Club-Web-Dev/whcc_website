@@ -5,14 +5,13 @@ class DBManager {
   static #pool = null;
 
   /**
+   * Get the shared database connection pool
    *
    * @returns {DBManager} Instance of DBManager
    */
   static async getPool() {
-    if (DBManager.#pool === null) {
-      DBManager.#connect();
-      await DBManager.#check();
-    }
+    if (DBManager.#pool === null)
+      await DBManager.connect();
 
     return DBManager.#pool;
   }
@@ -20,7 +19,7 @@ class DBManager {
   /**
    * Connect to database
    */
-  static #connect() {
+  static async connect() {
     DBManager.#pool = mysql.createPool({
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
@@ -34,12 +33,7 @@ class DBManager {
     });
 
     console.log("Connected to database");
-  }
 
-  /**
-  *
-  */
-  static async #check() {
     // Create table if it doesn't exist
     await DBManager.#pool.query(table_create_query);
     console.log("Table checked/created");
