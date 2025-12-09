@@ -17,6 +17,7 @@
     "deep-email-validator": "^0.1.21",
     "express": "^4.21.0",
     "mysql2": "^3.11.3",
+    "nodemailer": "^7.0.11",
     "resend": "^6.5.2",
     "xss": "^1.0.15"
   },
