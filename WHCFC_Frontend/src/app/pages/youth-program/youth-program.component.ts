@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
@@ -12,11 +13,21 @@ export class YouthProgramComponent implements OnInit, OnDestroy {
   minutes: string = '00';
   seconds: string = '00';
   private countdownInterval: any;
+  private isBrowser: boolean;
 
-  constructor(private meta: Meta, private title: Title) {}
+  constructor(
+    private meta: Meta, 
+    private title: Title, 
+    @Inject(PLATFORM_ID
+  ) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit(): void {
-    this.startCountdown();
+    if (this.isBrowser) {
+      this.startCountdown();
+    }
+
     this.title.setTitle('Youth Program | White Haven Community Football Club');
     this.meta.addTags([
       { name: 'description', content: "Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in, White Haven Park 63 Invergordon Ave Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop, Learn more about White Haven Community Football Club's youth program ,Stay active this winter! Join our Subsidized Winter Futsal Program in Scarborough for skill-building, fun, and fitness. Open to all levels" },
