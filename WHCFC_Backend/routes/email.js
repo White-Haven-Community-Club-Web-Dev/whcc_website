@@ -111,9 +111,7 @@ router.route("/contact").post(async (req, res) => {
     "INSERT INTO contact (firstname, lastname, email, phone, message) VALUES (?, ?, ?, ?, ?)";
 
   try {
-    const pool = await DBManager.getPool();
-
-    await pool.execute(sql, [
+    await DBManager.execute(sql, [
       firstname,
       lastname,
       email,

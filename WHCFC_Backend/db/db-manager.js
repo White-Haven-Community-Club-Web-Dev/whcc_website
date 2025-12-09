@@ -5,11 +5,13 @@ class DBManager {
   static #pool = null;
 
   /**
-   * Get the shared database connection pool
+   * Get the shared database connection pool (for power users)
    *
-   * @returns {DBManager} Instance of DBManager
+   * @returns {mysql.Pool} Pool connection
+   *
+   * @throws {Error} When database is not initialized
    */
-  static async getPool() {
+  static getPool() {
     if (DBManager.#pool === null)
       throw new Error("Database not initialized");
 
@@ -17,26 +19,111 @@ class DBManager {
   }
 
   /**
-   * Connect to database
+   * Execute DBMS query
+   *
+   * @param {string} sql - SQL query
+   * @param {any[]} [params=[]] - Placeholder for "?"
+   *
+   * @returns {Object[]|Object} If the query is a SELECT, returns an array of row objects. For non-SELECT queries (INSERT/UPDATE/DELETE), returns a ResultSetHeader-like object with metadata (e.g., affectedRows, insertId)
+   *
+   * @throws {Error} When database not initialized
+   * @throws {Error} When query fails
    */
-  static async connect() {
-    DBManager.#pool = mysql.createPool({
-      host: process.env.DB_HOST,
-      port: process.env.DB_PORT,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-      multipleStatements: true,
-      connectionLimit: 10,
-      waitForConnections: true,
-      queueLimit: 10
-    });
+  static async execute(sql, params = []) {
+    if (DBManager.#pool === null)
+      throw new Error("database not initialized");
 
-    console.log("Connected to database");
+    try {
+      const [results] = await DBManager.#pool.execute(sql, params);
+      return results;
+    } catch (error) {
+      console.error("Database query failed");
+      console.error(error);
+      throw error;
+    }
+  }
 
-    // Create table if it doesn't exist
-    await DBManager.#pool.query(table_create_query);
-    console.log("Table checked/created");
+  /**
+   * Connect to database
+   *
+   * @param {Object} config - Configuration for createPool
+   * 
+   * @throws {Error} Database is already connected
+   * @throws {Error} Missing database configuration
+   * @throws {Error} Missing required inputs (host, user, database, password)
+   * @throws {Error} When failing to connect to database
+   */
+  static async connect(config) {
+    if (DBManager.#pool)
+      throw new Error("Already connected to the database");
+
+    if (!config || typeof config !== "object")
+      throw new Error("Missing database config");
+
+    const { host, user, database, password } = config;
+
+    if (!host)
+      throw new Error("Missing host in config");
+
+    if (!user)
+      throw new Error("Missing user in config");
+
+    if (!database)
+      throw new Error("Missing database in config");
+
+    if (!password)
+      throw new Error("Missing password in config");
+
+    try {
+      DBManager.#pool = mysql.createPool(config);
+      console.log("Connected to database");
+    } catch (error) {
+      console.error("Error connecting to database");
+      console.error(error);
+      throw error;
+    }
+
+    await DBManager.#check();
+  }
+
+  /**
+   * Disconnect from database
+   *
+   * @throws {Error} When not connected to the database
+   * @throws {Error} When failing to disconnect from database
+   */
+  static async close() {
+    if (!DBManager.#pool)
+      throw new Error("Not connected to database");
+
+    try {
+      await DBManager.#pool.end();
+      DBManager.#pool = null;
+      console.log("Disconnected from database");
+    }
+    catch (error) {
+      console.error("Error closing connection");
+      console.error(error);
+      throw error;
+    }
+  }
+
+  /**
+   * Check if table is created. If not, create it
+   *
+   * @throws {Error} When failing to check or create table
+   */
+  static async #check() {
+    try {
+      // Create table if it doesn't exist
+      await DBManager.#pool.query(table_create_query);
+      console.log("Table checked/created");
+    }
+    catch (error) {
+      console.error("Error checking/creating table");
+      console.error(error);
+      throw error;
+    }
   }
 }
 
