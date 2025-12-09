@@ -32,6 +32,9 @@ const emailSending = (subject, body) => {
         user: process.env.APP_MAILING_SENDER_EMAIL,
         pass: process.env.APP_MAILING_PASSWORD,
       },
+      connectionTimeout: 5000,
+      greetingTimeout: 5000,
+      socketTimeout: 10000,
     });
 
     const mailOptions = {
