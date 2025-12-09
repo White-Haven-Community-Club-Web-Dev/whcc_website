@@ -38,7 +38,6 @@ export const routes: Routes = [
   { path: 'educational-sessions', component: EducationalSessionsComponent },
   { path: 'youth-program', component: YouthProgramComponent },
   { path: 'canadaday', component: CanadadayComponent },
-  { path: 'what-we-do', component: WhatWeDoComponent },
 ];
 
 @NgModule({
