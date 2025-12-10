@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { CommunityComponent } from './pages/community/community.component';
 import { PlayComponent } from './components/play/play.component';
 import { TournamentComponent } from './components/tournament/tournament.component';
 import { IndoorSoccerComponent } from './pages/indoor-soccer/indoor-soccer.component';

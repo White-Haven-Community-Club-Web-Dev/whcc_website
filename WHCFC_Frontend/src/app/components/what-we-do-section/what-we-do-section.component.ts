@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import countdown from 'countdown';
 
 @Component({
   selector: 'app-what-we-do-section',
@@ -23,15 +22,20 @@ export class WhatWeDoSectionComponent implements OnInit, OnDestroy {
   ) {}
 
   private updateCountdownOnce() {
-    const timespan = countdown(
-      null,
-      this.targetDate,
-      countdown.DAYS | countdown.HOURS | countdown.MINUTES
-    ) as countdown.Timespan;
+    const now = new Date().getTime();
+    const target = this.targetDate.getTime();
+    const diff = target - now;
 
-    this.days_remaining_to_worldcup = timespan.days ?? 0;
-    this.hours_remaining_to_worldcup = timespan.hours ?? 0;
-    this.minutes_remaining_to_worldcup = timespan.minutes ?? 0;
+    if (diff <= 0) {
+      this.days_remaining_to_worldcup = 0;
+      this.hours_remaining_to_worldcup = 0;
+      this.minutes_remaining_to_worldcup = 0;
+      return;
+    }
+
+    this.days_remaining_to_worldcup = Math.floor(diff / (1000 * 60 * 60 * 24));
+    this.hours_remaining_to_worldcup = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    this.minutes_remaining_to_worldcup = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   }
 
   private startBrowserTimer() {
