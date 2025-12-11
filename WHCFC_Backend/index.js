@@ -19,6 +19,18 @@ const corsConfig = {
   maxAge: 3600 // 1 hour
 };
 
+const poolConfig = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  multipleStatements: true,
+  connectionLimit: 10,
+  waitForConnections: true,
+  queueLimit: 10
+};
+
 app.use(cors(corsConfig));
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true, limit: "1mb" }));
@@ -27,7 +39,7 @@ app.use("/send-email", emailRoute);
 app.use("/agenda", eventRoute);
 
 try {
-  await DBManager.connect();
+  await DBManager.createPool(poolConfig);
 }
 catch (error) {
   console.error("Error connecting to the database: ", error);

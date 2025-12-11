@@ -8,10 +8,8 @@ router.route("/all-agendas").get(async (req, res) => {
     "SELECT * FROM agenda WHERE MONTH(date) >= MONTH(CURRENT_DATE()) ORDER BY date ASC, time ASC";
 
   try {
-    const pool = await DBManager.getPool();
-
-    var result = await pool.query(sql);
-    res.json(result[0]).status(200);
+    var results = await DBManager.execute(sql);
+    res.json(results).status(200);
   } catch (error) {
     console.log(error);
   }
@@ -23,7 +21,7 @@ router.route("/add-agenda").post(async (req, res) => {
   const sql =
     "INSERT INTO agenda (title, date, time, category, description, location, team1, team2) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-  var values = [
+  const values = [
     title,
     date,
     time,
@@ -35,9 +33,7 @@ router.route("/add-agenda").post(async (req, res) => {
   ];
 
   try {
-    const pool = await DBManager.getPool();
-
-    await pool.execute(sql, values);
+    await DBManager.execute(sql, values);
     res.json("Agenda added successfully").status(200);
   } catch (error) {
     console.log(error);
