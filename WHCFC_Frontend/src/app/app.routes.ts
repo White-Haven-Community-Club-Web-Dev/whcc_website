@@ -13,8 +13,6 @@ import { SponsorsComponent } from './pages/sponsors/sponsors.component';
 import { EducationalSessionsComponent } from './pages/educational-sessions/educational-sessions.component';
 import { YouthProgramComponent } from './pages/youth-program/youth-program.component';
 import { CanadadayComponent } from './pages/canadaday/canadaday.component';
-import { EventListTestComponent } from './components/event-list-test/event-list-test.component';
-import { ArticleListTestComponent } from './components/article-list-test/article-list-test.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,8 +37,6 @@ export const routes: Routes = [
   { path: 'educational-sessions', component: EducationalSessionsComponent },
   { path: 'youth-program', component: YouthProgramComponent },
   { path: 'canadaday', component: CanadadayComponent },
-  { path: 'events-test', component: EventListTestComponent }, // CMS 测试 - 活动
-  { path: 'articles-test', component: ArticleListTestComponent }, // CMS 测试 - 文章
 ];
 
 @NgModule({

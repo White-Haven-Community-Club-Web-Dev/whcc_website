@@ -1,0 +1,43 @@
+# 环境变量文件（包含敏感信息，不要提交！）
+.env
+.env.*
+!.env.example
+
+# 依赖目录
+node_modules/
+
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE 配置文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+
+# 构建输出
+dist/
+build/
+
+# 临时文件
+tmp/
+temp/
+
