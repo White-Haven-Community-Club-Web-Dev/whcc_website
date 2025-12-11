@@ -44,7 +44,7 @@ class DBManager {
   }
 
   /**
-   * Connect to database
+   * Create connection pool
    *
    * @param {Object} config - Configuration for createPool
    * 
@@ -53,9 +53,9 @@ class DBManager {
    * @throws {Error} Missing required inputs (host, user, database, password)
    * @throws {Error} When failing to connect to database
    */
-  static async connect(config) {
+  static async createPool(config) {
     if (DBManager.#pool)
-      throw new Error("Already connected to the database");
+      throw new Error("Connection pool already created");
 
     if (!config || typeof config !== "object")
       throw new Error("Missing database config");
@@ -76,9 +76,11 @@ class DBManager {
 
     try {
       DBManager.#pool = mysql.createPool(config);
-      console.log("Connected to database");
+      console.log("Created connection pool");
     } catch (error) {
-      console.error("Error connecting to database");
+      DBManager.#pool = null;
+
+      console.error("Error creating connection pool");
       console.error(error);
       throw error;
     }
@@ -87,22 +89,22 @@ class DBManager {
   }
 
   /**
-   * Disconnect from database
+   * Close connection pool
    *
    * @throws {Error} When not connected to the database
    * @throws {Error} When failing to disconnect from database
    */
   static async close() {
     if (!DBManager.#pool)
-      throw new Error("Not connected to database");
+      throw new Error("No connection pool created");
 
     try {
       await DBManager.#pool.end();
       DBManager.#pool = null;
-      console.log("Disconnected from database");
+      console.log("Connection pool closed");
     }
     catch (error) {
-      console.error("Error closing connection");
+      console.error("Error closing connection pool");
       console.error(error);
       throw error;
     }
@@ -122,6 +124,16 @@ class DBManager {
     catch (error) {
       console.error("Error checking/creating table");
       console.error(error);
+
+      // Close pool connection
+      try {
+        await DBManager.#pool.end();
+        DBManager.#pool = null;
+      }
+      catch (error) {
+        console.warn("Additionally: failed to close connection pool");
+      }
+
       throw error;
     }
   }

@@ -39,7 +39,7 @@ app.use("/send-email", emailRoute);
 app.use("/agenda", eventRoute);
 
 try {
-  await DBManager.connect(poolConfig);
+  await DBManager.createPool(poolConfig);
 }
 catch (error) {
   console.error("Error connecting to the database: ", error);
