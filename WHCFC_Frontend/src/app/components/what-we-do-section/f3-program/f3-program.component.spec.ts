@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FirstSectionComponent } from './first-section.component';
+import { F3ProgramComponent } from './f3-program.component';
 
-describe('FirstSectionComponent', () => {
-  let component: FirstSectionComponent;
-  let fixture: ComponentFixture<FirstSectionComponent>;
+describe('F3ProgramComponent', () => {
+  let component: F3ProgramComponent;
+  let fixture: ComponentFixture<F3ProgramComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FirstSectionComponent]
+      imports: [F3ProgramComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FirstSectionComponent);
+    fixture = TestBed.createComponent(F3ProgramComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

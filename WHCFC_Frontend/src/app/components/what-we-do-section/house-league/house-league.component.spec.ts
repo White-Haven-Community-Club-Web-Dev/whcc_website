@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SecondSectionComponent } from './second-section.component';
+import { HouseLeagueComponent } from './house-league.component';
 
-describe('SecondSectionComponent', () => {
-  let component: SecondSectionComponent;
-  let fixture: ComponentFixture<SecondSectionComponent>;
+describe('HouseLeagueComponent', () => {
+  let component: HouseLeagueComponent;
+  let fixture: ComponentFixture<HouseLeagueComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SecondSectionComponent]
+      imports: [HouseLeagueComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SecondSectionComponent);
+    fixture = TestBed.createComponent(HouseLeagueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

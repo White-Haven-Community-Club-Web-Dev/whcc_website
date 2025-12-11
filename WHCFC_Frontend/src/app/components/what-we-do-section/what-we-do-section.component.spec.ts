@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FourthSectionComponent } from './fourth-section.component';
+import { WhatWeDoSectionComponent } from './what-we-do-section.component';
 
-describe('FourthSectionComponent', () => {
-  let component: FourthSectionComponent;
-  let fixture: ComponentFixture<FourthSectionComponent>;
+describe('WhatWeDoSectionComponent', () => {
+  let component: WhatWeDoSectionComponent;
+  let fixture: ComponentFixture<WhatWeDoSectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FourthSectionComponent]
+      imports: [WhatWeDoSectionComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FourthSectionComponent);
+    fixture = TestBed.createComponent(WhatWeDoSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

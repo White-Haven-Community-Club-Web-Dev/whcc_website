@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutUsDataService } from '../../../services/about-us-data.service';
 
 @Component({
   selector: 'app-our-board',
@@ -9,7 +8,7 @@ import { AboutUsDataService } from '../../../services/about-us-data.service';
   templateUrl: './our-board.component.html',
   styleUrl: './our-board.component.css'
 })
-export class OurBoardComponent implements OnInit {
+export class OurBoardComponent {
   title = 'Our Board';
   boardMembers = [
     { name: 'Joseph Fernandes', position: 'President', image: 'assets/Joe.jpg' },
@@ -17,17 +16,4 @@ export class OurBoardComponent implements OnInit {
     { name: 'Gurpurv Kukreja', position: 'Secretary', image: 'assets/Guru.jpg' },
     { name: 'Legus Yeung', position: 'Tech Advisor', image: 'assets/Legus.jpg' }
   ];
-
-  constructor(private aboutUsDataService: AboutUsDataService) {}
-
-  ngOnInit() {
-    this.aboutUsDataService.aboutUsData$.subscribe(data => {
-      if (data) {
-        this.title = data.ourBoardTitle || this.title;
-        if (data.boardMembers && data.boardMembers.length > 0) {
-          this.boardMembers = data.boardMembers;
-        }
-      }
-    });
-  }
 }

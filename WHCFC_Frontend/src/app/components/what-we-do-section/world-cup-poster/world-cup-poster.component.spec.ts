@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FifthSectionComponent } from './fifth-section.component';
+import { WorldCupPosterComponent } from './world-cup-poster.component';
 
-describe('FifthSectionComponent', () => {
-  let component: FifthSectionComponent;
-  let fixture: ComponentFixture<FifthSectionComponent>;
+describe('WorldCupPosterComponent', () => {
+  let component: WorldCupPosterComponent;
+  let fixture: ComponentFixture<WorldCupPosterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FifthSectionComponent]
+      imports: [WorldCupPosterComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FifthSectionComponent);
+    fixture = TestBed.createComponent(WorldCupPosterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
