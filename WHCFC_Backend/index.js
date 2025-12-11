@@ -23,23 +23,23 @@ app.use(cors(corsConfig));
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
-// 速率限制配置
-// 邮件发送端点 - 更严格的限制（防止垃圾邮件）
+// Rate limiting configuration
+// Email endpoint - stricter limit to prevent spam
 const emailLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15分钟
-  max: 5, // 每个IP最多5次请求
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // Max 5 requests per IP
   message: { 
     error: 'Too many requests from this IP, please try again later.',
     retryAfter: '15 minutes'
   },
-  standardHeaders: true, // 返回 RateLimit-* 头
-  legacyHeaders: false, // 禁用 X-RateLimit-* 头
+  standardHeaders: true, // Return RateLimit-* headers
+  legacyHeaders: false, // Disable X-RateLimit-* headers
 });
 
-// 活动日历端点 - 较宽松的限制（读取操作）
+// Agenda endpoint - more relaxed limit for read operations
 const agendaLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1分钟
-  max: 30, // 每个IP最多30次请求
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 30, // Max 30 requests per IP
   message: { 
     error: 'Too many requests, please slow down.',
     retryAfter: '1 minute'
