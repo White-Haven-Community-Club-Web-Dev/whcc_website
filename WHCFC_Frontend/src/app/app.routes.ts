@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { CommunityComponent } from './pages/community/community.component';
 import { PlayComponent } from './components/play/play.component';
 import { TournamentComponent } from './components/tournament/tournament.component';
 import { IndoorSoccerComponent } from './pages/indoor-soccer/indoor-soccer.component';
@@ -13,13 +12,14 @@ import { SponsorsComponent } from './pages/sponsors/sponsors.component';
 import { EducationalSessionsComponent } from './pages/educational-sessions/educational-sessions.component';
 import { YouthProgramComponent } from './pages/youth-program/youth-program.component';
 import { CanadadayComponent } from './pages/canadaday/canadaday.component';
+import { WhatWeDoComponent } from './pages/what-we-do/what-we-do.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   
   // New routes from PR #42
   { path: 'who-we-are', component: AboutUsComponent },
-  { path: 'what-we-do', component: CommunityComponent },
+  { path: 'what-we-do', component: WhatWeDoComponent },
   { path: 'connect-with-us', component: ContactComponent },
   
   // Keep old routes for backward compatibility
@@ -43,4 +43,4 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

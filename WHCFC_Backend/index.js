@@ -4,6 +4,7 @@ import rateLimit from "express-rate-limit";
 import emailRoute from "./routes/email.js";
 import eventRoute from "./routes/agenda.js";
 import dotenv from "dotenv";
+import DBManager from "./db/db-manager.js";
 
 // Load environment variables
 const env = process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
@@ -17,6 +18,18 @@ const corsConfig = {
   allowedHeaders: ["Content-Type"],
   methods: ["GET", "POST"],
   maxAge: 3600 // 1 hour
+};
+
+const poolConfig = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  multipleStatements: true,
+  connectionLimit: 10,
+  waitForConnections: true,
+  queueLimit: 10
 };
 
 app.use(cors(corsConfig));
@@ -50,6 +63,14 @@ const agendaLimiter = rateLimit({
 
 app.use("/send-email", emailLimiter, emailRoute);
 app.use("/agenda", agendaLimiter, eventRoute);
+
+try {
+  await DBManager.createPool(poolConfig);
+}
+catch (error) {
+  console.error("Error connecting to the database: ", error);
+  process.exit(1);
+}
 
 app.listen(port, async () => {
   console.log("Server is running on port: " + port);

@@ -4,20 +4,56 @@ import { validate } from "deep-email-validator";
 import xss from "xss";
 import { validateCaptcha } from "../captcha/captcha.js";
 import DBManager from "../db/db-manager.js";
+import nodemailer from "nodemailer";
 
 const router = express.Router();
-const resend = new Resend(process.env.RESEND_API_KEY);
+//let resend = null;
 
-const emailSending = async (subject, body) => {
-  const { error } = await resend.emails.send({
-    from: process.env.EMAIL_SENDER,
-    to: process.env.EMAIL_RECIPIENTS,
-    subject: subject,
-    text: body,
+//const emailSending = async (subject, body) => {
+//  if (!resend)
+//    resend = new Resend(process.env.RESEND_API_KEY);
+//
+//  const { error } = await resend.emails.send({
+//    from: process.env.EMAIL_SENDER,
+//    to: process.env.EMAIL_RECIPIENTS,
+//    subject: subject,
+//    text: body,
+//  });
+//
+//  if (error)
+//    throw new Error(error.message);
+//};
+
+const emailSending = (subject, body) => {
+  return new Promise((resolve, reject) => {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.APP_MAILING_SENDER_EMAIL,
+        pass: process.env.APP_MAILING_PASSWORD,
+      },
+      connectionTimeout: 5000,
+      greetingTimeout: 5000,
+      socketTimeout: 10000,
+    });
+
+    const mailOptions = {
+      from: process.env.APP_MAILING_SENDER_EMAIL,
+      to: process.env.APP_MAILING_RECEIVER_EMAIL,
+      subject: subject,
+      text: body,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log("Email sending error:", error);
+        reject(error);
+      } else {
+        console.log("Email sent: " + info.response);
+        resolve(info);
+      }
+    });
   });
-
-  if (error)
-    throw new Error(error);
 };
 
 const inputSanitizer = inputs => {
@@ -108,9 +144,7 @@ router.route("/contact").post(async (req, res) => {
     "INSERT INTO contact (firstname, lastname, email, phone, message) VALUES (?, ?, ?, ?, ?)";
 
   try {
-    const pool = await DBManager.getPool();
-
-    await pool.execute(sql, [
+    await DBManager.execute(sql, [
       firstname,
       lastname,
       email,
