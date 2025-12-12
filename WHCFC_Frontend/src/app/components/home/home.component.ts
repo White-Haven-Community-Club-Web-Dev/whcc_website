@@ -141,7 +141,7 @@ export class HomeComponent {
   featuredEventImageText: FeaturedEventImageText = {
     monthLabel: "June 2026",
     tagline: "The World Comes to North America",
-    image: "FIFA World Cup 2026 Watch Party Image.png"
+    image: "world-cup-watch-party.png"
   };
 
   featuredEventDetails: FeaturedEventDetail[] = [
