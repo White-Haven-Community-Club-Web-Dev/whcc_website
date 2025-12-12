@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 import emailRoute from "./routes/email.js";
-import eventRoute from "./routes/agenda.js";
+//import eventRoute from "./routes/agenda.js";
 import dotenv from "dotenv";
 import DBManager from "./db/db-manager.js";
 
@@ -49,20 +49,20 @@ const emailLimiter = rateLimit({
   legacyHeaders: false, // Disable X-RateLimit-* headers
 });
 
-// Agenda endpoint - more relaxed limit for read operations
-const agendaLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 30, // Max 30 requests per IP
-  message: { 
-    error: 'Too many requests, please slow down.',
-    retryAfter: '1 minute'
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-});
+// Agenda endpoint - more relaxed limit for read operations (currently disabled)
+// const agendaLimiter = rateLimit({
+//   windowMs: 1 * 60 * 1000, // 1 minute
+//   max: 30, // Max 30 requests per IP
+//   message: { 
+//     error: 'Too many requests, please slow down.',
+//     retryAfter: '1 minute'
+//   },
+//   standardHeaders: true,
+//   legacyHeaders: false,
+// });
 
 app.use("/send-email", emailLimiter, emailRoute);
-app.use("/agenda", agendaLimiter, eventRoute);
+//app.use("/agenda", agendaLimiter, eventRoute);
 
 try {
   await DBManager.createPool(poolConfig);
