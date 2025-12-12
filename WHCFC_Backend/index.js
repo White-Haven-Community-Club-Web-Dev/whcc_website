@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import emailRoute from "./routes/email.js";
-import eventRoute from "./routes/agenda.js";
+//import eventRoute from "./routes/agenda.js";
 import dotenv from "dotenv";
 import DBManager from "./db/db-manager.js";
 
@@ -36,7 +36,7 @@ app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
 app.use("/send-email", emailRoute);
-app.use("/agenda", eventRoute);
+//app.use("/agenda", eventRoute);
 
 try {
   await DBManager.createPool(poolConfig);
