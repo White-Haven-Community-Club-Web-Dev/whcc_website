@@ -1,4 +1,4 @@
-const table_create_query = `
+const contactTable = `
   CREATE TABLE IF NOT EXISTS contact (
     id INT AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(255) NOT NULL,
@@ -7,7 +7,9 @@ const table_create_query = `
     phone VARCHAR(255),
     message TEXT NOT NULL
   );
+`;
 
+const agendaTable = `
   CREATE TABLE IF NOT EXISTS agenda (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -19,5 +21,6 @@ const table_create_query = `
     team1 VARCHAR(255),
     team2 VARCHAR(255)
   );
-  `;
-export { table_create_query };
+`;
+
+export { contactTable, agendaTable };

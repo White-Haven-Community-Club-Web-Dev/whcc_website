@@ -1,5 +1,5 @@
 import mysql from "mysql2/promise";
-import { table_create_query } from "./table_query.js";
+import { contactTable } from "./table_query.js";
 
 class DBManager {
   static #pool = null;
@@ -118,7 +118,7 @@ class DBManager {
   static async #check() {
     try {
       // Create table if it doesn't exist
-      await DBManager.#pool.query(table_create_query);
+      await DBManager.#pool.query(contactTable);
       console.log("Table checked/created");
     }
     catch (error) {
