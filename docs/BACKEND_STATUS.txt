@@ -1,0 +1,21 @@
+API
+----------------------------------------
+API endpoint: /send-email/contact
+
+Status: Working
+
+Fix required:
+- Problem: Missing first and last name, email, phone number, and message can cause errors
+  Fix: Return a status code 400 for invalid input
+
+- Problem: Missing response status code 500 (internal server error) and response message for status code 200 and 500
+  Fix: Add status code 500 and response messages
+
+Vulnerabilities:
+- Problem: Spam
+  Fix: Validate email
+
+Nice to have:
+- Extra protection for SQL injection such as the least privilege principle (PoLP), validate incoming request data using a framework such as Zod
+
+Date: Nov 28, 2026

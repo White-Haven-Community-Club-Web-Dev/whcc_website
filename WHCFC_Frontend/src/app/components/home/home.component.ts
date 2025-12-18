@@ -1,83 +1,275 @@
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
+interface FeaturedEventDetail {
+  icon: string;
+  label: string;
+  value: string;
+  iconBg: string;
+}
+
+interface EventCard {
+  title: string;
+  image: string;
+  date: string;
+  location: string;
+  meta: string;
+  tag: string;
+}
+
+interface HeroContent {
+  eyebrow: string;
+  titleHighlight: string;
+  titleRest: string;
+  subtitle: string;
+  primaryCta: { label: string; link: string };
+  secondaryCta: { label: string; link: string; playIcon: string };
+  image: string;
+}
+
+interface QuickAction {
+  title: string;
+  description: string;
+  icon: string;
+  iconBg: string;
+  linkText: string;
+  link: string;
+  linkColorClass: string;
+}
+
+interface FeaturedEventHeader {
+  badgeEmoji: string;
+  badgeLabel: string;
+  title: string;
+  descriptionLines: string[];
+}
+
+interface FeaturedEventImageText {
+  monthLabel: string;
+  tagline: string;
+  image: string;
+}
+
+interface FeaturedEventExpectItem {
+  text: string;
+}
+
+interface SectionHeader {
+  title: string;
+  subtitleLines: string[];
+  cta?: { label: string; link: string };
+  dateIcon?: string;
+  locationIcon?: string;
+  metaIcon?: string;
+}
+
+interface ImpactStat {
+  value: string;
+  label: string;
+  icon: string;
+  iconBg: string;
+}
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  
-  benefits = [
+export class HomeComponent {
+
+  hero: HeroContent = {
+    eyebrow: "Join Scarborough's First",
+    titleHighlight: "FREE",
+    titleRest: "Football Community",
+    subtitle: "Where diversity meets passion on the pitch",
+    primaryCta: {
+      label: "Register Now",
+      link: "/connect-with-us",
+    },
+    secondaryCta: {
+      label: "Watch Story",
+      link: "/who-we-are",
+      playIcon: "▶",
+    },
+    image: "Hero Section Image.jpg"
+  };
+
+  quickActions: QuickAction[] = [
     {
-      icon: '⚽', 
-      title: 'Free Football Experiences',
-      description: 'Attend our Wednesday and Sunday scrimmages at no cost and no obligation. Participate in team play and summer tournaments with no cost.'
+      title: "Join a Match",
+      description: "Find and join pickup games in your area",
+      icon: "Join a Match Card Icon.svg",
+      iconBg: "#EEF3FF",
+      linkText: "Learn More",
+      link: "/what-we-do",
+      linkColorClass: "text-blue-500",
     },
     {
-      icon: '🏆', 
-      title: 'Team Play and Tournaments',
-      description: 'Enjoy competitive football opportunities without the financial burden. Join a team with minimal uniform costs and benefit from our efforts to keep expenses low.'
+      title: "Volunteer",
+      description: "Help us grow the community",
+      icon: "Volunteer Card Icon.svg",
+      iconBg: "#EAF8F0",
+      linkText: "Sign Up",
+      link: "/connect-with-us",
+      linkColorClass: "text-green-500",
     },
     {
-      icon: '🌟', 
-      title: 'Community and Networking',
-      description: 'Interact with like-minded individuals, develop long-term relationships, and be part of a supportive community. Build connections that enhance both personal and professional growth.'
+      title: "View Events",
+      description: "Check out upcoming tournaments and activities",
+      icon: "View Events Card Icon.svg",
+      iconBg: "#FFF3E5",
+      linkText: "See Calendar",
+      link: "/what-we-do",
+      linkColorClass: "text-red-500",
     },
-    {
-      icon: '📚', 
-      title: 'Educational Workshops',
-      description: 'Join free workshops focused on developing life skills, career growth, and personal development. Enhance your skills and knowledge to support your future endeavors.'
-    }
   ];
 
-  activeSlide = 0; // Track the current slide
-  slideInterval: ReturnType<typeof setInterval> | undefined; // Hold the interval reference
+  featuredEventHeader: FeaturedEventHeader = {
+    badgeEmoji: "⚽",
+    badgeLabel: "Featured Event",
+    title: "FIFA World Cup 2026 Watch Party",
+    descriptionLines: [
+      "Join us for the biggest soccer celebration in North America!",
+      "Watch the games, enjoy food, and celebrate with our",
+      "community.",
+    ],
+  };
 
-  constructor(private cdr: ChangeDetectorRef, private titleService: Title, private metaService: Meta) {}
+  featuredEventImageText: FeaturedEventImageText = {
+    monthLabel: "June 2026",
+    tagline: "The World Comes to North America",
+    image: "world-cup-watch-party.png"
+  };
 
-  ngOnInit() {
-    this.titleService.setTitle('Home | White Haven Community Football Club');
+  featuredEventDetails: FeaturedEventDetail[] = [
+    {
+      icon: 'Multiple Dates Card Icon.svg',
+      label: 'Multiple Dates',
+      value: 'Throughout June & July 2026',
+      iconBg: '#FFECEC',
+    },
+    {
+      icon: 'Location Card Icon.svg',
+      label: 'Location',
+      value: 'White Haven Park',
+      iconBg: '#EAF8F0',
+    },
+    {
+      icon: 'Community Event Card Icon.svg',
+      label: 'Community Event',
+      value: 'All ages welcome',
+      iconBg: '#EEF3FF',
+    },
+    {
+      icon: 'Live Screening Card Icon.svg',
+      label: 'Live Screening',
+      value: 'Big screen + sound',
+      iconBg: '#F4ECFF',
+    },
+  ];
 
-    this.metaService.addTags([
-      { name: 'description', content: 'Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in, White Haven Park 63 Invergordon Ave Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop.' },
-      { name: 'keywords', content: 'football, soccer,futsal,community, club, sports, Scarborough soccer, Scarborough football club, Scarborough soccer club, Scarborough White Haven soccer, Scarborough White Haven football, not-for-profit club, Scarborough youth soccer,Scarborough adult soccer, Scarborough kids soccer, local football club, GTA football, local football club' },
-      { name: 'author', content: 'White Haven Community Football Club - Building a Stronger Soccer Community' }
-    ]);
+  whatToExpect = {
+    title: "What to Expect:",
+  };
 
-    if (typeof window !== 'undefined') {
-      this.slideInterval = setInterval(() => {
-        this.nextSlide();
-      }, 10000); 
-    }
-  }
+  featuredEventExpectations: FeaturedEventExpectItem[] = [
+    { text: "Live match screenings on big screens" },
+    { text: "Food trucks & refreshments" },
+    { text: "Kids activities & mini soccer clinics" },
+    { text: "Cultural performances & entertainment" },
+    { text: "100% FREE for the community" },
+  ];
 
+  featuredEventCta = {
+    label: "Learn More",
+    link: "/what-we-do",
+  };
 
-  ngOnDestroy() {
-    if (this.slideInterval) {
-      clearInterval(this.slideInterval);
-    }
-  }
+  featuredEventsSection: SectionHeader = {
+    title: "Featured Events",
+    subtitleLines: [
+      "Join us in our upcoming events and be part of our",
+      "growing football community",
+    ],
+    cta: {
+      label: "Learn More",
+      link: "/what-we-do",
+    },
+    dateIcon: "Multiple Dates Card Icon.svg",
+    locationIcon: "Location Card Icon.svg",
+    metaIcon: "Members Card Icon.svg"
+  };
 
-  goToSlide(slideIndex: number) {
-    this.activeSlide = slideIndex;
-    this.cdr.detectChanges(); // Manually trigger change detection to update UI
-  }
+  featuredEvents: EventCard[] = [
+    {
+      title: 'World Cup Watch Party',
+      image: 'World Cup Watch Party Card Image.png',
+      date: 'June & July 2026',
+      location: 'White Haven Park',
+      meta: 'Neighbours',
+      tag: 'Community',
+    },
+    {
+      title: 'House League (Ages 6–18)',
+      image: 'House League Card Image.png',
+      date: 'May – July 2026',
+      location: 'Scarborough',
+      meta: 'Neighbours',
+      tag: 'Youth',
+    },
+    {
+      title: 'Training Clinics',
+      image: 'Training Clinics Card Image.png',
+      date: 'May 2026 Weekends',
+      location: 'Scarborough',
+      meta: 'Neighbours',
+      tag: 'Clinics',
+    },
+    {
+      title: 'F³ Indoor Football Program',
+      image: 'F3 Indoor Football Card Image.png',
+      date: 'Weekly (Mon/Wed/Fri)',
+      location: "Scarborough Indoor Sports Complex",
+      meta: 'Neighbours',
+      tag: 'Adults',
+    },
+  ];
 
-  // Automatically move to the next slide
-  nextSlide() {
-    this.activeSlide = (this.activeSlide + 1) % 2; // Alternates between 0 and 1 for two slides
-    this.cdr.detectChanges(); // Manually trigger change detection to update UI
-  }
+  communityImpactSection: SectionHeader = {
+    title: "Community Impact",
+    subtitleLines: [
+      "Together, we're making a difference in Scarborough's",
+      "sports community",
+    ],
+  };
 
-  // Move to the previous slide
-  prevSlide() {
-    this.activeSlide = (this.activeSlide - 1 + 2) % 2; // Cycles back to the last slide if at the beginning
-    this.cdr.detectChanges(); // Manually trigger change detection to update UI
-  }
+  impactStats: ImpactStat[] = [
+    {
+      value: "500+",
+      label: "Members",
+      icon: "Members Card Icon.svg",
+      iconBg: "#EEF3FF",
+    },
+    {
+      value: "50+",
+      label: "Events",
+      icon: "Events Card Icon.svg",
+      iconBg: "#EAF8F0",
+    },
+    {
+      value: "10+",
+      label: "Partners",
+      icon: "Partners Card Icon.svg",
+      iconBg: "#F4ECFF",
+    },
+    {
+      value: "5,000+",
+      label: "Hours",
+      icon: "Hours Card Icon.svg",
+      iconBg: "#FEE2E2",
+    },
+  ];
 }

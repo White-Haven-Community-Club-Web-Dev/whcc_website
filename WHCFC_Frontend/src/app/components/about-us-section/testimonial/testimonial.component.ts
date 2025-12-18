@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./testimonial.component.css']
 })
 export class TestimonialComponent {
+  title = 'Testimonials';
   videos = ['assets/Henry.mp4', 'assets/Jay.mp4', 'assets/Debem.mp4'];
   currentVideoIndex = 0;
 

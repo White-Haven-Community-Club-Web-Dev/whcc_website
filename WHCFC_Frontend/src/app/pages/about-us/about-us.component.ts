@@ -25,7 +25,10 @@ import { TestimonialComponent } from '../../components/about-us-section/testimon
 })
 export class AboutUsComponent implements OnInit{
   
-  constructor(private meta: Meta, private title: Title) {}
+  constructor(
+    private meta: Meta, 
+    private title: Title
+  ) {}
 
   ngOnInit(): void {
     this.title.setTitle('About Us | White Haven Community Football Club');
