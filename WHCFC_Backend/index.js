@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
-import emailRoute from "./routes/email.js";
+// Temporarily disabled - contact form not working
+// import emailRoute from "./routes/email.js";
 //import eventRoute from "./routes/agenda.js";
 import dotenv from "dotenv";
 import DBManager from "./db/db-manager.js";
@@ -61,7 +62,8 @@ const emailLimiter = rateLimit({
 //   legacyHeaders: false,
 // });
 
-app.use("/send-email", emailLimiter, emailRoute);
+// Temporarily disabled - contact form not working
+// app.use("/send-email", emailLimiter, emailRoute);
 //app.use("/agenda", agendaLimiter, eventRoute);
 
 try {

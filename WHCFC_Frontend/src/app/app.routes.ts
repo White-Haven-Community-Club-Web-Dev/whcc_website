@@ -20,7 +20,8 @@ export const routes: Routes = [
   // New routes from PR #42
   { path: 'who-we-are', component: AboutUsComponent },
   { path: 'what-we-do', component: WhatWeDoComponent },
-  { path: 'connect-with-us', component: ContactComponent },
+  // Temporarily disabled - contact form not working
+  // { path: 'connect-with-us', component: ContactComponent },
   
   // Keep old routes for backward compatibility
   { path: 'about-us', redirectTo: 'who-we-are', pathMatch: 'full' },
