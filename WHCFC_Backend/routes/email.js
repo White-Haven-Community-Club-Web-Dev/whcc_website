@@ -5,6 +5,7 @@ import xss from "xss";
 import { validateCaptcha } from "../captcha/captcha.js";
 import DBManager from "../db/db-manager.js";
 import nodemailer from "nodemailer";
+import logger from "../logger/logger.js";
 
 const router = express.Router();
 //let resend = null;
@@ -46,10 +47,11 @@ const emailSending = (subject, body) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.log("Email sending error:", error);
+        logger.error("Email sending error");
+        logger.error(error);
         reject(error);
       } else {
-        console.log("Email sent: " + info.response);
+        logger.info("Email sent: " + info.response);
         resolve(info);
       }
     });
@@ -155,7 +157,7 @@ router.route("/contact").post(async (req, res) => {
     await emailSending("Contact Form Submission", emailBody);
     res.status(200).json({ message: "Success" });
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });

@@ -3,12 +3,8 @@ import cors from "cors";
 import rateLimit from "express-rate-limit";
 import emailRoute from "./routes/email.js";
 //import eventRoute from "./routes/agenda.js";
-import dotenv from "dotenv";
 import DBManager from "./db/db-manager.js";
-
-// Load environment variables
-const env = process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
-dotenv.config({ path: env });
+import logger from './logger/logger.js';
 
 const app = express();
 const port = process.env.port || 8000;
@@ -41,7 +37,7 @@ app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 const emailLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 5, // Max 5 requests per IP
-  message: { 
+  message: {
     error: 'Too many requests from this IP, please try again later.',
     retryAfter: '15 minutes'
   },
@@ -68,7 +64,8 @@ try {
   await DBManager.createPool(poolConfig);
 }
 catch (error) {
-  console.error("Error connecting to the database: ", error);
+  logger.error("Error connecting to the database");
+  logger.error(error);
   process.exit(1);
 }
 

@@ -1,3 +1,5 @@
+import logger from "../logger/logger.js";
+
 async function validateCaptcha(response) {
   if (!response)
     return { valid: false, msg: "reCaptcha was not completed" };
@@ -31,7 +33,7 @@ async function validateCaptcha(response) {
     };
   }
   catch (error) {
-    console.log(error);
+    logger.error(error);
     return { valid: false, msg: "Internal Server Error" };
   }
 };

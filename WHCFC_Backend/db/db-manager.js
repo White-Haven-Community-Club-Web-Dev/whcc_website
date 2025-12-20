@@ -1,5 +1,6 @@
 import mysql from "mysql2/promise";
 import { contactTable } from "./table_query.js";
+import logger from "../logger/logger.js";
 
 class DBManager {
   static #pool = null;
@@ -37,8 +38,8 @@ class DBManager {
       const [results] = await DBManager.#pool.execute(sql, params);
       return results;
     } catch (error) {
-      console.error("Database query failed");
-      console.error(error);
+      logger.error("Database query failed");
+      logger.error(error);
       throw error;
     }
   }
@@ -76,12 +77,12 @@ class DBManager {
 
     try {
       DBManager.#pool = mysql.createPool(config);
-      console.log("Created connection pool");
+      logger.info("Created connection pool");
     } catch (error) {
       DBManager.#pool = null;
 
-      console.error("Error creating connection pool");
-      console.error(error);
+      logger.error("Error creating connection pool");
+      logger.error(error);
       throw error;
     }
 
@@ -101,11 +102,11 @@ class DBManager {
     try {
       await DBManager.#pool.end();
       DBManager.#pool = null;
-      console.log("Connection pool closed");
+      logger.info("Connection pool closed");
     }
     catch (error) {
-      console.error("Error closing connection pool");
-      console.error(error);
+      logger.error("Error closing connection pool");
+      logger.error(error);
       throw error;
     }
   }
@@ -119,11 +120,11 @@ class DBManager {
     try {
       // Create table if it doesn't exist
       await DBManager.#pool.query(contactTable);
-      console.log("Table checked/created");
+      logger.info("Table checked/created");
     }
     catch (error) {
-      console.error("Error checking/creating table");
-      console.error(error);
+      logger.error("Error checking/creating table");
+      logger.error(error);
 
       // Close pool connection
       try {
@@ -131,7 +132,7 @@ class DBManager {
         DBManager.#pool = null;
       }
       catch (error) {
-        console.warn("Additionally: failed to close connection pool");
+        logger.warn("Additionally: failed to close connection pool");
       }
 
       throw error;

@@ -1,5 +1,6 @@
 import express from "express";
 import DBManager from "../db/db-manager.js";
+import logger from "../logger/logger.js";
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ router.route("/all-agendas").get(async (req, res) => {
     var results = await DBManager.execute(sql);
     res.json(results).status(200);
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
 });
 
@@ -36,7 +37,7 @@ router.route("/add-agenda").post(async (req, res) => {
     await DBManager.execute(sql, values);
     res.json("Agenda added successfully").status(200);
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     res.status(500).json({ error: error });
   }
 });
