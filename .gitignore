@@ -56,3 +56,4 @@ nyc_output/
 .circleci/
 .github/
 WHCFC_Frontend/dist
+WHCFC_Backend/**/logs
