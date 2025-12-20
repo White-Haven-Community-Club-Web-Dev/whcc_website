@@ -1,7 +1,7 @@
 import winston from "winston"
 import "winston-daily-rotate-file"
 
-const { combine, timestamp, printf, colorize } = winston.format;
+const { combine, timestamp, printf, colorize, errors } = winston.format;
 
 const fileRotateTransport = new winston.transports.DailyRotateFile({
   filename: "./logs/%DATE%.log",
@@ -18,11 +18,12 @@ const consoleTransport = new winston.transports.Console({
 const logger = winston.createLogger({
   level: process.env.WINSTON_LOG_LEVEL || "info", // Lowest level to log (e.g. "info":2, it will log "error":0, "warn":1, and "info":2)
   format: combine(
+    errors({ stack: true }),
     timestamp({
       format: "YYYY-MM-DD hh:mm:ss A" // 2022-01-25 03:23:10 PM
     }),
     printf(
-      info => `[${info.timestamp}] [${info.level.toUpperCase()}]: ${info.message}`
+      info => `[${info.timestamp}] [${info.level.toUpperCase()}]: ${info.message}${info.stack ? `\n${info.stack}` : ""}`
     )
   ),
   transports: [
