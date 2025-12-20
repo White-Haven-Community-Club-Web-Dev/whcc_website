@@ -38,7 +38,7 @@ class DBManager {
       const [results] = await DBManager.#pool.execute(sql, params);
       return results;
     } catch (error) {
-      logger.error("Database query failed");
+      error.message = "Database query failed";
       logger.error(error);
       throw error;
     }
@@ -81,7 +81,7 @@ class DBManager {
     } catch (error) {
       DBManager.#pool = null;
 
-      logger.error("Error creating connection pool");
+      error.message = "Error creating connection pool";
       logger.error(error);
       throw error;
     }
@@ -105,7 +105,7 @@ class DBManager {
       logger.info("Connection pool closed");
     }
     catch (error) {
-      logger.error("Error closing connection pool");
+      error.message = "Error closing connection pool";
       logger.error(error);
       throw error;
     }
@@ -123,7 +123,7 @@ class DBManager {
       logger.info("Table checked/created");
     }
     catch (error) {
-      logger.error("Error checking/creating table");
+      error.message = "Error checking/creating table";
       logger.error(error);
 
       // Close pool connection

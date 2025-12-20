@@ -47,7 +47,7 @@ const emailSending = (subject, body) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        logger.error("Email sending error");
+        error.message = "Email sending error";
         logger.error(error);
         reject(error);
       } else {

@@ -64,7 +64,7 @@ try {
   await DBManager.createPool(poolConfig);
 }
 catch (error) {
-  logger.error("Error connecting to the database");
+  error.message = "Error connecting to the database";
   logger.error(error);
   process.exit(1);
 }
