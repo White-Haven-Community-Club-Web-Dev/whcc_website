@@ -94,7 +94,7 @@ export class HomeComponent {
       link: "/who-we-are",
       playIcon: "▶",
     },
-    image: "Hero Section Image.jpg"
+    image: "Hero Section Image.png"
   };
 
   quickActions: QuickAction[] = [
