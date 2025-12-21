@@ -16,6 +16,7 @@
     "cross-env": "^10.1.0",
     "deep-email-validator": "^0.1.21",
     "express": "^4.21.0",
+    "express-rate-limit": "^8.2.1",
     "mysql2": "^3.11.3",
     "nodemailer": "^7.0.11",
     "resend": "^6.5.2",
