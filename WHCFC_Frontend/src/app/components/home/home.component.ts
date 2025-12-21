@@ -147,14 +147,14 @@ export class HomeComponent {
   featuredEventDetails: FeaturedEventDetail[] = [
     {
       icon: 'Multiple Dates Card Icon.svg',
-      label: 'Multiple Dates',
-      value: 'Throughout June & July 2026',
+      label: 'Dates',
+      value: 'Sat June 27, 2026',
       iconBg: '#FFECEC',
     },
     {
       icon: 'Location Card Icon.svg',
       label: 'Location',
-      value: 'White Haven Park',
+      value: 'Scarborough Civic Center',
       iconBg: '#EAF8F0',
     },
     {
