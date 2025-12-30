@@ -66,13 +66,15 @@ const emailLimiter = rateLimit({
 // app.use("/send-email", emailLimiter, emailRoute);
 //app.use("/agenda", agendaLimiter, eventRoute);
 
-try {
-  await DBManager.createPool(poolConfig);
-}
-catch (error) {
-  console.error("Error connecting to the database: ", error);
-  process.exit(1);
-}
+// Database connection temporarily disabled - no form functionality needed
+// Uncomment when database is configured and form functionality is enabled
+// try {
+//   await DBManager.createPool(poolConfig);
+// }
+// catch (error) {
+//   console.error("Error connecting to the database: ", error);
+//   process.exit(1);
+// }
 
 app.listen(port, async () => {
   console.log("Server is running on port: " + port);
