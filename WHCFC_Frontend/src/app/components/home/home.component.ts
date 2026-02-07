@@ -130,7 +130,7 @@ export class HomeComponent {
   featuredEventHeader: FeaturedEventHeader = {
     badgeEmoji: "⚽",
     badgeLabel: "Featured Event",
-    title: "FIFA World Cup 2026 Watch Party",
+    title: "World Cup 2026 Watch Party",
     descriptionLines: [
       "Join us for the biggest soccer celebration in North America!",
       "Watch the games, enjoy food, and celebrate with our",
