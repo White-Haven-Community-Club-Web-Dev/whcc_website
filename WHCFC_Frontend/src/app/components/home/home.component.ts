@@ -109,7 +109,7 @@ export class HomeComponent {
   communitySurveyCallout: CommunitySurveyCallout = {
     eyebrow: "Community Survey",
     title: "Help shape the World Cup Community Connections (WCCC) Festival",
-    description: "Share your ideas on programs, activities, and supports for WCCC and our year-round football community. Your feedback will directly inform how we design the festival and future WHCFC initiatives.",
+    description: "Share your ideas on programs, activities, and supports for WCCC and our year-round football (soccer) community. Your feedback will directly inform how we design the festival and future WHCFC initiatives.",
     linkUrl: "https://forms.office.com/pages/responsepage.aspx?id=Q8wQXfq82UmHdZn-_PjKwdq0nxfGjIZHkjuadjEZIKxURTZCM01IV1dMWVdPSVA5UUtNNDRSNU9VUy4u&route=shorturl",
     linkLabel: "Take the Community Survey",
     helperText: "Opens a secure Microsoft Forms survey in a new tab.",
