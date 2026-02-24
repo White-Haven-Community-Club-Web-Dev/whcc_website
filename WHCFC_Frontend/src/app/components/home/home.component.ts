@@ -250,7 +250,7 @@ export class HomeComponent {
       title: 'F³ Indoor Football Program',
       image: 'F3 Indoor Football Card Image.png',
       date: 'Weekly (Mon/Wed/Fri)',
-      location: "Scarborough Indoor Sports Complex",
+      location: "David and Mary Thomson Collegiate Institute",
       meta: 'Neighbours',
       tag: 'Adults',
     },
