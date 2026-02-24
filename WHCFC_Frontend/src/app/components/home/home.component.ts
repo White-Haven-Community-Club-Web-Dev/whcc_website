@@ -247,7 +247,7 @@ export class HomeComponent {
       tag: 'Clinics',
     },
     {
-      title: 'F³ Indoor Football Program',
+      title: 'F³ Indoor Football Program 2026',
       image: 'F3 Indoor Football Card Image.png',
       date: 'Weekly (Mon/Wed/Fri)',
       location: "David and Mary Thomson Collegiate Institute",
