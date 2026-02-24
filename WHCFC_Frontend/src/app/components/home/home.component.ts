@@ -231,7 +231,7 @@ export class HomeComponent {
       tag: 'Community',
     },
     {
-      title: 'WHFC Youth House League (Ages 7–12)',
+      title: 'WHFC Youth House League (Ages 7–11)',
       image: 'House League Card Image.png',
       date: 'May – July 2026',
       location: 'Scarborough',
