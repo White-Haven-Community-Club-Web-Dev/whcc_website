@@ -31,7 +31,7 @@ type IconAssets = {
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  
+
   isMobileMenuOpen = false;
 
   brand: BrandConfig = {
@@ -58,5 +58,16 @@ export class HeaderComponent {
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  onDesktopNavClick(): void {
+    // Scroll to very top of the document
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }
+
+  onMobileNavClick(): void {
+    // Close the mobile menu and scroll to top
+    this.isMobileMenuOpen = false;
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }
 }
