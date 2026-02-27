@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -87,7 +88,21 @@ interface ImpactStat {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  constructor(
+    private meta: Meta,
+    private title: Title
+  ) {}
+
+  ngOnInit(): void {
+    this.title.setTitle('Home | White Haven Community Football Club');
+    this.meta.addTags([
+      { name: 'description', content: "Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in, White Haven Park 63 Invergordon Ave Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop, Learn more about White Haven Community Football Club's mission, vision, goal and board members" },
+      { name: 'keywords', content: 'football, soccer,futsal,community, club, sports, Scarborough soccer, Scarborough football club, Scarborough soccer club, Scarborough White Haven soccer, Scarborough White Haven football, not-for-profit club, Scarborough youth soccer,Scarborough adult soccer, Scarborough kids soccer, local football club, GTA football, local football club, about us, mission, vision, goal' },
+      { name: 'author', content: 'White Haven Community Football Club - Building a Stronger Soccer Community' }
+    ]);
+  }
 
   hero: HeroContent = {
     eyebrow: "Join Scarborough's First",
@@ -148,11 +163,11 @@ export class HomeComponent {
   featuredEventHeader: FeaturedEventHeader = {
     badgeEmoji: "⚽",
     badgeLabel: "Featured Event",
-    title: "FIFA World Cup 2026 Watch Party",
+    title: "FIFA World Cup Community Connections (WCCC) Festival",
     descriptionLines: [
-      "Join us for the biggest soccer celebration in North America!",
-      "Watch the games, enjoy food, and celebrate with our",
-      "community.",
+      "Join us for a vibrant, FREE festival celebrating community spirit as the World Cup comes to Toronto!",
+      "A historic, once-in-a-lifetime celebration connecting Scarborough neighbors,",
+      "local businesses, civic leaders, and performing artists.",
     ],
   };
 
@@ -194,11 +209,11 @@ export class HomeComponent {
   };
 
   featuredEventExpectations: FeaturedEventExpectItem[] = [
-    { text: "Live match screenings on big screens" },
-    { text: "Food trucks & refreshments" },
-    { text: "Kids activities & mini soccer clinics" },
+    { text: "Exciting community festival atmosphere" },
+    { text: "Family-friendly activities & mini soccer clinics" },
     { text: "Cultural performances & entertainment" },
-    { text: "100% FREE for the community" },
+    { text: "Local community connections and celebrations" },
+    { text: "100% FREE for all ages" },
   ];
 
   featuredEventCta = {
@@ -226,12 +241,12 @@ export class HomeComponent {
       title: 'World Cup Watch Party',
       image: 'World Cup Watch Party Card Image.png',
       date: 'June & July 2026',
-      location: 'White Haven Park',
+      location: 'Scarborough Civic Center',
       meta: 'Neighbours',
       tag: 'Community',
     },
     {
-      title: 'House League (Ages 6–18)',
+      title: 'WHFC Youth House League (U7–U11, Ages 6–10)',
       image: 'House League Card Image.png',
       date: 'May – July 2026',
       location: 'Scarborough',
@@ -247,10 +262,10 @@ export class HomeComponent {
       tag: 'Clinics',
     },
     {
-      title: 'F³ Indoor Football Program',
+      title: 'F³ Indoor Football Program 2026',
       image: 'F3 Indoor Football Card Image.png',
       date: 'Weekly (Mon/Wed/Fri)',
-      location: "Scarborough Indoor Sports Complex",
+      location: "David and Mary Thomson Collegiate Institute",
       meta: 'Neighbours',
       tag: 'Adults',
     },
