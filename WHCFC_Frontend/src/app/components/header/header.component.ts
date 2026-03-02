@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 type NavItem = {
@@ -34,6 +34,8 @@ export class HeaderComponent {
 
   isMobileMenuOpen = false;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   brand: BrandConfig = {
     initial: 'W',
     name: 'WHCFC',
@@ -61,13 +63,15 @@ export class HeaderComponent {
   }
 
   onDesktopNavClick(): void {
-    // Scroll to very top of the document
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
   }
 
   onMobileNavClick(): void {
-    // Close the mobile menu and scroll to top
     this.isMobileMenuOpen = false;
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
   }
 }
