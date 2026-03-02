@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 type NavItem = {
@@ -31,8 +31,10 @@ type IconAssets = {
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  
+
   isMobileMenuOpen = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   brand: BrandConfig = {
     initial: 'W',
@@ -58,5 +60,18 @@ export class HeaderComponent {
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  onDesktopNavClick(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  }
+
+  onMobileNavClick(): void {
+    this.isMobileMenuOpen = false;
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
   }
 }
