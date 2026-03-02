@@ -172,11 +172,7 @@ export class HomeComponent implements OnInit {
   featuredEventHeader: FeaturedEventHeader = {
     badgeEmoji: "⚽",
     badgeLabel: "Featured Event",
-<<<<<<< HEAD
-    title: "World Cup 2026 Watch Party",
-=======
     title: "FIFA World Cup Community Connections (WCCC) Festival",
->>>>>>> c9e55f7e77de8ae635cdd281936bb41b9c753993
     descriptionLines: [
       "Join us for a vibrant, FREE festival celebrating community spirit as the World Cup comes to Toronto!",
       "A historic, once-in-a-lifetime celebration connecting Scarborough neighbors,",
