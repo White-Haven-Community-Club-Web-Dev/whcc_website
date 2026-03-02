@@ -43,7 +43,7 @@ export class HeaderComponent {
   navItems: NavItem[] = [
     { label: 'WHO WE ARE', link: '/who-we-are' },
     { label: 'WHAT WE DO', link: '/what-we-do' },
-    { label: 'CONNECT WITH US', link: '/connect-with-us' },
+    // { label: 'CONNECT WITH US', link: '/connect-with-us' },
   ];
 
   cta: CtaConfig = {
