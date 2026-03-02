@@ -51,7 +51,7 @@ export class FooterComponent {
   ];
 
   copyright =
-    '© 2025 White Haven Community Football Club. All rights reserved.';
+    '© 2026 White Haven Community Football Club. All rights reserved.';
 
   socials: SocialItem[] = [
     {
