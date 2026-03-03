@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface FeaturedEventDetail {
@@ -92,8 +92,15 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private meta: Meta,
-    private title: Title
+    private title: Title,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
+
+  scrollToTop(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Home | White Haven Community Football Club');
