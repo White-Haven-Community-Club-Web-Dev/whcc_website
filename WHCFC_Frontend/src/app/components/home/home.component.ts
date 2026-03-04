@@ -254,7 +254,7 @@ export class HomeComponent implements OnInit {
 
   featuredEvents: EventCard[] = [
     {
-      title: 'World Cup Watch Party',
+      title: 'WCCC Festival',
       image: 'World Cup Watch Party Card Image.png',
       date: 'June & July 2026',
       location: 'Scarborough Civic Center',
