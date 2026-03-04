@@ -197,7 +197,7 @@ export class HomeComponent implements OnInit {
     {
       icon: 'Multiple Dates Card Icon.svg',
       label: 'Dates',
-      value: 'Sat June 27, 2026',
+      value: 'Sat June 20, 2026',
       iconBg: '#FFECEC',
     },
     {
