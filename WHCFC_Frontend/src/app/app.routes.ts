@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { WhoWeAreComponent } from './pages/who-we-are/who-we-are.component';
 import { PlayComponent } from './components/play/play.component';
 import { TournamentComponent } from './components/tournament/tournament.component';
 import { IndoorSoccerComponent } from './pages/indoor-soccer/indoor-soccer.component';
@@ -18,7 +19,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   
   // New routes from PR #42
-  { path: 'who-we-are', component: AboutUsComponent },
+  { path: 'who-we-are', component: WhoWeAreComponent },
   { path: 'what-we-do', component: WhatWeDoComponent },
   // Temporarily disabled - contact form not working
   // { path: 'connect-with-us', component: ContactComponent },
