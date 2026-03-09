@@ -17,6 +17,7 @@ interface EventCard {
   location: string;
   meta: string;
   tag: string;
+  description?: string;
 }
 
 interface HeroContent {
@@ -268,6 +269,7 @@ export class HomeComponent implements OnInit {
       location: 'Scarborough',
       meta: 'Neighbours',
       tag: 'Youth',
+      description: 'The program builds skills, confidence, and a love for the game for players Under 7 to Under 11.',
     },
     {
       title: 'Training Clinics',
