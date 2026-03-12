@@ -6,6 +6,69 @@
 [context.production]
   branch = "main"
 
+# -----------------------------
+# Mark stale/removed pages as GONE (410)
+# This helps Google remove old sitelinks faster.
+# -----------------------------
+[[redirects]]
+  from = "/educational-sessions"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/youth-program"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/canadaday"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/indoor-soccer"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/sponsors"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/faq"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/volunteer"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/play"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/tournament"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/connect-with-us"
+  to = "/"
+  status = 410
+
+[[redirects]]
+  from = "/about"
+  to = "/"
+  status = 410
+
+# -----------------------------
+# SPA fallback (must be LAST)
+# Keeps Angular routing working on refresh/deep links.
+# -----------------------------
 [[redirects]]
   from = "/*"
   to = "/index.html"

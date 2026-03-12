@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+/* Ensures video and iframe behave consistently */
+video,
+iframe {
+  display: block;
+}
