@@ -214,6 +214,9 @@
                   <img [src]="'assets/' + featuredEventsSection.metaIcon" alt="Meta icon" class="h-4 w-4" />
                   <span>{{ event.meta }}</span>
                 </div>
+                <div class="flex items-center gap-2 pt-2" *ngIf="event.description">
+                  <span class="text-xs">{{ event.description }}</span>
+                </div>
               </div>
             </div>
           </article>
