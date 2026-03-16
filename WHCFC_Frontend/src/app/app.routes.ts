@@ -3,12 +3,18 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './pages/home/home.component';
 import { WhoWeAreComponent } from './pages/who-we-are/who-we-are.component';
 import { WhatWeDoComponent } from './pages/what-we-do/what-we-do.component';
+import { EducationalSessionPageComponent } from './pages/educational-session/educational-session.component';
+import { HouseLeaguePageComponent } from './pages/house-league/house-league.component';
+import { F3ProgramPageComponent } from './pages/f3-program/f3-program.component';
 
 export const routes: Routes = [
   // Current public pages
   { path: '', component: HomeComponent },
   { path: 'who-we-are', component: WhoWeAreComponent },
   { path: 'what-we-do', component: WhatWeDoComponent },
+  { path: 'educational-session', component: EducationalSessionPageComponent },
+  { path: 'house-league', component: HouseLeaguePageComponent },
+  { path: 'f3-program', component: F3ProgramPageComponent },
   // Legacy URLs → current pages
   { path: 'about-us', redirectTo: 'who-we-are', pathMatch: 'full' },
   { path: 'community', redirectTo: 'what-we-do', pathMatch: 'full' },

@@ -2,9 +2,15 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-type NavItem = {
+type NavChild = {
   label: string;
   link: string;
+};
+
+type NavItem = {
+  label: string;
+  link?: string;
+  children?: NavChild[];
 };
 
 type BrandConfig = {
@@ -33,6 +39,7 @@ type IconAssets = {
 export class HeaderComponent {
 
   isMobileMenuOpen = false;
+  openDropdown: string | null = null;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -44,8 +51,15 @@ export class HeaderComponent {
 
   navItems: NavItem[] = [
     { label: 'WHO WE ARE', link: '/who-we-are' },
-    { label: 'WHAT WE DO', link: '/what-we-do' },
-    // { label: 'CONNECT WITH US', link: '/connect-with-us' },
+    {
+      label: 'WHAT WE DO',
+      children: [
+        { label: 'WCCC', link: '/what-we-do' },
+        { label: 'Educational Session', link: '/educational-session' },
+        { label: 'House League & Football Clinics', link: '/house-league' },
+        { label: 'F³ Indoor Football Program', link: '/f3-program' },
+      ],
+    },
   ];
 
   cta: CtaConfig = {
@@ -62,7 +76,22 @@ export class HeaderComponent {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
+  toggleDropdown(label: string): void {
+    this.openDropdown = this.openDropdown === label ? null : label;
+  }
+
+  closeDropdown(): void {
+    this.openDropdown = null;
+  }
+
+  openMobileAccordion: string | null = null;
+
+  toggleMobileAccordion(label: string): void {
+    this.openMobileAccordion = this.openMobileAccordion === label ? null : label;
+  }
+
   onDesktopNavClick(): void {
+    this.openDropdown = null;
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }
@@ -70,6 +99,7 @@ export class HeaderComponent {
 
   onMobileNavClick(): void {
     this.isMobileMenuOpen = false;
+    this.openMobileAccordion = null;
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }
