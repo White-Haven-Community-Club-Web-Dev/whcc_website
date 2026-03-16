@@ -27,10 +27,36 @@
           </svg>
         </a>
         <!-- Text nav items -->
-        <button *ngFor="let item of navItems" [routerLink]="item.link" routerLinkActive="active" type="button" (click)="onDesktopNavClick()"
-          class="hover:text-red-600">
-          {{ item.label }}
-        </button>
+        <ng-container *ngFor="let item of navItems">
+          <!-- Simple link -->
+          <button *ngIf="!item.children" [routerLink]="item.link" routerLinkActive="active" type="button"
+            (click)="onDesktopNavClick()" class="hover:text-red-600">
+            {{ item.label }}
+          </button>
+          <!-- Dropdown -->
+          <div *ngIf="item.children" class="relative" (mouseenter)="toggleDropdown(item.label)"
+            (mouseleave)="closeDropdown()">
+            <button type="button"
+              class="flex items-center gap-1 hover:text-red-600"
+              [class.text-red-600]="openDropdown === item.label">
+              {{ item.label }}
+              <svg class="h-3 w-3 transition-transform" [class.rotate-180]="openDropdown === item.label"
+                viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <!-- Dropdown panel -->
+            <div *ngIf="openDropdown === item.label"
+              class="absolute left-0 top-full mt-1 w-64 rounded-lg border border-slate-100 bg-white py-2 shadow-lg">
+              <button *ngFor="let child of item.children" [routerLink]="child.link" routerLinkActive="active"
+                type="button" (click)="onDesktopNavClick()"
+                class="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600">
+                {{ child.label }}
+              </button>
+            </div>
+          </div>
+        </ng-container>
       </nav>
       <!-- Desktop CTA -->
       <button [routerLink]="cta.link" routerLinkActive="active" type="button" (click)="onDesktopNavClick()"
@@ -56,7 +82,7 @@
     </div>
     <!-- Mobile Nav -->
     <div *ngIf="isMobileMenuOpen" class="border-t border-slate-100 pb-4 lg:hidden">
-      <nav class="mt-3 space-y-2 text-sm text-slate-800">
+      <nav class="mt-3 space-y-1 text-sm text-slate-800">
         <!-- Home icon row -->
         <a [routerLink]="brand.homeLink" routerLinkActive="active" (click)="onMobileNavClick()">
           <div class="px-2 py-1 w-8 h-8 w-full flex items-center justify-start hover:bg-gray-100">
@@ -72,10 +98,32 @@
           </div>
         </a>
         <!-- Text nav items -->
-        <button *ngFor="let item of navItems" [routerLink]="item.link" routerLinkActive="active" type="button" (click)="onMobileNavClick()"
-          class="block w-full text-left px-2 py-1 hover:bg-gray-100">
-          {{ item.label }}
-        </button>
+        <ng-container *ngFor="let item of navItems">
+          <!-- Simple link -->
+          <button *ngIf="!item.children" [routerLink]="item.link" routerLinkActive="active" type="button"
+            (click)="onMobileNavClick()" class="block w-full text-left px-2 py-1 hover:bg-gray-100">
+            {{ item.label }}
+          </button>
+          <!-- Accordion dropdown -->
+          <div *ngIf="item.children">
+            <button type="button" (click)="toggleMobileAccordion(item.label)"
+              class="flex w-full items-center justify-between px-2 py-1 hover:bg-gray-100">
+              <span>{{ item.label }}</span>
+              <svg class="h-3 w-3 transition-transform" [class.rotate-180]="openMobileAccordion === item.label"
+                viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div *ngIf="openMobileAccordion === item.label" class="ml-4 border-l-2 border-slate-100 pl-2">
+              <button *ngFor="let child of item.children" [routerLink]="child.link" routerLinkActive="active"
+                type="button" (click)="onMobileNavClick()"
+                class="block w-full text-left px-2 py-1.5 text-slate-700 hover:bg-gray-100 hover:text-red-600">
+                {{ child.label }}
+              </button>
+            </div>
+          </div>
+        </ng-container>
         <!-- Mobile CTA -->
         <button [routerLink]="cta.link" routerLinkActive="active" type="button" (click)="onMobileNavClick()"
           class="mt-2 inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2 text-xs font-semibold text-white shadow hover:bg-red-700">

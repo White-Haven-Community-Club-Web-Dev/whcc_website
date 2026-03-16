@@ -18,6 +18,7 @@ interface EventCard {
   meta: string;
   tag: string;
   description?: string;
+  link: string;
 }
 
 interface HeroContent {
@@ -261,31 +262,35 @@ export class HomeComponent implements OnInit {
       location: 'Scarborough Civic Center',
       meta: 'Neighbours',
       tag: 'Community',
+      link: '/what-we-do',
     },
     {
-      title: 'House League (Under 7 to Under 11)',
+      title: 'House League & Youth Development Football Clinics',
       image: 'House League Card Image.png',
       date: 'May – July 2026',
       location: 'Scarborough',
       meta: 'Neighbours',
       tag: 'Youth',
-      description: 'The program builds skills, confidence, and a love for the game for players Under 7 to Under 11.',
+      description: 'House League (U7–U11) and weekend Training Clinics building skills, confidence, and love for the game.',
+      link: '/house-league',
     },
     {
-      title: 'Training Clinics',
-      image: 'Training Clinics Card Image.png',
-      date: 'May 2026 Weekends',
+      title: 'Educational Session',
+      image: 'Edu3.jpg',
+      date: 'Coming Soon',
       location: 'Scarborough',
       meta: 'Neighbours',
-      tag: 'Clinics',
+      tag: 'Workshop',
+      link: '/educational-session',
     },
     {
       title: 'F³ Indoor Football Program 2026',
       image: 'F3 Indoor Football Card Image.png',
       date: 'Weekly (Mon/Wed/Fri)',
-      location: "David and Mary Thomson Collegiate Institute",
+      location: 'David and Mary Thomson Collegiate Institute',
       meta: 'Neighbours',
       tag: 'Adults',
+      link: '/f3-program',
     },
   ];
 
