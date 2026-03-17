@@ -218,16 +218,14 @@
                   <span class="text-xs">{{ event.description }}</span>
                 </div>
               </div>
+              <div class="mt-auto pt-4">
+                <button [routerLink]="event.link" routerLinkActive="active" type="button" (click)="scrollToTop()"
+                  class="w-full rounded-lg border border-slate-200 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-red-600 transition-colors">
+                  Learn More →
+                </button>
+              </div>
             </div>
           </article>
-        </div>
-        <div class="mt-8 text-center">
-          <button *ngIf="featuredEventsSection.cta" [routerLink]="featuredEventsSection.cta.link"
-            routerLinkActive="active" type="button" (click)="scrollToTop()" class="inline-flex items-center rounded-lg border border-slate-300 px-5 py-2 text-xs font-semibold
-                   text-slate-700 hover:bg-slate-50">
-            {{ featuredEventsSection.cta.label }}
-            <span class="ml-1">→</span>
-          </button>
         </div>
       </div>
     </section>
