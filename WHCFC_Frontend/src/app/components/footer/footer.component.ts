@@ -46,7 +46,7 @@ export class FooterComponent {
     {
       icon: 'Location Icon.svg',
       alt: 'Location',
-      value: 'White Haven Park, 63 Invergordon Ave, Scarborough, ON'
+      value: 'Scarborough, ON'
     }
   ];
 

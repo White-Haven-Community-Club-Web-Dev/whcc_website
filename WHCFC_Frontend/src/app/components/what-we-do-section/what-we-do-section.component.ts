@@ -53,7 +53,7 @@ export class WhatWeDoSectionComponent implements OnInit, OnDestroy {
     this.meta.updateTag({
       name: 'description',
       content:
-        "Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in, White Haven Park 63 Invergordon Ave Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop, Learn more about White Haven Community Football Club's mission, vision, goal and board members",
+        "Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop, Learn more about White Haven Community Football Club's mission, vision, goal and board members",
     });
 
     this.meta.updateTag({

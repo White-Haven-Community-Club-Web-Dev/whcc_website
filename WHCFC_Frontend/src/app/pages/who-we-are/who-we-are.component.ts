@@ -54,10 +54,6 @@ export class WhoWeAreComponent implements OnInit {
     this.meta.updateTag({ name: 'author', content: 'White Haven Community Football Club' });
 
     this.currentVideo = this.videos[this.currentVideoIndex];
-
-    this.mapEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.content.whereWePlay.map.embedSrc
-    );
   }
 
   content = {
@@ -139,31 +135,6 @@ export class WhoWeAreComponent implements OnInit {
       ]
     },
 
-    whereWePlay: {
-      eyebrow: 'Location',
-      title: 'Where We Play',
-      description:
-        'We are primarily based at White Haven Park in Scarborough, where we host most of our regular programs and events.',
-      map: {
-        title: 'White Haven Park Map',
-        embedSrc:
-          'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5760.711122694048!2d-79.25227112346384!3d43.786234543815866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d10374000001%3A0x62f484e422dd9fcc!2sWhite%20Haven%20Park!5e0!3m2!1sen!2sca!4v1727566759985!5m2!1sen!2sca'
-      },
-      locationCard: {
-        iconSrc: 'assets/Location Card Icon.svg',
-        iconAlt: 'Location icon',
-        placeName: 'White Haven Park',
-        addressLines: ['63 Invergordon Ave', 'Scarborough, ON M1K 3M6']
-      },
-      activitiesCardTitle: 'Regular Activities',
-      regularActivities: [
-        'Weekly pickup games and training sessions',
-        'Youth development programs',
-        'Community tournaments and events',
-        'World Cup watch parties and celebrations'
-      ]
-    },
-
     testimonials: {
       title: 'Testimonials',
       prevAriaLabel: 'Previous testimonial',
@@ -178,7 +149,6 @@ export class WhoWeAreComponent implements OnInit {
   videos: string[] = ['assets/Henry.mp4', 'assets/Jay.mp4', 'assets/Debem.mp4'];
   currentVideoIndex = 0;
   currentVideo = this.videos[0];
-  mapEmbedUrl!: SafeResourceUrl;
 
   private syncCurrentVideo(): void {
     this.currentVideo = this.videos[this.currentVideoIndex];
