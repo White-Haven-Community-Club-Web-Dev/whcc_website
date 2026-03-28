@@ -6,6 +6,7 @@ import { WhatWeDoComponent } from './pages/what-we-do/what-we-do.component';
 import { EducationalSessionPageComponent } from './pages/educational-session/educational-session.component';
 import { HouseLeaguePageComponent } from './pages/house-league/house-league.component';
 import { F3ProgramPageComponent } from './pages/f3-program/f3-program.component';
+import { WcccEventsPageComponent } from './pages/wccc-events-page/wccc-events-page.component';
 
 export const routes: Routes = [
   // Current public pages
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'educational-session', component: EducationalSessionPageComponent },
   { path: 'house-league', component: HouseLeaguePageComponent },
   { path: 'f3-program', component: F3ProgramPageComponent },
+  { path: 'wccc-event', component: WcccEventsPageComponent },
   // Legacy URLs → current pages
   { path: 'about-us', redirectTo: 'who-we-are', pathMatch: 'full' },
   { path: 'community', redirectTo: 'what-we-do', pathMatch: 'full' },
