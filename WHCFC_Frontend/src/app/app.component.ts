@@ -28,14 +28,13 @@ export class AppComponent implements OnInit {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "White Haven Community Football Club",
-      "description": "A not-for-profit football club located in White Haven Park, offering free football experiences, team play and tournaments, community networking, and free education workshops.",
+      "description": "A not-for-profit football club located in Scarborough, offering free football experiences, team play and tournaments, community networking, and free education workshops.",
       "url": "https://whcfc.ca",
       "location": {
         "@type": "Place",
-        "name": "White Haven Park",
+        "name": "Scarborough",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "63 Invergordon Ave",
           "addressLocality": "Scarborough",
           "addressRegion": "ON",
           "addressCountry": "CA"
