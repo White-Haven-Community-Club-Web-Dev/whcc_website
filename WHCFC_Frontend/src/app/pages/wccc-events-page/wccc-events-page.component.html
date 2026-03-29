@@ -1,4 +1,4 @@
-<div class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+<div class="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden">
     <!-- {/* Background Image with Overlay */} -->
     <div class="absolute inset-0 z-0">
         <img src="https://images.unsplash.com/photo-1701872324039-6aceb083d8ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwY29tbXVuaXR5JTIwc29jY2VyJTIwY2VsZWJyYXRpb24lMjBmZXN0aXZhbHxlbnwxfHx8fDE3NzI1ODgxMjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
@@ -92,7 +92,32 @@
             Connect With Us
         </button>
     </div>
+    <!-- Approval Disclaimer -->
+    <div
+        class="mt-10 relative z-10 flex items-start gap-4 backdrop-blur-lg rounded-2xl border border-amber-400/50 bg-amber-400/10 px-6 py-5">
+        <svg class="mt-0.5 h-6 w-6 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12 9v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        <div>
+            <p class="text-amber-300 text-xs font-roboto font-semibold tracking-[0.15em] uppercase mb-2">
+                Important Notice — Subject to Approval
+            </p>
+            <p class="text-amber-100/90 text-sm font-roboto font-normal leading-relaxed">
+                All event details — including activities, vendor participation, viewing arrangements, and programming —
+                are subject to review and formal approval by the
+                <span class="text-white font-semibold">City of Toronto</span>
+                and the
+                <span class="text-white font-semibold">venue management authority</span>.
+            </p>
+        </div>
+    </div>
 </div>
+<!-- About the event section -->
 <section class="py-16 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -183,6 +208,7 @@
         </div>
     </div>
 </section>
+<!-- What to Expect Section -->
 <section class="py-16 sm:py-20 bg-background">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -195,28 +221,60 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20">
 
-            <div key={index}
+            <div *ngFor="let feature of features"
                 class="bg-white rounded-lg overflow-hidden shadow-card hover:shadow-xl transition-shadow duration-300">
-                <div class="relative h-48 overflow-hidden">
-                    <img 
-                    [src]="features[0].image"
-                    [alt]="features[0].title"
-                    class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                <div class="relative h-64 overflow-hidden">
+                    <img [src]="feature.image" [alt]="feature.title"
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-4 left-4">
-                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary">
-
+                        <div [innerHTML]="getSafeSvg(feature.icon)"
+                            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary">
                         </div>
                     </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-title text-primary mb-2">{{features[0].title}}</h3>
-                    <p class="text-muted-foreground">{{features[0].description}}</p>
+                    <h3 class="text-xl font-title text-primary mb-2">{{feature.title}}</h3>
+                    <p class="text-muted-foreground">{{feature.description}}</p>
                 </div>
             </div>
 
+        </div>
+    </div>
+</section>
+<!-- Get involved section -->
+<section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-title text-gray-700 mb-4">
+                Get Involved
+            </h2>
+            <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Help make WCCC Festival a success! Multiple ways to participate and contribute to this community
+                celebration
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2  gap-6 ">
+            <div *ngFor="let opportunity of opportunities"
+                class="border-2 border-gray-200 rounded-lg p-8 hover:border-[#1BAA76] transition-colors duration-300 group">
+                <div [innerHTML]="getSafeSvg(opportunity.icon)"></div>
+                <h3 class="text-2xl font-title text-[#212529] mb-3">{{opportunity.title}}</h3>
+                <p class="text-[#6C757D] mb-6 leading-relaxed">{{opportunity.description}}</p>
+
+            </div>
+        </div>
+        <div class="mt-12 bg-background rounded-lg p-8 text-center">
+            <p class="text-muted-foreground mb-4">
+                Have questions about getting involved? We'd love to hear from you!
+            </p>
+            <a href="mailto:info@whcfc.ca"
+                class="inline-flex items-center text-primary hover:text-primary-dark font-title transition-colors">
+                Contact our team at info&#64;whcfc.ca
+            </a>
         </div>
     </div>
 </section>

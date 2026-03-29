@@ -1,5 +1,6 @@
 import { isPlatformBrowser, NgForOf } from '@angular/common';
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-wccc-events-page',
@@ -34,7 +35,7 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
     websiteUrl: "https://whcfc.ca", // Update with actual website URL
   };
   timeLeft: any = {};
-
+  // About to the Event Section
   highlights = [
     {
       title: 'Community Unity',
@@ -53,50 +54,98 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
       description: 'Micro learning modules (April-December 2026) helping adults and youth develop skills for personal and professional success in careers, work and home life'
     }
   ];
-
+  // What to Expect Section
   features = [
     {
-     
-      title: 'Global Food Village',
-      description: 'Sample delicious cuisines from around the world featuring local vendors and international flavors.',
-      image: 'https://images.unsplash.com/photo-1761992554804-9a107cd4b5bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwY29tbXVuaXR5JTIwZmVzdGl2YWwlMjBmb29kJTIwdmVuZG9yc3xlbnwxfHx8fDE3NzI1ODgxMjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
-    },
-    {
-     
-      title: 'Live Entertainment',
-      description: 'Enjoy performances from talented local artists, DJs, and cultural dance groups throughout the day.',
-      image: 'https://images.unsplash.com/photo-1720096322069-8d84365ef60a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaXZlJTIwbXVzaWMlMjBwZXJmb3JtYW5jZSUyMG91dGRvb3IlMjBmZXN0aXZhbHxlbnwxfHx8fDE3NzI1ODgxMjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
-    },
-    {
 
-      title: 'Football Skills Clinic',
-      description: 'Interactive football training sessions and skills challenges for youth and adults led by experienced coaches.',
-      image: 'https://images.unsplash.com/photo-1717584146940-118a65525da8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjBmb290YmFsbCUyMHNraWxscyUyMHRyYWluaW5nJTIwa2lkc3xlbnwxfHx8fDE3NzI1ODgxMjV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
-    },
-    {
-   
       title: 'Community Corner',
+      icon: `  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-users-round w-6 h-6 text-white"
+                                data-fg-dwwj16="1.19:1.4979:/src/app/components/WhatToExpect.tsx:71:21:4558:47:e:feature.icon"
+                                data-fgid-dwwj16=":r3d:">
+                                <path d="M18 21a8 8 0 0 0-16 0"></path>
+                                <circle cx="10" cy="8" r="5"></circle>
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path>
+                            </svg>`,
       description: 'Connect with local organizations, community groups, and resources serving Scarborough residents.',
       image: 'https://images.unsplash.com/photo-1758599669186-9eaf14f6f3ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjB2b2x1bnRlZXJzJTIwaGVscGluZyUyMHRvZ2V0aGVyfGVufDF8fHx8MTc3MjU4ODEyNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-  
-      title: 'Kids Zone',
-      description: 'Face painting, bouncy castles, and family-friendly games to keep the little ones entertained.',
-      image: 'https://images.unsplash.com/photo-1761057292517-74dfb48ede46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdWx0aWN1bHR1cmFsJTIwZmFtaWx5JTIwZmVzdGl2YWwlMjBjZWxlYnJhdGlvbnxlbnwxfHx8fDE3NzI1ODgxMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide text-white lucide-tv-icon lucide-tv"><path d="m17 2-5 5-5-5"/><rect width="20" height="15" x="2" y="7" rx="2"/></svg>`,
+      title: 'Live Match Entertainment',
+      description: `Join your local football family at the clubhouse for every match. Experience the stadium energy with a live broadcast, a sea of jerseys, and the unbeatable atmosphere of cheering alongside fellow fans.`,
+      image: "https://images.unsplash.com/photo-1727334291228-188f30b43f1f?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-     
-      title: 'Vendor Market',
-      description: 'Browse unique products from local artisans, crafters, and small businesses.',
-      image: 'https://images.unsplash.com/photo-1761992554804-9a107cd4b5bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwY29tbXVuaXR5JTIwZmVzdGl2YWwlMjBmb29kJTIwdmVuZG9yc3xlbnwxfHx8fDE3NzI1ODgxMjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
+      icon: ` <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store-icon lucide-store"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></svg>`,
+      title: `The Marketplace`,
+      description: `Explore what our local community is creating.Discover the unique projects, crafts, and stories of fellow fans in a non-commercial space dedicated to celebrating our community’s creativity.`,
+      image: `https://images.unsplash.com/photo-1614603869015-1820cc8194fb?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`
+    },
+
+    {
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-person-standing-icon lucide-person-standing"><circle cx="12" cy="5" r="1"/><path d="m9 20 3-6 3 6"/><path d="m6 8 6 2 6-2"/><path d="M12 10v4"/></svg>`,
+      title: 'Family-friendly Experience',
+      description: 'Experience the big game in a setting that’s as welcoming as it is exciting. With activities and atmosphere tailored for all ages, it’s the perfect spot for your family to join ours in cheering for every goal.',
+      image: `https://images.unsplash.com/photo-1758612897478-52cab69b7e42?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`
+    },
+
+
+  ];
+
+
+  // Get Involved Section content
+  opportunities = [
+    {
+      icon: `<div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
+                    style="background-color: rgba(224, 1, 13, 0.082);"
+                    data-fg-bujk11="1.20:1.3848:/src/app/components/GetInvolved.tsx:54:15:2020:301:e:div:e"
+                    data-fgid-bujk11=":r4e:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-store w-8 h-8" style="color: rgb(224, 1, 13);"
+                        data-fg-bujk12="1.20:1.3848:/src/app/components/GetInvolved.tsx:58:17:2223:77:e:opportunity.icon"
+                        data-fgid-bujk12=":r4f:">
+                        <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path>
+                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                        <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path>
+                        <path d="M2 7h20"></path>
+                        <path
+                            d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7">
+                        </path>
+                    </svg></div>`,
+      title: 'Become a Vendor',
+      description: 'Showcase your products or food offerings to thousands of community members. Limited vendor spots available.',
+      color: 'primary',
+      action: 'Vendor Application'
+    },
+    {
+      icon: `<div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background-color: rgba(27, 170, 118, 0.082);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide text-customGreen lucide-award w-8 h-8"  ><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg></div>`,
+      title: 'Sponsor the Event',
+      description: 'Align your brand with community values and gain visibility among diverse Scarborough residents.',
+      color: 'customGreen',
+      action: 'Sponsorship Info'
+    },
+    {
+      icon: `<div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background-color: rgba(224, 1, 13, 0.082);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-heart text-primary w-8 h-8"  data-fg-bujk12="1.20:1.3848:/src/app/components/GetInvolved.tsx:58:17:2223:77:e:opportunity.icon" data-fgid-bujk12=":r4t:"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"></path><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"></path><path d="m2 15 6 6"></path><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z"></path></svg></div>`,
+      title: 'Volunteer',
+      description: 'Be part of the team that brings this event to life. Volunteer positions available across all festival areas.',
+      color: 'customGreen',
+      action: 'Volunteer Form'
+    },
+    {
+      icon: `<div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background-color: rgba(27, 170, 118, 0.082);" data-fg-bujk11="1.20:1.3848:/src/app/components/GetInvolved.tsx:54:15:2020:301:e:div:e" data-fgid-bujk11=":r53:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-handshake w-8 h-8" style="color: rgb(27, 170, 118);" data-fg-bujk12="1.20:1.3848:/src/app/components/GetInvolved.tsx:58:17:2223:77:e:opportunity.icon" data-fgid-bujk12=":r54:"><path d="m11 17 2 2a1 1 0 1 0 3-3"></path><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path><path d="m21 3 1 11h-2"></path><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path><path d="M3 4h8"></path></svg></div>`,
+      title: 'Partner Organization',
+      description: 'Community groups and organizations can partner with us to increase outreach and impact.',
+      color: 'customGreen',
+      action: 'Partnership Inquiry'
     }
   ];
 
 
   private timer: any;
   private eventDate;
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private sanitizer: DomSanitizer) {
     this.eventDate = new Date(`${this.eventConfig.date}T12:00:00`);
 
   }
@@ -134,4 +183,8 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
     }
     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   };
+
+  getSafeSvg(svgString: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(svgString);
+  }
 }

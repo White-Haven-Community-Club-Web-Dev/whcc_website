@@ -54,7 +54,7 @@ export class HeaderComponent {
     {
       label: 'WHAT WE DO',
       children: [
-        { label: 'WCCC', link: '/what-we-do' },
+        { label: 'WCCC', link: '/wccc-event' },
         { label: 'Educational Session', link: '/educational-session' },
         { label: 'House League & Football Clinics', link: '/house-league' },
         { label: 'F³ Indoor Football Program', link: '/f3-program' },
