@@ -9,5 +9,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './educational-session.component.css'
 })
 export class EducationalSessionComponent {
-
+  readonly registrationUrl = 'https://forms.cloud.microsoft/r/eeFuTaV9He';
 }

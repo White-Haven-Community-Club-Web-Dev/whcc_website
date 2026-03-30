@@ -1,94 +1,230 @@
 <div class="bg-white font-roboto">
   <div class="max-w-[1120px] mx-auto px-4 py-16">
-    <div class="flex flex-col items-center gap-16 mb-16">
+    <div class="flex flex-col items-center gap-8 mb-16 text-center">
       <div class="inline-flex items-center justify-center px-8 rounded-full">
-        <p class="text-customGreen text-center text-base font-normal tracking-[1.6px] uppercase">
-          UPCOMING WORKSHOP
+        <p class="text-customGreen text-center text-base font-normal tracking-[1.6px] uppercase pt-4">
+          EDUCATIONAL SESSIONS
         </p>
       </div>
-
-      <div class="w-full text-center">
+      <div class="w-full">
         <h1 class="text-4xl md:text-5xl lg:text-[60px] font-normal leading-tight text-primary font-roboto mb-6">
-          Educational Session
+          Empowering Individuals Through Life Skills & Learning
         </h1>
-        
-        <div class="flex justify-center mb-10">
+        <div class="flex justify-center mb-8">
           <div class="w-32 h-1.5 bg-primary"></div>
         </div>
-
-        <p class="text-foreground text-lg md:text-xl leading-[32.5px] max-w-3xl mx-auto px-4">
-          Join us for an interactive micro-learning workshop designed to develop essential skills for community building, leadership, and project management.
+        <p class="text-foreground text-lg md:text-xl leading-[32.5px] max-w-3xl mx-auto px-4 mb-8">
+          Micro-learning workshops on essential life skills.
+        </p>
+        <a [href]="registrationUrl" target="_blank" rel="noopener noreferrer"
+          class="bg-customGreen hover:bg-[#158A5E] transition-colors text-white text-sm font-medium leading-5 rounded-[10px] px-6 py-3 inline-block">
+          Register
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+      <div class="bg-gray rounded-2xl p-6 md:p-8">
+        <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
+          About Program
+        </h2>
+        <p class="text-foreground text-base leading-[28px]">
+          WHCC Corp. is a Not-For-Profit committed to building communities where residents
+          can connect, grow, learn, and develop through the transformative power of sport
+          and education.
+        </p>
+      </div>
+      <div class="bg-gray rounded-2xl p-6 md:p-8">
+        <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
+          Program Description
+        </h2>
+        <p class="text-foreground text-base leading-[28px]">
+          Equipping participants with critical competencies to manage their personal and
+          professional lives successfully and compete for employment.
         </p>
       </div>
     </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="flex flex-col gap-8">
-        <div class="flex flex-col gap-4">
-          <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
-            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M3 10H21" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="flex flex-col gap-1">
-              <h4 class="text-xl font-bold font-outfit leading-7">Date</h4>
-              <p class="text-foreground text-base leading-[25.6px]">Dates to be announced for Spring 2026 - April 2026</p>
-            </div>
+    <div class="mb-16">
+      <div class="bg-gray rounded-2xl p-6 md:p-8">
+        <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4 text-center">
+          Workshop Topics
+        </h2>
+        <p class="text-foreground text-base leading-[28px] text-center max-w-3xl mx-auto mb-8">
+          Sessions may include the following life-skills topics:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Project Management as Skills for Life</p>
           </div>
-
-          <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
-            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 6V12L16 14" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="flex flex-col gap-1">
-              <h4 class="text-xl font-bold font-outfit leading-7">Time</h4>
-              <p class="text-foreground text-base leading-[25.6px]">10:00 AM - 1:00 PM (3 hours)</p>
-            </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Collaboration in the New World of Work</p>
           </div>
-
-          <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
-            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="flex flex-col gap-1">
-              <h4 class="text-xl font-bold font-outfit leading-7">Venue</h4>
-              <div class="flex flex-col">
-                <p class="text-foreground text-base leading-[25.6px]">Scarborough Community Center</p>
-                <p class="text-foreground text-base leading-[25.6px]">1900 McNicoll Ave, Scarborough, ON</p>
-              </div>
-            </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Cultural Competence</p>
           </div>
-
-          <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
-            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H6C4.93913 15 3.92172 15.4214 3.17157 16.1716C2.42143 16.9217 2 17.9391 2 19V21" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 3.12793C16.8578 3.3503 17.6174 3.85119 18.1597 4.55199C18.702 5.25279 18.9962 6.11382 18.9962 6.99993C18.9962 7.88604 18.702 8.74707 18.1597 9.44787C17.6174 10.1487 16.8578 10.6496 16 10.8719" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M22 20.9999V18.9999C21.9993 18.1136 21.7044 17.2527 21.1614 16.5522C20.6184 15.8517 19.8581 15.3515 19 15.1299" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="flex flex-col gap-1">
-              <h4 class="=text-xl font-bold font-outfit leading-7">Who Should Attend</h4>
-              <p class="text-foreground text-base leading-[25.6px]">Youth leaders, volunteers, and community members interested in skill development</p>
-            </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Resilience & Growth Mindset</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Change and Continuous Learning</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Communication in the New World of Work</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Social Intelligence</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Systems Thinking</p>
+          </div>
+          <div class="flex items-start gap-3 md:col-span-2">
+            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
+            <p class="text-foreground text-base leading-[28px]">Civility & Citizenship</p>
           </div>
         </div>
-
-        <button routerLink="/connect-with-us" class="bg-customGreen hover:bg-[#158A5E] transition-colors text-white text-sm font-medium leading-5 rounded-[10px] px-6 py-2.5 w-fit">
-          Register
-        </button>
       </div>
-
+    </div>
+    <div id="upcoming-sessions" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+      <div class="flex flex-col gap-4">
+        <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
+          <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M16 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
+              stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M3 10H21" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="flex flex-col gap-1">
+            <h4 class="text-xl font-bold font-outfit leading-7">Upcoming Session</h4>
+            <p class="text-foreground text-base leading-[25.6px]">Late April 2026</p>
+            <p class="text-foreground text-base leading-[25.6px]">Date and location to be confirmed</p>
+          </div>
+        </div>
+        <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
+          <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 6V12L16 14" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+              stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="flex flex-col gap-1">
+            <h4 class="text-xl font-bold font-outfit leading-7">Format</h4>
+            <p class="text-foreground text-base leading-[25.6px]">
+              Interactive monthly micro-learning workshops.
+            </p>
+            <p class="text-foreground text-base leading-[25.6px]">
+              Topics for April will be announced soon.
+            </p>
+          </div>
+        </div>
+        <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
+          <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z"
+              stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+              stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="flex flex-col gap-1">
+            <h4 class="text-xl font-bold font-outfit leading-7">Location</h4>
+            <p class="text-foreground text-base leading-[25.6px]">
+              Scarborough location to be confirmed.
+            </p>
+            <p class="text-foreground text-base leading-[25.6px]">
+              SCC (Committee Room) is one current option.
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="flex justify-center items-center">
-        <img 
-          src="assets/Edu3.jpg" 
-          alt="Workshop attendees engaged in learning activities" 
-          class="w-full max-w-[520px] h-auto rounded-2xl shadow-workshop object-cover"
-        />
+        <img src="assets/Edu3.jpg" alt="Workshop attendees engaged in learning activities"
+          class="w-full max-w-[520px] h-auto rounded-2xl shadow-workshop object-cover" />
       </div>
+    </div>
+    <div class="bg-gray rounded-2xl p-6 md:p-8 mb-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4">
+        Community Input
+      </h2>
+      <p class="text-foreground text-base leading-[28px] max-w-3xl mx-auto">
+        Questions or topic suggestions:
+        <a href="mailto:fcwhitehaven@gmail.com" class="text-primary underline">fcwhitehaven&#64;gmail.com</a>
+      </p>
+    </div>
+    <div class="mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-gray-200">
+          <h3 class="text-2xl font-bold font-outfit text-primary mb-3">Session 1</h3>
+          <h4 class="text-xl font-semibold text-foreground mb-2">
+            Project Management Skills for Success
+          </h4>
+          <p class="text-foreground text-base leading-[25.6px] mb-4">
+            With Joe Fernandes
+          </p>
+          <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
+            <li>Thrive in a changing world across learning, work, and life</li>
+            <li>Build practical project-management knowledge for personal and workplace use</li>
+            <li>Strengthen employability, growth, and community participation</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-200">
+          <h3 class="text-2xl font-bold font-outfit text-primary mb-3">Session 2</h3>
+          <h4 class="text-xl font-semibold text-foreground mb-2">
+            Budgeting & Finances
+          </h4>
+          <p class="text-foreground text-base leading-[25.6px] mb-4">
+            With Gurpurv Kukreja
+          </p>
+          <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
+            <li>Tax Filing: Navigating the Tax Landscape</li>
+            <li>Bookkeeping essentials</li>
+            <li>Debt management fundamentals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+      <div class="bg-gray rounded-2xl p-6 md:p-8">
+        <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
+          Target Audience
+        </h2>
+        <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
+          <li>Youth and adults interested in personal growth and life-skills learning</li>
+          <li>Community members seeking practical workplace and everyday-life competencies</li>
+          <li>Residents who want to participate, connect, grow, and learn through community programming</li>
+          <li>Individuals exploring topics that support confidence, employability, and community engagement</li>
+        </ul>
+      </div>
+      <div class="bg-gray rounded-2xl p-6 md:p-8">
+        <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
+          Registration Process
+        </h2>
+        <ol class="list-decimal pl-5 text-foreground text-base leading-[28px] space-y-1">
+          <li>Click <strong>Register</strong>.</li>
+          <li>Complete the Microsoft Form with your contact details.</li>
+          <li>Select the topics or sessions you are interested in.</li>
+          <li>Submit the form to receive updates on dates, location, and upcoming announcements.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="text-center border-t border-gray-200 pt-8">
+      <p class="text-foreground text-base leading-[28px] mb-2">
+        WHCC Corp. is a Not-For-Profit fostering community through sport and education.
+      </p>
+      <p class="text-foreground text-base leading-[28px]">
+        Support from Sponsorships, Funding & Subsidies helps achieve our goals.
+      </p>
     </div>
   </div>
 </div>
