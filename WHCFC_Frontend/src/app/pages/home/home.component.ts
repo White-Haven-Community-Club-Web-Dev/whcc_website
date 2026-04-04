@@ -1,7 +1,28 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+
+interface HomepageHeroApiResponse {
+  data: {
+    id: number;
+    documentId: string;
+    eyebrow: string;
+    titleHighlight: string;
+    titleRest: string;
+    subtitle: string;
+    primaryCtaLabel: string;
+    primaryCtaLink: string;
+    secondaryCtaLabel: string;
+    secondaryCtaLink: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string | null;
+  } | null;
+  meta: Record<string, unknown>;
+}
 
 interface FeaturedEventDetail {
   icon: string;
@@ -96,7 +117,10 @@ export class HomeComponent implements OnInit {
     private meta: Meta,
     private title: Title,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
+
+  private readonly http = inject(HttpClient);
+  private readonly cmsBaseUrl = environment.cmsBaseUrl;
 
   scrollToTop(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -120,6 +144,41 @@ export class HomeComponent implements OnInit {
       name: 'author',
       content: 'White Haven Community Football Club - Building a Stronger Soccer Community',
     });
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadHero();
+    }
+  }
+
+  private loadHero(): void {
+    this.http
+      .get<HomepageHeroApiResponse>(`${this.cmsBaseUrl}/api/homepage-hero`)
+      .subscribe({
+        next: (response) => {
+          if (!response?.data) {
+            return;
+          }
+
+          this.hero = {
+            eyebrow: response.data.eyebrow,
+            titleHighlight: response.data.titleHighlight,
+            titleRest: response.data.titleRest,
+            subtitle: response.data.subtitle,
+            primaryCta: {
+              label: response.data.primaryCtaLabel,
+              link: response.data.primaryCtaLink,
+            },
+            secondaryCta: {
+              label: response.data.secondaryCtaLabel,
+              link: response.data.secondaryCtaLink,
+              playIcon: '▶',
+            },
+            image: 'Hero Section Image.png',
+          };
+        },
+        error: (error) => {
+          console.error('Failed to load homepage hero from Strapi.', error);
+        },
+      });
   }
 
   hero: HeroContent = {
