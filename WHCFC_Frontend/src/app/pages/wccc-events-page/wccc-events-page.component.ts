@@ -187,4 +187,45 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
   getSafeSvg(svgString: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(svgString);
   }
+
+  faqs = [
+    {
+      question: 'Is the event free?',
+      answer: 'Yes, this is a completely free event open to all Scarborough residents. No tickets or registration required.'
+    },
+    {
+      question: 'Where is the event taking place?',
+      answer: 'The event will be held at the Scarborough Civic Centre — indoor viewing in the Council Chamber and community gathering in the surrounding area. Final venue details will be confirmed shortly.'
+    },
+    {
+      question: 'When is the event?',
+      answer: 'The main event is planned for June 20, 2026. A teaser event is also being planned for June 12, 2026.'
+    },
+    {
+      question: 'What can I expect at the event?',
+      answer: 'Live soccer match viewing, community networking, local vendor showcases, family-friendly activities, and a celebration of Scarborough\'s diversity.'
+    },
+    {
+      question: 'Can vendors sell products at the event?',
+      answer: 'Vendors will participate in a showcase format — they can display and promote their products and services, but on-site sales will not take place during the event.'
+    },
+    {
+      question: 'Is the event family-friendly?',
+      answer: 'Absolutely. The event is designed to be welcoming and inclusive for all ages, including children, youth, and seniors.'
+    },
+    {
+      question: 'Who is organizing this event?',
+      answer: 'The event is organized by White Haven Community Club (WHCC), a volunteer-led not-for-profit organization based in Scarborough.'
+    },
+    {
+      question: 'How can I get involved?',
+      answer: 'You can participate as an attendee, volunteer, vendor, or community partner. Contact us at [info@whcfc.ca] or visit [https://whcfc.ca/] for more information.'
+    }
+  ];
+
+  activeIndex: number | null = 0;
+  toggle(index: number) {
+    this.activeIndex = this.activeIndex === index ? null : index;
+  }
+
 }

@@ -278,3 +278,35 @@
         </div>
     </div>
 </section>
+<!-- FAQ Section -->
+<section class="py-16 sm:py-20 bg-background">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-title text-foreground mb-4">
+                Frequently Asked Questions
+            </h2>
+            <div class="w-24 h-1 bg-[#E0010D] mx-auto mb-6"></div>
+            <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Everything you need to know about the WCCC Festival
+            </p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-card p-8">
+            <div *ngFor="let faq of faqs; let i = index" class="border-b border-gray-200 last:border-b-0">
+                <button (click)="toggle(i)"
+                    class="w-full py-6 flex justify-between items-center text-left hover:text-[#E0010D] transition-colors">
+                    <span class="font-title text-lg text-[#212529] pr-8">{{faq.question}}</span>
+                    <svg class="w-5 h-5 text-[#E0010D] flex-shrink-0 transition-transform duration-300"
+                        [class.rotate-180]="activeIndex === i" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div class="overflow-hidden transition-all duration-300" [class.max-h-96]="activeIndex === i"
+                    [class.pb-6]="activeIndex === i" [class.max-h-0]="activeIndex !== i">
+                    <p class="text-[#6C757D] leading-relaxed">{{faq.answer}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
