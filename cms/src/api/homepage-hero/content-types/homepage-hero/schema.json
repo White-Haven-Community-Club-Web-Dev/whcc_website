@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepage_heroes",
+  "info": {
+    "singularName": "homepage-hero",
+    "pluralName": "homepage-heroes",
+    "displayName": "Homepage Hero"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "required": true
+    },
+    "titleHighlight": {
+      "type": "string",
+      "required": true
+    },
+    "titleRest": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "primaryCtaLabel": {
+      "type": "string",
+      "required": true
+    },
+    "primaryCtaLink": {
+      "type": "string",
+      "required": true
+    },
+    "secondaryCtaLabel": {
+      "type": "string",
+      "required": true
+    },
+    "secondaryCtaLink": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
