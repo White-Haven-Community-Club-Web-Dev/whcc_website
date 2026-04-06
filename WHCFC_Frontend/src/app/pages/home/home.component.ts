@@ -124,6 +124,7 @@ export class HomeComponent implements OnInit {
 
   private readonly http = inject(HttpClient);
   private readonly cmsBaseUrl = environment.cmsBaseUrl;
+  private readonly heroFallbackDelayMs = 1500;
 
   heroLoaded = false;
   heroLoadFailed = false;
@@ -162,6 +163,17 @@ export class HomeComponent implements OnInit {
   }
 
   private loadHero(): void {
+    let fallbackTimer: number | undefined;
+  
+    if (isPlatformBrowser(this.platformId)) {
+      fallbackTimer = window.setTimeout(() => {
+        if (!this.heroLoaded) {
+          this.hero = this.defaultHero;
+          this.heroLoaded = true;
+        }
+      }, this.heroFallbackDelayMs);
+    }
+  
     this.http
       .get<HomepageHeroApiResponse>(`${this.cmsBaseUrl}/api/homepage-hero?populate=image`)
       .subscribe({
@@ -183,15 +195,25 @@ export class HomeComponent implements OnInit {
               },
               image: response.data.image?.url ?? 'Hero Section Image.png',
             };
+          } else {
+            this.hero = this.defaultHero;
           }
-
+  
           this.heroLoaded = true;
+  
+          if (fallbackTimer !== undefined) {
+            window.clearTimeout(fallbackTimer);
+          }
         },
         error: (error) => {
           console.error('Failed to load homepage hero from Strapi.', error);
           this.hero = this.defaultHero;
           this.heroLoadFailed = true;
           this.heroLoaded = true;
+  
+          if (fallbackTimer !== undefined) {
+            window.clearTimeout(fallbackTimer);
+          }
         },
       });
   }
