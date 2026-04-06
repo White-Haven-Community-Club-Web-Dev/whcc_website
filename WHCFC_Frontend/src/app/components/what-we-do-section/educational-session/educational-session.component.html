@@ -3,147 +3,95 @@
     <div class="flex flex-col items-center gap-8 mb-16 text-center">
       <div class="inline-flex items-center justify-center px-8 rounded-full">
         <p class="text-customGreen text-center text-base font-normal tracking-[1.6px] uppercase pt-4">
-          EDUCATIONAL SESSIONS
+          {{ pageContent.eyebrow }}
         </p>
       </div>
       <div class="w-full">
         <h1 class="text-4xl md:text-5xl lg:text-[60px] font-normal leading-tight text-primary font-roboto mb-6">
-          Empowering Individuals Through Life Skills & Learning
+          {{ pageContent.heroTitle }}
         </h1>
         <div class="flex justify-center mb-8">
           <div class="w-32 h-1.5 bg-primary"></div>
         </div>
         <p class="text-foreground text-lg md:text-xl leading-[32.5px] max-w-3xl mx-auto px-4 mb-8">
-          Micro-learning workshops on essential life skills.
+          {{ pageContent.heroDescription }}
         </p>
         <a [href]="registrationUrl" target="_blank" rel="noopener noreferrer"
           class="bg-customGreen hover:bg-[#158A5E] transition-colors text-white text-sm font-medium leading-5 rounded-[10px] px-6 py-3 inline-block">
-          Register
+          {{ pageContent.registerButtonText }}
         </a>
       </div>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
       <div class="bg-gray rounded-2xl p-6 md:p-8">
         <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
-          About Program
+          {{ pageContent.aboutProgramTitle }}
         </h2>
         <p class="text-foreground text-base leading-[28px]">
-          WHCC Corp. is a Not-For-Profit committed to building communities where residents
-          can connect, grow, learn, and develop through the transformative power of sport
-          and education.
+          {{ pageContent.aboutProgramDescription }}
         </p>
       </div>
       <div class="bg-gray rounded-2xl p-6 md:p-8">
         <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
-          Program Description
+          {{ pageContent.programDescriptionTitle }}
         </h2>
         <p class="text-foreground text-base leading-[28px]">
-          Equipping participants with critical competencies to manage their personal and
-          professional lives successfully and compete for employment.
+          {{ pageContent.programDescriptionText }}
         </p>
       </div>
     </div>
     <div class="mb-16">
       <div class="bg-gray rounded-2xl p-6 md:p-8">
         <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4 text-center">
-          Workshop Topics
+          {{ pageContent.workshopTopicsTitle }}
         </h2>
         <p class="text-foreground text-base leading-[28px] text-center max-w-3xl mx-auto mb-8">
-          Sessions may include the following life-skills topics:
+          {{ pageContent.workshopTopicsDescription }}
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-          <div class="flex items-start gap-3">
+          <div *ngFor="let topic of workshopTopics; let last = last" class="flex items-start gap-3"
+            [class.md:col-span-2]="last && workshopTopics.length % 2 !== 0">
             <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Project Management as Skills for Life</p>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Collaboration in the New World of Work</p>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Cultural Competence</p>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Resilience & Growth Mindset</p>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Change and Continuous Learning</p>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Communication in the New World of Work</p>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Social Intelligence</p>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Systems Thinking</p>
-          </div>
-          <div class="flex items-start gap-3 md:col-span-2">
-            <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
-            <p class="text-foreground text-base leading-[28px]">Civility & Citizenship</p>
+            <p class="text-foreground text-base leading-[28px]">{{ topic }}</p>
           </div>
         </div>
       </div>
     </div>
     <div id="upcoming-sessions" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
       <div class="flex flex-col gap-4">
-        <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
-          <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M16 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path
-              d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
-              stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M3 10H21" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+        <div *ngFor="let card of infoCards; let i = index" class="bg-gray rounded-xl p-4 flex items-start gap-4">
+          <ng-container [ngSwitch]="i">
+            <svg *ngSwitchCase="0" class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
+                stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M3 10H21" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <svg *ngSwitchCase="1" class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 6V12L16 14" stroke="#E0010D" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <svg *ngSwitchDefault class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z"
+                stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </ng-container>
           <div class="flex flex-col gap-1">
-            <h4 class="text-xl font-bold font-outfit leading-7">Upcoming Session</h4>
-            <p class="text-foreground text-base leading-[25.6px]">Late April 2026</p>
-            <p class="text-foreground text-base leading-[25.6px]">Date and location to be confirmed</p>
-          </div>
-        </div>
-        <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
-          <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 6V12L16 14" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path
-              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-              stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <div class="flex flex-col gap-1">
-            <h4 class="text-xl font-bold font-outfit leading-7">Format</h4>
-            <p class="text-foreground text-base leading-[25.6px]">
-              Interactive monthly micro-learning workshops.
-            </p>
-            <p class="text-foreground text-base leading-[25.6px]">
-              Topics for April will be announced soon.
-            </p>
-          </div>
-        </div>
-        <div class="bg-gray rounded-xl p-4 flex items-start gap-4">
-          <svg class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z"
-              stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path
-              d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-              stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <div class="flex flex-col gap-1">
-            <h4 class="text-xl font-bold font-outfit leading-7">Location</h4>
-            <p class="text-foreground text-base leading-[25.6px]">
-              Scarborough location to be confirmed.
-            </p>
-            <p class="text-foreground text-base leading-[25.6px]">
-              SCC (Committee Room) is one current option.
+            <h4 class="text-xl font-bold font-outfit leading-7">{{ card.title }}</h4>
+            <p *ngFor="let line of card.lines" class="text-foreground text-base leading-[25.6px]">
+              {{ line }}
             </p>
           </div>
         </div>
@@ -155,41 +103,27 @@
     </div>
     <div class="bg-gray rounded-2xl p-6 md:p-8 mb-16 text-center">
       <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4">
-        Community Input
+        {{ pageContent.communityInputTitle }}
       </h2>
       <p class="text-foreground text-base leading-[28px] max-w-3xl mx-auto">
-        Questions or topic suggestions:
-        <a href="mailto:fcwhitehaven@gmail.com" class="text-primary underline">fcwhitehaven&#64;gmail.com</a>
+        {{ pageContent.communityInputPrefix }}
+        <a [href]="communityInputMailto" class="text-primary underline">
+          {{ pageContent.communityInputEmail }}
+        </a>
       </p>
     </div>
     <div class="mb-16">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-2xl p-6 border border-gray-200">
-          <h3 class="text-2xl font-bold font-outfit text-primary mb-3">Session 1</h3>
+        <div *ngFor="let session of sessionCards" class="bg-white rounded-2xl p-6 border border-gray-200">
+          <h3 class="text-2xl font-bold font-outfit text-primary mb-3">{{ session.label }}</h3>
           <h4 class="text-xl font-semibold text-foreground mb-2">
-            Project Management Skills for Success
+            {{ session.title }}
           </h4>
           <p class="text-foreground text-base leading-[25.6px] mb-4">
-            With Joe Fernandes
+            {{ session.presenter }}
           </p>
           <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
-            <li>Thrive in a changing world across learning, work, and life</li>
-            <li>Build practical project-management knowledge for personal and workplace use</li>
-            <li>Strengthen employability, growth, and community participation</li>
-          </ul>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-200">
-          <h3 class="text-2xl font-bold font-outfit text-primary mb-3">Session 2</h3>
-          <h4 class="text-xl font-semibold text-foreground mb-2">
-            Budgeting & Finances
-          </h4>
-          <p class="text-foreground text-base leading-[25.6px] mb-4">
-            With Gurpurv Kukreja
-          </p>
-          <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
-            <li>Tax Filing: Navigating the Tax Landscape</li>
-            <li>Bookkeeping essentials</li>
-            <li>Debt management fundamentals</li>
+            <li *ngFor="let point of session.points">{{ point }}</li>
           </ul>
         </div>
       </div>
@@ -197,33 +131,27 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
       <div class="bg-gray rounded-2xl p-6 md:p-8">
         <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
-          Target Audience
+          {{ pageContent.targetAudienceTitle }}
         </h2>
         <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
-          <li>Youth and adults interested in personal growth and life-skills learning</li>
-          <li>Community members seeking practical workplace and everyday-life competencies</li>
-          <li>Residents who want to participate, connect, grow, and learn through community programming</li>
-          <li>Individuals exploring topics that support confidence, employability, and community engagement</li>
+          <li *ngFor="let item of targetAudienceItems">{{ item }}</li>
         </ul>
       </div>
       <div class="bg-gray rounded-2xl p-6 md:p-8">
         <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
-          Registration Process
+          {{ pageContent.registrationProcessTitle }}
         </h2>
         <ol class="list-decimal pl-5 text-foreground text-base leading-[28px] space-y-1">
-          <li>Click <strong>Register</strong>.</li>
-          <li>Complete the Microsoft Form with your contact details.</li>
-          <li>Select the topics or sessions you are interested in.</li>
-          <li>Submit the form to receive updates on dates, location, and upcoming announcements.</li>
+          <li *ngFor="let step of registrationSteps">{{ step }}</li>
         </ol>
       </div>
     </div>
     <div class="text-center border-t border-gray-200 pt-8">
       <p class="text-foreground text-base leading-[28px] mb-2">
-        WHCC Corp. is a Not-For-Profit fostering community through sport and education.
+        {{ pageContent.footerLine1 }}
       </p>
       <p class="text-foreground text-base leading-[28px]">
-        Support from Sponsorships, Funding & Subsidies helps achieve our goals.
+        {{ pageContent.footerLine2 }}
       </p>
     </div>
   </div>
