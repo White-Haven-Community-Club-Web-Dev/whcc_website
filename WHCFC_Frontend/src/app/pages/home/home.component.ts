@@ -20,6 +20,9 @@ interface HomepageHeroApiResponse {
     createdAt: string;
     updatedAt: string;
     publishedAt: string | null;
+    image?: {
+      url?: string;
+    } | null;
   } | null;
   meta: Record<string, unknown>;
 }
@@ -151,7 +154,7 @@ export class HomeComponent implements OnInit {
 
   private loadHero(): void {
     this.http
-      .get<HomepageHeroApiResponse>(`${this.cmsBaseUrl}/api/homepage-hero`)
+      .get<HomepageHeroApiResponse>(`${this.cmsBaseUrl}/api/homepage-hero?populate=image`)
       .subscribe({
         next: (response) => {
           if (!response?.data) {
@@ -172,7 +175,7 @@ export class HomeComponent implements OnInit {
               link: response.data.secondaryCtaLink,
               playIcon: '▶',
             },
-            image: 'Hero Section Image.png',
+            image: response.data.image?.url ?? 'Hero Section Image.png',
           };
         },
         error: (error) => {
