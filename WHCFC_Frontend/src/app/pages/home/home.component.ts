@@ -125,6 +125,15 @@ export class HomeComponent implements OnInit {
   private readonly http = inject(HttpClient);
   private readonly cmsBaseUrl = environment.cmsBaseUrl;
 
+  heroLoaded = false;
+  heroLoadFailed = false;
+
+  getHeroImageSrc(): string {
+    return this.hero.image.startsWith('http://') || this.hero.image.startsWith('https://')
+      ? this.hero.image
+      : 'assets/' + this.hero.image;
+  }
+
   scrollToTop(): void {
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -157,34 +166,37 @@ export class HomeComponent implements OnInit {
       .get<HomepageHeroApiResponse>(`${this.cmsBaseUrl}/api/homepage-hero?populate=image`)
       .subscribe({
         next: (response) => {
-          if (!response?.data) {
-            return;
+          if (response?.data) {
+            this.hero = {
+              eyebrow: response.data.eyebrow,
+              titleHighlight: response.data.titleHighlight,
+              titleRest: response.data.titleRest,
+              subtitle: response.data.subtitle,
+              primaryCta: {
+                label: response.data.primaryCtaLabel,
+                link: response.data.primaryCtaLink,
+              },
+              secondaryCta: {
+                label: response.data.secondaryCtaLabel,
+                link: response.data.secondaryCtaLink,
+                playIcon: '▶',
+              },
+              image: response.data.image?.url ?? 'Hero Section Image.png',
+            };
           }
 
-          this.hero = {
-            eyebrow: response.data.eyebrow,
-            titleHighlight: response.data.titleHighlight,
-            titleRest: response.data.titleRest,
-            subtitle: response.data.subtitle,
-            primaryCta: {
-              label: response.data.primaryCtaLabel,
-              link: response.data.primaryCtaLink,
-            },
-            secondaryCta: {
-              label: response.data.secondaryCtaLabel,
-              link: response.data.secondaryCtaLink,
-              playIcon: '▶',
-            },
-            image: response.data.image?.url ?? 'Hero Section Image.png',
-          };
+          this.heroLoaded = true;
         },
         error: (error) => {
           console.error('Failed to load homepage hero from Strapi.', error);
+          this.hero = this.defaultHero;
+          this.heroLoadFailed = true;
+          this.heroLoaded = true;
         },
       });
   }
 
-  hero: HeroContent = {
+  private readonly defaultHero: HeroContent = {
     eyebrow: "Join Scarborough's First",
     titleHighlight: "FREE",
     titleRest: "Football Community",
@@ -198,8 +210,10 @@ export class HomeComponent implements OnInit {
       link: "/who-we-are",
       playIcon: "▶",
     },
-    image: "Hero Section Image.png"
+    image: "Hero Section Image.png",
   };
+
+  hero: HeroContent = this.defaultHero;
 
   communitySurveyCallout: CommunitySurveyCallout = {
     eyebrow: "Community Survey",
