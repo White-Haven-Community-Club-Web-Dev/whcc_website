@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -34,14 +34,14 @@ export class EducationalSessionComponent {
       content: 'White Haven Community Football Club - Building a Stronger Soccer Community',
     });
   }
-  
+
   readonly registrationUrl = 'https://forms.cloud.microsoft/r/eeFuTaV9He';
 
   readonly pageContent = {
     eyebrow: 'EDUCATIONAL SESSIONS',
     heroTitle: 'Skills for Success',
-    heroDescription: 'Micro-learning workshops on essential life skills.',
-    registerButtonText: 'Register',
+    heroDescription: 'Micro-learning workshops on Skills for Success topics.',
+    registerButtonText: 'Express Interest',
 
     aboutProgramTitle: 'About Program',
     aboutProgramDescription:
@@ -53,7 +53,7 @@ export class EducationalSessionComponent {
 
     workshopTopicsTitle: 'Workshop Topics',
     workshopTopicsDescription:
-      'Sessions may include the following life-skills topics:',
+      'Sessions may include the following Skills for Success topics:',
 
     communityInputTitle: 'Community Input',
     communityInputPrefix: 'Questions or topic suggestions:',
@@ -71,7 +71,7 @@ export class EducationalSessionComponent {
   readonly communityInputMailto = `mailto:${this.pageContent.communityInputEmail}`;
 
   readonly workshopTopics: string[] = [
-    'Project Management as Skills for Life',
+    'Project Management as Skills for Success',
     'Collaboration in the New World of Work',
     'Cultural Competence',
     'Resilience & Growth Mindset',
@@ -85,37 +85,37 @@ export class EducationalSessionComponent {
   readonly infoCards = [
     {
       title: 'Upcoming Session',
-      lines: ['Late April 2026', 'Date and location to be confirmed']
+      lines: ['May 9, 2026', '1:00 PM to 2:00 PM']
     },
     {
       title: 'Format',
       lines: [
-        'Interactive monthly micro-learning workshops.',
-        'Topics for April will be announced soon.'
+        'Partner session with 42 Voices.',
+        'Closed session for 42 Voices members only.'
       ]
     },
     {
       title: 'Location',
       lines: [
-        'Scarborough location to be confirmed.',
-        'SCC (Committee Room) is one current option.'
+        'Malvern',
+        '42 Voices will coordinate logistics.'
       ]
     }
   ];
 
   readonly sessionCards = [
     {
-      label: 'Session 1',
-      title: 'Project Management Skills for Success',
+      label: 'Confirmed Session',
+      title: 'Project Management Basics as a Skill for Success',
       presenter: 'With Joe Fernandes',
       points: [
-        'Thrive in a changing world across learning, work, and life',
-        'Build practical project-management knowledge for personal and workplace use',
-        'Strengthen employability, growth, and community participation'
+        'Scheduled for May 9, 2026 from 1:00 PM to 2:00 PM',
+        'Presented in partnership with 42 Voices',
+        'This session is for 42 Voices members only'
       ]
     },
     {
-      label: 'Session 2',
+      label: 'Upcoming Session',
       title: 'Budgeting & Finances',
       presenter: 'With Gurpurv Kukreja',
       points: [
@@ -127,14 +127,14 @@ export class EducationalSessionComponent {
   ];
 
   readonly targetAudienceItems: string[] = [
-    'Youth and adults interested in personal growth and life-skills learning',
+    'Youth and adults interested in personal growth and Skills for Success learning',
     'Community members seeking practical workplace and everyday-life competencies',
     'Residents who want to participate, connect, grow, and learn through community programming',
     'Individuals exploring topics that support confidence, employability, and community engagement'
   ];
 
   readonly registrationSteps: string[] = [
-    'Click Register.',
+    'Click Express Interest.',
     'Complete the Microsoft Form with your contact details.',
     'Select the topics or sessions you are interested in.',
     'Submit the form to receive updates on dates, location, and upcoming announcements.'
