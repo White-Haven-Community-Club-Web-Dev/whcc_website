@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "educational_sessions",
+  "info": {
+    "singularName": "educational-session",
+    "pluralName": "educational-sessions",
+    "displayName": "Educational-session"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

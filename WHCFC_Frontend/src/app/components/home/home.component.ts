@@ -3,6 +3,8 @@ import { Meta, Title } from '@angular/platform-browser';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
+
+
 interface FeaturedEventDetail {
   icon: string;
   label: string;
@@ -89,6 +91,8 @@ interface ImpactStat {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+
+  isLoading = false; 
 
   constructor(
     private meta: Meta,

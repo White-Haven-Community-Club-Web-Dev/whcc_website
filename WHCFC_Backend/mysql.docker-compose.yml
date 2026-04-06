@@ -1,8 +1,43 @@
 services:
-  db:
-    image: mysql
-    ports:
-      - "3306:3306"
+  cms:
+    build:
+      context: ./cms
+      dockerfile: Dockerfile
+    container_name: whcc_cms
+    restart: unless-stopped
+    env_file: ./cms/.env
     environment:
-      MYSQL_ROOT_PASSWORD: pass
-      MYSQL_DATABASE: whcfc
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: whcc_db
+      DATABASE_USERNAME: whcc_user
+      DATABASE_PASSWORD: whcc_password
+    ports:
+      - '1337:1337'
+    depends_on:
+      - db
+    networks:
+      - whcc_network
+
+  db:
+    image: postgres:16-alpine
+    container_name: whcc_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: whcc_db
+      POSTGRES_USER: whcc_user
+      POSTGRES_PASSWORD: whcc_password
+    ports:
+      - '5432:5432'
+    volumes:
+      - whcc_db_data:/var/lib/postgresql/data
+    networks:
+      - whcc_network
+
+volumes:
+  whcc_db_data:
+
+networks:
+  whcc_network:
+    driver: bridge

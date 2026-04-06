@@ -1,6 +1,6 @@
 <div class="min-h-screen bg-slate-50 flex flex-col font-sans">
   <!-- Main content -->
-  <main class="flex-1">
+  <main class="flex-1" *ngIf="!isLoading; else loading">
     <!-- Hero Section -->
     <section class="relative min-h-[calc(100vh)] overflow-hidden flex items-center md:min-h-[calc(100vh)]">
       <img [src]="'assets/' + hero.image" alt="Players on a soccer pitch"
@@ -258,4 +258,9 @@
       </div>
     </section>
   </main>
+  <ng-template #loading>
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="text-gray-400 text-sm">Loading...</div>
+  </div>
+</ng-template>
 </div>

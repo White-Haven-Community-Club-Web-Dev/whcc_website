@@ -1,0 +1,69 @@
+<div class="min-h-screen bg-slate-50 py-10 px-4">
+  <div *ngIf="isLoading" class="flex items-center justify-center min-h-[400px]">
+    <p class="text-gray-400 text-sm">Loading events...</p>
+  </div>
+
+  <div *ngIf="!isLoading" class="max-w-4xl mx-auto space-y-8">
+
+    <!-- Calendar -->
+    <event-calendar
+      [eventList]="eventList"
+      (daySelected)="onDaySelected($event)">
+    </event-calendar>
+
+    <!-- Divider -->
+    <hr class="border-gray-200" />
+
+    <!-- Day detail panel -->
+    <div *ngIf="selectedDay">
+      <h3 class="text-center font-bold text-lg mb-4">
+        Events on {{ selectedDay }}
+      </h3>
+
+      <!-- Loading state for day click -->
+      <div *ngIf="isDayLoading" class="text-center text-gray-400 text-sm">
+        Loading events for this date...
+      </div>
+
+      <!-- No events on this date -->
+      <p *ngIf="!isDayLoading && selectedEvents.length === 0"
+         class="text-center text-gray-400 text-sm">
+        No events on this date.
+      </p>
+
+      <!-- Event details -->
+      <div *ngIf="!isDayLoading && selectedEvents.length > 0">
+        <div *ngFor="let event of selectedEvents"
+             class="bg-white rounded-2xl shadow-sm p-5 mb-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <h4 class="font-semibold text-gray-900">{{ event.title }}</h4>
+            <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">
+              {{ event.category }}
+            </span>
+          </div>
+          <p *ngIf="event.location" class="text-sm text-gray-500">
+            📍 {{ event.location }}
+          </p>
+          <p *ngIf="event.time" class="text-sm text-gray-500">
+            🕐 {{ event.time }}
+          </p>
+          <p *ngIf="event.description" class="text-sm text-gray-600">
+            {{ event.description }}
+          </p>
+          <div *ngIf="event.team1 || event.team2"
+               class="flex items-center gap-3 pt-2">
+            <span class="font-semibold text-gray-800">{{ event.team1 }}</span>
+            <span class="text-gray-400 text-xs">vs</span>
+            <span class="font-semibold text-gray-800">{{ event.team2 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Default: show all this month's events when no day selected -->
+    <div *ngIf="!selectedDay">
+      <event-detail [eventList]="eventList"></event-detail>
+    </div>
+
+  </div>
+</div>

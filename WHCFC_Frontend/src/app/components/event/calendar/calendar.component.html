@@ -9,9 +9,14 @@
   <!-- Dates of the Month -->
   <div class="grid grid-cols-7 text-center mt-4">
     <div *ngFor="let day of calendarDays">
+
+      <!-- Regular day -->
       <div
         *ngIf="day && day != todayDate"
         class="p-4 border justify-center flex flex-col items-center"
+        [class.cursor-pointer]="eventDateList.includes(day)"
+        [class.hover:bg-gray-50]="eventDateList.includes(day)"
+        (click)="onDayClick(day)"
       >
         {{ day }}
         <div
@@ -20,9 +25,13 @@
         ></div>
         <div *ngIf="!eventDateList.includes(day)" class="bg-none w-2 h-2"></div>
       </div>
+
+      <!-- Today -->
       <div
         *ngIf="day && day == todayDate"
         class="p-4 border bg-yellow-200 justify-center flex flex-col items-center"
+        [class.cursor-pointer]="eventDateList.includes(day)"
+        (click)="onDayClick(day)"
       >
         {{ day }}
         <div
@@ -31,6 +40,7 @@
         ></div>
         <div *ngIf="!eventDateList.includes(day)" class="bg-none w-2 h-2"></div>
       </div>
+
       <div *ngIf="!day" class="h-full"></div>
     </div>
   </div>

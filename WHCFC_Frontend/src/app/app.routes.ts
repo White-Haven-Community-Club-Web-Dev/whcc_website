@@ -1,9 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
-import { NgModule } from '@angular/core';
+// import { NgModule } from '@angular/core';
 import { FaqComponent } from './pages/faq/faq.component';
-import { ContactComponent } from './pages/contact/contact.component';
+// import { ContactComponent } from './pages/contact/contact.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { PlayComponent } from './components/play/play.component';
 import { TournamentComponent } from './components/tournament/tournament.component';
@@ -13,6 +13,7 @@ import { EducationalSessionsComponent } from './pages/educational-sessions/educa
 import { YouthProgramComponent } from './pages/youth-program/youth-program.component';
 import { CanadadayComponent } from './pages/canadaday/canadaday.component';
 import { WhatWeDoComponent } from './pages/what-we-do/what-we-do.component';
+import { EventComponent } from './pages/event/event.component'; // ← ADD THIS
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,10 +39,11 @@ export const routes: Routes = [
   { path: 'educational-sessions', component: EducationalSessionsComponent },
   { path: 'youth-program', component: YouthProgramComponent },
   { path: 'canadaday', component: CanadadayComponent },
+  { path: 'events', component: EventComponent }, // ← ADD THIS
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule { }
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule],
+// })
+// export class AppRoutingModule { }

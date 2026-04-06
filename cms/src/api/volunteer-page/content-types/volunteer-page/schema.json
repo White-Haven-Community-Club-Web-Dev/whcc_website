@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "volunteer_pages",
+  "info": {
+    "singularName": "volunteer-page",
+    "pluralName": "volunteer-pages",
+    "displayName": "volunteer-page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
