@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -13,8 +13,7 @@ import { RouterModule } from '@angular/router';
 export class EducationalSessionComponent {
   constructor(
     private meta: Meta,
-    private title: Title,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private title: Title
   ) {}
 
   ngOnInit(): void {
@@ -35,43 +34,56 @@ export class EducationalSessionComponent {
     });
   }
 
-  readonly registrationUrl = 'https://forms.cloud.microsoft/r/eeFuTaV9He';
-
   readonly pageContent = {
     eyebrow: 'EDUCATIONAL SESSIONS',
-    heroTitle: 'Skills for Success',
-    heroDescription: 'Micro-learning workshops on Skills for Success topics.',
-    registerButtonText: 'Express Interest',
+    heroTitle: 'Skills for Success Microlearning* Modules',
+    heroDescription: 'Short, focused workshops on practical Skills for Success topics.',
+    microlearningDefinition:
+      '*Micro-learning modules are short, focused learning units designed to teach one specific concept, skill, or behavior at a time. They are easy to complete, can stand alone or be combined into a learning pathway, and often use practical examples, scenarios, and shared experiences.',
+    registrationNotice:
+      'Registration for future public workshops will be posted here once dates are confirmed.',
 
-    aboutProgramTitle: 'About Program',
+    aboutProgramTitle: 'About WHCC Corp.',
     aboutProgramDescription:
-      'WHCC Corp. is a Not-For-Profit committed to building communities where residents can connect, grow, learn, and develop through the transformative power of sport and education.',
+      'WHCC Corp. is a Not-For-Profit committed to building and developing communities by enabling residents to connect, network, grow and learn through the transformative power of football and education.',
 
     programDescriptionTitle: 'Program Description',
     programDescriptionText:
-      'Equipping participants with critical competencies to manage their personal and professional lives successfully and compete for employment.',
+      'Equipping participants with critical competencies to manage their personal and professional lives successfully, e.g., to build relationships, work well with others, and enhance employability, as most employers look for these key skillsets.',
 
     workshopTopicsTitle: 'Workshop Topics',
     workshopTopicsDescription:
-      'Sessions may include the following Skills for Success topics:',
+      'Modules may include the following Skills for Success topics:',
+
+    currentDeliveryTitle: 'Current Delivery',
+    currentDeliveryDescription:
+      'A session on Project Management Basics as a Skill for Success is already planned for May 9, 2026 for a Malvern community.',
+    currentDeliveryFollowUp:
+      'Evaluation feedback from that session will be posted here afterward.',
 
     communityInputTitle: 'Community Input',
     communityInputPrefix: 'Questions or topic suggestions:',
     communityInputEmail: 'fcwhitehaven@gmail.com',
 
     targetAudienceTitle: 'Target Audience',
-    registrationProcessTitle: 'Registration Process',
+    registrationProcessTitle: 'Registration',
 
     footerLine1:
       'WHCC Corp. is a Not-For-Profit fostering community through sport and education.',
     footerLine2:
-      'Support from Sponsorships, Funding & Subsidies helps achieve our goals.'
+      'Support from Sponsorships, Funding & Subsidies helps achieve our goals.',
+
+    featureImage: {
+      src: 'assets/Edu3.jpg',
+      alt: 'Community members participating in a learning session'
+    }
   };
 
   readonly communityInputMailto = `mailto:${this.pageContent.communityInputEmail}`;
 
   readonly workshopTopics: string[] = [
-    'Project Management as Skills for Success',
+    'Project Management Basics as a Skill for Success',
+    'Budgeting & Finances',
     'Collaboration in the New World of Work',
     'Cultural Competence',
     'Resilience & Growth Mindset',
@@ -82,50 +94,6 @@ export class EducationalSessionComponent {
     'Civility & Citizenship'
   ];
 
-  readonly infoCards = [
-    {
-      title: 'Upcoming Session',
-      lines: ['May 9, 2026', '1:00 PM to 2:00 PM']
-    },
-    {
-      title: 'Format',
-      lines: [
-        'Partner session with 42 Voices.',
-        'Closed session for 42 Voices members only.'
-      ]
-    },
-    {
-      title: 'Location',
-      lines: [
-        'Malvern',
-        '42 Voices will coordinate logistics.'
-      ]
-    }
-  ];
-
-  readonly sessionCards = [
-    {
-      label: 'Confirmed Session',
-      title: 'Project Management Basics as a Skill for Success',
-      presenter: 'With Joe Fernandes',
-      points: [
-        'Scheduled for May 9, 2026 from 1:00 PM to 2:00 PM',
-        'Presented in partnership with 42 Voices',
-        'This session is for 42 Voices members only'
-      ]
-    },
-    {
-      label: 'Upcoming Session',
-      title: 'Budgeting & Finances',
-      presenter: 'With Gurpurv Kukreja',
-      points: [
-        'Tax Filing: Navigating the Tax Landscape',
-        'Bookkeeping essentials',
-        'Debt management fundamentals'
-      ]
-    }
-  ];
-
   readonly targetAudienceItems: string[] = [
     'Youth and adults interested in personal growth and Skills for Success learning',
     'Community members seeking practical workplace and everyday-life competencies',
@@ -134,9 +102,8 @@ export class EducationalSessionComponent {
   ];
 
   readonly registrationSteps: string[] = [
-    'Click Express Interest.',
-    'Complete the Microsoft Form with your contact details.',
-    'Select the topics or sessions you are interested in.',
-    'Submit the form to receive updates on dates, location, and upcoming announcements.'
+    'Registration for future public workshops will be posted here once dates are confirmed.',
+    'Participants will then be able to register for a specific workshop.',
+    'The registration form can also include an option for participants to indicate topics of interest.'
   ];
 }

@@ -13,15 +13,18 @@
         <div class="flex justify-center mb-8">
           <div class="w-32 h-1.5 bg-primary"></div>
         </div>
-        <p class="text-foreground text-lg md:text-xl leading-[32.5px] max-w-3xl mx-auto px-4 mb-8">
+        <p class="text-foreground text-lg md:text-xl leading-[32.5px] max-w-3xl mx-auto px-4 mb-4">
           {{ pageContent.heroDescription }}
         </p>
-        <a [href]="registrationUrl" target="_blank" rel="noopener noreferrer"
-          class="bg-customGreen hover:bg-[#158A5E] transition-colors text-white text-sm font-medium leading-5 rounded-[10px] px-6 py-3 inline-block">
-          {{ pageContent.registerButtonText }}
-        </a>
+        <p class="text-foreground text-base leading-[28px] max-w-4xl mx-auto px-4 mb-8">
+          {{ pageContent.microlearningDefinition }}
+        </p>
+        <p class="text-foreground text-base leading-[28px] max-w-3xl mx-auto px-4">
+          {{ pageContent.registrationNotice }}
+        </p>
       </div>
     </div>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
       <div class="bg-gray rounded-2xl p-6 md:p-8">
         <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
@@ -40,6 +43,7 @@
         </p>
       </div>
     </div>
+
     <div class="mb-16">
       <div class="bg-gray rounded-2xl p-6 md:p-8">
         <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4 text-center">
@@ -49,58 +53,39 @@
           {{ pageContent.workshopTopicsDescription }}
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-          <div *ngFor="let topic of workshopTopics; let last = last" class="flex items-start gap-3"
-            [class.md:col-span-2]="last && workshopTopics.length % 2 !== 0">
+          <div
+            *ngFor="let topic of workshopTopics; let last = last"
+            class="flex items-start gap-3"
+            [class.md:col-span-2]="last && workshopTopics.length % 2 !== 0"
+          >
             <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
             <p class="text-foreground text-base leading-[28px]">{{ topic }}</p>
           </div>
         </div>
       </div>
     </div>
+
     <div id="upcoming-sessions" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-      <div class="flex flex-col gap-4">
-        <div *ngFor="let card of infoCards; let i = index" class="bg-gray rounded-xl p-4 flex items-start gap-4">
-          <ng-container [ngSwitch]="i">
-            <svg *ngSwitchCase="0" class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24"
-              fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M16 2V6" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
-                stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M3 10H21" stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <svg *ngSwitchCase="1" class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24"
-              fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 6V12L16 14" stroke="#E0010D" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path
-                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <svg *ngSwitchDefault class="w-6 h-6 flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24"
-              fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z"
-                stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                stroke="#E0010D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </ng-container>
-          <div class="flex flex-col gap-1">
-            <h4 class="text-xl font-bold font-outfit leading-7">{{ card.title }}</h4>
-            <p *ngFor="let line of card.lines" class="text-foreground text-base leading-[25.6px]">
-              {{ line }}
-            </p>
-          </div>
-        </div>
+      <div class="bg-gray rounded-2xl p-6 md:p-8">
+        <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4">
+          {{ pageContent.currentDeliveryTitle }}
+        </h2>
+        <p class="text-foreground text-base leading-[28px] mb-4">
+          {{ pageContent.currentDeliveryDescription }}
+        </p>
+        <p class="text-foreground text-base leading-[28px]">
+          {{ pageContent.currentDeliveryFollowUp }}
+        </p>
       </div>
       <div class="flex justify-center items-center">
-        <img src="assets/Edu3.jpg" alt="Workshop attendees engaged in learning activities"
-          class="w-full max-w-[520px] h-auto rounded-2xl shadow-workshop object-cover" />
+        <img
+          [src]="pageContent.featureImage.src"
+          [alt]="pageContent.featureImage.alt"
+          class="w-full max-w-[520px] h-auto rounded-2xl shadow-workshop object-cover"
+        />
       </div>
     </div>
+
     <div class="bg-gray rounded-2xl p-6 md:p-8 mb-16 text-center">
       <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4">
         {{ pageContent.communityInputTitle }}
@@ -112,22 +97,7 @@
         </a>
       </p>
     </div>
-    <div class="mb-16">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div *ngFor="let session of sessionCards" class="bg-white rounded-2xl p-6 border border-gray-200">
-          <h3 class="text-2xl font-bold font-outfit text-primary mb-3">{{ session.label }}</h3>
-          <h4 class="text-xl font-semibold text-foreground mb-2">
-            {{ session.title }}
-          </h4>
-          <p class="text-foreground text-base leading-[25.6px] mb-4">
-            {{ session.presenter }}
-          </p>
-          <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
-            <li *ngFor="let point of session.points">{{ point }}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
       <div class="bg-gray rounded-2xl p-6 md:p-8">
         <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
@@ -146,6 +116,7 @@
         </ol>
       </div>
     </div>
+
     <div class="text-center border-t border-gray-200 pt-8">
       <p class="text-foreground text-base leading-[28px] mb-2">
         {{ pageContent.footerLine1 }}
