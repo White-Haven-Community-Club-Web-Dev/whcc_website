@@ -1,6 +1,7 @@
 import { isPlatformBrowser, NgForOf } from '@angular/common';
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-wccc-events-page',
@@ -211,14 +212,31 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
 
   private timer: any;
   private eventDate;
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private sanitizer: DomSanitizer) {
+  constructor(
+    private meta: Meta,
+    private title: Title,
+    @Inject(PLATFORM_ID) private platformId: Object, private sanitizer: DomSanitizer) {
     this.eventDate = new Date(`${this.eventConfig.date}T12:00:00`);
 
   }
 
 
   ngOnInit(): void {
-
+    this.title.setTitle('WCCC Events | White Haven Community Football Club');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        "Welcome to the White Haven Community Football Club official website. We are an established not-for-profit football club located in, Scarborough, ON, that offers free football experiences, team play and tournaments, community and networking, and free education workshop, Learn more about White Haven Community Football Club's mission, vision, goal and board members",
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'football, soccer, futsal, community, club, sports, Scarborough soccer, Scarborough football club, Scarborough soccer club, Scarborough White Haven soccer, Scarborough White Haven football, not-for-profit club, Scarborough youth soccer, Scarborough adult soccer, Scarborough kids soccer, local football club, GTA football, about us, mission, vision, goal',
+    });
+    this.meta.updateTag({
+      name: 'author',
+      content: 'White Haven Community Football Club - Building a Stronger Soccer Community',
+    });
   }
 
   ngAfterViewInit(): void {
