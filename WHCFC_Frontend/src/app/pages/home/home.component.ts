@@ -274,7 +274,7 @@ export class HomeComponent implements OnInit {
       meta: 'Neighbours',
       tag: 'Youth',
       description:
-        'House League (U7–U11) and weekend Training Clinics building skills, confidence, and love for the game.',
+        'House League (U7–U12) and weekend Training Clinics building skills, confidence, and love for the game.',
       link: '/house-league',
     },
     {
