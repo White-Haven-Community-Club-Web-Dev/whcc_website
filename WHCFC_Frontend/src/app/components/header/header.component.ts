@@ -57,7 +57,7 @@ export class HeaderComponent {
         { label: 'WCCC', link: '/what-we-do' },
         { label: 'Educational Session', link: '/educational-session' },
         { label: 'House League & Football Clinics', link: '/house-league' },
-        { label: 'F³ Indoor Football Program', link: '/f3-program' },
+        { label: 'F⁴ Indoor Football Program', link: '/f4-program' },
       ],
     },
   ];
