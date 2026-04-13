@@ -269,12 +269,12 @@ export class HomeComponent implements OnInit {
     {
       title: 'House League & Youth Development Football Clinics',
       image: 'House League Card Image.png',
-      date: 'May 12 - August 29, 2026',
+      date: 'May 9 to August 29, 2026 (excluding July 4)',
       location: 'Scarborough',
       meta: 'Neighbours',
       tag: 'Youth',
       description:
-        'House League (U7–U12) and weekend Training Clinics building skills, confidence, and love for the game.',
+        'House League (U7–U12) and weekend training clinics focused on building skills, confidence, and a love for the game. Includes a mid-season Canada Day Tournament on July 4 for players to apply their learning in a fun, competitive environment.',
       link: '/house-league',
     },
     {
