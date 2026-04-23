@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { F3ProgramComponent } from './f3-program.component';
+import { F3ProgramComponent } from './f4-program.component';
 
 describe('F3ProgramComponent', () => {
   let component: F3ProgramComponent;
