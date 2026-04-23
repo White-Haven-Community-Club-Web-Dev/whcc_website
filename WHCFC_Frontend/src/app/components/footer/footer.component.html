@@ -18,7 +18,7 @@
                     {{ connectTitle }}
                 </h3>
                 <div *ngFor="let item of contacts" class="flex items-center gap-2">
-                    <img [src]="'assets/' + item.icon" [alt]="item.alt" class="h-4 w-4" />
+                    <img [src]="'assets/' + item.icon" [alt]="item.alt" class="h-4 w-4" loading="lazy" decoding="async" width="16" height="16" />
                     <a *ngIf="item.href; else plainValue" [href]="item.href" class="hover:underline">
                         {{ item.value }}
                     </a>
@@ -42,7 +42,7 @@
                     [attr.rel]="isExternalLink(social.href) ? 'noopener noreferrer' : null">
                     <div
                         class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-900">
-                        <img [src]="'assets/' + social.icon" [alt]="social.alt" class="h-5 w-5" />
+                        <img [src]="'assets/' + social.icon" [alt]="social.alt" class="h-5 w-5" loading="lazy" decoding="async" width="20" height="20" />
                     </div>
                 </a>
             </div>
