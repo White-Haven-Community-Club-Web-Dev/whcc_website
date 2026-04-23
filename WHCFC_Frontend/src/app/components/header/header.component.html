@@ -34,10 +34,9 @@
             {{ item.label }}
           </button>
           <!-- Dropdown -->
-          <div *ngIf="item.children" class="relative" (mouseenter)="toggleDropdown(item.label)"
+          <div *ngIf="item.children" class="relative z-50" (mouseenter)="toggleDropdown(item.label)"
             (mouseleave)="closeDropdown()">
-            <button type="button"
-              class="flex items-center gap-1 hover:text-red-600"
+            <button type="button" class="flex items-center gap-1 hover:text-red-600"
               [class.text-red-600]="openDropdown === item.label">
               {{ item.label }}
               <svg class="h-3 w-3 transition-transform" [class.rotate-180]="openDropdown === item.label"
@@ -130,6 +129,22 @@
           {{ cta.label }}
         </button>
       </nav>
+    </div>
+  </div>
+  <!-- Hot/Current Events banner to get more attention -->
+  <div [class.translate-y-0]="isAtTop" [class.-translate-y-full]="!isAtTop" [class.hidden]="!isAtTop "
+    class="fixed top-16 left-0 w-full  h-14 transition-transform duration-500 ease-in-out flex items-center bg-primary/30 backdrop-blur-lg border-b border-white/10 text-primary-foreground font-bold tracking-widest text-xs uppercase">
+    <div class="flex items-center space-x-2 mx-auto">
+      <span class="relative flex h-3 w-3">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+      </span>
+      <span>
+        Happening {{ hotEvent.dateFn >= today ? "Soon" : "Now" }} • {{ hotEvent.location }}
+      </span>
+      <span>|</span>
+      <span>{{ hotEvent.title }} >></span>
+      <a href="/house-league" class="text-link underline cursor-pointer"> More Info</a>
     </div>
   </div>
 </header>

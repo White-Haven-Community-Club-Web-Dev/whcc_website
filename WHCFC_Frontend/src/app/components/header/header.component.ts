@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 type NavChild = {
@@ -41,7 +41,7 @@ export class HeaderComponent {
   isMobileMenuOpen = false;
   openDropdown: string | null = null;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   brand: BrandConfig = {
     initial: 'W',
@@ -61,6 +61,21 @@ export class HeaderComponent {
       ],
     },
   ];
+  hotEvent = {
+    title: "House League & Youth Development Football Clinics",
+    date: "May 9 to August 29, 2026 (excluding July 4)",
+    dateFn: new Date(2026, 4, 9).getTime(),
+    location: "Scarborough"
+  }
+
+  readonly today = new Date().getTime();
+  isAtTop = true;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    // If user has scrolled more than 10px, hide the banner
+    this.isAtTop = window.scrollY < 10;
+  }
 
   cta: CtaConfig = {
     label: 'World Cup 2026',
