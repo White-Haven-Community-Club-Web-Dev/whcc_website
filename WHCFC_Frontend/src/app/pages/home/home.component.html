@@ -20,7 +20,7 @@
           {{ hero.subtitle }}
         </p>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <button [routerLink]="hero.primaryCta.link" routerLinkActive="active" (click)="scrollToTop()"
+          <button routerLinkActive="active" (click)="goExternal()"
             class="rounded-lg bg-[#e02020] px-6 py-2.5 text-xs font-semibold uppercase tracking-wide text-white shadow-lg hover:bg-[#c01a1a] transition">
             {{ hero.primaryCta.label }}
           </button>

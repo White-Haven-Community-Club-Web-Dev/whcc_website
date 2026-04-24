@@ -122,14 +122,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  goExternal(): void {
+    window.open('https://forms.office.com/pages/responsepage.aspx?id=Q8wQXfq82UmHdZn-_PjKwdq0nxfGjIZHkjuadjEZIKxURTZCM01IV1dMWVdPSVA5UUtNNDRSNU9VUy4u&route=shorturl', '_blank', 'noopener,noreferrer')
+  }
+
   hero: HeroContent = {
     eyebrow: "Join Scarborough's First",
     titleHighlight: "FREE",
     titleRest: "Football Community",
     subtitle: "Where diversity meets passion on the pitch",
     primaryCta: {
-      label: "Register Now",
-      link: "/connect-with-us",
+      label: "Get Involved",
+      link: "",
     },
     secondaryCta: {
       label: "Watch Story",

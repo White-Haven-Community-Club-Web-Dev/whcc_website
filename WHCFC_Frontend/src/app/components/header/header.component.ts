@@ -63,7 +63,7 @@ export class HeaderComponent {
   ];
 
   cta: CtaConfig = {
-    label: 'World Cup 2026',
+    label: 'Scarborough Connects 2026',
     link: '/what-we-do',
   };
 
