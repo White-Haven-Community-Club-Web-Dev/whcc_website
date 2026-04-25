@@ -169,9 +169,8 @@ export class HomeComponent implements OnInit {
     badgeLabel: "Featured Event",
     title: "Scarborough Connects 2026",
     descriptionLines: [
-      'Join us for a vibrant, FREE festival celebrating community spirit as the World Cup comes to Toronto!',
-      'A historic, once-in-a-lifetime celebration connecting Scarborough neighbors,',
-      'local businesses, civic leaders, and performing artists.',
+      "Join us for a vibrant, FREE festival celebrating community spirit as the World Cup comes to Toronto!",
+      "a historic, once-in-a-lifetime celebration connecting Scarborough neighbors, civic leaders, and performing artists where all attendees will be treated to a Viewing Party to watch a live-streamed World Cup game on a big screen in a location that contains a world in a venue!"
     ],
   };
 
