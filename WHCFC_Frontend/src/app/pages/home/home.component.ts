@@ -222,7 +222,7 @@ export class HomeComponent implements OnInit {
 
   featuredEventCta = {
     label: 'Learn More',
-    link: '/what-we-do',
+    link: '/scarborough-connects',
   };
 
   featuredEventsSection: SectionHeader = {
@@ -233,7 +233,7 @@ export class HomeComponent implements OnInit {
     ],
     cta: {
       label: 'Learn More',
-      link: '/what-we-do',
+      link: '',
     },
     dateIcon: 'Multiple Dates Card Icon.svg',
     locationIcon: 'Location Card Icon.svg',
@@ -242,13 +242,13 @@ export class HomeComponent implements OnInit {
 
   featuredEvents: EventCard[] = [
     {
-      title: 'World Cup Watch Party',
+      title: 'Scarborough Connects 2026',
       image: 'World Cup Watch Party Card Image.png',
       date: 'June & July 2026',
       location: 'Scarborough Civic Center',
       meta: 'Neighbours',
       tag: 'Community',
-      link: '/what-we-do',
+      link: '/scarborough-connects',
     },
     {
       title: 'House League & Youth Development Football Clinics',

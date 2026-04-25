@@ -64,7 +64,7 @@ export class HeaderComponent {
 
   cta: CtaConfig = {
     label: 'Scarborough Connects 2026',
-    link: '/what-we-do',
+    link: '/scarborough-connects',
   };
 
   icons: IconAssets = {
