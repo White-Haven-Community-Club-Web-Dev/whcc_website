@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface FeaturedEventDetail {
@@ -27,7 +27,6 @@ interface HeroContent {
   titleRest: string;
   subtitle: string;
   primaryCta: { label: string; link: string };
-  secondaryCta: { label: string; link: string; playIcon: string };
   image: string;
 }
 
@@ -45,9 +44,6 @@ interface QuickAction {
   description: string;
   icon: string;
   iconBg: string;
-  linkText: string;
-  link: string;
-  linkColorClass: string;
 }
 
 interface FeaturedEventHeader {
@@ -91,11 +87,10 @@ interface ImpactStat {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   constructor(
     private meta: Meta,
     private title: Title,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
 
   scrollToTop(): void {
@@ -118,7 +113,8 @@ export class HomeComponent implements OnInit {
     });
     this.meta.updateTag({
       name: 'author',
-      content: 'White Haven Community Football Club - Building a Stronger Soccer Community',
+      content:
+        'White Haven Community Football Club - Building a Stronger Soccer Community',
     });
   }
 
@@ -128,19 +124,14 @@ export class HomeComponent implements OnInit {
 
   hero: HeroContent = {
     eyebrow: "Join Scarborough's First",
-    titleHighlight: "FREE",
-    titleRest: "Football Community",
-    subtitle: "Where diversity meets passion on the pitch",
+    titleHighlight: 'FREE',
+    titleRest: 'Football Community',
+    subtitle: 'Where diversity meets passion on the pitch',
     primaryCta: {
-      label: "Get Involved",
-      link: "",
-    },
-    secondaryCta: {
-      label: "Watch Story",
+      label: "Read Our Story",
       link: "/who-we-are",
-      playIcon: "▶",
     },
-    image: "Hero Section Image.png"
+    image: 'Hero Section Image.png',
   };
 
   communitySurveyCallout: CommunitySurveyCallout = {
@@ -158,27 +149,18 @@ export class HomeComponent implements OnInit {
       description: "Find and join pickup games in your area",
       icon: "Join a Match Card Icon.svg",
       iconBg: "#EEF3FF",
-      linkText: "Learn More",
-      link: "/what-we-do",
-      linkColorClass: "text-blue-500",
     },
     {
       title: "Volunteer",
       description: "Help us grow the community",
       icon: "Volunteer Card Icon.svg",
       iconBg: "#EAF8F0",
-      linkText: "Sign Up",
-      link: "/connect-with-us",
-      linkColorClass: "text-green-500",
     },
     {
       title: "View Events",
       description: "Check out upcoming tournaments and activities",
       icon: "View Events Card Icon.svg",
       iconBg: "#FFF3E5",
-      linkText: "See Calendar",
-      link: "/what-we-do",
-      linkColorClass: "text-red-500",
     },
   ];
 
@@ -187,16 +169,16 @@ export class HomeComponent implements OnInit {
     badgeLabel: "Featured Event",
     title: "Scarborough Connects 2026",
     descriptionLines: [
-      "Join us for a vibrant, FREE festival celebrating community spirit as the World Cup comes to Toronto!",
-      "A historic, once-in-a-lifetime celebration connecting Scarborough neighbors,",
-      "local businesses, civic leaders, and performing artists.",
+      'Join us for a vibrant, FREE festival celebrating community spirit as the World Cup comes to Toronto!',
+      'A historic, once-in-a-lifetime celebration connecting Scarborough neighbors,',
+      'local businesses, civic leaders, and performing artists.',
     ],
   };
 
   featuredEventImageText: FeaturedEventImageText = {
-    monthLabel: "June 2026",
-    tagline: "The World Comes to North America",
-    image: "world-cup-watch-party.png"
+    monthLabel: 'June 2026',
+    tagline: 'The World Comes to North America',
+    image: 'world-cup-watch-party.png',
   };
 
   featuredEventDetails: FeaturedEventDetail[] = [
@@ -227,35 +209,35 @@ export class HomeComponent implements OnInit {
   ];
 
   whatToExpect = {
-    title: "What to Expect:",
+    title: 'What to Expect:',
   };
 
   featuredEventExpectations: FeaturedEventExpectItem[] = [
-    { text: "Exciting community festival atmosphere" },
-    { text: "Family-friendly activities & mini soccer clinics" },
-    { text: "Cultural performances & entertainment" },
-    { text: "Local community connections and celebrations" },
-    { text: "100% FREE for all ages" },
+    { text: 'Exciting community festival atmosphere' },
+    { text: 'Family-friendly activities & mini soccer clinics' },
+    { text: 'Cultural performances & entertainment' },
+    { text: 'Local community connections and celebrations' },
+    { text: '100% FREE for all ages' },
   ];
 
   featuredEventCta = {
-    label: "Learn More",
-    link: "/what-we-do",
+    label: 'Learn More',
+    link: '/what-we-do',
   };
 
   featuredEventsSection: SectionHeader = {
-    title: "Featured Events",
+    title: 'Featured Events',
     subtitleLines: [
-      "Join us in our upcoming events and be part of our",
-      "growing football community",
+      'Join us in our upcoming events and be part of our',
+      'growing football community',
     ],
     cta: {
-      label: "Learn More",
-      link: "/what-we-do",
+      label: 'Learn More',
+      link: '/what-we-do',
     },
-    dateIcon: "Multiple Dates Card Icon.svg",
-    locationIcon: "Location Card Icon.svg",
-    metaIcon: "Members Card Icon.svg"
+    dateIcon: 'Multiple Dates Card Icon.svg',
+    locationIcon: 'Location Card Icon.svg',
+    metaIcon: 'Members Card Icon.svg',
   };
 
   featuredEvents: EventCard[] = [
@@ -271,11 +253,12 @@ export class HomeComponent implements OnInit {
     {
       title: 'House League & Youth Development Football Clinics',
       image: 'House League Card Image.png',
-      date: 'May – July 2026',
+      date: 'May 9 to August 29, 2026 (excluding July 4)',
       location: 'Scarborough',
       meta: 'Neighbours',
       tag: 'Youth',
-      description: 'House League (U7–U11) and weekend Training Clinics building skills, confidence, and love for the game.',
+      description:
+        'House League (U7–U12) and weekend training clinics focused on building skills, confidence, and a love for the game. Includes a mid-season Canada Day Tournament on July 4 for players to apply their learning in a fun, competitive environment.',
       link: '/house-league',
     },
     {
@@ -288,48 +271,48 @@ export class HomeComponent implements OnInit {
       link: '/educational-session',
     },
     {
-      title: 'F³ Indoor Football Program 2026',
-      image: 'F3 Indoor Football Card Image.png',
+      title: 'F⁴ Indoor Football Program 2026',
+      image: 'F4 Indoor Football Card Image.png',
       date: 'Weekly (Mon/Wed/Fri)',
       location: 'David and Mary Thomson Collegiate Institute',
       meta: 'Neighbours',
       tag: 'Adults',
-      link: '/f3-program',
+      link: '/f4-program',
     },
   ];
 
   communityImpactSection: SectionHeader = {
-    title: "Community Impact",
+    title: 'Community Impact',
     subtitleLines: [
       "Together, we're making a difference in Scarborough's",
-      "sports community",
+      'sports community',
     ],
   };
 
   impactStats: ImpactStat[] = [
     {
-      value: "500+",
-      label: "Members",
-      icon: "Members Card Icon.svg",
-      iconBg: "#EEF3FF",
+      value: '500+',
+      label: 'Members',
+      icon: 'Members Card Icon.svg',
+      iconBg: '#EEF3FF',
     },
     {
-      value: "50+",
-      label: "Events",
-      icon: "Events Card Icon.svg",
-      iconBg: "#EAF8F0",
+      value: '50+',
+      label: 'Events',
+      icon: 'Events Card Icon.svg',
+      iconBg: '#EAF8F0',
     },
     {
-      value: "10+",
-      label: "Partners",
-      icon: "Partners Card Icon.svg",
-      iconBg: "#F4ECFF",
+      value: '10+',
+      label: 'Partners',
+      icon: 'Partners Card Icon.svg',
+      iconBg: '#F4ECFF',
     },
     {
-      value: "5,000+",
-      label: "Hours",
-      icon: "Hours Card Icon.svg",
-      iconBg: "#FEE2E2",
+      value: '5,000+',
+      label: 'Hours',
+      icon: 'Hours Card Icon.svg',
+      iconBg: '#FEE2E2',
     },
   ];
 }
