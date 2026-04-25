@@ -27,7 +27,6 @@ interface HeroContent {
   titleRest: string;
   subtitle: string;
   primaryCta: { label: string; link: string };
-  secondaryCta: { label: string; link: string; playIcon: string };
   image: string;
 }
 
@@ -45,9 +44,6 @@ interface QuickAction {
   description: string;
   icon: string;
   iconBg: string;
-  linkText: string;
-  link: string;
-  linkColorClass: string;
 }
 
 interface FeaturedEventHeader {
@@ -122,68 +118,56 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  goExternal(): void {
+    window.open('https://forms.office.com/pages/responsepage.aspx?id=Q8wQXfq82UmHdZn-_PjKwdq0nxfGjIZHkjuadjEZIKxURTZCM01IV1dMWVdPSVA5UUtNNDRSNU9VUy4u&route=shorturl', '_blank', 'noopener,noreferrer')
+  }
+
   hero: HeroContent = {
     eyebrow: "Join Scarborough's First",
     titleHighlight: 'FREE',
     titleRest: 'Football Community',
     subtitle: 'Where diversity meets passion on the pitch',
     primaryCta: {
-      label: 'Register Now',
-      link: '/connect-with-us',
-    },
-    secondaryCta: {
-      label: 'Watch Story',
-      link: '/who-we-are',
-      playIcon: '▶',
+      label: "Read Our Story",
+      link: "/who-we-are",
     },
     image: 'Hero Section Image.png',
   };
 
   communitySurveyCallout: CommunitySurveyCallout = {
-    eyebrow: 'Community Survey',
-    title: 'Help shape the World Cup Community Connections (WCCC) Festival',
-    description:
-      'Share your ideas on programs, activities, and supports for WCCC and our year-round football (soccer) community. Your feedback will directly inform how we design the festival and future WHCFC initiatives.',
-    linkUrl:
-      'https://forms.office.com/pages/responsepage.aspx?id=Q8wQXfq82UmHdZn-_PjKwdq0nxfGjIZHkjuadjEZIKxURTZCM01IV1dMWVdPSVA5UUtNNDRSNU9VUy4u&route=shorturl',
-    linkLabel: 'Take the Community Survey',
-    helperText: 'Opens a secure Microsoft Forms survey in a new tab.',
+    eyebrow: "Community Survey",
+    title: "Help shape the Scarborough Connects Event",
+    description: "Share your ideas on programs, activities, and supports for Scarborough Connects Event and our year-round football (soccer) community. Your feedback will directly inform how we design the festival and future WHCFC initiatives.",
+    linkUrl: "https://forms.office.com/pages/responsepage.aspx?id=Q8wQXfq82UmHdZn-_PjKwdq0nxfGjIZHkjuadjEZIKxURTZCM01IV1dMWVdPSVA5UUtNNDRSNU9VUy4u&route=shorturl",
+    linkLabel: "Take the Community Survey",
+    helperText: "Opens a secure Microsoft Forms survey in a new tab.",
   };
 
   quickActions: QuickAction[] = [
     {
-      title: 'Join a Match',
-      description: 'Find and join pickup games in your area',
-      icon: 'Join a Match Card Icon.svg',
-      iconBg: '#EEF3FF',
-      linkText: 'Learn More',
-      link: '/what-we-do',
-      linkColorClass: 'text-blue-500',
+      title: "Join a Match",
+      description: "Find and join pickup games in your area",
+      icon: "Join a Match Card Icon.svg",
+      iconBg: "#EEF3FF",
     },
     {
-      title: 'Volunteer',
-      description: 'Help us grow the community',
-      icon: 'Volunteer Card Icon.svg',
-      iconBg: '#EAF8F0',
-      linkText: 'Sign Up',
-      link: '/connect-with-us',
-      linkColorClass: 'text-green-500',
+      title: "Volunteer",
+      description: "Help us grow the community",
+      icon: "Volunteer Card Icon.svg",
+      iconBg: "#EAF8F0",
     },
     {
-      title: 'View Events',
-      description: 'Check out upcoming tournaments and activities',
-      icon: 'View Events Card Icon.svg',
-      iconBg: '#FFF3E5',
-      linkText: 'See Calendar',
-      link: '/what-we-do',
-      linkColorClass: 'text-red-500',
+      title: "View Events",
+      description: "Check out upcoming tournaments and activities",
+      icon: "View Events Card Icon.svg",
+      iconBg: "#FFF3E5",
     },
   ];
 
   featuredEventHeader: FeaturedEventHeader = {
-    badgeEmoji: '⚽',
-    badgeLabel: 'Featured Event',
-    title: 'World Cup Community Connections (WCCC) Festival',
+    badgeEmoji: "⚽",
+    badgeLabel: "Featured Event",
+    title: "Scarborough Connects 2026",
     descriptionLines: [
       'Join us for a vibrant, FREE festival celebrating community spirit as the World Cup comes to Toronto!',
       'A historic, once-in-a-lifetime celebration connecting Scarborough neighbors,',
@@ -287,13 +271,13 @@ export class HomeComponent implements OnInit {
       link: '/educational-session',
     },
     {
-      title: 'F³ Indoor Football Program 2026',
-      image: 'F3 Indoor Football Card Image.png',
+      title: 'F⁴ Indoor Football Program 2026',
+      image: 'F4 Indoor Football Card Image.png',
       date: 'Weekly (Mon/Wed/Fri)',
       location: 'David and Mary Thomson Collegiate Institute',
       meta: 'Neighbours',
       tag: 'Adults',
-      link: '/f3-program',
+      link: '/f4-program',
     },
   ];
 

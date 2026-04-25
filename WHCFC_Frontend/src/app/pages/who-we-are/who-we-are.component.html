@@ -3,7 +3,8 @@
         <!-- Hero -->
         <section class="relative min-h-[420px] md:min-h-[520px] overflow-hidden flex items-center">
             <img [src]="'assets/' + content.hero.image" [alt]="content.hero.imageAlt"
-                class="absolute inset-0 h-full w-full object-cover" />
+                class="absolute inset-0 h-full w-full object-cover"
+                loading="eager" fetchpriority="high" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/75 to-black/55"></div>
 
             <div class="relative z-10 w-full px-4 text-center text-white">
