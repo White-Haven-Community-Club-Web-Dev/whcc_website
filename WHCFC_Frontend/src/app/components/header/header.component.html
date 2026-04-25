@@ -3,11 +3,11 @@
     <div class="flex h-16 items-center justify-between">
       <!-- Brand -->
       <div class="flex items-center gap-3">
-        <div [routerLink]="brand.homeLink" routerLinkActive="active" (click)="onDesktopNavClick()"
+        <div [routerLink]="brand.homeLink" routerLinkActive="text-primary" (click)="onDesktopNavClick()"
           class="flex h-9 w-9 items-center justify-center rounded-full bg-red-600 text-sm font-semibold text-white shadow hover:cursor-pointer">
           {{ brand.initial }}
         </div>
-        <span [routerLink]="brand.homeLink" routerLinkActive="active" (click)="onDesktopNavClick()"
+        <span [routerLink]="brand.homeLink" routerLinkActive="text-primary" (click)="onDesktopNavClick()"
           class="text-base font-semibold tracking-wide text-slate-900 hover:cursor-pointer">
           {{ brand.name }}
         </span>
@@ -15,7 +15,7 @@
       <!-- Desktop Nav -->
       <nav class="hidden lg:flex items-center gap-8 text-sm tracking-wide text-slate-700">
         <!-- Home icon -->
-        <a [routerLink]="brand.homeLink" routerLinkActive="active" (click)="onDesktopNavClick()">
+        <a [routerLink]="brand.homeLink"  (click)="onDesktopNavClick()">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="ml-3 h-5 w-5 sm:block cursor-pointer hover:text-red-500">
             <path
@@ -29,7 +29,7 @@
         <!-- Text nav items -->
         <ng-container *ngFor="let item of navItems">
           <!-- Simple link -->
-          <button *ngIf="!item.children" [routerLink]="item.link" routerLinkActive="active" type="button"
+          <button *ngIf="!item.children" [routerLink]="item.link" routerLinkActive="text-primary" type="button"
             (click)="onDesktopNavClick()" class="hover:text-red-600">
             {{ item.label }}
           </button>
@@ -49,7 +49,7 @@
             <!-- Dropdown panel -->
             <div *ngIf="openDropdown === item.label"
               class="absolute left-0 top-full mt-1 w-64 rounded-lg border border-slate-100 bg-white py-2 shadow-lg">
-              <button *ngFor="let child of item.children" [routerLink]="child.link" routerLinkActive="active"
+              <button *ngFor="let child of item.children" [routerLink]="child.link" routerLinkActive="text-primary"
                 type="button" (click)="onDesktopNavClick()"
                 class="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600">
                 {{ child.label }}

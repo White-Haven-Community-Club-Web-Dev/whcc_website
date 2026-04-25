@@ -11,11 +11,6 @@
 # This helps Google remove old sitelinks faster.
 # -----------------------------
 [[redirects]]
-  from = "/educational-sessions"
-  to = "/"
-  status = 410
-
-[[redirects]]
   from = "/youth-program"
   to = "/"
   status = 410

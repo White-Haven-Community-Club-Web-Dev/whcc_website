@@ -54,17 +54,17 @@ export class HeaderComponent {
     {
       label: 'WHAT WE DO',
       children: [
-        { label: 'WCCC', link: '/what-we-do' },
+        { label: 'Scarborough Connects', link: '/scarborough-connects' },
         { label: 'Educational Session', link: '/educational-session' },
         { label: 'House League & Football Clinics', link: '/house-league' },
-        { label: 'F³ Indoor Football Program', link: '/f3-program' },
+        { label: 'F⁴ Indoor Football Program', link: '/f4-program' },
       ],
     },
   ];
 
   cta: CtaConfig = {
-    label: 'World Cup 2026',
-    link: '/what-we-do',
+    label: 'Scarborough Connects 2026',
+    link: '/scarborough-connects',
   };
 
   icons: IconAssets = {
