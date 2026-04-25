@@ -91,12 +91,12 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
         description: `Join your local football family at the clubhouse for every match. Experience the stadium energy with a live broadcast, a sea of jerseys, and the unbeatable atmosphere of cheering alongside fellow fans.`,
         image: "https://images.unsplash.com/photo-1727334291228-188f30b43f1f?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       },
-      {
-        icon: ` <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store-icon lucide-store"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></svg>`,
-        title: `The Marketplace`,
-        description: `Explore what our local community is creating.Discover the unique projects, crafts, and stories of fellow fans in a non-commercial space dedicated to celebrating our community’s creativity.`,
-        image: `https://images.unsplash.com/photo-1614603869015-1820cc8194fb?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`
-      },
+      // {
+      //   icon: ` <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store-icon lucide-store"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></svg>`,
+      //   title: `The Marketplace`,
+      //   description: `Explore what our local community is creating.Discover the unique projects, crafts, and stories of fellow fans in a non-commercial space dedicated to celebrating our community’s creativity.`,
+      //   image: `https://images.unsplash.com/photo-1614603869015-1820cc8194fb?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`
+      // },
 
       {
         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-person-standing-icon lucide-person-standing"><circle cx="12" cy="5" r="1"/><path d="m9 20 3-6 3 6"/><path d="m6 8 6 2 6-2"/><path d="M12 10v4"/></svg>`,
@@ -122,28 +122,28 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
     subtitle: `Help make Scarborough Connects Event a success! Multiple ways to participate and contribute to this community
                 celebration`,
     cards: [
-      {
-        icon: `<div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
-                    style="background-color: rgba(224, 1, 13, 0.082);"
-                    data-fg-bujk11="1.20:1.3848:/src/app/components/GetInvolved.tsx:54:15:2020:301:e:div:e"
-                    data-fgid-bujk11=":r4e:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-store w-8 h-8" style="color: rgb(224, 1, 13);"
-                        data-fg-bujk12="1.20:1.3848:/src/app/components/GetInvolved.tsx:58:17:2223:77:e:opportunity.icon"
-                        data-fgid-bujk12=":r4f:">
-                        <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path>
-                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                        <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path>
-                        <path d="M2 7h20"></path>
-                        <path
-                            d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7">
-                        </path>
-                    </svg></div>`,
-        title: 'Become a Vendor',
-        description: 'Showcase your products or food offerings to thousands of community members. Limited vendor spots available.',
-        color: 'primary',
-        action: 'Vendor Application'
-      },
+      // {
+      //   icon: `<div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
+      //               style="background-color: rgba(224, 1, 13, 0.082);"
+      //               data-fg-bujk11="1.20:1.3848:/src/app/components/GetInvolved.tsx:54:15:2020:301:e:div:e"
+      //               data-fgid-bujk11=":r4e:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+      //                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      //                   stroke-linejoin="round" class="lucide lucide-store w-8 h-8" style="color: rgb(224, 1, 13);"
+      //                   data-fg-bujk12="1.20:1.3848:/src/app/components/GetInvolved.tsx:58:17:2223:77:e:opportunity.icon"
+      //                   data-fgid-bujk12=":r4f:">
+      //                   <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path>
+      //                   <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+      //                   <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path>
+      //                   <path d="M2 7h20"></path>
+      //                   <path
+      //                       d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7">
+      //                   </path>
+      //               </svg></div>`,
+      //   title: 'Become a Vendor',
+      //   description: 'Showcase your products or food offerings to thousands of community members. Limited vendor spots available.',
+      //   color: 'primary',
+      //   action: 'Vendor Application'
+      // },
       {
         icon: `<div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background-color: rgba(27, 170, 118, 0.082);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide text-customGreen lucide-award w-8 h-8"  ><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg></div>`,
         title: 'Sponsor the Event',
@@ -187,12 +187,12 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
       },
       {
         question: 'What can I expect at the event?',
-        answer: 'Live soccer match viewing, community networking, local vendor showcases, family-friendly activities, and a celebration of Scarborough\'s diversity.'
+        answer: 'Live soccer match viewing, community networking, family-friendly activities, and a celebration of Scarborough\'s diversity.'
       },
-      {
-        question: 'Can vendors sell products at the event?',
-        answer: 'Vendors will participate in a showcase format — they can display and promote their products and services, but on-site sales will not take place during the event.'
-      },
+      // {
+      //   question: 'Can vendors sell products at the event?',
+      //   answer: 'Vendors will participate in a showcase format — they can display and promote their products and services, but on-site sales will not take place during the event.'
+      // },
       {
         question: 'Is the event family-friendly?',
         answer: 'Absolutely. The event is designed to be welcoming and inclusive for all ages, including children, youth, and seniors.'
