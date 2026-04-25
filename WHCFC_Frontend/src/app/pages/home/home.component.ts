@@ -145,8 +145,8 @@ export class HomeComponent implements OnInit {
 
   communitySurveyCallout: CommunitySurveyCallout = {
     eyebrow: "Community Survey",
-    title: "Help shape the World Cup Community Connections (WCCC) Festival",
-    description: "Share your ideas on programs, activities, and supports for WCCC and our year-round football (soccer) community. Your feedback will directly inform how we design the festival and future WHCFC initiatives.",
+    title: "Help shape the Scarborough Connects Event",
+    description: "Share your ideas on programs, activities, and supports for Scarborough Connects Event and our year-round football (soccer) community. Your feedback will directly inform how we design the festival and future WHCFC initiatives.",
     linkUrl: "https://forms.office.com/pages/responsepage.aspx?id=Q8wQXfq82UmHdZn-_PjKwdq0nxfGjIZHkjuadjEZIKxURTZCM01IV1dMWVdPSVA5UUtNNDRSNU9VUy4u&route=shorturl",
     linkLabel: "Take the Community Survey",
     helperText: "Opens a secure Microsoft Forms survey in a new tab.",
@@ -185,7 +185,7 @@ export class HomeComponent implements OnInit {
   featuredEventHeader: FeaturedEventHeader = {
     badgeEmoji: "⚽",
     badgeLabel: "Featured Event",
-    title: "World Cup Community Connections (WCCC) Festival",
+    title: "Scarborough Connects 2026",
     descriptionLines: [
       "Join us for a vibrant, FREE festival celebrating community spirit as the World Cup comes to Toronto!",
       "A historic, once-in-a-lifetime celebration connecting Scarborough neighbors,",

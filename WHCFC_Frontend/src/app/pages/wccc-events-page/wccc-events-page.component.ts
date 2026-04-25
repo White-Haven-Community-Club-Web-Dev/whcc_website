@@ -12,9 +12,9 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit {
   eventConfig: any = {
-    name: "World Cup Community\nConnections Festival",
-    shortName: "WCCC FESTIVAL 2026",
-    tagline: "Bringing Scarborough Together Through Football",
+    name: "Scarborough Connects:\nFootball & Community Festival",
+    shortName: "Scarborough Connects 2026",
+    tagline: "Where Scarborough comes together.",
 
     ctaButtonTitle: "Register Your Interest",
     ctaButtonLink: "",
@@ -110,16 +110,16 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   aboutEvent = {
-    title: "About the Event", description: `   The World Cup Community Connections Festival is a celebration of football, culture, and community
+    title: "About the Event", description: `   The Scarborough Connects is a celebration of football, culture, and community
                 spirit.
                 Join us for an unforgettable day of entertainment, connection, and celebration at the heart of
                 Scarborough.
-                Whether you're a die-hard football fan or simply looking for a fun family outing, WCCC offers something
+                Whether you're a die-hard football fan or simply looking for a fun family outing, Scarborough Connects offers something
                 for everyone.`}
   // Get Involved Section content
   opportunities = {
     title: "Get Involved",
-    subtitle: `Help make WCCC Festival a success! Multiple ways to participate and contribute to this community
+    subtitle: `Help make Scarborough Connects Event a success! Multiple ways to participate and contribute to this community
                 celebration`,
     cards: [
       {
@@ -171,7 +171,7 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
   contact = { desc: "Have questions about getting involved? We'd love to hear from you!", connect: "Contact our team at&nbsp;<b>info&#64;whcfc.ca</b>" }
 
   faqs = {
-    title: "Frequently Asked Questions", description: "Everything you need to know about the WCCC Festival",
+    title: "Frequently Asked Questions", description: "Everything you need to know about the Scarborough Connects Event",
     cards: [
       {
         question: 'Is the event free?',
@@ -222,11 +222,11 @@ export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit
 
 
   ngOnInit(): void {
-    this.title.setTitle('WCCC Event | White Haven Community Football Club');
+    this.title.setTitle(' Scarborough Connects | White Haven Community Football Club');
     this.meta.updateTag({
       name: 'description',
       content:
-        "The World Cup Community Connections(WCCC Event) Festival celebrates football, culture, and community spirit in the heart of Scarborough. Join us for an unforgettable day of entertainment and connection—perfect for die-hard fans and families alike.",
+        "The Scarborough Connects Event celebrates football, culture, and community spirit in the heart of Scarborough. Join us for an unforgettable day of entertainment and connection—perfect for die-hard fans and families alike.",
     });
     this.meta.updateTag({
       name: 'keywords',

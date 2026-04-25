@@ -16,7 +16,7 @@ export const routes: Routes = [
   { path: 'educational-session', component: EducationalSessionPageComponent },
   { path: 'house-league', component: HouseLeaguePageComponent },
   { path: 'f3-program', component: F3ProgramPageComponent },
-  { path: 'wccc-event', component: WcccEventsPageComponent },
+  { path: 'scarborough-connects', component: WcccEventsPageComponent },
   // Legacy URLs → current pages
   { path: 'about-us', redirectTo: 'who-we-are', pathMatch: 'full' },
   { path: 'community', redirectTo: 'what-we-do', pathMatch: 'full' },
