@@ -57,7 +57,7 @@ export class HeaderComponent {
         { label: 'Scarborough Connects', link: '/scarborough-connects' },
         { label: 'Educational Session', link: '/educational-session' },
         { label: 'House League & Football Clinics', link: '/house-league' },
-        { label: 'F⁴ Indoor Football Program', link: '/f4-program' },
+        { label: 'F⁴ Outdoor Football Program', link: '/f4-program' },
       ],
     },
   ];

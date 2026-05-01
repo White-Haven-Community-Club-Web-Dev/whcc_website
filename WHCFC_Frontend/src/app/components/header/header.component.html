@@ -48,7 +48,7 @@
             </button>
             <!-- Dropdown panel -->
             <div *ngIf="openDropdown === item.label"
-              class="absolute left-0 top-full mt-1 w-64 rounded-lg border border-slate-100 bg-white py-2 shadow-lg">
+              class="absolute left-0 top-full w-64 rounded-lg border border-slate-100 bg-white py-2 shadow-lg">
               <button *ngFor="let child of item.children" [routerLink]="child.link" routerLinkActive="text-primary"
                 type="button" (click)="onDesktopNavClick()"
                 class="block w-full px-4 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600">
