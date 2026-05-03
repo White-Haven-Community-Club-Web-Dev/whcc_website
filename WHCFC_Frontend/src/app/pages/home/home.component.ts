@@ -271,7 +271,7 @@ export class HomeComponent implements OnInit {
     },
     {
       title: 'F⁴ Outdoor Football Program 2026',
-      image: 'F4 Outdoor Football Card Image.png',
+      image: 'F4 Indoor Football Card Image.png',
       date: 'Weekly (Mon/Wed/Fri)',
       location: 'David and Mary Thomson Collegiate Institute',
       meta: 'Neighbours',
