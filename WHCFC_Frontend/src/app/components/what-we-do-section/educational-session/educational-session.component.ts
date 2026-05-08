@@ -14,7 +14,8 @@ export class EducationalSessionComponent {
   constructor(
     private meta: Meta,
     private title: Title
-  ) {}
+  ) { }
+
 
   ngOnInit(): void {
     this.title.setTitle('Educational Sessions | White Haven Community Football Club');
@@ -32,6 +33,20 @@ export class EducationalSessionComponent {
       name: 'author',
       content: 'White Haven Community Football Club - Building a Stronger Soccer Community',
     });
+  }
+
+  readonly activeSession = {
+    id: '1',
+    title: 'Project Management as a Skill for Success',
+    date: 'May 9, 2026',
+    time: '4:00 PM EST',
+    location: 'Online',
+    description: 'Join Joseph Fernandes—PMP, CSM, and founder of WHCC Corp—for a practical workshop on Project Management Basics to help you organize, lead, and turn your ideas into action',
+    capacity: 30,
+    registered: 18,
+    status: 'active',
+    // image: 'assets/Edu3.jpg',
+    registrationFor: "Session is for 42-Voices members only", button: { link: "https://www.42voices.org/2026-career-civic-leadership-program", title: "Register Now" }, button2: { link: "", title: "" }
   }
 
   readonly pageContent = {
