@@ -25,11 +25,10 @@ interface BoardMember {
 }
 
 @Component({
-  selector: 'app-who-we-are',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './who-we-are.component.html',
-  styleUrl: './who-we-are.component.css'
+    selector: 'app-who-we-are',
+    imports: [CommonModule],
+    templateUrl: './who-we-are.component.html',
+    styleUrl: './who-we-are.component.css'
 })
 export class WhoWeAreComponent implements OnInit {
   constructor(

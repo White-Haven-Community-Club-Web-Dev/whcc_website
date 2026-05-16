@@ -4,11 +4,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-wccc-events-page',
-  standalone: true,
-  imports: [NgForOf],
-  templateUrl: './wccc-events-page.component.html',
-  styleUrl: './wccc-events-page.component.css'
+    selector: 'app-wccc-events-page',
+    imports: [NgForOf],
+    templateUrl: './wccc-events-page.component.html',
+    styleUrl: './wccc-events-page.component.css'
 })
 export class WcccEventsPageComponent implements OnInit, OnDestroy, AfterViewInit {
   eventConfig: any = {

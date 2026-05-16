@@ -80,11 +80,10 @@ interface ImpactStat {
 }
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+    selector: 'app-home',
+    imports: [RouterLink, RouterLinkActive, CommonModule],
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   constructor(

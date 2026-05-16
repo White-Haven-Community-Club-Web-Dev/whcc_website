@@ -4,11 +4,10 @@ import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-educational-session',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './educational-session.component.html',
-  styleUrl: './educational-session.component.css'
+    selector: 'app-educational-session',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './educational-session.component.html',
+    styleUrl: './educational-session.component.css'
 })
 export class EducationalSessionComponent {
   constructor(

@@ -3,11 +3,10 @@ import { isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-what-we-do-section',
-  standalone: true,
-  imports: [],
-  templateUrl: './what-we-do-section.component.html',
-  styleUrl: './what-we-do-section.component.css'
+    selector: 'app-what-we-do-section',
+    imports: [],
+    templateUrl: './what-we-do-section.component.html',
+    styleUrl: './what-we-do-section.component.css'
 })
 export class WhatWeDoSectionComponent implements OnInit, OnDestroy {
   days_remaining_to_worldcup = 0;
