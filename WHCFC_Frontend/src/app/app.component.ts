@@ -2,7 +2,7 @@ import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SchemaService } from './services/schema.service';
 import { isPlatformBrowser } from '@angular/common';
@@ -14,7 +14,6 @@ import { isPlatformBrowser } from '@angular/common';
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    HttpClientModule,
     ReactiveFormsModule,
   ],
   templateUrl: './app.component.html',
