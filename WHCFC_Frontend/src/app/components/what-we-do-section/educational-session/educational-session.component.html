@@ -75,17 +75,17 @@
             {{activeSession.button.title}}
           </a>
           <!-- <a href="https://www.42voices.org/2026-career-civic-leadership-program"
-            class="border-2 cursor-pointer border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-            {{activeSession.button2}}
-          </a> -->
-        </div>
+          class="border-2 cursor-pointer border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+          {{activeSession.button2}}
+        </a> -->
       </div>
-      <div class="md:flex items-center justify-center gap-10 hidden">
-        <img class="h-48"
-          src="https://lh3.googleusercontent.com/sitesv/AA5AbUC1NmUrbqeqDZbxQJK-KNkxh6gsBEg30tOa92UlFtporSF8ZA0dKXm9mVjtrOyoKmfEgmsvGIDyJGAPn4hPmX7hEX7uyJV1Zv4W1VAvEUwqqDRBYC2F8Q0JjNtp0FXv24l4pyuJf-dviUjtC6C6S2RfpSvP02sVXH3Vkh-5bTEVwGXET58F3xo-=w16383" />
-        <p class="text-8xl">x</p>
-        <img class="h-48"
-          src="assets/logo.png"/>      </div>
+    </div>
+    <div class="md:flex items-center justify-center gap-10 hidden">
+      <img class="h-48"
+        src="https://lh3.googleusercontent.com/sitesv/AA5AbUC1NmUrbqeqDZbxQJK-KNkxh6gsBEg30tOa92UlFtporSF8ZA0dKXm9mVjtrOyoKmfEgmsvGIDyJGAPn4hPmX7hEX7uyJV1Zv4W1VAvEUwqqDRBYC2F8Q0JjNtp0FXv24l4pyuJf-dviUjtC6C6S2RfpSvP02sVXH3Vkh-5bTEVwGXET58F3xo-=w16383" />
+      <p class="text-8xl">x</p>
+      <img class="h-48"
+      src="assets/logo.png"/>      </div>
     </div>
 
   </div>
@@ -146,72 +146,78 @@
           {{ pageContent.workshopTopicsDescription }}
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-          <div *ngFor="let topic of workshopTopics; let last = last" class="flex items-start gap-3"
-            [class.md:col-span-2]="last && workshopTopics.length % 2 !== 0">
+          @for (topic of workshopTopics; track topic; let last = $last) {
+            <div class="flex items-start gap-3"
+              [class.md:col-span-2]="last && workshopTopics.length % 2 !== 0">
             <span class="w-2 h-2 bg-customGreen rounded-full mt-3 flex-shrink-0"></span>
             <p class="text-foreground text-base leading-[28px]">{{ topic }}</p>
           </div>
-        </div>
+        }
       </div>
-    </div>
-
-    <div id="upcoming-sessions" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-      <div class="bg-gray rounded-2xl p-6 md:p-8">
-        <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4">
-          {{ pageContent.currentDeliveryTitle }}
-        </h2>
-        <p class="text-foreground text-base leading-[28px] mb-4">
-          {{ pageContent.currentDeliveryDescription }}
-        </p>
-        <p class="text-foreground text-base leading-[28px]">
-          {{ pageContent.currentDeliveryFollowUp }}
-        </p>
-      </div>
-      <div class="flex justify-center items-center">
-        <img [src]="pageContent.featureImage.src" [alt]="pageContent.featureImage.alt"
-          class="w-full max-w-[520px] h-auto rounded-2xl shadow-workshop object-cover" loading="lazy"
-          decoding="async" />
-      </div>
-    </div>
-
-    <div class="bg-gray rounded-2xl p-6 md:p-8 mb-16 text-center">
-      <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4">
-        {{ pageContent.communityInputTitle }}
-      </h2>
-      <p class="text-foreground text-base leading-[28px] max-w-3xl mx-auto">
-        {{ pageContent.communityInputPrefix }}
-        <a [href]="communityInputMailto" class="text-primary underline">
-          {{ pageContent.communityInputEmail }}
-        </a>
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-      <div class="bg-gray rounded-2xl p-6 md:p-8">
-        <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
-          {{ pageContent.targetAudienceTitle }}
-        </h2>
-        <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
-          <li *ngFor="let item of targetAudienceItems">{{ item }}</li>
-        </ul>
-      </div>
-      <div class="bg-gray rounded-2xl p-6 md:p-8">
-        <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
-          {{ pageContent.registrationProcessTitle }}
-        </h2>
-        <ol class="list-decimal pl-5 text-foreground text-base leading-[28px] space-y-1">
-          <li *ngFor="let step of registrationSteps">{{ step }}</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="text-center border-t border-gray-200 pt-8">
-      <p class="text-foreground text-base leading-[28px] mb-2">
-        {{ pageContent.footerLine1 }}
-      </p>
-      <p class="text-foreground text-base leading-[28px]">
-        {{ pageContent.footerLine2 }}
-      </p>
     </div>
   </div>
+
+  <div id="upcoming-sessions" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+    <div class="bg-gray rounded-2xl p-6 md:p-8">
+      <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4">
+        {{ pageContent.currentDeliveryTitle }}
+      </h2>
+      <p class="text-foreground text-base leading-[28px] mb-4">
+        {{ pageContent.currentDeliveryDescription }}
+      </p>
+      <p class="text-foreground text-base leading-[28px]">
+        {{ pageContent.currentDeliveryFollowUp }}
+      </p>
+    </div>
+    <div class="flex justify-center items-center">
+      <img [src]="pageContent.featureImage.src" [alt]="pageContent.featureImage.alt"
+        class="w-full max-w-[520px] h-auto rounded-2xl shadow-workshop object-cover" loading="lazy"
+        decoding="async" />
+    </div>
+  </div>
+
+  <div class="bg-gray rounded-2xl p-6 md:p-8 mb-16 text-center">
+    <h2 class="text-3xl md:text-4xl font-normal leading-tight text-primary font-roboto mb-4">
+      {{ pageContent.communityInputTitle }}
+    </h2>
+    <p class="text-foreground text-base leading-[28px] max-w-3xl mx-auto">
+      {{ pageContent.communityInputPrefix }}
+      <a [href]="communityInputMailto" class="text-primary underline">
+        {{ pageContent.communityInputEmail }}
+      </a>
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+    <div class="bg-gray rounded-2xl p-6 md:p-8">
+      <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
+        {{ pageContent.targetAudienceTitle }}
+      </h2>
+      <ul class="list-disc pl-5 text-foreground text-base leading-[28px] space-y-1">
+        @for (item of targetAudienceItems; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </div>
+    <div class="bg-gray rounded-2xl p-6 md:p-8">
+      <h2 class="text-3xl font-normal leading-tight text-primary font-roboto mb-4">
+        {{ pageContent.registrationProcessTitle }}
+      </h2>
+      <ol class="list-decimal pl-5 text-foreground text-base leading-[28px] space-y-1">
+        @for (step of registrationSteps; track step) {
+          <li>{{ step }}</li>
+        }
+      </ol>
+    </div>
+  </div>
+
+  <div class="text-center border-t border-gray-200 pt-8">
+    <p class="text-foreground text-base leading-[28px] mb-2">
+      {{ pageContent.footerLine1 }}
+    </p>
+    <p class="text-foreground text-base leading-[28px]">
+      {{ pageContent.footerLine2 }}
+    </p>
+  </div>
+</div>
 </div>

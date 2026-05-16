@@ -1,4 +1,4 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -81,7 +81,7 @@ interface ImpactStat {
 
 @Component({
     selector: 'app-home',
-    imports: [RouterLink, RouterLinkActive, CommonModule],
+    imports: [RouterLink, RouterLinkActive],
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })

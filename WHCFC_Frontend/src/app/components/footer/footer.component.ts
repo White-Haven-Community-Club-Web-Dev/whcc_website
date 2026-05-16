@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 type ContactItem = {
   icon: string;
@@ -16,7 +16,7 @@ type SocialItem = {
 
 @Component({
     selector: 'app-footer',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.css'
 })

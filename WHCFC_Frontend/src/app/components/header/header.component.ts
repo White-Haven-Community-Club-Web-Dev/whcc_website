@@ -1,4 +1,4 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -31,7 +31,7 @@ type IconAssets = {
 
 @Component({
     selector: 'app-header',
-    imports: [RouterLink, RouterLinkActive, CommonModule],
+    imports: [RouterLink, RouterLinkActive],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'
 })

@@ -1,11 +1,11 @@
-import { isPlatformBrowser, NgForOf } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-wccc-events-page',
-    imports: [NgForOf],
+    imports: [],
     templateUrl: './wccc-events-page.component.html',
     styleUrl: './wccc-events-page.component.css'
 })

@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-educational-session',
-    imports: [CommonModule, RouterModule],
+    imports: [RouterModule],
     templateUrl: './educational-session.component.html',
     styleUrl: './educational-session.component.css'
 })
