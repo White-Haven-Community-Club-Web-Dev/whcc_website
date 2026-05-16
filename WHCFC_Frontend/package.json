@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --configuration production",
+    "start": "node setupEnv.ts && ng serve",
     "build": "ng build --configuration production --no-progress",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -22,6 +22,8 @@
     "@angular/platform-server": "^20.3.21",
     "@angular/router": "^20.3.21",
     "@angular/ssr": "^20.3.26",
+    "dotenv": "^17.4.2",
+    "ng-dynamic-component": "^10.8.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.1"
