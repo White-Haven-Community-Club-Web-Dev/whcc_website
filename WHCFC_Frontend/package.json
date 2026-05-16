@@ -22,13 +22,6 @@
     "@angular/platform-server": "^18.2.14",
     "@angular/router": "^18.2.14",
     "@angular/ssr": "^18.2.21",
-    "@date-fns/tz": "^1.1.2",
-    "@types/countdown": "^0.0.12",
-    "countdown": "^2.6.0",
-    "date-fns": "^4.1.0",
-    "express": "^4.18.2",
-    "express-rate-limit": "^8.2.1",
-    "ng-recaptcha": "^13.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
@@ -53,6 +46,6 @@
     "typescript": "~5.4.2"
   },
   "engines": {
-    "node": "18.18.0"
+    "node": "v24.14.0"
   }
 }
