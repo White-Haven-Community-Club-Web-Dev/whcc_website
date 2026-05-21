@@ -7,10 +7,11 @@ import { EducationalSessionPageComponent } from './pages/educational-session/edu
 import { HouseLeaguePageComponent } from './pages/house-league/house-league.component';
 import { WcccEventsPageComponent } from './pages/wccc-events-page/wccc-events-page.component';
 import { F4ProgramPageComponent } from './pages/f4-program/f4-program.component';
+import { PageComponent } from './pages/page/page.component';
 
 export const routes: Routes = [
   // Current public pages
-  { path: '', component: HomeComponent },
+  { path: '', component: PageComponent },
   { path: 'who-we-are', component: WhoWeAreComponent },
   { path: 'what-we-do', component: WhatWeDoComponent },
   { path: 'educational-session', component: EducationalSessionPageComponent },

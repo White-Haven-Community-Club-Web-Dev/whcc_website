@@ -10,7 +10,8 @@ const setEnv = () => {
     const envConfigFile = `export const environment = {
   production: true,
   siteKey: "${process.env['SITE_KEY']}",
-  sbKey:${process.env['SB_KEY']}
+  sbKey:"${process.env['SB_KEY']}",
+  sbVersion:"${process.env['SB_VERSION']}"
 };
 `;
     console.log('The file `environment.ts` will be written with the following content: \n');

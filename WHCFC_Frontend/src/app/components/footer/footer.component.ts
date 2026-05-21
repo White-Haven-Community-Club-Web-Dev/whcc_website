@@ -15,13 +15,12 @@ type SocialItem = {
 };
 
 @Component({
-    selector: 'app-footer',
-    imports: [],
-    templateUrl: './footer.component.html',
-    styleUrl: './footer.component.css'
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  
+
   brand = {
     emoji: '⚽',
     short: 'WHCFC',

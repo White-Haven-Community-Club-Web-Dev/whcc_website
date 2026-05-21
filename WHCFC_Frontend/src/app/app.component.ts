@@ -2,21 +2,20 @@ import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SchemaService } from './services/schema.service';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-    selector: 'app-root',
-    imports: [
-        RouterOutlet,
-        HeaderComponent,
-        FooterComponent,
-        ReactiveFormsModule,
-    ],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+  selector: 'app-root',
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+    ReactiveFormsModule,
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
   constructor(private schemaService: SchemaService, @Inject(PLATFORM_ID) private platformId: Object) { }
