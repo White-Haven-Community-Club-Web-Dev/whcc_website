@@ -76,7 +76,6 @@ import { AppRoutingModule } from "../../app.routes";
 export class MainEventComponent implements OnInit {
   data = input<IMainEventComponentContent>();
   ngOnInit(): void {
-    console.log(this.data());
   }
 
 }
