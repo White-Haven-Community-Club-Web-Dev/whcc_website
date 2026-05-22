@@ -8,22 +8,24 @@ import { HouseLeaguePageComponent } from './pages/house-league/house-league.comp
 import { WcccEventsPageComponent } from './pages/wccc-events-page/wccc-events-page.component';
 import { F4ProgramPageComponent } from './pages/f4-program/f4-program.component';
 import { PageComponent } from './pages/page/page.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
   // Current public pages
-  { path: '', component: PageComponent },
-  { path: 'who-we-are', component: WhoWeAreComponent },
-  { path: 'what-we-do', component: WhatWeDoComponent },
-  { path: 'educational-session', component: EducationalSessionPageComponent },
-  { path: 'house-league', component: HouseLeaguePageComponent },
-  { path: 'scarborough-connects', component: WcccEventsPageComponent },
-  { path: 'f4-program', component: F4ProgramPageComponent },
-  // Legacy URLs → current pages
-  { path: 'about-us', redirectTo: 'who-we-are', pathMatch: 'full' },
-  { path: 'community', redirectTo: 'what-we-do', pathMatch: 'full' },
-  { path: 'contact-us', redirectTo: '', pathMatch: 'full' },
+  {path:"not-found",component:NotFoundComponent},
+  { path: '**', component: PageComponent },
+  // { path: 'who-we-are', component: WhoWeAreComponent },
+  // { path: 'what-we-do', component: WhatWeDoComponent },
+  // { path: 'educational-session', component: EducationalSessionPageComponent },
+  // { path: 'house-league', component: HouseLeaguePageComponent },
+  // { path: 'scarborough-connects', component: WcccEventsPageComponent },
+  // { path: 'f4-program', component: F4ProgramPageComponent },
+  // // Legacy URLs → current pages
+  // { path: 'about-us', redirectTo: 'who-we-are', pathMatch: 'full' },
+  // { path: 'community', redirectTo: 'what-we-do', pathMatch: 'full' },
+  // { path: 'contact-us', redirectTo: '', pathMatch: 'full' },
   // Anything else → Home
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  // { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

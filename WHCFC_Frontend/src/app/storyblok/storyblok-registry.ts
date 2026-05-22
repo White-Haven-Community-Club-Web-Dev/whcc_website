@@ -6,6 +6,7 @@ import { FeaturedEventsComponent } from '../components/featured-events/featured-
 import { StatBoardComponent } from '../components/stat-board/stat-board.component';
 import { EventsCardComponent } from '../components/events-card/events-card.component';
 import { StatCardComponent } from '../components/stat-card/stat-card.component';
+import { GridSectionComponent } from '../components/grid-section/grid-section.component';
 
 
 // Map Storyblok layout names to your actual component classes
@@ -16,5 +17,6 @@ export const STORYBLOK_REGISTRY: Record<string, Type<any>> = {
     featuredEvents: FeaturedEventsComponent,
     eventCard: EventsCardComponent,
     statBoard: StatBoardComponent,
-    statCard: StatCardComponent
+    statCard: StatCardComponent,
+    gridSection: GridSectionComponent
 };

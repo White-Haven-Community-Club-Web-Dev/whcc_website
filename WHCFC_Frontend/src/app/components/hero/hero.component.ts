@@ -22,12 +22,14 @@ import { Component, input, OnInit } from '@angular/core';
         <p class="mb-6 text-sm sm:text-base md:text-lg text-white/90">
           {{ data()?.subtitle }}
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
+       @if(data()?.buttonText){
+         <div class="flex flex-wrap items-center justify-center gap-4">
           <a routerLinkActive="active" routerLink="/who-we-are"
             class="rounded-lg bg-[#e02020] px-6 py-2.5 cursor-pointer text-xs font-semibold uppercase tracking-wide text-white shadow-lg hover:bg-[#c01a1a] transition">
             {{ data()?.buttonText }}
           </a>
         </div>
+       }
       </div>
     </section>
   `,

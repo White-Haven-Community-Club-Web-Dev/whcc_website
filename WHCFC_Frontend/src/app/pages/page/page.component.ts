@@ -1,6 +1,7 @@
 import { Component, signal, OnInit, } from '@angular/core';
 import { StoryblokWrapperComponent } from '../../storyblok/storyblok-wrapper.component';
 import { StoryblokResponse, StoryblokService } from '../../services/storyblock.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,12 +23,21 @@ export class PageComponent implements OnInit {
 
   pageData = signal<StoryblokResponse['story'] | null>(null);
 
-  constructor(private sb: StoryblokService) { }
+  constructor(private sb: StoryblokService, private router:Router) { }
 
   ngOnInit(): void {
-    this.sb.getStory('home').subscribe({
+    let path = this.router.url;
+    if(path === "/") path ="home";
+    
+    this.sb.getStory(path).subscribe({
       next: (data) => {
-        this.pageData.set(data)
+      this.pageData.set(data)
+      },
+      error:(err)=>{
+        if(err.status===404){
+          this.router.navigate(["/not-found"])
+        }
+        
       }
     })
   }

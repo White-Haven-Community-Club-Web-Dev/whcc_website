@@ -15,7 +15,7 @@
       <!-- Desktop Nav -->
       <nav class="hidden lg:flex items-center gap-8 text-sm tracking-wide text-slate-700">
         <!-- Home icon -->
-        <a [routerLink]="brand.homeLink"  (click)="onDesktopNavClick()">
+        <a [href]="brand.homeLink"  (click)="onDesktopNavClick()">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="ml-3 h-5 w-5 sm:block cursor-pointer hover:text-red-500">
             <path
@@ -30,10 +30,10 @@
         @for (item of navItems; track item) {
           <!-- Simple link -->
           @if (!item.children) {
-            <button [routerLink]="item.link" routerLinkActive="text-primary" type="button"
+            <a [href]="item.link"  type="button"
               (click)="onDesktopNavClick()" class="hover:text-red-600">
               {{ item.label }}
-            </button>
+          </a>
           }
           <!-- Dropdown -->
           @if (item.children) {
