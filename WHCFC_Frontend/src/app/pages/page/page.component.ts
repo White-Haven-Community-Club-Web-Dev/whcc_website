@@ -1,45 +1,48 @@
-import { Component, signal, OnInit, } from '@angular/core';
-import { StoryblokWrapperComponent } from '../../storyblok/storyblok-wrapper.component';
-import { StoryblokResponse, StoryblokService } from '../../services/storyblock.service';
+import { Component, signal, OnInit, inject, computed, ChangeDetectionStrategy, } from '@angular/core';
 import { Router } from '@angular/router';
+import { Story, StoryblokComponent, StoryblokService } from '@storyblok/angular';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
   selector: 'app-page',
   standalone: true,
-  imports: [StoryblokWrapperComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [StoryblokComponent],
   template: `
-    @if (pageData(); as page) {
-      <div class="page-layout">
-        <!-- Loop through the root level body array directly from Storyblok -->
-        @for (block of page.content.body; track block._uid) {
-          <app-storyblok-wrapper [data]="block" />
-        }
-      </div>
-    }
+       <div>
+      <!-- Pass content directly - componnent handles null internally -->
+      <sb-component [sbBlok]="storyContent()" />
+    </div>
   `
 })
 export class PageComponent implements OnInit {
+  private readonly sb = inject(StoryblokService)
+  private client = this.sb.getClient();
+  readonly story = signal<Story | null>(null);
+  readonly loading = signal(true);
+  readonly storyContent = computed(() => this.story()?.content);
+  private readonly router = inject(Router);
 
-  pageData = signal<StoryblokResponse['story'] | null>(null);
+  async ngOnInit(): Promise<void> {
+    try {
+      let path = this.router.url;
+      if (path === "/") path = "home";
 
-  constructor(private sb: StoryblokService, private router:Router) { }
-
-  ngOnInit(): void {
-    let path = this.router.url;
-    if(path === "/") path ="home";
-    
-    this.sb.getStory(path).subscribe({
-      next: (data) => {
-      this.pageData.set(data)
-      },
-      error:(err)=>{
-        if(err.status===404){
-          this.router.navigate(["/not-found"])
+      const { data, error } = await this.client.stories.get(path, {
+        query: {
+          version: environment.sbVersion! as any
         }
-        
+      });
+      if (error) throw error
+      this.story.set((data?.story as Story) || null);      
+    } catch (error) {
+      if ((error as any).response.status === 404) {
+        this.router.navigateByUrl("/not-found")
       }
-    })
+    } finally {
+      this.loading.set(false);
+    }
   }
 
 }

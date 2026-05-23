@@ -1,21 +1,23 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'events-card',
   imports: [],
+   changeDetection:ChangeDetectionStrategy.OnPush,
+  standalone:true,
   template: `
  <article class="flex  min-h-[350px] flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
     <div class="relative h-32">
-        <img class="h-full w-full object-cover" [src]="data()?.image?.filename" [alt]="data()?.image?.alt"
+        <img class="h-full w-full object-cover" [src]="blok().image.filename" [alt]="blok().image.alt"
             loading="lazy" decoding="async" />
         <span
             class="absolute right-3 top-3 rounded-full bg-emerald-600/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
-            {{ data()?.tagText }}
+            {{ blok().tagText }}
         </span>
     </div>
     <div class="flex flex-1 flex-col p-4">
         <h3 class="text-sm font-semibold leading-snug text-slate-900">
-            {{ data()?.title }}
+            {{ blok().title }}
         </h3>
         <div class="mt-3 space-y-1 text-xs text-slate-600">
             <div class="flex items-center gap-2">
@@ -29,7 +31,7 @@ import { Component, input } from '@angular/core';
                     <path d="M3 10H21" stroke="#E0010D" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
-                <span>{{ data()?.date }}</span>
+                <span>{{ blok().date }}</span>
             </div>
             <div class="flex items-center gap-2">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +42,7 @@ import { Component, input } from '@angular/core';
                         d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
                         stroke="#1BAA76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>{{ data()?.location }}</span>
+                <span>{{ blok().location }}</span>
             </div>
             <div class="flex items-center gap-2">
                 <svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,16 +59,16 @@ import { Component, input } from '@angular/core';
                         d="M12 14.6667C14.9455 14.6667 17.3333 12.2789 17.3333 9.33333C17.3333 6.38781 14.9455 4 12 4C9.05444 4 6.66663 6.38781 6.66663 9.33333C6.66663 12.2789 9.05444 14.6667 12 14.6667Z"
                         stroke="#155DFC" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>{{ data()?.eventFor }}</span>
+                <span>{{ blok().eventFor }}</span>
             </div>
-            @if (data()?.description) {
+            @if (blok().description) {
             <div class="flex items-center gap-2 pt-2">
-                <span class="text-xs">{{ data()?.description }}</span>
+                <span class="text-xs">{{ blok().description }}</span>
             </div>
             }
         </div>
       
-            <a [href]="data()?.link?.cached_url"
+            <a [href]="blok().link.cached_url"
                 class="w-full rounded-lg border border-slate-200 mt-auto py-1.5 text-xs p-10 font-semibold text-slate-700 hover:bg-slate-50 hover:text-red-600 transition-colors">
                 Learn More →
             </a>
@@ -75,7 +77,7 @@ import { Component, input } from '@angular/core';
   `,
 })
 export class EventsCardComponent {
-  data = input<IEventCardContent>();
+  blok = input.required<IEventCardContent>();
 }
 
 

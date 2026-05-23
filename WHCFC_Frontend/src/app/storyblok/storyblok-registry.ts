@@ -1,22 +1,40 @@
 import { Type } from '@angular/core';
-import { HeroComponent } from '../components/hero/hero.component';
-import { MainEventComponent } from '../components/main-event/main-event.component';
-import { ListTileComponent } from '../components/list-tile/list-tile.component';
-import { FeaturedEventsComponent } from '../components/featured-events/featured-events.component';
-import { StatBoardComponent } from '../components/stat-board/stat-board.component';
-import { EventsCardComponent } from '../components/events-card/events-card.component';
-import { StatCardComponent } from '../components/stat-card/stat-card.component';
-import { GridSectionComponent } from '../components/grid-section/grid-section.component';
+import { StoryblokComponentsMap } from '@storyblok/angular';
+import { PageComponent } from '../components/page/page.component';
 
+// Notice the type change: values are now functions returning a Promise of the Component Type
+export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
+    page: PageComponent,
+    heroSection: () =>
+        import('../components/hero/hero.component').then(m => m.HeroComponent),
 
-// Map Storyblok layout names to your actual component classes
-export const STORYBLOK_REGISTRY: Record<string, Type<any>> = {
-    heroSection: HeroComponent,
-    mainEvent: MainEventComponent,
-    listTile: ListTileComponent,
-    featuredEvents: FeaturedEventsComponent,
-    eventCard: EventsCardComponent,
-    statBoard: StatBoardComponent,
-    statCard: StatCardComponent,
-    gridSection: GridSectionComponent
+    mainEvent: () =>
+        import('../components/main-event/main-event.component').then(m => m.MainEventComponent),
+
+    listTile: () =>
+        import('../components/list-tile/list-tile.component').then(m => m.ListTileComponent),
+
+    featuredEvents: () =>
+        import('../components/featured-events/featured-events.component').then(m => m.FeaturedEventsComponent),
+
+    eventCard: () =>
+        import('../components/events-card/events-card.component').then(m => m.EventsCardComponent),
+
+    statBoard: () =>
+        import('../components/stat-board/stat-board.component').then(m => m.StatBoardComponent),
+
+    statCard: () =>
+        import('../components/stat-card/stat-card.component').then(m => m.StatCardComponent),
+
+    gridSection: () =>
+        import('../components/grid-section/grid-section.component').then(m => m.GridSectionComponent),
+
+    section: () =>
+        import('../components/section/section.component').then(m => m.SectionComponent),
+
+    titleComponent: () =>
+        import('../components/title-component/title-component.component').then(m => m.TitleComponent),
+
+    photoCard: () =>
+        import('../components/photo-card/photo-card.component').then(m => m.PhotoCardComponent)
 };

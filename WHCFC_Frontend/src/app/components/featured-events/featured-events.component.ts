@@ -1,31 +1,32 @@
-import { Component, input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 import { EventsCardComponent } from "../events-card/events-card.component";
+import { StoryblokComponent } from "@storyblok/angular";
 
 @Component({
   selector: 'featured-events',
-  imports: [EventsCardComponent],
+  imports: [StoryblokComponent],
+   changeDetection:ChangeDetectionStrategy.OnPush,
+  standalone:true,
   template: `
   <div class="mx-auto max-w-6xl px-4 lg:px-0">
  <div class="text-center py-10">
           <h2 class="text-2xl md:text-3xl font-semibold text-slate-900">
-            {{ data()?.title }}
+            {{ blok().title }}
           </h2>
           <p class="mt-2 text-sm text-slate-600 text-wrap lg:w-1/4 mx-auto">
-           {{data()?.description}}
+           {{blok().description}}
           </p>
              <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          @for (item of data()?.events; track $index) {
-            <events-card  [data]="item" />
-          }
+            <sb-component [sbBlok]="blok().events" />
         </div>
         </div>
         </div>
   `,
 })
 export class FeaturedEventsComponent implements OnInit {
-  data = input<IFeaturedEventsContent>();
-    ngOnInit(): void {      
-    }
+  blok = input.required<IFeaturedEventsContent>();
+  ngOnInit(): void {
+  }
 
 }
 

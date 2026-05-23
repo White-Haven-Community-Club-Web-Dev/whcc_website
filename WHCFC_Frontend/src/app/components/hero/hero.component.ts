@@ -1,32 +1,34 @@
-import { Component, input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'hero-section',
   imports: [],
+   changeDetection:ChangeDetectionStrategy.OnPush,
+  standalone:true,
   template: `
     <section class="relative min-h-[calc(100vh)] overflow-hidden flex items-center md:min-h-[calc(100vh)]">
-      <img [src]=" data()?.backgroundImage?.filename" [alt]="data()?.backgroundImage?.alt"
+      <img [src]=" blok()?.backgroundImage?.filename" [alt]="blok()?.backgroundImage?.alt"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager" fetchpriority="high" decoding="async" />
       <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/75 to-black/55"></div>
       <div class="relative z-10 flex w-full flex-col items-center justify-center px-4 text-center text-white">
         <p class="mb-3 text-xs font-semibold tracking-[0.25em] uppercase">
-          {{ data()?.capTitle }}
+          {{ blok()?.capTitle }}
         </p>
         <h1 class="mb-3 text-3xl font-semibold sm:text-4xl md:text-5xl">
           <span class="block">
-            <span class="text-green-500">{{ data()?.heroTitleHighlighted }}</span>
-            {{ data()?.heroTitle }}
+            <span class="text-green-500">{{ blok()?.heroTitleHighlighted }}</span>
+            {{ blok()?.heroTitle }}
           </span>
         </h1>
         <p class="mb-6 text-sm sm:text-base md:text-lg text-white/90">
-          {{ data()?.subtitle }}
+          {{ blok()?.subtitle }}
         </p>
-       @if(data()?.buttonText){
+       @if(blok()?.buttonText){
          <div class="flex flex-wrap items-center justify-center gap-4">
           <a routerLinkActive="active" routerLink="/who-we-are"
             class="rounded-lg bg-[#e02020] px-6 py-2.5 cursor-pointer text-xs font-semibold uppercase tracking-wide text-white shadow-lg hover:bg-[#c01a1a] transition">
-            {{ data()?.buttonText }}
+            {{ blok()?.buttonText }}
           </a>
         </div>
        }
@@ -35,12 +37,8 @@ import { Component, input, OnInit } from '@angular/core';
   `,
 })
 export class HeroComponent implements OnInit {
-  data = input<IHeroComponentData>();
-  constructor() {
-  }
-  ngOnInit(): void {
-
-  }
+  blok = input<IHeroComponentData>();
+  ngOnInit(): void { }
 }
 
 
