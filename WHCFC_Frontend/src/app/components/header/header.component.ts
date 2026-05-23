@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 type NavChild = {
@@ -30,17 +30,19 @@ type IconAssets = {
 };
 
 @Component({
-    selector: 'app-header',
-    imports: [RouterLink, RouterLinkActive],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.css'
+  selector: 'app-header',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterLink, RouterLinkActive],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css'
 })
 export class HeaderComponent {
 
   isMobileMenuOpen = false;
   openDropdown: string | null = null;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   brand: BrandConfig = {
     initial: 'W',
@@ -91,7 +93,10 @@ export class HeaderComponent {
 
   onDesktopNavClick(): void {
     this.openDropdown = null;
+    
+
     if (isPlatformBrowser(this.platformId)) {
+      console.log("test");
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }
   }

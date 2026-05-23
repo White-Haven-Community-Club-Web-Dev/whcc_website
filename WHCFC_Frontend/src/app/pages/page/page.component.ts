@@ -1,48 +1,55 @@
-import { Component, signal, OnInit, inject, computed, ChangeDetectionStrategy, } from '@angular/core';
-import { Router } from '@angular/router';
-import { Story, StoryblokComponent, StoryblokService } from '@storyblok/angular';
-import { environment } from '../../../environments/environment';
-
+import {
+  Component,
+  ChangeDetectionStrategy,
+  inject,
+  computed,
+  OnInit,
+  linkedSignal,
+  input,
+} from '@angular/core';
+import {
+  type Story,
+  type SbBlokData,
+  LivePreviewService,
+  type BridgeParams,
+  StoryblokComponent,
+} from '@storyblok/angular';
 
 @Component({
   selector: 'app-page',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [StoryblokComponent],
   template: `
-       <div>
-      <!-- Pass content directly - componnent handles null internally -->
-      <sb-component [sbBlok]="storyContent()" />
+    <div class="mx-auto">
+      <!-- Pass content directly - directive handles null internally -->
+      <!-- <sb-component [sbBlok]="storyContent()" />
+
+      @if (!storyContent()) {
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <h2 class="text-yellow-800 text-xl font-semibold mb-2">No content found</h2>
+        </div>
+      } -->
     </div>
-  `
+  `,
 })
 export class PageComponent implements OnInit {
-  private readonly sb = inject(StoryblokService)
-  private client = this.sb.getClient();
-  readonly story = signal<Story | null>(null);
-  readonly loading = signal(true);
-  readonly storyContent = computed(() => this.story()?.content);
-  private readonly router = inject(Router);
+  // private readonly livePreview = inject(LivePreviewService);
 
-  async ngOnInit(): Promise<void> {
-    try {
-      let path = this.router.url;
-      if (path === "/") path = "home";
+  /** SSR source of truth */
+  // readonly storyInput = input<Story | null>(null, { alias: 'story' });
 
-      const { data, error } = await this.client.stories.get(path, {
-        query: {
-          version: environment.sbVersion! as any
-        }
-      });
-      if (error) throw error
-      this.story.set((data?.story as Story) || null);      
-    } catch (error) {
-      if ((error as any).response.status === 404) {
-        this.router.navigateByUrl("/not-found")
-      }
-    } finally {
-      this.loading.set(false);
-    }
+  /** Writable signal linked to input - allows bridge updates */
+  // readonly story = linkedSignal(() => this.storyInput());
+
+  // readonly storyContent = computed(() => this.story()?.content as SbBlokData | undefined);
+
+  readonly bridgeConfig: BridgeParams = {
+    resolveRelations: ['featured-articles.articles'],
+  };
+  ngOnInit(): void {
+    // Enable live preview for real-time editing in the Visual Editor
+    // this.livePreview.listen((updatedStory) => {
+    //   this.story.set(updatedStory);
+    // }, this.bridgeConfig);
   }
-
 }

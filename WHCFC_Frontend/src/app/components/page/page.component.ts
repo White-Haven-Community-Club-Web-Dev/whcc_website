@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, OnInit } from '@angular/core';
 import { SbBlokData, StoryblokComponent } from '@storyblok/angular';
 
 @Component({
@@ -12,9 +12,12 @@ import { SbBlokData, StoryblokComponent } from '@storyblok/angular';
     </div>
   `,
 })
-export class PageComponent {
+export class PageComponent implements OnInit {
   readonly blok = input.required<PageBlok>();
   readonly bloks = computed(() => this.blok().body ?? []);
+  ngOnInit(): void {
+    
+  }
 }
 export interface PageBlok {
   body?: SbBlokData[];
