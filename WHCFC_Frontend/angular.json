@@ -12,6 +12,7 @@
       "architect": {
         "build": {
           "builder": "@angular/build:application",
+          
           "options": {
             "outputPath": "dist/whcfc-frontend",
             "index": "src/index.html",

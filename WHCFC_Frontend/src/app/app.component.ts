@@ -1,21 +1,23 @@
 import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { SchemaService } from './services/schema.service';
 import { isPlatformBrowser } from '@angular/common';
+import { HeaderComponent } from "./components/header/header.component";
+import { RouterModule } from "@angular/router";
+import { FooterComponent } from "./components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [HeaderComponent, RouterModule, FooterComponent],
   template: `
-    <button (click)="test()" >Hello</button>
+    <app-header/>
+    <router-outlet/>
+    <app-footer/>
   `,
 })
 export class AppComponent {
   private readonly schemaService = inject(SchemaService);
   private readonly platformId = inject(PLATFORM_ID);
 
-  test(){
-    console.log("test")
-  }
 
   ngOnInit() {
     const organizationSchema = {

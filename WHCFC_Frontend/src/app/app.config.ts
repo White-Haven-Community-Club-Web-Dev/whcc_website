@@ -20,13 +20,11 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
-    // provideClientHydration(withEventReplay()),
-    // provideStoryblok(
-    //   sbConfig,
-    //   withStoryblokComponents(STORYBLOK_REGISTRY),
-    //   // withLivePreview({
-
-    //   // }),
-    // ),
+    provideClientHydration(withEventReplay()),
+    provideStoryblok(
+      sbConfig,
+      withStoryblokComponents(STORYBLOK_REGISTRY),
+      withLivePreview(),
+    ),
   ],
 };

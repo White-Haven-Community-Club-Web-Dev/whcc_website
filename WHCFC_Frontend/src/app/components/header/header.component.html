@@ -30,7 +30,7 @@
         @for (item of navItems; track item) {
           <!-- Simple link -->
           @if (!item.children) {
-            <a [href]="item.link"  type="button"
+            <a [routerLink]="item.link"  type="button"
               (click)="onDesktopNavClick();" class="hover:text-red-600">
               {{ item.label }}
           </a>
