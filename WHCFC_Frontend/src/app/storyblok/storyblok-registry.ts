@@ -36,5 +36,6 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
         import('../components/title-component/title-component.component').then(m => m.TitleComponent),
 
     photoCard: () =>
-        import('../components/photo-card/photo-card.component').then(m => m.PhotoCardComponent)
+        import('../components/photo-card/photo-card.component').then(m => m.PhotoCardComponent),
+    grid: () => import('../components/grid/grid.component').then(m => m.GridComponent)
 };
