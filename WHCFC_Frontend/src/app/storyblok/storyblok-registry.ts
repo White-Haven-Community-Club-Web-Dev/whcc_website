@@ -45,4 +45,6 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     infoBoard: () => import('../components/info-board/info-board.component').then(m => m.InfoBoardComponent),
     faqCard: () => import('../components/faq-card/faq-card.component').then(m => m.FaqCardComponent),
     faqSection: () => import('../components/faq-section/faq-section.component').then(m => m.FaqSectionComponent),
+    testimonialComponent: () => import('../components/testimonial-section/testimonial-section.component').then(m => m.TestimonialSectionComponent),
+    videoLink: () => import('../components/video-link/video-link.component').then(m => m.VideoLinkComponent)
 };
