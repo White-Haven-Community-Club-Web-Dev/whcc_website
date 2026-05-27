@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'events-card',
-  imports: [],
+  imports: [RouterLink],
    changeDetection:ChangeDetectionStrategy.OnPush,
   standalone:true,
   template: `
@@ -68,7 +69,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
             }
         </div>
       
-            <a [href]="blok().link.cached_url"
+            <a [routerLink]="blok().link.cached_url"
                 class="w-full rounded-lg border border-slate-200 mt-auto py-1.5 text-xs p-10 font-semibold text-slate-700 hover:bg-slate-50 hover:text-red-600 transition-colors">
                 Learn More →
             </a>
