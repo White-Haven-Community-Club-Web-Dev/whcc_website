@@ -1,10 +1,12 @@
 import { Type } from '@angular/core';
 import { StoryblokComponentsMap } from '@storyblok/angular';
 import { PageComponent } from '../components/page/page.component';
+import { WcccEventsPageComponent } from '../pages/wccc-events-page/wccc-events-page.component';
 
 // Notice the type change: values are now functions returning a Promise of the Component Type
 export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     page: PageComponent,
+    scPage: WcccEventsPageComponent,
     heroSection: () =>
         import('../components/hero/hero.component').then(m => m.HeroComponent),
 
@@ -37,5 +39,10 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
 
     photoCard: () =>
         import('../components/photo-card/photo-card.component').then(m => m.PhotoCardComponent),
-    grid: () => import('../components/grid/grid.component').then(m => m.GridComponent)
+    grid: () => import('../components/grid/grid.component').then(m => m.GridComponent),
+    cardWithIcon: () => import('../components/card-with-icon/card-with-icon.component').then(m => m.CardWithIconComponent),
+    featureCard: () => import('../components/feature-card/feature-card.component').then(m => m.FeatureCardComponent),
+    infoBoard: () => import('../components/info-board/info-board.component').then(m => m.InfoBoardComponent),
+    faqCard: () => import('../components/faq-card/faq-card.component').then(m => m.FaqCardComponent),
+    faqSection: () => import('../components/faq-section/faq-section.component').then(m => m.FaqSectionComponent),
 };

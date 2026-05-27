@@ -38,8 +38,7 @@
             },
             "security": {
               "allowedHosts": []
-            },
-            "outputMode": "server"
+            }
           },
           "configurations": {
             "production": {
