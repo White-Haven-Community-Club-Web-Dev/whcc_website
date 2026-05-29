@@ -3,12 +3,13 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'list-tile',
   imports: [],
-   changeDetection:ChangeDetectionStrategy.OnPush,
-  standalone:true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   template: `
     <div
   class="flex items-start gap-3 bg-white rounded-2xl px-4 py-3 md:px-5 md:py-4 shadow-[0_16px_30px_rgba(15,23,42,0.10)]">
-  <div class="relative h-9 w-9 rounded-2xl flex items-center justify-center overflow-hidden">
+ @if(blok()?.leadingIcon?.filename){
+   <div class="relative h-9 w-9 rounded-2xl flex items-center justify-center overflow-hidden">
     <!-- The "Background Color" Blur Effect -->
     <img [src]="blok()?.leadingIcon?.filename" alt=""
       class="absolute h-5 w-5 scale-150 blur-md opacity-70 select-none pointer-events-none" aria-hidden="true"
@@ -18,6 +19,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     <img [src]="blok()?.leadingIcon?.filename" [alt]="blok()?.leadingIcon?.alt" class="relative h-5 w-5 z-10"
       loading="lazy" decoding="async" width="20" height="20" />
   </div>
+ }
   <div>
     <p class="text-[11px] font-semibold text-gray-500 uppercase">
       {{ blok()?.title }}
