@@ -17,6 +17,9 @@
             "outputPath": "dist/whcfc-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "dayjs"
+            ],
             "polyfills": [
               "zone.js"
             ],
