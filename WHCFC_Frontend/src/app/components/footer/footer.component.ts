@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 type ContactItem = {
   icon: string;
@@ -16,13 +16,11 @@ type SocialItem = {
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  
+
   brand = {
     emoji: '⚽',
     short: 'WHCFC',

@@ -1,27 +1,23 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { SchemaService } from './services/schema.service';
 import { isPlatformBrowser } from '@angular/common';
+import { HeaderComponent } from "./components/header/header.component";
+import { RouterModule } from "@angular/router";
+import { FooterComponent } from "./components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  imports: [HeaderComponent, RouterModule, FooterComponent],
+  template: `
+    <app-header/>
+    <router-outlet/>
+    <app-footer/>
+  `,
 })
-export class AppComponent implements OnInit {
-  constructor(private schemaService: SchemaService, @Inject(PLATFORM_ID) private platformId: Object) { }
+export class AppComponent {
+  private readonly schemaService = inject(SchemaService);
+  private readonly platformId = inject(PLATFORM_ID);
+
 
   ngOnInit() {
     const organizationSchema = {
@@ -80,5 +76,4 @@ export class AppComponent implements OnInit {
       document.head.appendChild(script);
     }
   }
-  title = 'White Haven Community Football Club';
 }
