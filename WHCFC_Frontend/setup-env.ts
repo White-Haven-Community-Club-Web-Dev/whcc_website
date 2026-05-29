@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // 1. Fixed the typos in existsSync and the folder path strings
-const envDir = path.join(__dirname, '../src/environments');
+const envDir = path.join(process.cwd(), '../WHCFC_Frontend/src/environments');
 if (!fs.existsSync(envDir)) {
     fs.mkdirSync(envDir, { recursive: true });
 }
