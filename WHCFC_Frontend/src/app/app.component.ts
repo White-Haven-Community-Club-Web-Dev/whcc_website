@@ -1,27 +1,18 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
-import { SchemaService } from './services/schema.service';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterModule } from "@angular/router";
+
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  imports: [ RouterModule, ],
+  template: `
+    <router-outlet/>
+  `,
 })
-export class AppComponent implements OnInit {
-  constructor(private schemaService: SchemaService, @Inject(PLATFORM_ID) private platformId: Object) { }
+export class AppComponent {
+  private readonly platformId = inject(PLATFORM_ID);
+
 
   ngOnInit() {
     const organizationSchema = {
@@ -80,5 +71,4 @@ export class AppComponent implements OnInit {
       document.head.appendChild(script);
     }
   }
-  title = 'White Haven Community Football Club';
 }

@@ -1,22 +1,32 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
+import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
-import { RecaptchaSettings, RECAPTCHA_SETTINGS } from 'ng-recaptcha';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import {
+  provideStoryblok,
+  withLivePreview,
+  withStoryblokComponents,
+  type StoryblokClientConfig,
+} from '@storyblok/angular';
+import { STORYBLOK_REGISTRY } from './storyblok/storyblok-registry';
 import { environment } from '../environments/environment';
 
+const sbConfig: StoryblokClientConfig = {
+  accessToken: environment.sbKey!,
+  region: 'eu',
+  inlineRelations: true,
+};
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
-    provideClientHydration(),
-    provideHttpClient(),
-    {
-      provide: RECAPTCHA_SETTINGS,
-      useValue: {
-        siteKey: environment.siteKey
-      } as RecaptchaSettings
-    },
+    provideBrowserGlobalErrorListeners(),
+    provideRouter(routes, withComponentInputBinding(), withInMemoryScrolling({
+      scrollPositionRestoration: 'enabled'
+    })),
+    provideClientHydration(withEventReplay()),
+    provideStoryblok(
+      sbConfig,
+      withStoryblokComponents(STORYBLOK_REGISTRY),
+      withLivePreview(),
+    ),
   ],
 };

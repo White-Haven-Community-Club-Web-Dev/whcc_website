@@ -1,32 +1,33 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { HomeComponent } from './pages/home/home.component';
-import { WhoWeAreComponent } from './pages/who-we-are/who-we-are.component';
-import { WhatWeDoComponent } from './pages/what-we-do/what-we-do.component';
-import { EducationalSessionPageComponent } from './pages/educational-session/educational-session.component';
-import { HouseLeaguePageComponent } from './pages/house-league/house-league.component';
-import { WcccEventsPageComponent } from './pages/wccc-events-page/wccc-events-page.component';
-import { F4ProgramPageComponent } from './pages/f4-program/f4-program.component';
+import { ActivatedRouteSnapshot, Router, RouterModule, Routes } from '@angular/router';
+import { inject, NgModule } from '@angular/core';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { StoryblokService } from '@storyblok/angular';
+import { environment } from '../environments/environment';
 
 export const routes: Routes = [
-  // Current public pages
-  { path: '', component: HomeComponent },
-  { path: 'who-we-are', component: WhoWeAreComponent },
-  { path: 'what-we-do', component: WhatWeDoComponent },
-  { path: 'educational-session', component: EducationalSessionPageComponent },
-  { path: 'house-league', component: HouseLeaguePageComponent },
-  { path: 'scarborough-connects', component: WcccEventsPageComponent },
-  { path: 'f4-program', component: F4ProgramPageComponent },
-  // Legacy URLs → current pages
-  { path: 'about-us', redirectTo: 'who-we-are', pathMatch: 'full' },
-  { path: 'community', redirectTo: 'what-we-do', pathMatch: 'full' },
-  { path: 'contact-us', redirectTo: '', pathMatch: 'full' },
-  // Anything else → Home
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: "not-found", component: NotFoundComponent },
+  {
+    path: '**', loadComponent: () => import("./pages/page/page.component").then(p => p.PageComponent),
+    resolve: {
+      story: async (route: ActivatedRouteSnapshot) => {
+        const router = inject(Router);
+        try {
+          const slug = route.url.map((s) => s.path).join('/') || 'home';
+          const client = inject(StoryblokService).getClient();
+          const { data, error } = await client.stories.get(slug, {
+            query: {
+              version: environment.sbVersion as any,
+            },
+          });
+          if (error) throw error;
+          return data?.story;
+        } catch (error) {
+          router.navigateByUrl("not-found")
+          throw error
+        }
+      }
+    },
+
+  },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

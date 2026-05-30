@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
+
 
 type ContactItem = {
   icon: string;
@@ -14,15 +14,24 @@ type SocialItem = {
   href?: string;
 };
 
+interface IFooterContent {
+  title: string;
+  subtitle: string;
+  contactTitle: string;
+  email: string;
+  phone: string;
+  address: string;
+  fbLink: string;
+  instaLink: string
+}
+
 @Component({
   selector: 'app-footer',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  
+  readonly blok = input.required<IFooterContent>();
   brand = {
     emoji: '⚽',
     short: 'WHCFC',

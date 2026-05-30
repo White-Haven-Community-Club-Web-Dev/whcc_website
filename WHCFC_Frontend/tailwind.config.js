@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
+  safelist:['bg-primary','bg-secondary','items-center',
+      'md:grid-cols-4','md:grid-cols-3','md:text-3xl','md:text-4xl',
+      'md:text-6xl','md:text-xl','md:text-2xl','text-main','text-title',
+      'text-center','text-left', 'md:text-center','md:text-left',
+      'text-3xl','text-4xl',
+      'text-6xl','text-xl','text-2xl',
+     
+    ],
   theme: {
     extend: {
       colors: {

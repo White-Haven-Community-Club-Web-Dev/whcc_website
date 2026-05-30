@@ -1,6 +1,7 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, input, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { StoryblokComponent } from "@storyblok/angular";
 
 type NavChild = {
   label: string;
@@ -32,16 +33,19 @@ type IconAssets = {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterLink, RouterLinkActive, StoryblokComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrl: './header.component.css'
 })
 export class HeaderComponent {
 
   isMobileMenuOpen = false;
   openDropdown: string | null = null;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  readonly blok =input.required<any>();
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   brand: BrandConfig = {
     initial: 'W',
@@ -92,6 +96,8 @@ export class HeaderComponent {
 
   onDesktopNavClick(): void {
     this.openDropdown = null;
+    
+
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }
