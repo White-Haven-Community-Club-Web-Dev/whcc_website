@@ -51,5 +51,8 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     list: () => import('../components/list/list.component').then(m => m.ListComponent),
     listCard: () => import('../components/list-card/list-card.component').then(m => m.ListCardComponent),
     actionButton: () => import('../components/action-button/action-button.component').then(m => m.ActionButtonComponent),
+    header: () => import('../components/header/header.component').then(m => m.HeaderComponent),
+    headerLink: () => import('../components/header-link/header-link.component').then(m => m.HeaderLinkComponent),
+    footer: () => import('../components/footer/footer.component').then(m => m.FooterComponent),
     activeEducationSection: () => import('../components/active-event-card/active-event-card.component').then(m => m.ActiveEventCardComponent)
 };

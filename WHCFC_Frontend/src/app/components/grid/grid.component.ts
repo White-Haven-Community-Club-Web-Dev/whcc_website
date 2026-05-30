@@ -7,7 +7,7 @@ import { SbBlokData, StoryblokComponent } from '@storyblok/angular';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div [class]="'mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-5 '+ blok().itemsPerRow" >
+    <div [class]="'mx-2 md:mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-5 '+ blok().itemsPerRow" >
       @for (item of blok().items; track $index) {
         <sb-component [sbBlok]="item" />
       }

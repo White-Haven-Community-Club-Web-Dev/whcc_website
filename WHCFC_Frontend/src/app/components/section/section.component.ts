@@ -7,7 +7,7 @@ import { StoryblokComponent } from "@storyblok/angular";
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   template: `
-    <section [class]="'pt-16 md:pt-20 pb-8 mx-auto '+blok().background" >
+    <section [class]="'pt-16 md:pt-20 pb-8 mx-2 lg:mx-auto  '+blok().background" >
       <sb-component class="mx-auto" [sbBlok]="blok().items" />
     </section>
   `,

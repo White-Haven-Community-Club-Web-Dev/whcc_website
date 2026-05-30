@@ -1,21 +1,17 @@
 import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { SchemaService } from './services/schema.service';
 import { isPlatformBrowser } from '@angular/common';
-import { HeaderComponent } from "./components/header/header.component";
 import { RouterModule } from "@angular/router";
-import { FooterComponent } from "./components/footer/footer.component";
+
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, RouterModule, FooterComponent],
+  imports: [ RouterModule, ],
   template: `
-    <app-header/>
     <router-outlet/>
-    <app-footer/>
   `,
 })
 export class AppComponent {
-  private readonly schemaService = inject(SchemaService);
   private readonly platformId = inject(PLATFORM_ID);
 
 

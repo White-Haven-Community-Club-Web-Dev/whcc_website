@@ -2,7 +2,7 @@ import { ActivatedRouteSnapshot, Router, RouterModule, Routes } from '@angular/r
 import { inject, NgModule } from '@angular/core';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { StoryblokService } from '@storyblok/angular';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.development';
 
 export const routes: Routes = [
   { path: "not-found", component: NotFoundComponent },

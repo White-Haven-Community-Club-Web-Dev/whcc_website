@@ -4,31 +4,33 @@
       class="flex flex-col items-center gap-8 border-b border-slate-800 pb-6 md:flex-row md:items-start md:justify-between md:space-x-8">
       <!-- Left -->
       <div class="flex flex-col justify-center items-center max-w-md space-y-2 md:items-start">
-        <div class="flex gap-1 text-red-500">
-          <span class="font-semibold">{{ brand.emoji }}</span>{{ brand.short }}
+        <div class="flex gap-1 font-semibold text-red-500">
+          {{blok().title}}
         </div>
         <p class="mt-3 text-xs text-slate-300">
-          {{ brand.description }}
+          {{ blok().subtitle }}
         </p>
       </div>
       <!-- Right: Contact -->
-      <div
-        class="flex flex-col justify-center items-center text-xs text-slate-200 space-y-3 md:w-1/2 md:items-start">
+      <div class="flex flex-col justify-center items-center text-xs text-slate-200 space-y-3 md:w-1/2 md:items-start">
         <h3 class="text-xs text-left font-semibold uppercase tracking-wide">
-          {{ connectTitle }}
+          {{ blok().contactTitle }}
         </h3>
-        @for (item of contacts; track item) {
-          <div class="flex items-center gap-2">
-            <img [src]="'assets/' + item.icon" [alt]="item.alt" class="h-4 w-4" loading="lazy" decoding="async" width="16" height="16" />
-            @if (item.href) {
-              <a [href]="item.href" class="hover:underline">
-                {{ item.value }}
-              </a>
-            } @else {
-              <span>{{ item.value }}</span>
-            }
-          </div>
-        }
+        <div class="flex items-center gap-2">
+          <img src="assets/Email Icon.svg" alt="email" class="h-4 w-4" loading="lazy" decoding="async" width="16"
+            height="16" />
+          <p class="text-sm font-semibold" >{{blok().email}}</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <img src="assets/Phone Icon.svg" alt="phone" class="h-4 w-4" loading="lazy" decoding="async" width="16"
+            height="16" />
+          <p class="text-sm font-semibold" >{{blok().phone}}</p>
+        </div>
+         <div class="flex items-center gap-2">
+          <img src="assets/Location Icon.svg" alt="phone" class="h-4 w-4" loading="lazy" decoding="async" width="16"
+            height="16" />
+          <p class="text-sm font-semibold" >{{blok().address}}</p>
+        </div>
       </div>
     </div>
     <div
@@ -39,16 +41,30 @@
       </p>
       <!-- Right: Icons -->
       <div class="mt-2 flex gap-3 md:justify-start">
-        @for (social of socials; track social) {
-          <a [attr.href]="social.href || null"
-            [attr.target]="isExternalLink(social.href) ? '_blank' : null"
-            [attr.rel]="isExternalLink(social.href) ? 'noopener noreferrer' : null">
-            <div
-              class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-900">
-              <img [src]="'assets/' + social.icon" [alt]="social.alt" class="h-5 w-5" loading="lazy" decoding="async" width="20" height="20" />
-            </div>
-          </a>
-        }
+        <a [attr.href]="blok().fbLink || null" [attr.target]="isExternalLink(blok().fbLink) ? '_blank' : null"
+          [attr.rel]="isExternalLink(blok().fbLink) ? 'noopener noreferrer' : null">
+          <div
+            class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-900">
+            <img [src]="'assets/Facebook Icon.svg'" [alt]="'fb'" class="h-5 w-5" loading="lazy" decoding="async"
+              width="20" height="20" />
+          </div>
+        </a>
+           <a [attr.href]="blok().instaLink || null" [attr.target]="isExternalLink(blok().instaLink) ? '_blank' : null"
+          [attr.rel]="isExternalLink(blok().instaLink) ? 'noopener noreferrer' : null">
+          <div
+            class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-900">
+            <img [src]="'assets/Instagram Icon.svg'" [alt]="'fb'" class="h-5 w-5" loading="lazy" decoding="async"
+              width="20" height="20" />
+          </div>
+        </a>
+             <a [attr.href]="blok().email || null" [attr.target]="isExternalLink(blok().email) ? '_blank' : null"
+          [attr.rel]="isExternalLink(blok().email) ? 'noopener noreferrer' : null">
+          <div
+            class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-900">
+            <img [src]="'assets/Email Icon.svg'" [alt]="'fb'" class="h-5 w-5" loading="lazy" decoding="async"
+              width="20" height="20" />
+          </div>
+        </a>
       </div>
     </div>
   </div>
