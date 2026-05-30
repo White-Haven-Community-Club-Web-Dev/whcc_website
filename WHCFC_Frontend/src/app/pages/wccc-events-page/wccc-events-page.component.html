@@ -14,8 +14,9 @@
     </div>
 
     <h1
-      class="text-4xl sm:text-5xl whitespace-pre-line lg:text-6xl xl:text-7xl font-title text-white mb-6 leading-tight">
-      {{blok().title}}
+      class="text-4xl sm:text-5xl whitespace-pre-line lg:text-6xl xl:text-7xl font-title text-white mb-6 leading-tight"
+      [innerHTML]="blok().title"
+      >
     </h1>
 
     <p class="text-xl sm:text-2xl text-white/90 mb-8 font-title">

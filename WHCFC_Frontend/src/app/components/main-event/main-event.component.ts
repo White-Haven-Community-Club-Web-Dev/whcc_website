@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 import { StoryblokComponent } from "@storyblok/angular";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-main-event',
-  imports: [StoryblokComponent],
-   changeDetection:ChangeDetectionStrategy.OnPush,
-  standalone:true,
+  imports: [StoryblokComponent, RouterLink],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   template: `
     <section id="featured-event" class="bg-red-50">
       <div class="px-4 md:px-6 lg:px-8 xl:px-0 max-w-6xl mx-auto mt-16 md:mt-20 py-16">
@@ -60,10 +61,15 @@ import { StoryblokComponent } from "@storyblok/angular";
           </div>
           <!-- Button -->
           <div class="pt-1">
-             <a [href]="blok()?.buttonLink?.cached_url" routerLinkActive="active" type="button" class="inline-flex items-center justify-center w-full px-7 py-3 rounded-lg bg-[#E53935] hover:bg-[#d32f2f]
-                       text-white text-s md:w-auto md:text-md font-semibold shadow-lg shadow-[#e53935]/40 transition">
+            @if(blok()?.buttonLink?.linktype==="story"){
+               <a [routerLink]="blok()?.buttonLink?.cached_url" routerLinkActive="active" type="button" class="inline-flex items-center justify-center w-full px-7 py-3 rounded-lg bg-[#E53935] hover:bg-[#d32f2f]
+                       text-white text-s  md:text-md font-semibold shadow-lg shadow-[#e53935]/40 transition">
               {{ blok()?.buttonText }}
             </a>
+            }@else { <a [href]="blok()?.buttonLink?.cached_url" routerLinkActive="active" type="button" class="inline-flex items-center justify-center w-full px-7 py-3 rounded-lg bg-[#E53935] hover:bg-[#d32f2f]
+                       text-white text-s  md:text-md font-semibold shadow-lg shadow-[#e53935]/40 transition">
+              {{ blok()?.buttonText }}
+            </a>}
           </div>
         </div>
       </div>
@@ -90,6 +96,7 @@ interface IMainEventComponentContent {
   featureBoardTitle: string;
   featuresBoard: string;
   buttonLink: {
+    linktype: "story" | "url";
     cached_url: string
   }
   buttonText: string

@@ -5,8 +5,8 @@ import { StoryblokComponent } from "@storyblok/angular";
 @Component({
   selector: 'featured-events',
   imports: [StoryblokComponent],
-   changeDetection:ChangeDetectionStrategy.OnPush,
-  standalone:true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   template: `
   <div class="mx-auto max-w-6xl px-4 lg:px-0">
  <div class="text-center py-10">
@@ -17,7 +17,9 @@ import { StoryblokComponent } from "@storyblok/angular";
            {{blok().description}}
           </p>
              <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            <sb-component [sbBlok]="blok().events" />
+           @for (item of blok().events; track $index) {
+            <sb-component [sbBlok]="item" />
+           }
         </div>
         </div>
         </div>

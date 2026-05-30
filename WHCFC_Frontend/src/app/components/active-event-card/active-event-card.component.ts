@@ -87,11 +87,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       </div>
     </div>
     <div class="md:flex items-center justify-center gap-10 hidden">
-      <img class="h-48"
-        src="https://lh3.googleusercontent.com/sitesv/AA5AbUC1NmUrbqeqDZbxQJK-KNkxh6gsBEg30tOa92UlFtporSF8ZA0dKXm9mVjtrOyoKmfEgmsvGIDyJGAPn4hPmX7hEX7uyJV1Zv4W1VAvEUwqqDRBYC2F8Q0JjNtp0FXv24l4pyuJf-dviUjtC6C6S2RfpSvP02sVXH3Vkh-5bTEVwGXET58F3xo-=w16383" />
-      <p class="text-8xl">x</p>
-      <img class="h-48"
-      src="assets/logo.png"/>      </div>
+      <img class="h-48"    [src]="blok().image?.filename" [alt]="blok().image?.alt" />
     </div>
 
   </div>
@@ -111,4 +107,5 @@ interface IActiveEventContent {
   location: string;
   eventFor: string;
   ctaLink: string;
+  image: { filename: string; alt: string } | undefined
 }
