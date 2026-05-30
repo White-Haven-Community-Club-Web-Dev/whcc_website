@@ -9,7 +9,7 @@ import {
   type StoryblokClientConfig,
 } from '@storyblok/angular';
 import { STORYBLOK_REGISTRY } from './storyblok/storyblok-registry';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
 
 const sbConfig: StoryblokClientConfig = {
   accessToken: environment.sbKey!,

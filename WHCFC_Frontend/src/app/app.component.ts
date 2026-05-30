@@ -1,5 +1,4 @@
 import { Component, inject, PLATFORM_ID } from '@angular/core';
-import { SchemaService } from './services/schema.service';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterModule } from "@angular/router";
 
