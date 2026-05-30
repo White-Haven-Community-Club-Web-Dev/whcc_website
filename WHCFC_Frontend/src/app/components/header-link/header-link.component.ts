@@ -33,7 +33,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
               <!-- Dropdown panel -->
               @if (openDropdown === blok().title) {
                 <div
-                  class="absolute left-0 top-full  w-max rounded-lg border border-slate-100 bg-white flex flex-col px-4 pt-4 gap-5 shadow-lg">
+                  class="absolute left-0 top-full py-5 w-max rounded-lg border border-slate-100 bg-white flex flex-col px-4 pt-4 gap-5 shadow-lg">
                   @for (item of blok().dropDownLinks; track $index) {
                     <sb-component  [sbBlok]="item" />
                   }
