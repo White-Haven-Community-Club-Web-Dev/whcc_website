@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
-  selector: 'events-card',
-  imports: [RouterLink],
-   changeDetection:ChangeDetectionStrategy.OnPush,
-  standalone:true,
-  template: `
+    selector: 'events-card',
+    imports: [RouterLink],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    template: `
  <article class="flex text-left h-full min-h-[350px] flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
     <div class="relative h-32">
         <img class="h-full w-full object-cover" [src]="blok().image.filename" [alt]="blok().image.alt"
@@ -69,28 +69,30 @@ import { RouterLink } from "@angular/router";
             }
         </div>
       
-            <a [routerLink]="blok().link.cached_url"
+          @if (blok().link.cached_url) {
+              <a [routerLink]="blok().link.cached_url"
                 class="w-full text-center rounded-lg border border-slate-200 mt-auto py-1.5 text-xs p-10 font-semibold text-slate-700 hover:bg-slate-50 hover:text-red-600 transition-colors">
                 Learn More →
             </a>
+          }
     </div>
 </article>
   `,
 })
 export class EventsCardComponent {
-  blok = input.required<IEventCardContent>();
+    blok = input.required<IEventCardContent>();
 }
 
 
 interface IEventCardContent {
-  title: string;
-  date: string;
-  location: string;
-  eventFor: string;
-  description: String;
-  image: { filename: string, alt: string };
-  link: {
-    cached_url: string
-  };
-  tagText: string
+    title: string;
+    date: string;
+    location: string;
+    eventFor: string;
+    description: String;
+    image: { filename: string, alt: string };
+    link: {
+        cached_url: string
+    };
+    tagText: string
 }
