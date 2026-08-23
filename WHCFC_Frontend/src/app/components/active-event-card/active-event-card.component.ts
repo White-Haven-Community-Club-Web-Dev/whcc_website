@@ -58,7 +58,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
             </svg>
             <span class="text-lg">{{blok().location}}</span>
           </div>
-          <div class="flex items-center gap-3">
+         @if (blok().eventFor) {
+           <div class="flex items-center gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-users w-5 h-5"
@@ -73,6 +74,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
               {{blok().eventFor}}
             </span>
           </div>
+         }
         </div>
 
         <div class="flex gap-4">
