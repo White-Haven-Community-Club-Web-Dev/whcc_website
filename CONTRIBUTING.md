@@ -1,5 +1,5 @@
 # Contributing to White Haven Community Football Club Website Development
-Thank you for volunteering with our not-fot-profit organization to bring soccer to our community free of cost! We dearly value your contributions to our project! This document outlines the process for contributing to the development of our website, including coding standards, the workflow for contributing, and guidelines for using Figma.
+Thank you for volunteering with our not-for-profit organization to bring soccer to our community free of cost! We dearly value your contributions to our project! This document outlines the process for contributing to the development of our website, including coding standards, the workflow for contributing, and guidelines for using Figma.
 
 ### Table of Contents
 
