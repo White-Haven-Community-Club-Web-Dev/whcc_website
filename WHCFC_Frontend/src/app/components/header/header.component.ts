@@ -53,15 +53,29 @@ export class HeaderComponent {
     homeLink: '/',
   };
 
+  // navItems: NavItem[] = [
+  //   { label: 'WHO WE ARE', link: '/who-we-are' },
+  //   {
+  //     label: 'WHAT WE DO',
+  //     children: [
+  //       { label: 'Scarborough Connects', link: '/scarborough-connects' },
+  //       { label: 'Educational Session', link: '/educational-session' },
+  //       { label: 'House League & Football Clinics', link: '/house-league' },
+  //       { label: 'F⁴ Outdoor Football Program', link: '/f4-program' },
+  //     ],
+  //   },
+  // ];
   navItems: NavItem[] = [
-    { label: 'WHO WE ARE', link: '/who-we-are' },
     {
-      label: 'WHAT WE DO',
+      label: 'PAST PROGRAMS',
       children: [
-        { label: 'Scarborough Connects', link: '/scarborough-connects' },
-        { label: 'Educational Session', link: '/educational-session' },
-        { label: 'House League & Football Clinics', link: '/house-league' },
-        { label: 'F⁴ Outdoor Football Program', link: '/f4-program' },
+        { label: 'House League & Youth Development', link: '/house-league' },
+      ],
+    },
+    {
+      label: 'UPCOMING PROGRAMS',
+      children: [
+        { label: '2027 F4 (Fall & Winter Indoor Football) Program', link: '/f4-program' },
       ],
     },
   ];
