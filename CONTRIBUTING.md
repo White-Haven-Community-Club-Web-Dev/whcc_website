@@ -1,5 +1,5 @@
 # Contributing to White Haven Community Football Club Website Development
-Thank you for volunteering with our not-fot-profit organization to bring soccer to our community free of cost! We dearly value your contributions to our project! This document outlines the process for contributing to the development of our website, including coding standards, the workflow for contributing, and guidelines for using Figma.
+Thank you for volunteering with our not-for-profit organization to bring soccer to our community free of cost! We dearly value your contributions to our project! This document outlines the process for contributing to the development of our website, including coding standards, the workflow for contributing, and guidelines for using Figma.
 
 ### Table of Contents
 
@@ -13,33 +13,6 @@ Thank you for volunteering with our not-fot-profit organization to bring soccer 
 
 ## :book: Code of Conduct
 To promote an open and inclusive environment, we, as contributors and maintainers, commit to ensuring that participation in our project and community is free from harassment. We strive to create a welcoming experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, experience level, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
-
-## :bulb: Getting Started
-### Prerequisites
-Ensure you have the following installed:
-
-- Node.js
-- Angular CLI
-- Git
-- Figma
- 
-### Setting Up the Project Locally
-  1. Fork the repository to your own GitHub account.
-  2. Clone the repository to your local machine:
-```
-git clone https://github.com/kris20012/whcfc-web-dev.git
-cd whcfc-web-dev
-```
-
-  3. Install dependencies using npm:
-```
-npm install
-```
-  4. Start the development server:
-```
-ng serve
-```
-The application should now be running on http://localhost:4200/.
 
 ## :inbox_tray: How to Contribute
 ### Reporting Issues
@@ -66,18 +39,16 @@ git push origin feature/your-feature-name
 
 ## :memo: Coding Standards
 ### HTML
-- Use semantic HTML5 elements (e.g., <header>, <article>, <footer>).
+- Use semantic HTML5 elements (e.g., `<header>`,`<article>`,` <footer>`).
 - Ensure all markup is accessible (e.g., proper use of alt attributes on images).
 
 ### CSS
-- Follow the BEM (Block Element Modifier) naming convention.
-- Use flexbox or CSS grid for layout.
-- Prefer using CSS variables for consistent theming.
+- We mostly rely on tailwindcss
 
-### JavaScript/TypeScript
-- Follow the Airbnb JavaScript Style Guide for JavaScript and TypeScript.
-- Use const and let instead of var.
-- Write functions and components that are modular and reusable.
+### TypeScript
+- Follow Angular Style guide. [Click here ](https://angular.dev/style-guide) to learn more.
+- Use `const` and `let` instead of `var`.
+- Write `functions` and `components` that are modular and reusable.
 - Avoid unnecessary dependencies.
 
 ### Angular
@@ -85,11 +56,6 @@ git push origin feature/your-feature-name
 - Follow the Angular Style Guide.
 - Use strong typing with TypeScript.
 - Structure your project according to the Angular folder-by-feature style.
-
-## :pray: Figma Design Collaboration
-- Accessing the Designs: Collaborators will be granted access to the Figma project. Make sure you're added as a collaborator.
-- Using Figma: Always work on a copy of the design file. Do not modify the original unless changes are approved.
-- Exporting Assets: Follow the design specifications for exporting assets (e.g., SVG, PNG). Ensure assets are optimized for web usage.
 
 ## :love_letter: Commit Messages
 Write clear and descriptive commit messages. Use the following format:
