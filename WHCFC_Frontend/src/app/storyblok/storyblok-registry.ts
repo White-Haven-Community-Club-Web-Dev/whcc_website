@@ -53,6 +53,8 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     actionButton: () => import('../components/action-button/action-button.component').then(m => m.ActionButtonComponent),
     header: () => import('../components/header/header.component').then(m => m.HeaderComponent),
     headerLink: () => import('../components/header-link/header-link.component').then(m => m.HeaderLinkComponent),
+    inPageNav: () => import('../components/in-page-nav/in-page-nav.component').then(m => m.InPageNavComponent),
+    inPageNavLink: () => import('../components/in-page-nav-link/in-page-nav-link.component').then(m => m.InPageNavLinkComponent),
     footer: () => import('../components/footer/footer.component').then(m => m.FooterComponent),
     activeEducationSection: () => import('../components/active-event-card/active-event-card.component').then(m => m.ActiveEventCardComponent)
 };
