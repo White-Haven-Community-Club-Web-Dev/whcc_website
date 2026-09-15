@@ -29,7 +29,7 @@ git checkout -b feature/your-feature-name
 ```
 git push origin feature/your-feature-name
 ```
-5. Create a pull request from your branch to the main branch of the original repository.
+5. Create a pull request from your branch to the `develop` branch of the original repository.
 6. Link any relevant issues in your pull request description.
 
 ### Branching Strategy
