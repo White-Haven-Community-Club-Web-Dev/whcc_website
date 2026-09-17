@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'hero-section',
+  selector: 'landing-hero-section',
   imports: [],
    changeDetection:ChangeDetectionStrategy.OnPush,
   standalone:true,
@@ -15,13 +15,13 @@ import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core
         <p class="mb-3 text-xs font-semibold tracking-[0.25em] uppercase">
           {{ blok()?.capTitle }}
         </p>
-        <h1 class="mb-3 text-3xl font-semibold sm:text-4xl md:text-5xl">
+        <h1 class="mb-3 text-3xl font-semibold whitespace-pre-line sm:text-4xl md:text-5xl">
           <span class="block">
             <span class="text-green-500">{{ blok()?.heroTitleHighlighted }}</span>
             {{ blok()?.heroTitle }}
           </span>
         </h1>
-        <p class="mb-6 text-sm sm:text-base md:text-lg text-white/90">
+        <p class="mb-6 text-xl font-semibold whitespace-pre-line sm:text-2xl md:text-3xl">
           {{ blok()?.subtitle }}
         </p>
        @if(blok()?.buttonText){
@@ -36,13 +36,13 @@ import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core
     </section>
   `,
 })
-export class HeroComponent implements OnInit {
-  blok = input<IHeroComponentData>();
+export class LandingHeroComponent implements OnInit {
+  blok = input<ILandingHeroComponentData>();
   ngOnInit(): void { }
 }
 
 
-interface IHeroComponentData {
+interface ILandingHeroComponentData {
   capTitle: string,
   subtitle: string,
   heroTitle: string,
@@ -59,6 +59,6 @@ interface IHeroComponentData {
     filename: string,
     meta_data: {}
   },
-  _editable: '<!--#storyblok#{"name": "heroSection", "space": "292536268674880", "uid": "12f93bb9-be66-40d9-a48d-4ec4ff9dc900", "id": "177235803682118"}-->'
+  _editable: '<!--#storyblok#{"name": "landingHeroSection", "space": "292536268674880", "uid": "", "id": ""}-->'
 
 }

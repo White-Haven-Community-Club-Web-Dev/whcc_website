@@ -10,6 +10,9 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     heroSection: () =>
         import('../components/hero/hero.component').then(m => m.HeroComponent),
 
+    landingHeroSection: () =>
+        import('../components/landing-hero/landing-hero.component').then(m => m.LandingHeroComponent),
+
     mainEvent: () =>
         import('../components/main-event/main-event.component').then(m => m.MainEventComponent),
 
