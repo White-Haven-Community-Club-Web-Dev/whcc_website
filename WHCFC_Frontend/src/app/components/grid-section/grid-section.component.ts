@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core
    changeDetection:ChangeDetectionStrategy.OnPush,
   standalone:true,
   template: `
-  <section  class="py-16 md:py-20">
+  <section [id]="blok().anchorId" class="py-16 md:py-20">
         <div class="mx-auto max-w-6xl px-4 lg:px-0">
           <div class="grid  grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <!-- Text -->
@@ -50,4 +50,5 @@ interface IGridSectionContent {
   image: { filename: string, alt: string }
   description: string;
   direction: "left" | "right"
+  anchorId:string;
 }

@@ -59,5 +59,6 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     inPageNav: () => import('../components/in-page-nav/in-page-nav.component').then(m => m.InPageNavComponent),
     inPageNavLink: () => import('../components/in-page-nav-link/in-page-nav-link.component').then(m => m.InPageNavLinkComponent),
     footer: () => import('../components/footer/footer.component').then(m => m.FooterComponent),
-    activeEducationSection: () => import('../components/active-event-card/active-event-card.component').then(m => m.ActiveEventCardComponent)
+    activeEducationSection: () => import('../components/active-event-card/active-event-card.component').then(m => m.ActiveEventCardComponent),
+    container: () => import('../components/container/container.component').then(m => m.ContainerComponent)
 };
