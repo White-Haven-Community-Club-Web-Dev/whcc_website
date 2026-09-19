@@ -1,14 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
-  safelist:['bg-primary','bg-secondary','items-center',
-      'md:grid-cols-4','md:grid-cols-3','md:text-3xl','md:text-4xl',
-      'md:text-6xl','md:text-xl','md:text-2xl','text-main','text-title',
-      'text-center','text-left', 'md:text-center','md:text-left',
-      'text-3xl','text-4xl',
-      'text-6xl','text-xl','text-2xl',
-     
-    ],
+  safelist: [
+    // Colors
+    'bg-primary', 'bg-secondary',
+    'items-center',
+    // Grid
+    'md:grid-cols-4', 'md:grid-cols-3',
+    // Typography
+    'md:text-3xl', 'md:text-4xl', 'md:text-6xl', 'md:text-xl', 'md:text-2xl', 'text-main', 'text-title',
+    'text-3xl', 'text-4xl', 'text-6xl', 'text-xl', 'text-2xl',
+    // Text Alignment
+    'text-center', 'text-left', 'md:text-center', 'md:text-left',
+    //  Container Scopes
+    'rounded-xl', 'w-1/2', 'overflow-hidden', 'border-0'
+  ],
   theme: {
     extend: {
       colors: {
@@ -17,12 +23,12 @@ module.exports = {
         "primary-dark": "#B30109",    // --primary-red-dark (深红色hover)
         customGreen: "#1BAA76",       // --secondary-green (次要品牌绿色)
         "customGreen-dark": "#158A5E", // --secondary-green-dark (深绿色hover)
-        
+
         // Neutral Colors（中性色）
         customGray: "#F8F9FA",              // --background (页面背景)
         foreground: "#212529",        // --foreground (主文字色)
         muted: "#6C757D",             // --text-secondary (次要文字色)
-        
+
         // Component Colors（组件颜色 - 来自globals.css）
         background: "#F8F9FA",
         card: "#FFFFFF",
