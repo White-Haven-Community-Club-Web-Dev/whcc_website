@@ -49,7 +49,7 @@ export class HeaderComponent {
 
   brand: BrandConfig = {
     initial: 'W',
-    name: 'WHCFC',
+    name: 'WHCCC',
     homeLink: '/',
   };
 
