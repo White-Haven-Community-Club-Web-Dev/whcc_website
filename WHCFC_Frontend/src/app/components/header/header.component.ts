@@ -16,7 +16,9 @@ type NavItem = {
 
 type BrandConfig = {
   initial: string;
-  name: string;
+  nameLine1: string;
+  nameLine2: string;
+  subtitle: string;
   homeLink: string;
 };
 
@@ -48,11 +50,12 @@ export class HeaderComponent {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   brand: BrandConfig = {
-    initial: 'W',
-    name: 'WHCCC',
-    homeLink: '/',
-  };
-
+  initial: 'W',
+  nameLine1: 'White Haven',
+  nameLine2: 'Community Club Corporation',
+  subtitle: 'Scarborough',
+  homeLink: '/',
+};
   // navItems: NavItem[] = [
   //   { label: 'WHO WE ARE', link: '/who-we-are' },
   //   {

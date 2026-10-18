@@ -16,14 +16,24 @@
           />
         </div>
 
-        <span
+        <div
           [routerLink]="brand.homeLink"
           routerLinkActive="text-primary"
           (click)="onDesktopNavClick()"
-          class="text-base font-semibold tracking-wide text-slate-900 hover:cursor-pointer"
+          class="flex flex-col cursor-pointer text-slate-900"
         >
-          {{ brand.name }}
-        </span>
+          <span class="text-sm font-extrabold leading-[1.15]">
+            {{ brand.nameLine1 }}
+          </span>
+
+          <span class="text-sm font-extrabold leading-[1.15] mt-0">
+            {{ brand.nameLine2 }}
+          </span>
+
+          <span class="text-xs text-slate-500 leading-none mt-0">
+            {{ brand.subtitle }}
+          </span>
+        </div>  
       </div>
 
       <!-- Desktop Nav -->
@@ -188,17 +198,6 @@
             }
           </div>
           -->
-
-          <!-- Mobile CTA -->
-          <button
-            [routerLink]="cta.link"
-            routerLinkActive="active"
-            type="button"
-            (click)="onMobileNavClick()"
-            class="mt-2 inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2 text-xs font-semibold text-white shadow hover:bg-red-700"
-          >
-            {{ cta.label }}
-          </button>
         </nav>
       </div>
     }
