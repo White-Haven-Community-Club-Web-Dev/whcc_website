@@ -8,12 +8,12 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   template: `
      @if(blok().dropDownLinks?.length===0){
        @if (blok().link.linktype==="story") {
-        <a [routerLink]="'/'+blok().link.cached_url" routerLinkActive="text-primary"  class="hover:text-red-600 uppercase">
+        <a [routerLink]="'/'+blok().link.cached_url" routerLinkActive="text-primary"  class="hover:text-red-600 normal-case">
               {{ blok().title }}
           </a>
       }
        @if (blok().link.linktype==="url") {
-        <a [href]="blok().link.cached_url"  class="hover:text-red-600 uppercase">
+        <a [href]="blok().link.cached_url"  class="hover:text-red-600 normal-case">
               {{ blok().title }}
           </a>
       }
@@ -21,7 +21,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
       <div class="relative hidden lg:block" (mouseenter)="toggleDropdown(blok().title)"
               (mouseleave)="closeDropdown()">
               <button type="button"
-                class="flex items-center uppercase gap-1 hover:text-red-600"
+                class="flex items-center normal-case gap-1 hover:text-red-600"
                 [class.text-red-600]="openDropdown === blok().title">
                 {{ blok().title }}
                 <svg class="h-3 w-3 transition-transform" [class.rotate-180]="openDropdown === blok().title"
@@ -42,7 +42,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
             </div>
             <div class="relative lg:hidden" (click)="toggleDropdown(blok().title)">
               <button type="button"
-                class="flex items-center uppercase gap-1 hover:text-red-600"
+                class="flex items-center normal-case gap-1 hover:text-red-600"
                 [class.text-red-600]="openDropdown === blok().title">
                 {{ blok().title }}
                 <svg class="h-3 w-3 transition-transform" [class.rotate-180]="openDropdown === blok().title"
