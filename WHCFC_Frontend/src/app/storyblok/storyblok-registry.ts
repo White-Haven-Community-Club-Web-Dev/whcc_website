@@ -7,6 +7,10 @@ import { WcccEventsPageComponent } from '../pages/wccc-events-page/wccc-events-p
 export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     page: PageComponent,
     scPage: WcccEventsPageComponent,
+    campaignBanner: () =>
+    import('../components/campaign-banner/campaign-banner.component')
+        .then(m => m.CampaignBannerComponent),
+
     heroSection: () =>
         import('../components/hero/hero.component').then(m => m.HeroComponent),
 
