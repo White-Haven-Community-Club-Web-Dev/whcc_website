@@ -19,6 +19,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [StoryblokComponent],
   template: `
+      @if (storyContent()?.campaignBanner?.length) {
+        @for (banner of storyContent().campaignBanner; track banner._uid) {
+          <sb-component [sbBlok]="banner" />
+        }
+      }
     <sb-component [sbBlok]="storyContent()?.header" />
     <div class="mx-auto">
       <sb-component [sbBlok]="storyContent()" />
