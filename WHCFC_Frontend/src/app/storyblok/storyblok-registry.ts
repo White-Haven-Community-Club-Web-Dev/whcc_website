@@ -17,6 +17,9 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     landingHeroSection: () =>
         import('../components/landing-hero/landing-hero.component').then(m => m.LandingHeroComponent),
 
+    reusableHero: () =>
+        import('../components/reusable-hero/reusable-hero.component').then(m => m.ReusableHeroComponent),
+
     mainEvent: () =>
         import('../components/main-event/main-event.component').then(m => m.MainEventComponent),
 
