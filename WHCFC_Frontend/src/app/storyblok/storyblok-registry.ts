@@ -29,6 +29,9 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     featuredEvents: () =>
         import('../components/featured-events/featured-events.component').then(m => m.FeaturedEventsComponent),
 
+    educationalEvent: () =>
+        import('../components/educational-event/educational-event.component').then(m => m.EducationalEventComponent),
+
     eventCard: () =>
         import('../components/events-card/events-card.component').then(m => m.EventsCardComponent),
 
