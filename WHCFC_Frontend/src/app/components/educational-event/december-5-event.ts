@@ -8,6 +8,6 @@ export const DECEMBER_5_EVENT = {
   trainer: 'Joe Fernandes, founder of White Haven Community Club',
   audience: 'Community members of all ages welcome',
   cost: 'Free',
-  flyerUrl: '/assets/leadership-collaboration-december-5-2026.png',
+  flyerUrl: '/assets/December-5-Educational-Session-Flyer.jpg',
   registrationUrl: 'https://forms.cloud.microsoft/r/vuP3LvASfc',
 } as const;
