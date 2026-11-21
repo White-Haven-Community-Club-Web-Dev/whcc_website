@@ -13,6 +13,8 @@ export interface EducationalEventBlok {
   registrationUrl?: { linktype?: string; url?: string; cached_url?: string };
   buttonText?: string;
   layout?: 'compact' | 'full';
+  /** Textarea in Storyblok, one learning outcome per line. Shown in the full layout only. */
+  learningOutcomes?: string;
 }
 
 @Component({
@@ -58,6 +60,15 @@ export interface EducationalEventBlok {
             }
           </dl>
 
+          @if (event.layout !== 'compact' && learningOutcomes().length) {
+            <h3 class="mt-6 font-title text-xl font-semibold text-slate-900">What you will learn</h3>
+            <ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed text-slate-700">
+              @for (outcome of learningOutcomes(); track $index) {
+                <li>{{ outcome }}</li>
+              }
+            </ul>
+          }
+
           @if (registrationUrl(); as url) {
             <a [href]="url" target="_blank" rel="noopener noreferrer"
               class="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-white hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-dark">
@@ -78,6 +89,9 @@ export interface EducationalEventBlok {
 })
 export class EducationalEventComponent {
   readonly blok = input.required<EducationalEventBlok>();
+  readonly learningOutcomes = computed(() =>
+    (this.blok().learningOutcomes || '').split('\n').map((line) => line.trim()).filter(Boolean)
+  );
   readonly registrationUrl = computed(() => {
     const link = this.blok().registrationUrl;
     if (link?.linktype === 'story') {

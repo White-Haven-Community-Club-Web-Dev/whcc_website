@@ -73,6 +73,19 @@ describe('EducationalEventComponent', () => {
     expect(element.querySelector('a')?.href).toBe('https://example.com/signup');
   });
 
+  it('lists one learning outcome per line in the full layout only', () => {
+    const learningOutcomes = 'Plan a garden bed\n\n  Choose seeds for the season  \n';
+    const element = render({ ...event, learningOutcomes });
+    const items = Array.from(element.querySelectorAll('ul li')).map((item) => item.textContent?.trim());
+    expect(items).toEqual(['Plan a garden bed', 'Choose seeds for the season']);
+    expect(element.querySelector('h3')?.textContent).toContain('What you will learn');
+    render({ ...event, learningOutcomes, layout: 'compact' });
+    expect(element.querySelector('ul')).toBeNull();
+    render({ ...event, learningOutcomes: ' \n ' });
+    expect(element.querySelector('ul')).toBeNull();
+    expect(element.querySelector('h3')).toBeNull();
+  });
+
   it('does not render unsafe registration protocols', () => {
     const element = render({ ...event, registrationUrl: { linktype: 'url', url: 'javascript:alert(1)' } });
     expect(element.querySelector('a')).toBeNull();
