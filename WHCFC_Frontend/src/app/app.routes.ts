@@ -3,6 +3,7 @@ import { inject, NgModule } from '@angular/core';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { StoryblokService } from '@storyblok/angular';
 import { environment } from '../environments/environment';
+import { STORYBLOK_RELATIONS } from './storyblok/storyblok-relations';
 
 export const routes: Routes = [
   { path: "not-found", component: NotFoundComponent },
@@ -17,6 +18,7 @@ export const routes: Routes = [
           const { data, error } = await client.stories.get(slug, {
             query: {
               version: environment.sbVersion as any,
+              resolve_relations: STORYBLOK_RELATIONS.join(','),
             },
           });
           if (error) throw error;

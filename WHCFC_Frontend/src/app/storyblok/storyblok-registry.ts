@@ -32,6 +32,9 @@ export const STORYBLOK_REGISTRY: StoryblokComponentsMap = {
     educationalEvent: () =>
         import('../components/educational-event/educational-event.component').then(m => m.EducationalEventComponent),
 
+    pathwayBlock: () =>
+        import('../components/pathway/pathway.component').then(m => m.PathwayComponent),
+
     eventCard: () =>
         import('../components/events-card/events-card.component').then(m => m.EventsCardComponent),
 

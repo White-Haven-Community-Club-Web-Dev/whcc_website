@@ -10,6 +10,7 @@ import {
 } from '@storyblok/angular';
 import { STORYBLOK_REGISTRY } from './storyblok/storyblok-registry';
 import { environment } from '../environments/environment';
+import { STORYBLOK_RELATIONS } from './storyblok/storyblok-relations';
 
 const sbConfig: StoryblokClientConfig = {
   accessToken: environment.sbKey!,
@@ -20,13 +21,14 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding(), withInMemoryScrolling({
-      scrollPositionRestoration: 'enabled'
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
     })),
     provideClientHydration(withEventReplay()),
     provideStoryblok(
       sbConfig,
       withStoryblokComponents(STORYBLOK_REGISTRY),
-      withLivePreview(),
+      withLivePreview({ resolveRelations: [...STORYBLOK_RELATIONS] }),
     ),
   ],
 };

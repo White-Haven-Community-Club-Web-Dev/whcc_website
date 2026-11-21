@@ -8,7 +8,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   template: `
      @if(blok().dropDownLinks?.length===0){
        @if (blok().link.linktype==="story") {
-        <a [routerLink]="'/'+blok().link.cached_url" routerLinkActive="text-primary"  class="hover:text-red-600 normal-case">
+        <a [routerLink]="'/'+blok().link.cached_url" [fragment]="blok().link.anchor || undefined" routerLinkActive="text-primary"  class="hover:text-red-600 normal-case">
               {{ blok().title }}
           </a>
       }
@@ -85,6 +85,6 @@ export class HeaderLinkComponent {
 
 interface IHeaderLinkContent {
   title: string;
-  link: { linktype: "url" | "story", cached_url: string }
+  link: { linktype: "url" | "story", cached_url: string, anchor?: string }
   dropDownLinks: SbBlokData[] | undefined
 }
